@@ -1,0 +1,55 @@
+.card-wrapper{
+    border-radius: 10px;
+    background-color: #f3f3f3;
+    overflow: hidden;
+    margin: 15px 0;
+    padding-top: 0.5em;
+
+}
+
+.card{
+    padding: 0 0.5em;
+}
+
+.reminder-wrapper{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin: 12px 0;
+}
+
+.reminder-wrapper button{
+    border: none;
+    background-color:#007C74;
+    color: white;
+    padding: 0.3em 0.4em;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.reminder-wrapper i {
+    font-size: 0.8rem;
+    margin-right: 3px;
+}
+
+.donation-details{
+    background-color: #e6e6e6;
+    padding: 0.4em 0.7em;
+}
+
+.donation-details span{
+    font-size: 0.9rem;
+}
+
+.donation-details span:nth-child(3){
+    margin-left:4px;
+}
+
+.donation-details span:nth-child(2){
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.donor-card span{
+    display:inline-block;
+}

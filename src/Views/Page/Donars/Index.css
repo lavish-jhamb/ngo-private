@@ -1,0 +1,41 @@
+.donors{
+    margin: 0 auto;
+}
+
+.donors h6{
+    font-size: 1rem;
+}
+
+.search-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar i{
+    border:solid 1px silver;
+    padding: 0.7em;
+    border-radius: 50%;
+    color: #9e9d9d;
+}
+
+.search{
+    border: solid 1px silver;
+    margin: 10px 0;
+    border-radius: 40px;
+    flex:0.95;
+}
+
+.search input{
+    border:none;
+    outline: none;
+}
+
+.search i{
+    border:none;
+}
+
+.scroll{
+    overflow: scroll;
+    max-height: 100vh;
+}
