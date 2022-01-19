@@ -1,13 +1,23 @@
-import Donars from "./Views/Page/Donars/Index";
-import MenuBar from "./Views/Page/Menubar/Index";
-import Navbar from "./Views/Page/Navbar/Index";
+import { useEffect, useState } from "react";
+import WelcomePage from "./Views/Page/Welcome/Index";
+import LoginPage from "./Views/Page/Login/Index";
 
 function App() {
+  const [flag,setFlag] = useState(false);
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setFlag(true);
+    }, 2000)
+    return () => {
+      clearTimeout(timerId);
+    }
+  }, [])
+  
   return (
-    <div style={{width:"90vw",margin:"0 auto",maxWidth:"480px"}} className="App">
-      <Navbar/>
-      <Donars/>
-      <MenuBar/>
+    <div className="App">
+      {!flag && <WelcomePage/>}
+      {flag && <LoginPage />}
     </div>
   );
 }

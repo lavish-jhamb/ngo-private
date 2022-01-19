@@ -4,9 +4,19 @@
   box-sizing:border-box;
 }
 
-/* html{
+html{
   font-size: 62.5%;
-} */
+}
+
+html{
+  --primary:#007c75;
+  --white:#ffffff;
+  --black:#000000;
+  --lightGray:#eeeeee;
+  --darkGray:#707070;
+  --placeholder:#b6b6b6;
+  --primaryBackground:#fbfbfb;
+}
 
 body {
   margin: 0;
