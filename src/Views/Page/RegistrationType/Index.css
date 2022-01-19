@@ -12,7 +12,6 @@
 .btn2{
     display: inline-block;
     font-weight: 400;
-   
     color: #212529;
     text-align: center;
     text-decoration: none;
@@ -29,11 +28,11 @@
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     width: 100px;
     height: 100px;
-    
     background-color: #ffffff;
     border-color: #000000;
     border-radius: 10px;
 }
+
 .btn3{
     display: inline-block;
     font-weight: 400;
@@ -51,9 +50,7 @@
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
     border-radius: 0.25rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    
-    
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;    
     background-color: #eeeeee;
     border-color: #000000;
     border-radius: 10px;
