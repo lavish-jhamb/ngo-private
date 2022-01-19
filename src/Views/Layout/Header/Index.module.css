@@ -1,0 +1,25 @@
+.header{
+    background-color: var(--primary);    
+    width: auto;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header > h1{
+    color: var(--white);
+    font-size: 2.8rem;
+}
+
+.iconContainer{
+    width: 57px;
+    height: 33px;
+    flex:0.2;
+}
+
+.iconContainer > img{
+    width: 100%;
+    height: auto;
+}
