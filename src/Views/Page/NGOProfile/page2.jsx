@@ -4,7 +4,7 @@ import { useState } from "react";
 import Style from "./index.module.css";
 import MainLayout from "../../Layout/Main";
 
-function NgoProfile() {
+function NgoProfileTwo() {
   const [inputs, setInputs] = useState({});
 
   const handleChange = (event) => {
@@ -89,4 +89,4 @@ function NgoProfile() {
   );
 }
 
-export default NgoProfile_2;
+export default NgoProfileTwo;

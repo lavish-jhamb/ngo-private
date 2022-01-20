@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      {!flag && <WelcomePage />}
+      {/* {!flag && <WelcomePage />} */}
       {/* {flag && <LoginPage />} */}
       {/* <LoginPage /> */}
       <div className="routing">

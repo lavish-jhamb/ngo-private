@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Style from "./index.module.css";
 import MainLayout from "../../Layout/Main";
 
-function NgoProfile_1() {
+function NgoProfileOne() {
   const [inputs, setInputs] = useState({});
   const navigate = useNavigate();
 
@@ -26,13 +26,14 @@ function NgoProfile_1() {
 
   return (
     <MainLayout>
-      <div className={Style.container}>
-        <p>NGO Details</p>
+      <div className={Style.ngoProfileContainer}>
+        
+        <p className= {Style.ngoProfileSection} >NGO Details</p>
         <p>Step 1 of 2</p>
 
-        <form onSubmit={handleSubmit}>
+        <form className= {Style.ngoProfileForm} onSubmit={handleSubmit}>
           <label>
-            <input
+            <input className= {Style.inputField}
               placeholder="NGO Logo"
               type="file"
               name="ngoLogo"
@@ -42,7 +43,7 @@ function NgoProfile_1() {
           </label>
 
           <label>
-            <input
+            <input className= {Style.inputField}
               placeholder="Reg. Certificate PDF"
               type="file"
               name="regCertificate"
@@ -52,7 +53,7 @@ function NgoProfile_1() {
           </label>
 
           <label>
-            <input
+            <input className= {Style.inputField}
               placeholder="NGO Name"
               type="text"
               name="ngoName"
@@ -62,7 +63,7 @@ function NgoProfile_1() {
           </label>
 
           <label>
-            <input
+            <input className= {Style.inputField}
               placeholder="Owner Name"
               type="text"
               name="ownerName"
@@ -72,8 +73,8 @@ function NgoProfile_1() {
           </label>
 
           <label>
-            PAN No.
-            <input
+            <input className= {Style.inputField}
+              placeholder="Pan Number"
               type="text"
               name="panNumber"
               value={inputs.panNumber || ""}
@@ -82,8 +83,8 @@ function NgoProfile_1() {
           </label>
 
           <label>
-            Registration No.
-            <input
+            <input className= {Style.inputField}
+              placeholder="Registration Number"
               type="text"
               name="registrationNumber"
               value={inputs.registrationNumber || ""}
@@ -91,7 +92,7 @@ function NgoProfile_1() {
             />
           </label>
 
-          <button type="submit" onClick={handleNext}>
+          <button className={Style.btn} type="submit" onClick={handleNext}>
             Next
           </button>
         </form>
@@ -100,4 +101,4 @@ function NgoProfile_1() {
   );
 }
 
-export default NgoProfile_1;
+export default NgoProfileOne;
