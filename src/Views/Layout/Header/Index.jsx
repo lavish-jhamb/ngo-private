@@ -1,6 +1,7 @@
 import React from 'react';
 import Style from "./Index.module.css";
 import Icon from "./Images/icon.png";
+import Svg from "./Images/Vector.svg";
 
 function Header() {
     return (
@@ -9,6 +10,7 @@ function Header() {
           <img src={Icon} alt="icon" />
         </div>
         <h1>AppName</h1>
+        <img src={Svg} alt="svg" />
       </header>
     );
 }
