@@ -20,14 +20,16 @@ function NgoProfileTwo() {
 
   return (
     <MainLayout>
-      <div className={Style.container}>
-        <p className={Style.section}>Contact Details</p>
+      <div className={Style.ngoProfileContainer}>
+        <div className={Style.heading}>
+        Contact Details
         <p>Step 2 of 2</p>
+        </div>
 
-        <form onSubmit={handleSubmit}>
+        <form className={Style.ngoProfileForm} onSubmit={handleSubmit}>
           <label>
-            Phone Number (Official)
             <input
+              placeholder="Phone Number (Official)"
               type="number"
               name="phoneNumber"
               value={inputs.phoneNumber || ""}
@@ -36,15 +38,20 @@ function NgoProfileTwo() {
           </label>
 
           <label>
-            Website
-            <input type="url" />
+            <input
+              placeholder="website" 
+              type="url"
+              name="website"
+              value={inputs.website || ""}
+              onChange={handleChange}
+            />
           </label>
 
-          <p className={Style.section}>Address Details</p>
+          <p>Address Details</p>
 
           <label>
-            Address
             <input
+              placeholder="Address"
               type="text"
               name="address"
               value={inputs.address || ""}
@@ -53,8 +60,8 @@ function NgoProfileTwo() {
           </label>
 
           <label>
-            City
             <input
+              placeholder="City"
               type="text"
               name="city"
               value={inputs.city || ""}
@@ -63,8 +70,8 @@ function NgoProfileTwo() {
           </label>
 
           <label>
-            Pincode
             <input
+              placeholder="Pincode"
               type="number"
               name="pincode"
               value={inputs.pincode || ""}
@@ -73,8 +80,8 @@ function NgoProfileTwo() {
           </label>
 
           <label>
-            State
-            <input
+            <input  
+              placeholder="State"
               type="text"
               name="state"
               value={inputs.state || ""}
@@ -82,7 +89,7 @@ function NgoProfileTwo() {
             />
           </label>
 
-          <button type="submit">Submit</button>
+          <button className={Style.btn} type="submit">Submit</button>
         </form>
       </div>
     </MainLayout>

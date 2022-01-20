@@ -27,33 +27,30 @@ function NgoProfileOne() {
   return (
     <MainLayout>
       <div className={Style.ngoProfileContainer}>
-        
-        <p className= {Style.ngoProfileSection} >NGO Details</p>
-        <p>Step 1 of 2</p>
+        <div className={Style.heading}>
+          NGO Details
+          <p>Step 1 of 2</p>
+        </div>
 
-        <form className= {Style.ngoProfileForm} onSubmit={handleSubmit}>
-          <label>
-            <input className= {Style.inputField}
+        <form className={Style.ngoProfileForm} onSubmit={handleSubmit}>
+            <input
               placeholder="NGO Logo"
               type="file"
               name="ngoLogo"
               value={inputs.ngoLogo || ""}
               onChange={handleChange}
             />
-          </label>
 
-          <label>
-            <input className= {Style.inputField}
+            <input
               placeholder="Reg. Certificate PDF"
               type="file"
               name="regCertificate"
               value={inputs.regCertificate || ""}
               onChange={handleChange}
             />
-          </label>
 
           <label>
-            <input className= {Style.inputField}
+            <input
               placeholder="NGO Name"
               type="text"
               name="ngoName"
@@ -63,7 +60,7 @@ function NgoProfileOne() {
           </label>
 
           <label>
-            <input className= {Style.inputField}
+            <input
               placeholder="Owner Name"
               type="text"
               name="ownerName"
@@ -73,7 +70,7 @@ function NgoProfileOne() {
           </label>
 
           <label>
-            <input className= {Style.inputField}
+            <input
               placeholder="Pan Number"
               type="text"
               name="panNumber"
@@ -83,7 +80,7 @@ function NgoProfileOne() {
           </label>
 
           <label>
-            <input className= {Style.inputField}
+            <input
               placeholder="Registration Number"
               type="text"
               name="registrationNumber"
