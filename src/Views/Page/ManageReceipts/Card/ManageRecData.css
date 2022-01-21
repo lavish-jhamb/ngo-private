@@ -10,33 +10,52 @@ h6 {
   margin-bottom: 4px;
 }
 
+.innerBody h4 {
+  font-size: 1.7rem;
+}
+
 .card-body {
   background-color: #f5f5f5;
   padding: 0;
   border-radius: 1rem;
 }
 
-.card-body .innerBody{
+.card-body .innerBody {
   padding: 1rem 1rem 0.5rem 1rem;
 }
 
 .cardFooter {
   background-color: #eeeeee;
-  padding: 0.5rem 1rem 0.5rem 1rem;
-  border-radius: 1rem;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 1rem 1rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .cardIcon {
   color: #707070;
+  font-size: 1.1rem;
+}
+
+.card-textData p,
+.cardFooter h5 {
+  font-size: 1.4rem;
+}
+
+.cardFooter p {
+  font-size: 1.4rem;
+  margin: 0.7rem 0;
+  color: var(--darkGray);
+}
+
+.cardFooter .categoryReceipt {
+  font-size: 1.1rem;
 }
 
 .menuBtn {
   border: none;
-  /* float: right; */
   color: #707070;
   background-color: #f5f5f5;
-  font-size: 1.6rem;
-  padding: 0;
+  width: 1.8rem;
+  margin: 0 0.6rem;
 }

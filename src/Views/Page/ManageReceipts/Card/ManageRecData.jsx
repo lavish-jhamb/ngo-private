@@ -9,7 +9,7 @@ const ManageRecData = (props) => {
         <div className="card">
           <div className="card-body">
             <div className="innerBody">
-              <h4 className="card-title">
+              <h4 className="card-title pb-2">
                 {/*  */}
                 <div class="d-flex bd-highlight">
                   <div class="flex-grow-1 bd-highlight">{data.name}</div>
@@ -27,7 +27,7 @@ const ManageRecData = (props) => {
                   </div>
                 </div>
               </h4>
-              <span className="card-text">
+              <span className="card-textData">
                 <p>
                   <i className="fas fa-phone-alt cardIcon pe-2"></i>{" "}
                   {data.phone}
@@ -40,13 +40,13 @@ const ManageRecData = (props) => {
 
             {props.cardFooter && (
               <div className="cardFooter">
-                <h5>Rs. {data.price}</h5>
-                <span>
-                  {data.category}
-                  <span style={{ float: "right" }}>
-                    <h6>Invoice No. {data.receiptno}</h6>
-                  </span>
-                </span>
+                <div>
+                  <h5>Rs. {data.price}</h5>
+                  <span className="categoryReceipt">For: {data.category}</span>
+                </div>
+                <div>
+                  <p>Invoice No. {data.receiptno}</p>
+                </div>
               </div>
             )}
           </div>
