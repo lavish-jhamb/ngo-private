@@ -1,0 +1,42 @@
+.card {
+  border-color: #eeeeee;
+  border-radius: 1rem;
+  margin-bottom: 20px;
+}
+
+.card p,
+h5,
+h6 {
+  margin-bottom: 4px;
+}
+
+.card-body {
+  background-color: #f5f5f5;
+  padding: 0;
+  border-radius: 1rem;
+}
+
+.card-body .innerBody{
+  padding: 1rem 1rem 0.5rem 1rem;
+}
+
+.cardFooter {
+  background-color: #eeeeee;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 1rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.cardIcon {
+  color: #707070;
+}
+
+.menuBtn {
+  border: none;
+  /* float: right; */
+  color: #707070;
+  background-color: #f5f5f5;
+  font-size: 1.6rem;
+  padding: 0;
+}

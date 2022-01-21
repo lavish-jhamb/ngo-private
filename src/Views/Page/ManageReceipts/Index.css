@@ -1,0 +1,62 @@
+/* .head {
+  background-color: #007c74;
+  border-bottom-right-radius: 2.5rem;
+}
+
+.head .navbar-brand img {
+  width: 60px;
+  height: 60px;
+}
+
+.head .navbar-brand p {
+  display: inline-flex;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+} */
+
+.searchReceipt {
+  border: 1px solid #b6b6b6;
+  border-radius: 2rem;
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.searchReceipt input {
+  border: none;
+  outline: none;
+  font-size: 1.25rem;
+}
+
+.searchReceipt .searchIcon {
+  flex: 0;
+  margin: 0 1rem;
+  font-size: 1.4rem;
+  color: #b6b6b6;
+}
+
+.receiptSearchBox .filterIcon {
+  border: none;
+  background-color: #fff;
+  flex: 1;
+  margin-right: 1rem;
+  color: #b6b6b6;
+}
+
+.addBtn {
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 14px 2px gray;
+  color: #ffffff;
+  background-color: #007c75;
+  padding: 10px;
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

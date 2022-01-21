@@ -1,6 +1,7 @@
 import React from "react";
 import "./Index.css";
 import Card from "../../../Components/Card/Index";
+import { NavBar } from "../Menubar/NavBar";
 
 function Donars() {
   const donarsList = [
@@ -70,7 +71,7 @@ function Donars() {
           <Card donar={donar} />
         ))}
       </div>
-
+        <NavBar />
     </div>
   );
 }

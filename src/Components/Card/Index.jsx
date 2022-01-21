@@ -4,7 +4,7 @@ import "./Index.css";
 function Card({ donar }) {
   return (
       <div className="card-wrapper">
-        <div className="card">
+        <div className="cards">
           <h6>{donar.name}</h6>
           <div className="reminder-wrapper">
             <div className="reminder">
