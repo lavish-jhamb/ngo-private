@@ -1,0 +1,105 @@
+.ngoProfileWrapper{
+    height:calc(100vh - 250px);
+}
+
+.ngoProfileContainer{
+    width: 80vw;
+    margin: 0 auto;
+    padding-top:2em;
+    height: 100%;
+}
+
+.ngoFormContainer{
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header > p{
+    font-size: 1.4rem;
+    color: var(--darkGray);
+    font-weight: 500;
+}
+
+.ngoForm > input{
+    display: block;
+    width: 100%;
+    margin: 1.5em 0;
+}
+
+.ngoForm > input[type=text]{
+    height: 39px;
+    border: solid 2px var(--placeholder);
+    border-radius: 12px;
+    padding-left: 1em;
+    line-height: 1.5em;
+}
+
+.ngoForm > input[type=text]::placeholder{
+    color: var(--placeholder);
+    font-size: 1.5rem;
+}
+
+.uploadLogo,.uploadPdf{
+    background-color: var(--lightGray);
+    border: solid 2px var(--placeholder);
+    border-radius: 12px;
+}
+
+.uploadLogo > label > img, .uploadPdf > label > img{
+    width: 23px;
+    height: 23px;
+}
+
+.uploadLogo > input , .uploadPdf>input{
+    display: none;
+}
+
+.uploadLogo > label ,.uploadPdf > label{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:var(--black);
+    font-size: 1.6rem;
+    padding: 0 0.5em;
+    font-weight:500;
+}
+
+.uploadLogo{
+    height: 58px;
+    margin:1em 0 1.5em 0;
+}
+
+.uploadPdf{
+    height: 39px;
+}
+
+.nextButton > button{
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background-color: var(--primary);
+    height: 42px;
+    width: 100%;
+    color: var(--white);
+    font-size: 1.6rem;
+    position: relative;
+}
+
+.nextButton > button > span{
+    position: absolute;
+    right: 30px;
+}
+
+.nextButton > button > span > img{
+    width: 8px;
+}
+
