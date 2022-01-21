@@ -1,0 +1,59 @@
+.ngoProfileContainer {
+  background-color: var(--white);
+  padding: 7%;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 100%;
+  border-top-right-radius: 50px;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading p {
+  color: var(--darkGray);
+  font-size: 1.7rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+}
+
+p {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.ngoProfileForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ngoProfileForm input {
+  border: 1px solid gray;
+  border-radius: 9px;
+  font-size: 1.6rem;
+  width: 85vw;
+  height: 40px;
+  color: var(--placeholder);
+  padding: 4px;
+}
+
+.btn {
+  justify-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  width: 85vw;
+  height: 40px;
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 10px;
+}
