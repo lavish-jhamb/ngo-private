@@ -1,8 +1,8 @@
 import React from "react";
 import Style from "./Index.module.css";
-import MainLayout from "../../../Layout/Main";
 import UploadIcon from "../Step1/Images/upload.png";
 import NextIcon from "../Step1/Images/next.png";
+import MainLayout from "../../../Layout/Layout2/Main";
 
 function ProfileOne() {
   return (
