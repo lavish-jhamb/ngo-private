@@ -8,6 +8,8 @@ import NgoProfile from "./Views/Page/NGOProfile/page1";
 import NgoProfilePage2 from "./Views/Page/NGOProfile/page2";
 import ManageReceipt from "./Views/Page/ManageReceipts/Index";
 import { NavBar } from "./Views/Page/Menubar/Index";
+import NgoProfileOne from "./Views/Page/NGOProfile/Step1/Index";
+// import NgoProfileTwo from "./Views/Page/NGOProfile/Step2/Index";
 
 function App() {
   const [flag, setFlag] = useState(false);
@@ -22,37 +24,16 @@ function App() {
   }, [flag])
 
   return (
-    <div className="routing">
-      <Routes>
-        <Route
-          path="/"
-          element={!flag ? <WelcomePage /> : <Navigate replace to="/login" />}
-        />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/otp" element={<OtpPage />} />
-        <Route path="/registrationType" element={<RegistrationType />} />
-        <Route path="/NGOProfile" element={<NgoProfile />} />
-        <Route path="/profile/2" element={<NgoProfilePage2 />} />
-        <Route path="/receipts" element={<ManageReceipt />} />
-        <Route
-          path="*"
-          element={
-            <main>
-              <h1
-                style={{
-                  paddingTop: "50vh",
-                  textAlign: "center",
-                }}
-              >
-                {" "}
-                There's nothing here!
-              </h1>
-              <NavBar />
-            </main>
-          }
-        />
-      </Routes>
-    </div>
+      <div className="routing">
+        <Routes>
+          <Route path="/" element={!flag ? <WelcomePage/> : <Navigate replace to="/login" />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/otp" element={<OtpPage />} />
+          <Route path="/registrationType" element={<RegistrationType />} />
+          <Route path="/NGOProfile" element={<NgoProfileOne />} />
+          {/* <Route path="/profile/2" element={<NgoProfilePage2 />} /> */}
+        </Routes>
+      </div>
   );
 }
 
