@@ -1,0 +1,61 @@
+.otpContainer{
+    min-height:calc(100vh - 250px);
+}
+
+.otpWrapper{
+    width: 80vw;
+    margin: 0 auto;
+    margin-top: 3em;
+}
+
+.otpWrapper > h2{
+    font-size: 1.7rem;
+    font-weight:600;
+}
+
+.resendOtp{
+    text-align: center;
+    margin-top: 1em;
+}
+
+.resendOtp > a{
+    color: var(--primary);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.otpField{
+    text-align: center;
+    margin:2em 0 2.5em 0;
+}
+
+.otpField > input {
+    width: 46px;
+    height:44px;
+    background-color:var(--white);
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 200;
+    margin: 0 7px;
+    border-radius:12px;
+    border: solid 2px var(--placeholder);
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.otpField > input:focus {
+    outline: none;
+    border: solid 1px var(--primary);
+    background-color: var(--secondary);
+}
+
+.otpButton{
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 42px;
+    color: var(--white);
+    background-color: var(--primary);
+    border-radius: 10px;
+    font-size: 1.5rem;
+}
