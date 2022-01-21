@@ -3,9 +3,9 @@ import WelcomePage from "./Views/Page/Welcome/Index";
 import LoginPage from "./Views/Page/Login/Index";
 import OtpPage from "./Views/Page/OtpPage/Index";
 import RegistrationType from "./Views/Page/RegistrationType/Index";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import NgoProfile from "./Views/Page/NGOProfile/page1";
-import NgoProfilePage2 from "./Views/Page/NGOProfile/page2";
+import NgoProfilePage2 from "./Views/Page/NGOProfile/page2"
 
 function App() {
   const [flag, setFlag] = useState(false);
