@@ -9,8 +9,8 @@ export default function () {
      </div>
    </div>
    <div className='createrecieptdetail'>
-       <span className='createrecieptdetailp1' >Donor Details</span> 
-       <span className='createrecieptdetailp2'>Step 2 of 2</span>
+       <span className='createrecieptdetail2p1' ><span className='donationdetailarrow'><i class="fas fa-chevron-left"></i></span> <span className='donationdetailtext'>Donation Detaila</span></span> 
+       <span className='createrecieptdetail2p2'>Step 2 of 2</span>
       
    </div>
    <div>
@@ -20,7 +20,7 @@ export default function () {
 </div>
 <div className="dropdown pb-5">
   <button className="btndown btndownbutton-secondary " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Select Payment Method  <i class="fas fa-chevron-down"></i>
+    Select Payment Method  <span className='iconselectpay'><i class="fas fa-chevron-down"></i></span>
   </button>
   <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
     <li><a className="dropdown-item" href="/">Action</a></li>

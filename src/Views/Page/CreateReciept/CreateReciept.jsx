@@ -14,7 +14,7 @@ function CreateReciept() {
          
       </div>
       <div>
-      <div class="input-group1 pb-5 pt-4">
+      <div class="input-group1 pb-5 pt-3">
   
   <input type="number" class="form-control1 " aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder='Phone Number'></input>
 </div>
