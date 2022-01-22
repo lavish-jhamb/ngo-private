@@ -1,0 +1,48 @@
+.detailsPreview {
+  margin: 0 2.4rem;
+}
+
+.detailsPreview .createRecDetails h3 {
+  margin: 2.4rem 0 1.4rem;
+  font-size: 1.7rem;
+}
+
+.detailsPreview .createRecDetails p {
+  color: var(--darkGray);
+  margin-bottom: 0.6rem;
+  font-size: 1.4rem;
+}
+
+.detailsPreview .createRecDetails span {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.detailsPreview .createRecDetails hr {
+  margin: 0.6rem auto;
+  border: 1px solid var(--darkGray);
+}
+
+.btnsPreview {
+  display: flex;
+  justify-content: space-between;
+  margin: 2.4rem 0;
+}
+
+.btnsPreview button {
+  height: 4.2rem;
+  width: 48%;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 1.2rem;
+}
+
+.btnsPreview .editBtnPreview {
+  background-color: var(--lightGray);
+  color: var(--primary);
+}
+
+.btnsPreview .submitBtnPreview {
+  background-color: var(--primary);
+  color: var(--white);
+}
