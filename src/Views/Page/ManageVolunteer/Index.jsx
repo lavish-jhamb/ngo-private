@@ -3,6 +3,7 @@ import HeaderUp from "../../../Components/HeaderUp/Index";
 import { NavBar } from "../Menubar/Index";
 import ManageRecData from "../ManageReceipts/Card/ManageRecData";
 import "./Index.css";
+import { Link } from "react-router-dom";
 
 const ManageVolunteer = () => {
   return (
@@ -35,9 +36,11 @@ const ManageVolunteer = () => {
       {/* ADD BUTTON */}
 
       <div>
-        <button className="addBtnVol">
-          <i className="bx bx-plus bx-md"></i>
-        </button>
+        <Link to="/NewVolunteer">
+          <button className="addBtnVol">
+            <i className="bx bx-plus bx-md"></i>
+          </button>
+        </Link>
       </div>
 
       {/* MENU_BAR */}

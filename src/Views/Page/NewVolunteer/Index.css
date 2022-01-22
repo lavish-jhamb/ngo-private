@@ -1,0 +1,72 @@
+.newVolContainer {
+  height: calc(100vh - 10.9rem);
+}
+
+.newVolFormContainer {
+  height: calc(100% - 2.4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.newvolForm input {
+  border-radius: 1.2rem;
+  font-size: 1.6rem;
+  border: solid 2px var(--placeholder);
+  outline: none;
+  width: 100%;
+  height: 3.9rem;
+  padding-left: 1rem;
+  margin: 0.75rem 0;
+}
+
+.newvolForm input::placeholder {
+  color: var(--placeholder);
+}
+
+.newVolAddBtn button {
+  background-color: var(--primary);
+  border: none;
+  width: 100%;
+  height: 4.2rem;
+  border-radius: 1.2rem;
+  color: var(--white);
+  font-size: 1.6rem;
+}
+
+.newVolPwd {
+  border-radius: 1.2rem;
+  font-size: 1.6rem;
+  border: 2px solid var(--placeholder);
+  outline: none;
+  width: 100%;
+  height: 3.9rem;
+  margin: 0.75rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newVolPwd input {
+  border: none;
+  outline: none;
+  width: 90%;
+  height: auto;
+  padding-left: 0.4rem;
+}
+
+.newVolPwd button {
+  border: none;
+  background-color: var(--white);
+}
+
+.newVolPwd img {
+  height: 1.4rem;
+  margin: 0.65rem 0;
+  color: var(--darkGray);
+}
+.newVolPwd i {
+  color: var(--darkGray);
+  font-size: 2rem;
+  margin: 0.65rem 0;
+}

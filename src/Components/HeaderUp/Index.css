@@ -1,5 +1,5 @@
 .head {
-  background-color: #007c74;
+  background-color: var(--primary);
   border-bottom-right-radius: 2.5rem;
   height: 9.3rem;
 }

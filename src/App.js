@@ -8,6 +8,7 @@ import NgoProfileOne from "./Views/Page/NGOProfile/Step1/Index";
 import ManageReceipt from "./Views/Page/ManageReceipts/Index";
 import { NavBar } from "./Views/Page/Menubar/Index";
 import ManageVolunteer from "./Views/Page/ManageVolunteer/Index";
+import NewVolunteer from "./Views/Page/NewVolunteer/Index";
 
 function App() {
   const [flag, setFlag] = useState(false);
@@ -34,6 +35,7 @@ function App() {
         <Route path="/NGOProfile" element={<NgoProfileOne />} />
         <Route path="/receipts" element={<ManageReceipt />} />
         <Route path="/volunteers" element={<ManageVolunteer />} />
+        <Route path="/NewVolunteer" element={<NewVolunteer />} />
         {/* <Route path="/profile/2" element={<NgoProfilePage2 />} /> */}
         <Route
           path="*"
