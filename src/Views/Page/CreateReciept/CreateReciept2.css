@@ -1,133 +1,51 @@
-.head {
-    background-color: #007c74;
-    border-bottom-right-radius: 2.5rem;
-  }
-  
-  .recieptheading{
-    color: #fff;
-    line-height: 3rem;
-    font-size: 2.5rem;
-    margin-top: auto;
-   margin-bottom: auto;
-  }
-  
-  .createrecieptdetail2p1{
-    font-size: 2rem;
-    margin-right: 13.8rem;
-    margin-left: 2.4rem;
-  }
-  .createrecieptdetail2p2{
-      font-size: 15px;
-      color: #707070;
-      margin-right: 1.5rem;
-  }
-  .input-groupcreate2 {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    width: 80%;
-    margin: auto;
+.createreciept2container{
+    background-color: var(--white);
+    min-height:calc(100vh - 250px);
 }
-    .form-controlcreate2 {
-        display: block;
-        width: 100%;
-        padding: 0.375rem 2.25rem;
-        font-size: 1.2rem;
-        font-weight: 800;
-        line-height: 3.5;
-        color: var(--lightGray);
-        background-color: #fff;
-        background-clip: padding-box;
-        border: 1px solid #ced4da;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        border-radius: 1.5rem;
-        letter-spacing: 1.5px;
-    }
-    .btncreatereciept{
-        display: inline-block;
-        font-weight: 400;
-        line-height: 2;
-        color: #ffffff;
-        text-align: center;
-        text-decoration: none;
-        vertical-align: middle;
-        cursor: pointer;
-        -webkit-user-select: none;
-        user-select: none;
-        background-color: transparent;
-        border: 1px solid transparent;
-        padding: 0.375rem 0.75rem;
-        font-size: 2rem;
-        /* border-radius: 0.25rem; */
-        width: 80%;
-        margin-left: 10%;
-        border-radius: 15px
-    }
-    .btncreatereciept-primary {
-        color: #fff;
-        background-color: #007c75;
-        border-color: #007c75;
-    }
-    .nextcreatereciept{
-        margin-top: 8rempx;
-    }
-    .nexticon{
-    float: right; 
-    align-items: flex-end;
-    margin-right: 0.5rem;
-        
-    }
-    .btndownbutton-secondary {
-        color: #b6b6b6;
-        background-color: #ffffff;
-        border-color: #b6b6b6;
-    }
-    
-    .btndown {
-        display: inline-block;
-        font-weight: 800;
-        line-height: 3.5;
-        color: #b6b6b6;
-        text-align: start;
-        text-decoration: none;
-        vertical-align: middle;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-       
-        border: 1px solid #b6b6b6;
-        padding: 0.375rem 0.75rem;
-        font-size: 1.2rem;
-        border-radius: 0.25rem;
-        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-        width: 80%;
-        margin-left: 10%;
-        border-radius: 15px;
-        background-color: white;
-        letter-spacing: 1.5px;
-        padding: 0.375rem 2.25rem;
-    }
-    .input-groupcreate2> input[type=text]::placeholder{
-        color: var(--placeholder);
-        font-size: 1.5rem;
-        
-    }
-    .input-groupcreate2> input[type=number]::placeholder{
-        color: var(--placeholder);
-        font-size: 1.5rem;
-    }
-    .iconselectpay{
-        margin-right: 1.5rem;
-    }
-    .donationdetailarrow{
-        margin-left: 2.4rem;
-        width: 0.9rem;
-    }
-    .donationdetailtext{
-        margin-left: 1.2rem;
-        width: 12.2rem;
-        height: 2.2rem;
-    }
+.createreciept2form{
+    width: 80vw;
+    margin: 0em auto;
+    padding-top: 3em;
+}
+.createreciept2form> label{
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+.createreciept2form> input{
+    border-radius: 10px;
+    border:solid 1px var(--darkGray);
+    outline: none;
+    width: 100%;
+    height: 42px;
+    padding-left: 1em;
+    margin: 1.2em 0 2.5em 0;
+}
+.createreciept2form> input::placeholder{
+    font-size: 1.5rem;
+    color: var(--placeholder);
+}
+.createreciept2form> button{
+    background-color: var(--primary);
+    border:none;
+    outline: none;
+    width: 100%;
+    height:42px;
+    border-radius: 10px;
+    color: var(--white);
+    font-size: 1.6rem;
+}
+/* .labelcreate2{
+    margin-left: 0.5em;
+} */
+.labelstep2{
+    margin-left: 3.5em;
+    margin-right: 0.5em;
+}
+.buttoncreate2{
+  margin-top: 2em;
+  
+}
+.backicon2{
+    font-size: 2rem;
+    margin-right: 10px;
+}

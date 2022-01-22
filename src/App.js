@@ -11,6 +11,8 @@ import ManageReceipt from "./Views/Page/ManageReceipts/Index";
 import { NavBar } from "./Views/Page/Menubar/Index";
 // import ManageVolunteer from "./Views/Page/ManageVolunteer/Index";
 // import NewVolunteer from "./Views/Page/NewVolunteer/Index";
+import CreateReciept2 from "./Views/Page/CreateReciept/CreateReciept2";
+import CreateReciept from "./Views/Page/CreateReciept/CreateReciept";
 
 
 function App() {
@@ -27,7 +29,7 @@ function App() {
 
   return (
     <div className="routing">
-      <Routes>
+      {/* <Routes>
         <Route
           path="/"
           element={!flag ? <WelcomePage /> : <Navigate replace to="/login" />}
@@ -55,7 +57,9 @@ function App() {
             </main>
           }
         />
-      </Routes>
+      </Routes> */}
+      {/* <CreateReciept/> */}
+      <CreateReciept2/>
     </div>
   );
 }
