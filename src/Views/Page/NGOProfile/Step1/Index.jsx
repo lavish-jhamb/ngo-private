@@ -12,7 +12,7 @@ function ProfileOne(props) {
   };
 
   return (
-    <MainLayout>
+    <MainLayout title="NGO Profile" >
       <div className={Style.ngoProfileWrapper}>
         <div className={Style.ngoProfileContainer}>
           <div className={Style.header}>

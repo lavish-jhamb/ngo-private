@@ -2,13 +2,20 @@ import React from "react";
 import Style from "./Index.module.css";
 import MainLayout from "../../../Layout/Layout2/Main";
 import ArrowIcon from "../Step2/Images/arrow.png";
+import { useNavigate } from "react-router-dom";
 
 function ProfileTwo(props) {
   const { setPage } = props;
 
+  const navigate = useNavigate();
+
   const prevPageHandler = () => {
     setPage((page) => page - 1);
   };
+
+  const submitHandler = () => {
+      navigate("/profile-exit")
+  }
 
   return (
     <MainLayout>
@@ -36,7 +43,7 @@ function ProfileTwo(props) {
           </div>
         </div>
         <div className={Style.submitButton}>
-          <button type="submit">Submit</button>
+          <button onClick={submitHandler} type="submit">Submit</button>
         </div>
       </div>
     </MainLayout>
