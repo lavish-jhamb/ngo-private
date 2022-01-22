@@ -10,6 +10,7 @@ html{
 
 html{
   --primary:#007c75;
+  --secondary:#cbe8e7;
   --white:#ffffff;
   --black:#000000;
   --lightGray:#eeeeee;
@@ -20,6 +21,8 @@ html{
 
 body {
   margin: 0;
+  height: 100vh;
+  width: 100vw;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

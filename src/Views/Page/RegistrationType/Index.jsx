@@ -1,23 +1,34 @@
 import React from "react";
-import "./Index.css";
+import Style from "./Index.module.css";
 import MainLayout from "../../Layout/Main";
+import organisationIcon from "./Images/organisation.png";
+import VolunteerIcon from "./Images/volunteer.png";
+import ShareIcon from "./Images/share.png";
 
 function RegistrationType() {
   return (
     <MainLayout>
-      <div>
-        <h4 className="regtype">Register as</h4>
-        <div className="regtype1 ">
-          <button className="btn2 btn1-primary my-3 " type="submit">
-            <i className="fas fa-building"></i>
-          </button>
-          <button className="btn2 btn1-primary my-3 " type="submit">
-            <i className="fas fa-users"></i>
-          </button>
+      <div className={Style.registrationContainer}>
+        <div className={Style.registrationWrapper}>
+          <h2>Register as</h2>
+          <div className={Style.registrationType}>
+            <div className={Style.typeOneWrapper}>
+              <span className={Style.typeOne}>
+                <img src={organisationIcon} alt="icon" />
+              </span>
+              NGO
+            </div>
+            <div className={Style.typeTwoWrapper}>
+              <span className={Style.typeTwo}>
+                <img src={VolunteerIcon} alt="icon" />
+              </span>
+              Volunteer
+            </div>
+          </div>
         </div>
-        <div className="d-grid gap-2 col-8 mx-auto my-5 btn4">
-          <button className="btn3 btn-primary " type="button">
-            <i className="fas fa-share-alt"></i> Share this App
+        <div className={Style.shareContainer}>
+          <button className={Style.shareButton}>
+            <img src={ShareIcon} alt="icon" />Share this app
           </button>
         </div>
       </div>

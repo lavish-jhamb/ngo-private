@@ -8,7 +8,6 @@ function LoginPage() {
 
   const loginHandler = (e) => {
     e.preventDefault();
-    console.log("clicked")
     navigate("/otp");
   };
 
