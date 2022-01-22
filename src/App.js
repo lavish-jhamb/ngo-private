@@ -9,6 +9,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import NgoProfile from "./Views/Page/NGOProfile/Main";
 import ManageReceipt from "./Views/Page/ManageReceipts/Index";
 import { NavBar } from "./Views/Page/Menubar/Index";
+import NewDonor from "./Views/Page/NewDonor/Index";
+import Dashboard from "./Views/Page/Dashboard/Index";
 // import ManageVolunteer from "./Views/Page/ManageVolunteer/Index";
 // import NewVolunteer from "./Views/Page/NewVolunteer/Index";
 
@@ -38,7 +40,9 @@ function App() {
         <Route path="/receipts" element={<ManageReceipt />} />
         <Route path="/NGOprofile" element={<NgoProfile />} />
         <Route path="/volunteer-profile" element={<VolunteerProfile />} />
+        <Route path="/donor-new" element={<NewDonor />} />
         <Route path="/profile-exit" element={<ProfileExit />} />
+        <Route path="dashboard" element={<Dashboard />} />
         <Route
           path="*"
           element={
