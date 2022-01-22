@@ -1,5 +1,5 @@
 .ngoProfileWrapper{
-    height:calc(100vh - 250px);
+    height:calc(100vh - 109px);
 }
 
 .ngoProfileContainer{
@@ -9,8 +9,20 @@
     height: 100%;
 }
 
+.header{
+    margin: 1em 0 1em 0;    
+}
+
+.header > h2{
+    font-size: 1.7rem;
+}
+
+.header > p{
+    font-size:1.4rem;
+}
+
 .ngoFormContainer{
-    height: calc(100% - 50px);
+    height: calc(100% - 80px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

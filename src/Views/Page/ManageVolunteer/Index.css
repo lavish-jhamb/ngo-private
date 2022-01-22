@@ -1,0 +1,44 @@
+.searchReceiptVol {
+  border: 1px solid var(--placeholder);
+  border-radius: 2rem;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-evenly; */
+}
+
+.searchReceiptVol input {
+  border: none;
+  outline: none;
+  text-align: left;
+  font-size: 1.5rem;
+  width: 86%;
+  height: 2.2rem;
+}
+
+.searchReceiptVol .searchIconVol {
+  margin: 0 0.6rem 0 0.8rem;
+  font-size: 1.5rem;
+  color: var(--placeholder);
+}
+
+.volunteerSearchBox h3 {
+  font-size: 1.7rem;
+}
+
+.addBtnVol {
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 14px 2px gray;
+  color: var(--white);
+  background-color: var(--primary);
+  padding: 10px;
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

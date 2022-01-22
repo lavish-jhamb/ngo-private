@@ -4,15 +4,24 @@ import MainLayout from "../../Layout/Main";
 import organisationIcon from "./Images/organisation.png";
 import VolunteerIcon from "./Images/volunteer.png";
 import ShareIcon from "./Images/share.png";
+import { useNavigate } from "react-router-dom";
 
 function RegistrationType() {
+
+  const navigate = useNavigate();
+  const registrationHandler = () => {
+    navigate("/NGOprofile")
+  }
+
+
+
   return (
     <MainLayout>
       <div className={Style.registrationContainer}>
         <div className={Style.registrationWrapper}>
           <h2>Register as</h2>
           <div className={Style.registrationType}>
-            <div className={Style.typeOneWrapper}>
+            <div onClick={registrationHandler} className={Style.typeOneWrapper}>
               <span className={Style.typeOne}>
                 <img src={organisationIcon} alt="icon" />
               </span>

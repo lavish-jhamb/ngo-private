@@ -1,0 +1,50 @@
+.searchReceipt {
+  border: 1px solid var(--placeholder);
+  border-radius: 2rem;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.searchReceipt input {
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  width: 100%;
+  height: 2.2rem;
+}
+
+.searchReceipt .searchIcon {
+  margin: 1rem;
+  font-size: 1.5rem;
+  color: var(--placeholder);
+}
+
+.receiptSearchBox h3 {
+  font-size: 1.7rem;
+}
+
+.receiptSearchBox .filterIcon {
+  border: none;
+  background-color: var(--white);
+  margin: 1rem;
+  color: var(--placeholder);
+}
+
+.addBtn {
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 14px 2px gray;
+  color: var(--white);
+  background-color: var(--primary);
+  padding: 10px;
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

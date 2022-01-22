@@ -4,11 +4,11 @@ import "./Index.css";
 function Card({ donar }) {
   return (
       <div className="card-wrapper">
-        <div className="card">
+        <div className="cards">
           <h6>{donar.name}</h6>
           <div className="reminder-wrapper">
             <div className="reminder">
-              <i class="fa-solid fa-phone"></i>
+              <i className="fa-solid fa-phone"></i>
               <span>{donar.phone}</span>
             </div>
             <button>Send Reminder</button>

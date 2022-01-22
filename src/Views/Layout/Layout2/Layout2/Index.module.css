@@ -1,0 +1,35 @@
+.layoutContainer{
+    height: 109px;
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.svgContainer{
+    flex: 0.05;
+}
+
+.title{
+    align-self: center;
+}
+
+.title > p{
+    color: var(--white);
+    font-size: 2.1rem;
+}
+
+.svgContainer{
+    padding:0 2em 0 3em;
+}
+
+.svgContainer >img{
+    width: 10px;
+}
+
+.layoutContainer > img{
+    position: absolute; 
+    right:0;
+    bottom:-26px;
+    z-index: 11;
+}
