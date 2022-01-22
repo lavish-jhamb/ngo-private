@@ -55,11 +55,11 @@ function VolunteerPage() {
           <h2>Gender (Optional)</h2>
           <div className={Style.radioButtons}>
             <div className={Style.male}>
-              <input type="radio" name="male" value="option1" />
+              <input type="radio" defaultChecked name="radio" value="option1" />
               <label htmlFor="male">Male</label>
             </div>
             <div className={Style.female}>
-              <input type="radio" name="female" value="option2" />
+              <input type="radio" name="radio" value="option2" />
               <label htmlFor="female">Female</label>
             </div>
           </div>

@@ -21,6 +21,10 @@
     padding-left: 1em;
 }
 
+.form > input[type="date"]{
+    margin:0;
+}
+
 .form > input[type="text"]::placeholder , .form > input[type="date"]{
     color: var(--placeholder);
     font-size: 1.5rem;
