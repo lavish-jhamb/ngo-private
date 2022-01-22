@@ -1,87 +1,75 @@
-.body{
+.exitProfile{
+    height: 100vh;
     background-color: #3a9994;
 }
+
 .header{
-    background-color: var(--primary);    
+    background-color: var(--primary);  
     width: auto;
-    height: 23rem;
-    border-bottom-right-radius: 5rem;
+    height: 300px;
+    border-bottom-right-radius: 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: HPSimplifiedJpan-Regular;
 }
 
 .header > h1{
     color: var(--white);
     font-size: 2.8rem;
-    font-weight: 800;
+    font-weight:700;
+    margin:0.5em 0;
 }
-.pcontainer > p{
+
+.header > p{
     color: #87d3d0;
-    font-size: 1.8rem;
-    
-}
-.pcontainer{
-    border-top: 4px solid #87d3d0;
-}
-
-
-.iconContainer{
-    width: 5rem;
-    height: 1.8rem;
-    flex:0.2;
+    font-size: 1.2rem;
+    border-top: solid 1px;
+    padding-top: 0.1em;
 }
 
 .iconContainer > img{
-    width: 100%;
+    width:43px;
     height: auto;
 }
 
-/* bottom Container */
-
-.bodyC{
+.profileContainer{
     background-color: var(--primary);   
+    height: 2vh;;
 }
-.containerc{
-    background-color:  #3a9994 ;    
+
+.profileContent{
+    background-color:  #3a9994;
+    color: var(--white);
     width: auto;
-    height: 32rem;
-    border-top-left-radius: 5rem;
+    padding-top: 3em;
+    border-top-left-radius:2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
-.containerc > h1{
-    color: var(--white);
-    font-size: 230%;
-    font-weight: 800;
+
+.profileContent > h1{
+    font-size:2rem;
+}
+
+.profileContent > p{
     text-align: center;
-   
+    font-size:2rem;
+    font-size: 1.4rem;
+    width:70%;
+    margin:0.5em auto 2em auto;
 }
 
-.containerc > p{
-    color: #87d3d0;
-    font-size: 120%;
-    text-align: center;
-}
-
-/* button */
-.buttonContainer {
-    padding: 1rem;
-   }
-
-.buttonContainer > button {
-    background-color: white;
-    border-radius: 20px;
-    color: var(--primary);
-    font-size: 2rem;
-    
+.buttonContainer > button{
     border: none;
-    width: 20rem;
-    height: 4rem;
-   
+    outline: none;
+    background-color: var(--white);
+    height: 42px;
+    width: 217px;
+    color:var(--primary);
+    font-size: 1.6rem;
+    font-weight: 500;
+    border-radius: 12px;
 }
