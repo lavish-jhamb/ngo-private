@@ -1,5 +1,5 @@
 .card {
-  border-color: #eeeeee;
+  border-color: var(--lightGray);
   border-radius: 1rem;
   margin-bottom: 20px;
 }
@@ -25,7 +25,7 @@ h6 {
 }
 
 .cardFooter {
-  background-color: #eeeeee;
+  background-color: var(--lightGray);
   padding: 0.5rem 1rem;
   border-radius: 0 0 1rem 1rem;
   display: flex;
@@ -33,7 +33,7 @@ h6 {
 }
 
 .cardIcon {
-  color: #707070;
+  color: var(--darkGray);
   font-size: 1.1rem;
 }
 

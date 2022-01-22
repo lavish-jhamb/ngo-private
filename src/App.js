@@ -9,6 +9,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import NgoProfile from "./Views/Page/NGOProfile/Main";
 import ManageReceipt from "./Views/Page/ManageReceipts/Index";
 import { NavBar } from "./Views/Page/Menubar/Index";
+import ManageVolunteer from "./Views/Page/ManageVolunteer/Index";
+import NewVolunteer from "./Views/Page/NewVolunteer/Index";
 
 
 function App() {
