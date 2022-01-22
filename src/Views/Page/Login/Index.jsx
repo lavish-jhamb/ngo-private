@@ -13,7 +13,7 @@ function LoginPage() {
   };
 
   return (
-    <MainLayout>
+    <MainLayout header="Login">
       <div className={Style.loginWrapper}>
         <main className={Style.loginContainer}>
           <form className={Style.loginForm}>
