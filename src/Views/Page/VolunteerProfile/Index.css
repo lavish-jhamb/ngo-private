@@ -1,0 +1,27 @@
+.form-floating{
+    margin:2em 2em;
+}
+.form-control{
+    border-radius: 20px;
+    height: 20px;
+}
+.content{
+    margin-top: 5%;
+}
+.gender{
+    margin:2em;
+}
+.buttonContainer {
+    margin: 2rem;
+   }
+.buttonContainer > button {
+    background-color: #007C75;
+    border-radius: 20px;
+    color: white;
+    font-size: 21px;
+    font-family: Roboto-Regular;
+    border: none;
+    width: 100%;
+    height: 53px;
+    margin-top: 9%;
+}

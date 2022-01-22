@@ -1,0 +1,87 @@
+.body{
+    background-color: #3a9994;
+}
+.header{
+    background-color: var(--primary);    
+    width: auto;
+    height: 23rem;
+    border-bottom-right-radius: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: HPSimplifiedJpan-Regular;
+}
+
+.header > h1{
+    color: var(--white);
+    font-size: 2.8rem;
+    font-weight: 800;
+}
+.pcontainer > p{
+    color: #87d3d0;
+    font-size: 1.8rem;
+    
+}
+.pcontainer{
+    border-top: 4px solid #87d3d0;
+}
+
+
+.iconContainer{
+    width: 5rem;
+    height: 1.8rem;
+    flex:0.2;
+}
+
+.iconContainer > img{
+    width: 100%;
+    height: auto;
+}
+
+/* bottom Container */
+
+.bodyC{
+    background-color: var(--primary);   
+}
+.containerc{
+    background-color:  #3a9994 ;    
+    width: auto;
+    height: 32rem;
+    border-top-left-radius: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.containerc > h1{
+    color: var(--white);
+    font-size: 230%;
+    font-weight: 800;
+    text-align: center;
+   
+}
+
+.containerc > p{
+    color: #87d3d0;
+    font-size: 120%;
+    text-align: center;
+}
+
+/* button */
+.buttonContainer {
+    padding: 1rem;
+   }
+
+.buttonContainer > button {
+    background-color: white;
+    border-radius: 20px;
+    color: var(--primary);
+    font-size: 2rem;
+    
+    border: none;
+    width: 20rem;
+    height: 4rem;
+   
+}
