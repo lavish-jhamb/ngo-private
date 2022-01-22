@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import WelcomePage from "./Views/Page/Welcome/Index";
 import LoginPage from "./Views/Page/Login/Index";
+import ProfileExit from "./Views/Page/ProfileExit/Index";
 import OtpPage from "./Views/Page/OtpPage/Index";
+import VolunteerProfile from "./Views/Page/VolunteerProfile/Index";
 import RegistrationType from "./Views/Page/RegistrationType/Index";
 import { Routes, Route, Navigate } from "react-router-dom";
 import NgoProfileOne from "./Views/Page/NGOProfile/Step1/Index";
@@ -9,6 +11,7 @@ import ManageReceipt from "./Views/Page/ManageReceipts/Index";
 import { NavBar } from "./Views/Page/Menubar/Index";
 import ManageVolunteer from "./Views/Page/ManageVolunteer/Index";
 import NewVolunteer from "./Views/Page/NewVolunteer/Index";
+
 
 function App() {
   const [flag, setFlag] = useState(false);
