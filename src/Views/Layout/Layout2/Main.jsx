@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from '../Layout2/Layout2/Index';
 
-function MainLayout({children}) {
+function MainLayout({children,title}) {
     return (
       <div className="layout">
-        <Header />
+        <Header title={title} />
         {children}
       </div>
     );

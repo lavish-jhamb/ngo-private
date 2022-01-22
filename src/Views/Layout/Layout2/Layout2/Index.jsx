@@ -3,14 +3,14 @@ import Style from "./Index.module.css";
 import ArrowIcon from "./Images/arrow.png";
 import Svg from "./Images/Vector.svg";
 
-function LayoutTwo() {
+function LayoutTwo({title}) {
   return (
     <div className={Style.layoutContainer}>
       <div className={Style.svgContainer}>
         <img src={ArrowIcon} alt="icon" />
       </div>
       <div className={Style.title}>
-        <p>NGO Profile</p>
+        <p>{title}</p>
       </div>
       <img src={Svg} alt="svg" />
     </div>

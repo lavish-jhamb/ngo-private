@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import WelcomePage from "./Views/Page/Welcome/Index";
 import LoginPage from "./Views/Page/Login/Index";
-// import ProfileExit from "./Views/Page/ProfileExit/Index";
+import ProfileExit from "./Views/Page/ProfileExit/Index";
 import OtpPage from "./Views/Page/OtpPage/Index";
-// import VolunteerProfile from "./Views/Page/VolunteerProfile/Index";
+import VolunteerProfile from "./Views/Page/VolunteerProfile/Index";
 import RegistrationType from "./Views/Page/RegistrationType/Index";
 import { Routes, Route, Navigate } from "react-router-dom";
 import NgoProfile from "./Views/Page/NGOProfile/Main";
 import ManageReceipt from "./Views/Page/ManageReceipts/Index";
 import { NavBar } from "./Views/Page/Menubar/Index";
-import ManageVolunteer from "./Views/Page/ManageVolunteer/Index";
-import NewVolunteer from "./Views/Page/NewVolunteer/Index";
+// import ManageVolunteer from "./Views/Page/ManageVolunteer/Index";
+// import NewVolunteer from "./Views/Page/NewVolunteer/Index";
 
 
 function App() {
@@ -37,6 +37,8 @@ function App() {
         <Route path="/registrationType" element={<RegistrationType />} />
         <Route path="/receipts" element={<ManageReceipt />} />
         <Route path="/NGOprofile" element={<NgoProfile />} />
+        <Route path="/volunteer-profile" element={<VolunteerProfile />} />
+        <Route path="/profile-exit" element={<ProfileExit />} />
         <Route
           path="*"
           element={

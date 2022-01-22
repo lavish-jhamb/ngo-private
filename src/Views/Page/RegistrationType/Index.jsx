@@ -7,13 +7,14 @@ import ShareIcon from "./Images/share.png";
 import { useNavigate } from "react-router-dom";
 
 function RegistrationType() {
-
   const navigate = useNavigate();
-  const registrationHandler = () => {
-    navigate("/NGOprofile")
-  }
 
-
+  const ngoHandler = () => {
+    navigate("/NGOprofile");
+  };
+  const volunteerHandler = () => {
+    navigate("/volunteer-profile");
+  };
 
   return (
     <MainLayout>
@@ -21,13 +22,13 @@ function RegistrationType() {
         <div className={Style.registrationWrapper}>
           <h2>Register as</h2>
           <div className={Style.registrationType}>
-            <div onClick={registrationHandler} className={Style.typeOneWrapper}>
+            <div onClick={ngoHandler} className={Style.typeOneWrapper}>
               <span className={Style.typeOne}>
                 <img src={organisationIcon} alt="icon" />
               </span>
               NGO
             </div>
-            <div className={Style.typeTwoWrapper}>
+            <div onClick={volunteerHandler} className={Style.typeTwoWrapper}>
               <span className={Style.typeTwo}>
                 <img src={VolunteerIcon} alt="icon" />
               </span>
@@ -37,7 +38,8 @@ function RegistrationType() {
         </div>
         <div className={Style.shareContainer}>
           <button className={Style.shareButton}>
-            <img src={ShareIcon} alt="icon" />Share this app
+            <img src={ShareIcon} alt="icon" />
+            Share this app
           </button>
         </div>
       </div>
