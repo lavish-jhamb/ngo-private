@@ -4,21 +4,20 @@
   height: 39px;
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
+  /* justify-content: space-evenly; */
 }
 
 .searchReceiptVol input {
   border: none;
   outline: none;
+  text-align: left;
   font-size: 1.5rem;
-  width: 88%;
+  width: 86%;
   height: 2.2rem;
 }
 
 .searchReceiptVol .searchIconVol {
-  /* flex: 0; */
-  /* margin: 0 1rem; */
-  margin: 1rem;
+  margin: 0 0.6rem 0 0.8rem;
   font-size: 1.5rem;
   color: var(--placeholder);
 }

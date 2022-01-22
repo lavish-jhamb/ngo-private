@@ -43,7 +43,7 @@
   height: 3.9rem;
   margin: 0.75rem 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -52,12 +52,12 @@
   outline: none;
   width: 90%;
   height: auto;
-  padding-left: 0.4rem;
 }
 
 .newVolPwd button {
   border: none;
   background-color: var(--white);
+  margin-right: 0.4rem;
 }
 
 .newVolPwd img {
@@ -68,5 +68,5 @@
 .newVolPwd i {
   color: var(--darkGray);
   font-size: 2rem;
-  margin: 0.65rem 0;
+  margin: 0.4rem 0;
 }
