@@ -1,0 +1,39 @@
+.HdownHead{
+  height: 10.9rem;
+}
+
+.rpHead {
+  background-color: var(--primary);
+  /* height: ; */
+}
+
+.rpHead .rpNavContent {
+  display: flex;
+  align-content: center;
+  margin: 1.4rem auto;
+}
+
+.rpHeadBtn {
+  color: #fff;
+  margin-left: 1.5rem;
+  background-color: #007c75;
+  border: none;
+}
+
+.rpNavHeading {
+  display: inline-flex;
+  font-size: 2.1rem;
+  color: #fff;
+  margin-left: 1rem;
+}
+
+.invertedCorner {
+  position: absolute;
+  right: 0;
+  height: 40px;
+  width: 40px;
+  border-top-right-radius: 50%;
+  background: #fff;
+  box-shadow: 20px 0 0 0 #007c75;
+  z-index: -1;
+}

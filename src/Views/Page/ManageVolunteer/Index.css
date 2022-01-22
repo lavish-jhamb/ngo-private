@@ -1,38 +1,32 @@
-.searchReceipt {
+.searchReceiptVol {
   border: 1px solid var(--placeholder);
   border-radius: 2rem;
   height: 39px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-evenly; */
 }
 
-.searchReceipt input {
+.searchReceiptVol input {
   border: none;
   outline: none;
+  text-align: left;
   font-size: 1.5rem;
-  width: 100%;
+  width: 86%;
   height: 2.2rem;
 }
 
-.searchReceipt .searchIcon {
-  margin: 1rem;
+.searchReceiptVol .searchIconVol {
+  margin: 0 0.6rem 0 0.8rem;
   font-size: 1.5rem;
   color: var(--placeholder);
 }
 
-.receiptSearchBox h3 {
+.volunteerSearchBox h3 {
   font-size: 1.7rem;
 }
 
-.receiptSearchBox .filterIcon {
-  border: none;
-  background-color: var(--white);
-  margin: 1rem;
-  color: var(--placeholder);
-}
-
-.addBtn {
+.addBtnVol {
   width: 60px;
   height: 60px;
   border: none;

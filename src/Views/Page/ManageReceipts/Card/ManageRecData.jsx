@@ -11,16 +11,16 @@ const ManageRecData = (props) => {
             <div className="innerBody">
               <h4 className="card-title pb-2">
                 {/*  */}
-                <div class="d-flex bd-highlight">
-                  <div class="flex-grow-1 bd-highlight">{data.name}</div>
+                <div className="d-flex bd-highlight">
+                  <div className="flex-grow-1 bd-highlight">{data.name}</div>
                   {props.shareBtn && (
-                    <div class="bd-highlight">
+                    <div className="bd-highlight">
                       <button className="menuBtn pe-2">
                         <i className="bx bxs-share-alt"></i>
                       </button>
                     </div>
                   )}
-                  <div class="bd-highlight">
+                  <div className="bd-highlight">
                     <button className="menuBtn">
                       <i className="bx bx-dots-vertical-rounded"></i>
                     </button>

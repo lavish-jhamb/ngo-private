@@ -16,13 +16,13 @@ function ProfileOne() {
           <div className={Style.ngoFormContainer}>
             <div className={Style.ngoForm}>
               <div className={Style.uploadLogo}>
-                <label htmlFor="file-input" class="name">
+                <label htmlFor="file-input" className="name">
                   NGO Logo <img src={UploadIcon} alt="icon" />
                 </label>
                 <input id="file-input" type="file" />
               </div>
               <div className={Style.uploadPdf}>
-                <label htmlFor="file-input" class="name">
+                <label htmlFor="file-input" className="name">
                   Reg. Certificate PDF <img src={UploadIcon} alt="icon" />
                 </label>
                 <input id="file-input" type="file" />

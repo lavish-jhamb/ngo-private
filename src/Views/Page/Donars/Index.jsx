@@ -61,10 +61,10 @@ function Donars() {
       <h4>Manage Donors</h4>
       <div className="search-bar">
         <div className="search">
-          <i class="fa-solid fa-magnifying-glass"></i>
+          <i className="fa-solid fa-magnifying-glass"></i>
           <input type="text" placeholder="Search by name,phone..." />
         </div>
-        <i class="fa-solid fa-calendar-days"></i>
+        <i className="fa-solid fa-calendar-days"></i>
       </div>
       <div className="scroll">
       {donarsList.map((donar) => (
