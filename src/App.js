@@ -39,6 +39,7 @@ function App() {
         <Route path="/NGOprofile" element={<NgoProfile />} />
         <Route path="/volunteer-profile" element={<VolunteerProfile />} />
         <Route path="/profile-exit" element={<ProfileExit />} />
+        <Route path="/dashboard" element={<ProfileExit />} />
         <Route
           path="*"
           element={
@@ -49,7 +50,7 @@ function App() {
                   textAlign: "center",
                 }}
               >
-                There's nothing here!
+                Coming soon
               </h1>
               <NavBar />
             </main>

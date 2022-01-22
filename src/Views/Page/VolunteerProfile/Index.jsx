@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Index.css";
+import Style from "./Index.module.css";
 import MainLayout from "../../Layout/Layout2/Main";
 
 import { useNavigate } from "react-router-dom";
@@ -21,88 +21,50 @@ function VolunteerPage() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    navigate("/profileExit");
+    navigate("/profile-exit");
   };
 
   return (
-    <MainLayout>
-      <div>
-        <div className="content">
-          <div className="form-floating mb-4">
-            <input
-              type="text"
-              className="form-control"
-              value={name}
-              onChange={eventHandler("name")}
-              height="40"
-              id="floatingInput"
-              placeholder="Enter your name"
-            />
-            <label for="floatingInput">Name</label>
-          </div>
-          <div className="form-floating mb-3">
-            <input
-              type="email"
-              className="form-control"
-              value={email}
-              onChange={eventHandler("email")}
-              id="floatingInput"
-              placeholder="Email"
-            />
-            <label for="floatingInput">Email</label>
-          </div>
-          <div className="form-floating lg-4 mb-3">
-            <input
-              type="date"
-              className="form-control"
-              value={birth}
-              onChange={eventHandler("birth")}
-              id="floatingInput"
-              placeholder="Date of Birth(optional)"
-            />
-            <label for="floatingInput">Date of Birth</label>
-          </div>
-          <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              value={interest}
-              onChange={eventHandler("interest")}
-              id="floatingInput"
-              placeholder="Social Interest(s)"
-            />
-            <label for="floatingInput">Social Interest</label>
-          </div>
-
-          <div className="gender">
-            <h2>Gender(Optional)</h2>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio1"
-                value="option1"
-              />
-              <label className="form-check-label" for="inlineRadio1">
-                MALE
-              </label>
+    <MainLayout title="Volunteer Profile">
+      <div className={Style.VolunteerProfile}>
+        <div className={Style.form}>
+          <input
+            type="text"
+            value={name}
+            onChange={eventHandler("name")}
+            placeholder="Name"
+          />
+          <input
+            type="text"
+            value={email}
+            onChange={eventHandler("email")}
+            placeholder="Email"
+          />
+          <input
+            type="date"
+            value={birth}
+            onChange={eventHandler("birth")}
+            placeholder="Date of Birth(optional)"
+          />
+          <input
+            type="text"
+            value={interest}
+            onChange={eventHandler("interest")}
+            placeholder="Social Interest(s)"
+          />
+          <h2>Gender (Optional)</h2>
+          <div className={Style.radioButtons}>
+            <div className={Style.male}>
+              <input type="radio" name="male" value="option1" />
+              <label htmlFor="male">Male</label>
             </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio1"
-                value="option1"
-              />
-              <label className="form-check-label" for="inlineRadio1">
-                FEMALE
-              </label>
+            <div className={Style.female}>
+              <input type="radio" name="female" value="option2" />
+              <label htmlFor="female">Female</label>
             </div>
           </div>
         </div>
-        <div className="buttonContainer">
+        <div className={Style.buttonContainer}>
           <button className="button" type="button" onClick={submitHandler}>
             Submit
           </button>
