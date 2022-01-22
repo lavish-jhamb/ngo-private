@@ -5,6 +5,7 @@ import OtpPage from "./Views/Page/OtpPage/Index";
 import RegistrationType from "./Views/Page/RegistrationType/Index";
 import { Routes, Route, Navigate } from "react-router-dom";
 import NgoProfileOne from "./Views/Page/NGOProfile/Step1/Index";
+import NgoProfileTwo from "./Views/Page/NGOProfile/Step2/Index";
 import ManageReceipt from "./Views/Page/ManageReceipts/Index";
 import { NavBar } from "./Views/Page/Menubar/Index";
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/registrationType" element={<RegistrationType />} />
         <Route path="/NGOProfile" element={<NgoProfileOne />} />
         <Route path="/receipts" element={<ManageReceipt />} />
+        <Route path="/step2" element={<NgoProfileTwo />} />
         {/* <Route path="/profile/2" element={<NgoProfilePage2 />} /> */}
         <Route
           path="*"
