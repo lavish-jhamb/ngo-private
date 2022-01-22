@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import WelcomePage from "./Views/Page/Welcome/Index";
 import LoginPage from "./Views/Page/Login/Index";
-import ProfileExit from "./Views/Page/ProfileExit/Index";
+// import ProfileExit from "./Views/Page/ProfileExit/Index";
 import OtpPage from "./Views/Page/OtpPage/Index";
-import VolunteerProfile from "./Views/Page/VolunteerProfile/Index";
+// import VolunteerProfile from "./Views/Page/VolunteerProfile/Index";
 import RegistrationType from "./Views/Page/RegistrationType/Index";
 import { Routes, Route, Navigate } from "react-router-dom";
-import NgoProfileOne from "./Views/Page/NGOProfile/Step1/Index";
+import NgoProfile from "./Views/Page/NGOProfile/Main";
 import ManageReceipt from "./Views/Page/ManageReceipts/Index";
 import { NavBar } from "./Views/Page/Menubar/Index";
 import ManageVolunteer from "./Views/Page/ManageVolunteer/Index";
@@ -35,11 +35,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/otp" element={<OtpPage />} />
         <Route path="/registrationType" element={<RegistrationType />} />
-        <Route path="/NGOProfile" element={<NgoProfileOne />} />
         <Route path="/receipts" element={<ManageReceipt />} />
-        <Route path="/volunteers" element={<ManageVolunteer />} />
-        <Route path="/NewVolunteer" element={<NewVolunteer />} />
-        {/* <Route path="/profile/2" element={<NgoProfilePage2 />} /> */}
+        <Route path="/NGOprofile" element={<NgoProfile />} />
         <Route
           path="*"
           element={
@@ -50,7 +47,6 @@ function App() {
                   textAlign: "center",
                 }}
               >
-                {" "}
                 There's nothing here!
               </h1>
               <NavBar />

@@ -1,10 +1,16 @@
 import React from "react";
 import Style from "./Index.module.css";
-import MainLayout from "../../../Layout/Main";
 import UploadIcon from "../Step1/Images/upload.png";
 import NextIcon from "../Step1/Images/next.png";
+import MainLayout from "../../../Layout/Layout2/Main";
 
-function ProfileOne() {
+function ProfileOne(props) {
+  const { setPage } = props;
+
+  const pageHandler = () => {
+    setPage((page) => page + 1);
+  };
+
   return (
     <MainLayout>
       <div className={Style.ngoProfileWrapper}>
@@ -16,13 +22,13 @@ function ProfileOne() {
           <div className={Style.ngoFormContainer}>
             <div className={Style.ngoForm}>
               <div className={Style.uploadLogo}>
-                <label htmlFor="file-input" className="name">
+                <label htmlFor="file-input">
                   NGO Logo <img src={UploadIcon} alt="icon" />
                 </label>
                 <input id="file-input" type="file" />
               </div>
               <div className={Style.uploadPdf}>
-                <label htmlFor="file-input" className="name">
+                <label htmlFor="file-input">
                   Reg. Certificate PDF <img src={UploadIcon} alt="icon" />
                 </label>
                 <input id="file-input" type="file" />
@@ -33,7 +39,7 @@ function ProfileOne() {
               <input type="text" placeholder="Registration NO." />
             </div>
             <div className={Style.nextButton}>
-              <button type="submit">
+              <button onClick={pageHandler} type="submit">
                 Next
                 <span>
                   <img src={NextIcon} alt="icon" />
