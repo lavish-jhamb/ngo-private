@@ -1,51 +1,78 @@
+.createreciept2wrapper{
+    height:calc(100vh - 109px);
+}
 .createreciept2container{
-    background-color: var(--white);
-    min-height:calc(100vh - 250px);
-}
-.createreciept2form{
     width: 80vw;
-    margin: 0em auto;
-    padding-top: 3em;
+    margin: 0 auto;
+    height: 100%;
 }
-.createreciept2form> label{
+.headercreatere2ciept1{
+    margin: 1em 0 1em 0; 
+    display:flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+.headercreatere2ciept1 > h2{
     font-size: 1.7rem;
+}
+.headercreatere2ciept1 > p{
+    font-size:1.4rem;
+    color: var(--darkGray);
     font-weight: 500;
 }
-.createreciept2form> input{
-    border-radius: 10px;
-    border:solid 1px var(--darkGray);
+.createreciept2formcontainer{
+    height: calc(100% - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.iconcreatereciept2>button{
+    border: none;
     outline: none;
-    width: 100%;
-    height: 42px;
-    padding-left: 1em;
-    margin: 1.2em 0 2.5em 0;
-}
-.createreciept2form> input::placeholder{
-    font-size: 1.5rem;
-    color: var(--placeholder);
-}
-.createreciept2form> button{
+    border-radius: 12px;
     background-color: var(--primary);
-    border:none;
-    outline: none;
+    height: 42px;
     width: 100%;
-    height:42px;
-    border-radius: 10px;
     color: var(--white);
     font-size: 1.6rem;
+    position: relative;
 }
-/* .labelcreate2{
-    margin-left: 0.5em;
-} */
-.labelstep2{
-    margin-left: 3.5em;
-    margin-right: 0.5em;
+.iconcreatereciept2>button>span{
+    position: absolute;
+    right: 30px;
 }
-.buttoncreate2{
-  margin-top: 2em;
-  
+
+.createreciept2container> input{
+    display: block;
+    width: 100%;
+    margin: 1.5em 0;
+    color: var(--placeholder);
 }
-.backicon2{
-    font-size: 2rem;
-    margin-right: 10px;
+.createreciept2container> input[type=text] ,input[type=number]{
+    height: 39px;
+    border: solid 2px var(--placeholder);
+    border-radius: 12px;
+    padding-left: 1em;
+    line-height: 1.5em;
+    color: var(--placeholder);
+}
+.createreciept2container > input[type=text],input[type=number]::placeholder{
+    color: var(--placeholder);
+    font-size: 1.5rem;
+}
+
+
+
+.createreciept2container>select{
+    height: 39px;
+    border: solid 2px var(--placeholder);
+    border-radius: 12px;
+    padding-left: 0.5em;
+    line-height: 1.5em;
+    color: var(--placeholder);
+    font-size: 1.5rem;
+    display: block;
+    width: 100%;
+    margin: 1.2em 0;
+    font-size: 1.6rem;
 }

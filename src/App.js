@@ -13,6 +13,7 @@ import { NavBar } from "./Views/Page/Menubar/Index";
 // import NewVolunteer from "./Views/Page/NewVolunteer/Index";
 import CreateReciept2 from "./Views/Page/CreateReciept/CreateReciept2";
 import CreateReciept from "./Views/Page/CreateReciept/CreateReciept";
+import DonorPage1 from "./Views/Page/Donorpage1/DonorPage1";
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
       </Routes> */}
       {/* <CreateReciept/> */}
       <CreateReciept2/>
+     {/* <NgoProfile/> */}
     </div>
   );
 }
