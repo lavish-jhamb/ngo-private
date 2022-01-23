@@ -1,0 +1,43 @@
+.dashboardWrapper{
+    padding:15px 22px;
+    font-size: 1.4rem;
+}
+
+.dashboardDaysCounterContainer{
+    border:2px solid var(--placeholder);
+    border-radius: 20px;
+    padding:5px 10px;
+    padding-right: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.countContainer{
+    display: flex;
+    align-items: center;
+}
+
+.clockIcon{
+    color:var(--placeholder);
+    font-size: 2rem;
+}
+
+.dashboardDaysCounterContainer span{
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.controlsContainer{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1rem;
+    color:var(--placeholder);
+}
+
+.lightText{
+    font-size: 1.2rem;
+    margin-top: 1.6rem;
+    margin-bottom: 1.25rem;
+    color: var(--darkGray);
+}

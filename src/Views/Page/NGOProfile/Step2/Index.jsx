@@ -18,7 +18,7 @@ function ProfileTwo(props) {
   }
 
   return (
-    <MainLayout>
+    <MainLayout title="NGO Profile">
       <div className={Style.container}>
         <div className={Style.form}>
           <div className={Style.header}>

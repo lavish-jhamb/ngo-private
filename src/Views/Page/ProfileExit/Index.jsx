@@ -8,7 +8,7 @@ function ProfileExit() {
   const navigate = useNavigate();
 
   const exitHandler = () => {
-    navigate("/");
+    navigate("/dashboard");
   }
 
   return (

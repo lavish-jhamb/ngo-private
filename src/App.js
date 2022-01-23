@@ -9,7 +9,11 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import NgoProfile from "./Views/Page/NGOProfile/Main";
 import ManageReceipt from "./Views/Page/ManageReceipts/Index";
 import { NavBar } from "./Views/Page/Menubar/Index";
-// import ManageVolunteer from "./Views/Page/ManageVolunteer/Index";
+// import ReceiptGenerated from "./Views/Page/ReceiptGenerated/Index";
+// import ReceiptPreview from "./Views/Page/ReceiptPreview/Index";
+import NewDonor from "./Views/Page/NewDonor/Index";
+import Dashboard from "./Views/Page/Dashboard/Index";
+import ManageVolunteer from "./Views/Page/ManageVolunteer/Index";
 // import NewVolunteer from "./Views/Page/NewVolunteer/Index";
 import CreateReciept2 from "./Views/Page/CreateReciept/CreateReciept2";
 import CreateReciept from "./Views/Page/CreateReciept/CreateReciept";
@@ -41,7 +45,11 @@ function App() {
         <Route path="/receipts" element={<ManageReceipt />} />
         <Route path="/NGOprofile" element={<NgoProfile />} />
         <Route path="/volunteer-profile" element={<VolunteerProfile />} />
+        <Route path="/donor-new" element={<NewDonor />} />
         <Route path="/profile-exit" element={<ProfileExit />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/receipts" element={<Dashboard />} />
+        <Route path="/volunteers" element={<ManageVolunteer />} />
         <Route
           path="*"
           element={
@@ -52,7 +60,7 @@ function App() {
                   textAlign: "center",
                 }}
               >
-                There's nothing here!
+                Coming soon
               </h1>
               <NavBar />
             </main>

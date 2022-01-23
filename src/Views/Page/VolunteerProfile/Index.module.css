@@ -1,0 +1,80 @@
+.VolunteerProfile{
+    width: 80%;
+    height: calc(100vh - 109px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form{
+    padding-top: 1em;
+}
+
+.form > input[type="text"] , .form > input[type="date"]{
+    display: block;
+    width: 100%;
+    margin: 1.5em 0;
+    height: 39px;
+    border: solid 2px var(--placeholder);
+    border-radius: 12px;
+    padding-left: 1em;
+}
+
+.form > input[type="date"]{
+    margin:0;
+}
+
+.form > input[type="text"]::placeholder , .form > input[type="date"]{
+    color: var(--placeholder);
+    font-size: 1.5rem;
+}
+
+.radioButtons{
+    display: flex;
+    margin-top: 1em;
+}
+
+.radioButtons label{
+    margin-left:0.25em;
+    font-weight: 500;
+}
+
+.radioButtons input{
+    width: 18px;
+    height: 18px;
+}
+
+.male{
+    display: flex;
+    align-items: center;
+    flex: 0.3;
+}
+
+.male > label{
+    font-size: 1.4rem;
+}
+
+.female{
+    display: flex;
+    align-items: center;
+}
+
+.female > label{
+    font-size: 1.4rem;
+}
+
+.buttonContainer{
+    flex: 0.2;
+}
+
+.buttonContainer > button{
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background-color: var(--primary);
+    height: 42px;
+    width: 100%;
+    color: var(--white);
+    font-size: 1.6rem;
+}
