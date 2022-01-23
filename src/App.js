@@ -13,7 +13,7 @@ import { NavBar } from "./Views/Page/Menubar/Index";
 // import ReceiptPreview from "./Views/Page/ReceiptPreview/Index";
 import NewDonor from "./Views/Page/NewDonor/Index";
 import Dashboard from "./Views/Page/Dashboard/Index";
-// import ManageVolunteer from "./Views/Page/ManageVolunteer/Index";
+import ManageVolunteer from "./Views/Page/ManageVolunteer/Index";
 // import NewVolunteer from "./Views/Page/NewVolunteer/Index";
 
 
@@ -44,7 +44,9 @@ function App() {
         <Route path="/volunteer-profile" element={<VolunteerProfile />} />
         <Route path="/donor-new" element={<NewDonor />} />
         <Route path="/profile-exit" element={<ProfileExit />} />
-        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/receipts" element={<Dashboard />} />
+        <Route path="/volunteers" element={<ManageVolunteer />} />
         <Route
           path="*"
           element={
