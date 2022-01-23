@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderUp from "../../../Components/HeaderUp/Index";
 import { NavBar } from "../Menubar/Index";
-import ManageRecData from "../ManageReceipts/Card/ManageRecData";
+import ManageRecData from "../ManageReceipts/ReceiptCard/ManageRecData";
 import "./Index.css";
 import { Link } from "react-router-dom";
 

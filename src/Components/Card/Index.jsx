@@ -1,25 +1,25 @@
 import React from "react";
-import "./Index.css";
+import Style from "./Index.module.css";
 
 function Card({ donar }) {
   return (
-      <div className="card-wrapper">
-        <div className="cards">
-          <h6>{donar.name}</h6>
-          <div className="reminder-wrapper">
-            <div className="reminder">
-              <i className="fa-solid fa-phone"></i>
-              <span>{donar.phone}</span>
-            </div>
-            <button>Send Reminder</button>
+    <div className={Style.cardWrapper}>
+      <div className={Style.cards}>
+        <h6>{donar.name}</h6>
+        <div className={Style.reminderWrapper}>
+          <div className={Style.reminder}>
+            <i className="fa-solid fa-phone"></i>
+            <span>{donar.phone}</span>
           </div>
-        </div>
-        <div className="donation-details">
-          <span>Last donation:</span>
-          <span>{donar.donation}</span>
-          <span>({donar.date})</span>
+          <button>Send Reminder</button>
         </div>
       </div>
+      <div className={Style.donationDetails}>
+        <span>Last donation:</span>
+        <span>{donar.donation}</span>
+        <span>({donar.date})</span>
+      </div>
+    </div>
   );
 }
 
