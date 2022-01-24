@@ -1,17 +1,23 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import MainLayout from "../../../Layout/Layout2/Main";
 import "./Index.css";
 
-export default function CreateReciept2(props) {
-  const {CreateReciept1}=props;
-  const CreateRecieptSuccesful=()=>{
-    CreateReciept1(console.log("Create Reciept Success")
-    )
-   
+function CreateRecieptFormTwo(props) {
+
+  const navigate = useNavigate();
+
+  const submitHandler = () => {
+    navigate("/receipt-preview")    
   }
+
+  const goBack = () => {
+    navigate(-1);
+  }
+
   return (
     <>
-      <MainLayout title="Create Reciept">
+      <MainLayout title="Create Reciept" handler={goBack}>
         <div className="createreciept2wrapper">
           <div className="createreciept2container">
             <div className="headercreatere2ciept1">
@@ -34,14 +40,7 @@ export default function CreateReciept2(props) {
                   <option value="Cheque">Cheque</option>
                 </select>
                 <select>
-                  {" "}
                   <option value="">Select Category</option>
-                  <input
-                    type="text"
-                    placeholder="Select Category"
-                    autoComplete="on"
-                    required
-                  />
                 </select>
                 <input
                   placeholder="Additional Note (Optional)"
@@ -50,10 +49,10 @@ export default function CreateReciept2(props) {
                 />
               </div>
               <div className="iconcreatereciept2">
-                <button type="submit" onClick={CreateRecieptSuccesful}>
+                <button type="submit" onClick={submitHandler}>
                   Create Reciept
                   <span>
-                    <i class="fas fa-chevron-right"></i>
+                    <i className="fas fa-chevron-right"></i>
                   </span>
                 </button>
               </div>
@@ -65,3 +64,4 @@ export default function CreateReciept2(props) {
   );
 }
 
+export default CreateRecieptFormTwo;

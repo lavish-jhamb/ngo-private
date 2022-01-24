@@ -1,14 +1,16 @@
 import React,{useState} from 'react';
-import CreateReciept from './Step1/Index';
-import CreateReciept2 from './Step2/Index';
+import StepOne from './Step1/Index';
+import StepTwo from './Step2/Index';
 
  function MainCreateReciept() {
-   const [Create,CreateReciept1]=useState(1);
-   const createSteps = {
-    1:CreateReciept,
-    2: CreateReciept2,
+   const [page,setPage]=useState(1);
+   
+   const Steps = {
+    1:StepOne,
+    2:StepTwo,
   };
-  const CreateComponent = createSteps[Create];
-  return  <CreateComponent Create={Create} CreateReciept1={CreateReciept1} />
+
+  const ReceiptForm = Steps[page];
+  return  <ReceiptForm setPage={setPage}/>
 }
 export default MainCreateReciept;
