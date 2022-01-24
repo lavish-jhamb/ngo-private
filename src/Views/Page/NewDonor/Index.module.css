@@ -12,32 +12,6 @@
     flex: 0.3;
 }
 
-.header{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header > p{
-    font-size: 1.4rem;
-    color: var(--darkGray);
-    font-weight: 500;
-}
-
-.header > h2{
-    font-size: 1.7rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.header > h2 > img{
-    width: 9px;
-    height: 16px;
-    margin-right: 0.5em;
-}
-
-.contactDetails > input,
 .addressDetails > input,
 .addressDetails > select{
     display: block;
@@ -47,24 +21,21 @@
     border-radius: 12px;
     padding-left: 1em;
     line-height: 1.5em;
+    outline: none;
 }
 
-.contactDetails > input::placeholder , .addressDetails > input::placeholder,.addressDetails > select{
+.addressDetails > input::placeholder,.addressDetails > select{
     color: var(--placeholder);
     font-size: 1.5rem;
 }
 
-.contactDetails > input{
-    margin: 1em 0;
+.addressDetails > input::focus,.addressDetails > select{
+    outline: none;
+    background-color: red;
 }
 
 .addressDetails > input{
     margin: 1em 0;
-}
-
-.address > h2{
-    font-size: 1.5rem;
-    margin-top: 2em;
 }
 
 .submitButton > button{

@@ -27,7 +27,7 @@ const ManageVolunteer = () => {
       </div>
 
       <div>
-        <Link to="/NewVolunteer">
+        <Link to="/create-volunteer">
           <button className="addBtnVol">
             <i className="bx bx-plus bx-md"></i>
           </button>
