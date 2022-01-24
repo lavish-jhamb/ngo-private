@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Index.css";
 import { useNavigate } from "react-router-dom";
-import MainLayout from "../../Layout/Layout2/Main";
+import HeaderDown from "../../../Components/HeaderDown/Index";
 import Icon from "./icon_feather_eye.png";
 
 function NewVolunteer() {
@@ -10,7 +10,8 @@ function NewVolunteer() {
 
   const loginHandler = (e) => {
     e.preventDefault();
-    navigate(-1);
+    console.log("clicked");
+    navigate("/volunteers");
   };
 
   const pwdHandler = (e) => {
@@ -18,42 +19,40 @@ function NewVolunteer() {
     setpwdVisibility(!pwdVisibility);
   };
 
-  const goBack = () => {
-    navigate(-1)
-  }
-
   return (
-      <MainLayout title="New Volunteer" handler={goBack}>
-        <div className="newVolContainer container px-5">
-          <div className="newVolFormContainer">
-            <div>
-              <form className="newvolForm">
-                <input placeholder="Name" type="text" />
-                <input placeholder="Email" type="email" />
-                <input placeholder="Phone number" type="number" />
-                <div className="newVolPwd">
-                  <input
-                    placeholder="Password"
-                    type={pwdVisibility ? "text" : "password"}
-                  />
-                  <button onClick={pwdHandler}>
-                    {pwdVisibility ? (
-                      <img src={Icon} alt="logo" />
-                    ) : (
-                      <i className="bx bx-hide"></i>
-                    )}
-                  </button>
-                </div>
-              </form>
-            </div>
-            <div className="newVolAddBtn">
-              <button onClick={loginHandler} type="submit">
-                Add Volunteer
-              </button>
-            </div>
+    <div>
+      <HeaderDown heading="New Volunteer" />
+
+      <div className="newVolContainer container px-5">
+        <div className="newVolFormContainer">
+          <div>
+            <form className="newvolForm">
+              <input placeholder="Name" type="text" />
+              <input placeholder="Email" type="email" />
+              <input placeholder="Phone number" type="number" />
+              <div className="newVolPwd">
+                <input
+                  placeholder="Password"
+                  type={pwdVisibility ? "text" : "password"}
+                />
+                <button onClick={pwdHandler}>
+                  {pwdVisibility ? (
+                    <img src={Icon} alt="logo" />
+                  ) : (
+                    <i className="bx bx-hide"></i>
+                  )}
+                </button>
+              </div>
+            </form>
+          </div>
+          <div className="newVolAddBtn">
+            <button onClick={loginHandler} type="submit">
+              Add Volunteer
+            </button>
           </div>
         </div>
-      </MainLayout>
+      </div>
+    </div>
   );
 }
 

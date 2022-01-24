@@ -1,10 +1,15 @@
+.manageRecContainer {
+  width: 90vw;
+  margin: 0 auto;
+}
+
 .searchReceipt {
-  border: 1px solid var(--placeholder);
+  border: 2px solid var(--placeholder);
   border-radius: 2rem;
   height: 39px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  margin: 1.2rem 0;
 }
 
 .searchReceipt input {
@@ -15,35 +20,41 @@
   height: 2.2rem;
 }
 
+.searchReceipt input::placeholder {
+  font-size: 1.5rem;
+  color: var(--placeholder);
+}
+
 .searchReceipt .searchIcon {
   margin: 1rem;
   font-size: 1.5rem;
   color: var(--placeholder);
 }
 
-.receiptSearchBox h3 {
+.receiptSearchBox h4 {
+  margin-top: 1.6rem;
   font-size: 1.7rem;
+  font-weight: 600;
 }
 
 .receiptSearchBox .filterIcon {
   border: none;
   background-color: var(--white);
-  margin: 1rem;
+  margin-right: 1rem;
   color: var(--placeholder);
 }
 
 .addBtn {
-  width: 60px;
-  height: 60px;
+  width: 4.8rem;
+  height: 4.8rem;
   border: none;
-  border-radius: 50%;
+  border-radius: 2.4rem;
   box-shadow: 0 0 14px 2px gray;
   color: var(--white);
   background-color: var(--primary);
-  padding: 10px;
   position: fixed;
-  bottom: 100px;
-  right: 24px;
+  bottom: 8.4rem;
+  right: 2.4rem;
   display: flex;
   align-items: center;
   justify-content: center;

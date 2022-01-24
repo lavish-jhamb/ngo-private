@@ -1,31 +1,44 @@
+.manageVolContainer {
+  width: 90vw;
+  margin: 0 auto;
+}
+
 .searchReceiptVol {
-  border: 1px solid var(--placeholder);
+  border: 2px solid var(--placeholder);
   border-radius: 2rem;
   height: 39px;
   display: flex;
   align-items: center;
+  margin: 1.2rem 0;
 }
 
 .searchReceiptVol input {
   border: none;
   outline: none;
-  text-align: left;
   font-size: 1.5rem;
-  width: 86%;
+  width: 87%;
+  /* text-align: left; */
   height: 2.2rem;
 }
 
-.searchReceiptVol .searchIconVol {
-  margin: 0 0.6rem 0 0.8rem;
+.searchReceiptVol input::placeholder {
   font-size: 1.5rem;
   color: var(--placeholder);
 }
 
-.volunteerSearchBox h3 {
-  font-size: 1.7rem;
+.searchReceiptVol .searchIconVol {
+  margin: 1rem;
+  font-size: 1.5rem;
+  color: var(--placeholder);
 }
 
-.addBtnVol {
+.volunteerSearchBox h4 {
+  margin-top: 1.6rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+/* .addBtnVol {
   width: 60px;
   height: 60px;
   border: none;
@@ -40,4 +53,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
