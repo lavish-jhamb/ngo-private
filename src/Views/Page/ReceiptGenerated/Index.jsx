@@ -1,8 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import MainLayout from "../../Layout/Layout2/Main";
 import "./Index.css";
 
 function ReceiptGenerated() {
+  const navigate = useNavigate();
+
+  const submitHandler = () => {
+    navigate("/receipts");
+  };
+
   return (
     <div>
       <MainLayout title="Create Receipt" />
@@ -15,7 +22,6 @@ function ReceiptGenerated() {
           </div>
 
           <div className="">
-            
             <div className="receiptGenBtnsGrp">
               <button className="btnGrpRow">
                 <i class="bx bxs-share-alt"></i> Share
@@ -26,7 +32,9 @@ function ReceiptGenerated() {
             </div>
 
             <div className="">
-              <button className="bttnDone">Done</button>
+              <button onClick={submitHandler} className="bttnDone">
+                Done
+              </button>
             </div>
           </div>
         </div>

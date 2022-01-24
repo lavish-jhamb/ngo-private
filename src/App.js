@@ -8,14 +8,15 @@ import RegistrationType from "./Views/Page/RegistrationType/Index";
 import { Routes, Route, Navigate } from "react-router-dom";
 import NgoProfile from "./Views/Page/NGOProfile/Main";
 import { NavBar } from "./Views/Page/Menubar/Index";
-// import ReceiptGenerated from "./Views/Page/ReceiptGenerated/Index";
-// import ReceiptPreview from "./Views/Page/ReceiptPreview/Index";
+import ReceiptGenerated from "./Views/Page/ReceiptGenerated/Index";
+import ReceiptPreview from "./Views/Page/ReceiptPreview/Index";
 import NewDonor from "./Views/Page/NewDonor/Index";
 import Dashboard from "./Views/Page/Dashboard/Index";
 import ManageVolunteer from "./Views/Page/ManageVolunteer/Index";
 import ManageDonors from "./Views/Page/Donars/Index";
 import NewVolunteer from "./Views/Page/NewVolunteer/Index";
 import ManageReceipt from "./Views/Page/ManageReceipts/Index";
+import CreateRecieptForm from "./Views/Page/CreateReciept/Main";
 
 
 function App() {
@@ -47,6 +48,9 @@ function App() {
         <Route path="/donors" element={<ManageDonors/>} />
         <Route path="/create-donor" element={<NewDonor />} />
         <Route path="/receipts" element={<ManageReceipt />} />
+        <Route path="/create-receipt" element={<CreateRecieptForm />} />
+        <Route path="/receipt-preview" element={<ReceiptPreview />} />
+        <Route path="/receipt-generated" element={<ReceiptGenerated />} />
         <Route path="/volunteers" element={<ManageVolunteer />} />
         <Route path="/create-volunteer" element={<NewVolunteer />} />
         <Route
