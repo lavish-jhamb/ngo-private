@@ -1,9 +1,14 @@
 import React from 'react';
 import './CreateReciept.css';
-import MainLayout from '../../Layout/Layout2/Main';
+import MainLayout from '../../../Layout/Layout2/Main';
 
 
-function CreateReciept() {
+function CreateReciept(props) {
+  const {CreateReciept1}=props;
+  const CreateRecieptNext=()=>{
+    CreateReciept1((Create)=>Create+1);
+
+  }
   return (<>
     <MainLayout title="Create Reciept">
   <div className='createrecieptwrapper'>
@@ -23,7 +28,7 @@ function CreateReciept() {
      <input placeholder="Address" type="text" />
      </div>
      <div className="iconcreatereciept1">
-              <button  type="submit">
+              <button onClick={CreateRecieptNext} type="submit">
                 Next
                 <span>
                 <i class="fas fa-chevron-right"></i>

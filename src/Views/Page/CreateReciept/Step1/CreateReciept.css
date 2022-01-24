@@ -1,32 +1,33 @@
-.createreciept2wrapper{
+.createrecieptwrapper{
     height:calc(100vh - 109px);
 }
-.createreciept2container{
+.createrecieptcontainer{
     width: 80vw;
     margin: 0 auto;
     height: 100%;
 }
-.headercreatere2ciept1{
-    margin: 1em 0 1em 0; 
+.headercreatereciept1{
+    
     display:flex;
     justify-content: space-between;
     align-items: center; 
+    margin-top: 2em;
 }
-.headercreatere2ciept1 > h2{
+.headercreatereciept1 > h2{
     font-size: 1.7rem;
 }
-.headercreatere2ciept1 > p{
+.headercreatereciept1 > p{
     font-size:1.4rem;
     color: var(--darkGray);
     font-weight: 500;
 }
-.createreciept2formcontainer{
+.createrecieptformcontainer{
     height: calc(100% - 80px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-.iconcreatereciept2>button{
+.iconcreatereciept1>button{
     border: none;
     outline: none;
     border-radius: 12px;
@@ -37,18 +38,17 @@
     font-size: 1.6rem;
     position: relative;
 }
-.iconcreatereciept2>button>span{
+.iconcreatereciept1>button>span{
     position: absolute;
     right: 30px;
 }
 
-.createreciept2container> input{
+.createrecieptcontainer> input{
     display: block;
     width: 100%;
-    margin: 1.5em 0;
-    color: var(--placeholder);
+    margin: 1.1em 0;
 }
-.createreciept2container> input[type=text] ,input[type=number]{
+.createrecieptcontainer> input[type=text] ,input[type=number]{
     height: 39px;
     border: solid 2px var(--placeholder);
     border-radius: 12px;
@@ -56,23 +56,7 @@
     line-height: 1.5em;
     color: var(--placeholder);
 }
-.createreciept2container > input[type=text],input[type=number]::placeholder{
+.createrecieptcontainer > input[type=text],input[type=number]::placeholder{
     color: var(--placeholder);
     font-size: 1.5rem;
-}
-
-
-
-.createreciept2container>select{
-    height: 39px;
-    border: solid 2px var(--placeholder);
-    border-radius: 12px;
-    padding-left: 0.5em;
-    line-height: 1.5em;
-    color: var(--placeholder);
-    font-size: 1.5rem;
-    display: block;
-    width: 100%;
-    margin: 1.2em 0;
-    font-size: 1.6rem;
 }

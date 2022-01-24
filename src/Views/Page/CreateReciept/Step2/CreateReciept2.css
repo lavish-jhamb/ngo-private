@@ -1,33 +1,32 @@
-.createrecieptwrapper{
+.createreciept2wrapper{
     height:calc(100vh - 109px);
 }
-.createrecieptcontainer{
+.createreciept2container{
     width: 80vw;
     margin: 0 auto;
-    padding-top:2em;
     height: 100%;
 }
-.headercreatereciept1{
-    margin: 1em 0 1em 0; 
+.headercreatere2ciept1{
+    margin-top: 2em ;
     display:flex;
     justify-content: space-between;
     align-items: center; 
 }
-.headercreatereciept1 > h2{
+.headercreatere2ciept1 > h2{
     font-size: 1.7rem;
 }
-.headercreatereciept1 > p{
+.headercreatere2ciept1 > p{
     font-size:1.4rem;
     color: var(--darkGray);
     font-weight: 500;
 }
-.createrecieptformcontainer{
+.createreciept2formcontainer{
     height: calc(100% - 80px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-.iconcreatereciept1>button{
+.iconcreatereciept2>button{
     border: none;
     outline: none;
     border-radius: 12px;
@@ -38,24 +37,42 @@
     font-size: 1.6rem;
     position: relative;
 }
-.iconcreatereciept1>button>span{
+.iconcreatereciept2>button>span{
     position: absolute;
     right: 30px;
 }
 
-.createrecieptcontainer> input{
+.createreciept2container> input{
     display: block;
     width: 100%;
-    margin: 1.5em 0;
+    margin: 1.1em 0;
+    color: var(--placeholder);
 }
-.createrecieptcontainer> input[type=text] ,input[type=number]{
+.createreciept2container> input[type=text] ,input[type=number]{
     height: 39px;
     border: solid 2px var(--placeholder);
     border-radius: 12px;
     padding-left: 1em;
     line-height: 1.5em;
+    color: var(--placeholder);
 }
-.createrecieptcontainer > input[type=text],input[type=number]::placeholder{
+.createreciept2container > input[type=text],input[type=number]::placeholder{
     color: var(--placeholder);
     font-size: 1.5rem;
+}
+
+
+
+.createreciept2container>select{
+    height: 39px;
+    border: solid 2px var(--placeholder);
+    border-radius: 12px;
+    padding-left: 0.5em;
+    line-height: 1.5em;
+    color: var(--placeholder);
+    font-size: 1.5rem;
+    display: block;
+    width: 100%;
+    margin: 1.2em 0;
+    font-size: 1.6rem;
 }
