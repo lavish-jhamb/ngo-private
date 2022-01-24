@@ -66,11 +66,7 @@ function App() {
           }
         />
       </Routes>
-     
-      
-      
     </div>
-    
   );
 }
 
