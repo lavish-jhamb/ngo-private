@@ -1,7 +1,8 @@
 import React from "react";
 import "./Index.css";
 import Card from "../../../Components/Card/Index";
-import { NavBar } from "../Menubar/NavBar";
+import { NavBar } from "../Menubar/Index";
+import HeaderUp from "../../../Components/HeaderUp/Index";
 
 function Donars() {
   const donarsList = [
@@ -34,21 +35,21 @@ function Donars() {
       date: "jan,11,2022",
     },
     {
-      id: 4,
+      id: 5,
       name: "Josephine Sans Auston",
       phone: "+91 7988065836",
       donation: "75000",
       date: "jan,11,2022",
     },
     {
-      id: 4,
+      id: 6,
       name: "Josephine Sans Auston",
       phone: "+91 7988065836",
       donation: "75000",
       date: "jan,11,2022",
     },
     {
-      id: 4,
+      id: 7,
       name: "Josephine Sans Auston",
       phone: "+91 7988065836",
       donation: "75000",
@@ -57,22 +58,23 @@ function Donars() {
   ];
 
   return (
-    <div className="donors">
-      <h4>Manage Donors</h4>
-      <div className="search-bar">
-        <div className="search">
-          <i className="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="Search by name,phone..." />
+    <>
+      <HeaderUp />
+      <div className="donors">
+        <h4>Manage Donors</h4>
+        <div className="search-bar">
+          <div className="search">
+            <i className="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search by name,phone..." />
+          </div>
+          <i className="fa-solid fa-calendar-days"></i>
         </div>
-        <i className="fa-solid fa-calendar-days"></i>
-      </div>
-      <div className="scroll">
-      {donarsList.map((donar) => (
-          <Card donar={donar} />
-        ))}
-      </div>
+          {donarsList.map((donar) => (
+            <Card donar={donar} />
+          ))}
         <NavBar />
-    </div>
+      </div>
+    </>
   );
 }
 

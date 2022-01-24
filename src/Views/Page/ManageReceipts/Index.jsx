@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderUp from "../../../Components/HeaderUp/Index";
 import { NavBar } from "../Menubar/Index";
-import ManageRecData from "./Card/ManageRecData";
+import ManageRecData from "./ReceiptCard/ManageRecData";
 import "./Index.css";
 
 const ManageReceipt = () => {

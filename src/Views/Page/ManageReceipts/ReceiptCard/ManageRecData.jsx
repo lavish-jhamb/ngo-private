@@ -1,5 +1,5 @@
 import React from "react";
-import receiptUsertData from "./UserDataReceipt";
+import receiptUsertData from "./UserDataReceipt.json";
 import "./ManageRecData.css";
 
 const ManageRecData = (props) => {

@@ -14,19 +14,27 @@ export const NavBar = () => {
             <i className={`bx bx-home-alt ${isActive && "active-icon"}`}></i>
           )}
         </NavLink>
-        <NavLink to="/donors">
+        <NavLink 
+        to="/donors"
+        className={({ isActive }) => (isActive ? "active" : undefined)}
+        >
           {({ isActive }) => (
             <i
               className={`fas fa-hand-holding-usd ${isActive && "active-icon"}`}
             ></i>
           )}
         </NavLink>
-        <NavLink to="/receipts">
+        <NavLink 
+        to="/receipts"
+        className={({ isActive }) => (isActive ? "active" : undefined)}
+        >
           {({ isActive }) => (
             <i className={`fas fa-receipt ${isActive && "active-icon"}`}></i>
           )}
         </NavLink>
-        <NavLink to="/volunteers">
+        <NavLink to="/volunteers"
+        className={({ isActive }) => (isActive ? "active" : undefined)}
+        >
           {({ isActive }) => (
             <i className={`fas fa-users ${isActive && "active-icon"}`}></i>
           )}
