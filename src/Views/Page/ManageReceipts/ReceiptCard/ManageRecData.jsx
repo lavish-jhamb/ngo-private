@@ -25,10 +25,10 @@ const ManageRecData = (props) => {
             </div>
             <div className="cardData">
               <p>
-                <i className="fas fa-phone-alt cardIcon pe-2"></i> {data.phone}
+                <i className="fas fa-phone-alt cardIcon"></i> {data.phone}
               </p>
               <p>
-                <i className="fas fa-envelope cardIcon pe-2"></i> {data.email}
+                <i className="fas fa-envelope cardIcon"></i> {data.email}
               </p>
             </div>
           </div>

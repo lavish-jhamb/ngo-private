@@ -1,6 +1,7 @@
 import React from "react";
 import "./Index.css";
-import MainLayout from "../../../Layout/Layout2/Main";
+// import MainLayout from "../../../Layout/Layout2/Main";
+import HeaderDown from "../../../../Components/HeaderDown/Index";
 
 function CreateRecieptForm(props) {
   
@@ -12,7 +13,8 @@ function CreateRecieptForm(props) {
 
   return (
     <>
-      <MainLayout title="Create Reciept">
+      {/* <MainLayout title="Create Reciept"> */}
+      <HeaderDown heading="Create Receipt"/>
         <div className="createrecieptwrapper">
           <div className="createrecieptcontainer">
             <div className="headercreatereciept1">
@@ -38,7 +40,7 @@ function CreateRecieptForm(props) {
             </div>
           </div>
         </div>
-      </MainLayout>
+      {/* </MainLayout> */}
     </>
   );
 }

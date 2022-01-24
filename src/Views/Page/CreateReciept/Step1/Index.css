@@ -2,12 +2,11 @@
     height:calc(100vh - 109px);
 }
 .createrecieptcontainer{
-    width: 80vw;
+    width: 90vw;
     margin: 0 auto;
     height: 100%;
 }
 .headercreatereciept1{
-
     display:flex;
     justify-content: space-between;
     align-items: center; 

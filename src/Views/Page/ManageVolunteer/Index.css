@@ -16,9 +16,9 @@
   border: none;
   outline: none;
   font-size: 1.5rem;
-  width: 87%;
-  /* text-align: left; */
-  height: 2.2rem;
+  height:100%;
+  width: 86%;
+  height: 100%;
 }
 
 .searchReceiptVol input::placeholder {

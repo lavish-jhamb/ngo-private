@@ -1,27 +1,29 @@
-.dashboardCardContainer{
+.dashboardCardContainer {
     border-radius: 1.1rem;
     overflow: hidden;
     margin-bottom: 15px;
 }
 
-.dashboardCardContainer h2{
+.dashboardCardContainer h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
     margin: 0;
 }
 
-.dashboardHeader{
+.dashboardHeader {
     background: #e5e5e5;
-    padding:10px 20px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     font-weight: bold;
 }
 
-.dashboardHeader > img{
+.dashboardHeader>img {
     margin-right: 7px;
-    width:18px;
+    width: 18px;
 }
 
-.dashboardBody{
+.dashboardBody {
     background: #f5f5f5;
     padding: 1.6rem 1.1rem;
     display: flex;
@@ -29,23 +31,23 @@
     align-items: center;
 }
 
-.blueText{
+.blueText {
     font-weight: bold;
-    color:var(--primary);
+    color: var(--primary);
     margin-left: 10px;
 }
 
-.detailsButton{
+.detailsButton {
     color: var(--white);
     background: #59a9a5;
     padding: 0.3rem 1.2rem;
     font-size: 12px;
     border-radius: 5px;
-    border:2px solid transparent;
+    border: 2px solid transparent;
     transition: all 0.2s linear;
 }
 
-.detailsButton:hover{
+.detailsButton:hover {
     border: 2px solid #59a9a5;
     background: var(--white);
     color: #59a9a5;

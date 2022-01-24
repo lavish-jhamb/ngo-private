@@ -2,9 +2,16 @@ import React from "react";
 import HeaderUp from "../../../Components/HeaderUp/Index";
 import { NavBar } from "../Menubar/Index";
 import ManageRecData from "./ReceiptCard/ManageRecData";
+import { useNavigate } from "react-router-dom";
 import "./Index.css";
 
 const ManageReceipt = () => {
+  const navigate = useNavigate();
+
+  const createReceipt = () => {
+    navigate("/create-receipt");
+  };
+
   return (
     <>
       <HeaderUp />
@@ -27,7 +34,7 @@ const ManageReceipt = () => {
         </div>
 
         <div>
-          <button className="addBtn">
+          <button onClick={createReceipt} className="addBtn">
             <i className="bx bx-plus bx-lg"></i>
           </button>
         </div>

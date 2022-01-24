@@ -39,3 +39,8 @@
 .active-icon{
     color: var(--primary)!important;
 }
+
+.NavFooter {
+    height: 74px;
+    width: 100%;
+}

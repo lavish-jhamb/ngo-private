@@ -10,7 +10,6 @@ function NewVolunteer() {
 
   const loginHandler = (e) => {
     e.preventDefault();
-    console.log("clicked");
     navigate("/volunteers");
   };
 
@@ -23,13 +22,13 @@ function NewVolunteer() {
     <div>
       <HeaderDown heading="New Volunteer" />
 
-      <div className="newVolContainer container px-5">
+      <div className="newVolContainer">
         <div className="newVolFormContainer">
           <div>
             <form className="newvolForm">
               <input placeholder="Name" type="text" />
               <input placeholder="Email" type="email" />
-              <input placeholder="Phone number" type="number" />
+              <input placeholder="Phone number" type="tel" />
               <div className="newVolPwd">
                 <input
                   placeholder="Password"

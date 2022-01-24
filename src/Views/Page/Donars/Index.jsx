@@ -66,7 +66,7 @@ function Donars() {
         <div className="search-bar">
           <div className="search">
             <i className="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search by name,phone..." />
+            <input type="text" placeholder="Search by name, phone" />
           </div>
           <i className="fa-solid fa-calendar-days"></i>
         </div>

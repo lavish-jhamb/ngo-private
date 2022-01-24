@@ -27,7 +27,8 @@
 
 .cardIcon {
   color: var(--darkGray);
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  margin-right: 0.6rem;
 }
 
 .cardFooter {

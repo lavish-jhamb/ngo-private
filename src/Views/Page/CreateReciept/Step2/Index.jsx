@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import MainLayout from "../../../Layout/Layout2/Main";
+// import MainLayout from "../../../Layout/Layout2/Main";
+import HeaderDown from "../../../../Components/HeaderDown/Index";
 import "./Index.css";
 
 function CreateRecieptFormTwo(props) {
@@ -11,13 +12,14 @@ function CreateRecieptFormTwo(props) {
     navigate("/receipt-preview")    
   }
 
-  const goBack = () => {
-    navigate(-1);
-  }
+  // const goBack = () => {
+  //   navigate(-1);
+  // }
 
   return (
     <>
-      <MainLayout title="Create Reciept" handler={goBack}>
+      {/* <MainLayout title="Create Reciept" handler={goBack}> */}
+      <HeaderDown heading="Create Receipt"/>
         <div className="createreciept2wrapper">
           <div className="createreciept2container">
             <div className="headercreatere2ciept1">
@@ -28,9 +30,8 @@ function CreateRecieptFormTwo(props) {
               <div className="createreciept2container">
                 <input placeholder="Amount (in Rs.)" type="number" />
                 <select
-                  className=" "
+                  className=""
                   name="paymentMethod"
-                  aria-label="Payment Method"
                   required
                 >
                   <option value="">Select Payment Method</option>
@@ -59,7 +60,7 @@ function CreateRecieptFormTwo(props) {
             </div>
           </div>
         </div>
-      </MainLayout>
+      {/* </MainLayout> */}
     </>
   );
 }

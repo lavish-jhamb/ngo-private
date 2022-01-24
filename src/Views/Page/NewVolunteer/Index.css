@@ -1,5 +1,7 @@
 .newVolContainer {
   height: calc(100vh - 10.9rem);
+  width: 90vw;
+  margin: 1.5rem auto 0;
 }
 
 .newVolFormContainer {
@@ -51,7 +53,7 @@
   border: none;
   outline: none;
   width: 90%;
-  height: auto;
+  height: 100%;
 }
 
 .newVolPwd button {
@@ -65,6 +67,7 @@
   margin: 0.65rem 0;
   color: var(--darkGray);
 }
+
 .newVolPwd i {
   color: var(--darkGray);
   font-size: 2rem;

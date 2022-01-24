@@ -25,7 +25,7 @@ const ManageVolunteer = () => {
       </div>
 
       <div>
-        <Link to="/NewVolunteer">
+        <Link to="/create-volunteer">
             {/* css for addbtn : refer css of Manage Reciept  */}
           <button className="addBtn">
             <i className="bx bx-plus bx-lg"></i>
