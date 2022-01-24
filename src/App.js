@@ -14,7 +14,7 @@ import NewDonor from "./Views/Page/NewDonor/Index";
 import Dashboard from "./Views/Page/Dashboard/Index";
 import ManageVolunteer from "./Views/Page/ManageVolunteer/Index";
 import ManageDonors from "./Views/Page/Donars/Index";
-// import NewVolunteer from "./Views/Page/NewVolunteer/Index";
+import NewVolunteer from "./Views/Page/NewVolunteer/Index";
 import ManageReceipt from "./Views/Page/ManageReceipts/Index";
 
 
@@ -42,13 +42,13 @@ function App() {
         <Route path="/registrationType" element={<RegistrationType />} />
         <Route path="/NGOprofile" element={<NgoProfile />} />
         <Route path="/volunteer-profile" element={<VolunteerProfile />} />
-        <Route path="/donor-new" element={<NewDonor />} />
         <Route path="/profile-exit" element={<ProfileExit />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/volunteers" element={<ManageVolunteer />} />
         <Route path="/donors" element={<ManageDonors/>} />
+        <Route path="/create-donor" element={<NewDonor />} />
         <Route path="/receipts" element={<ManageReceipt />} />
-
+        <Route path="/volunteers" element={<ManageVolunteer />} />
+        <Route path="/create-volunteer" element={<NewVolunteer />} />
         <Route
           path="*"
           element={

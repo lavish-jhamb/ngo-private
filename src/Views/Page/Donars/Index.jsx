@@ -3,6 +3,7 @@ import "./Index.css";
 import Card from "../../../Components/Card/Index";
 import { NavBar } from "../Menubar/Index";
 import HeaderUp from "../../../Components/HeaderUp/Index";
+import { Link } from "react-router-dom";
 
 function Donars() {
   const donarsList = [
@@ -69,9 +70,14 @@ function Donars() {
           </div>
           <i className="fa-solid fa-calendar-days"></i>
         </div>
-          {donarsList.map((donar) => (
-            <Card donar={donar} />
-          ))}
+        {donarsList.map((donar) => (
+          <Card donar={donar} />
+        ))}
+        <Link to="/create-donor">
+          <button className="addBtnVol">
+            <i className="bx bx-plus bx-md"></i>
+          </button>
+        </Link>
         <NavBar />
       </div>
     </>
