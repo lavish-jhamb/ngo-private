@@ -3,10 +3,10 @@ import Style from "./Index.module.css";
 import ArrowIcon from "./Images/arrow.png";
 import Svg from "./Images/Vector.svg";
 
-function LayoutTwo({title}) {
+function LayoutTwo({title,handler}) {
   return (
     <div className={Style.layoutContainer}>
-      <div className={Style.svgContainer}>
+      <div onClick={handler} className={Style.svgContainer}>
         <img src={ArrowIcon} alt="icon" />
       </div>
       <div className={Style.title}>

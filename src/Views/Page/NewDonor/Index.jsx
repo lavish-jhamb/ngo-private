@@ -1,10 +1,17 @@
 import React from "react";
 import Style from "./Index.module.css";
 import MainLayout from "../../Layout/Layout2/Main";
+import { useNavigate } from "react-router-dom";
 
 function NewDonor() {
+  const navigate = useNavigate();
+  
+  const goBack = () => {
+    navigate(-1)
+  }
+
   return (
-    <MainLayout title="New Donor">
+    <MainLayout title="New Donor" handler={goBack}>
       <div className={Style.container}>
         <div className={Style.form}>
           <div className={Style.addressDetails}>

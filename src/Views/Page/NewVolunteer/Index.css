@@ -1,9 +1,10 @@
 .newVolContainer {
-  height: calc(100vh - 10.9rem);
+  height: calc(100vh - 130px);
+  margin-top: 2em;
 }
 
 .newVolFormContainer {
-  height: calc(100% - 2.4rem);
+  height: calc(100% - 60px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
