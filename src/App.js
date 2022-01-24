@@ -16,6 +16,7 @@ import ManageVolunteer from "./Views/Page/ManageVolunteer/Index";
 import ManageDonors from "./Views/Page/Donars/Index";
 import NewVolunteer from "./Views/Page/NewVolunteer/Index";
 import ManageReceipt from "./Views/Page/ManageReceipts/Index";
+import MainCreateReciept from "./Views/Page/CreateReciept/Main";
 
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
           }
         />
       </Routes>
+      
     </div>
   );
 }
