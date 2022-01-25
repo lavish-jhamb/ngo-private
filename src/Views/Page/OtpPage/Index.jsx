@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Style from "./Index.module.css";
-import MainLayout from "../../Layout/Main";
+import PrimaryLayout from "../../Layout/Primary/Main";
 import { useNavigate } from "react-router-dom";
 
 function Otppage() {
@@ -32,7 +32,7 @@ function Otppage() {
   };
 
   return (
-    <MainLayout>
+    <PrimaryLayout>
       <div className={Style.otpContainer}>
         <div className={Style.otpWrapper}>
           <h2>Enter OTP</h2>
@@ -78,7 +78,7 @@ function Otppage() {
           </div>
         </div>
       </div>
-    </MainLayout>
+    </PrimaryLayout>
   );
 }
 

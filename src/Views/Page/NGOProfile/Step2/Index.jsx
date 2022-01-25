@@ -1,6 +1,6 @@
 import React from "react";
 import Style from "./Index.module.css";
-import MainLayout from "../../../Layout/Layout2/Main";
+import SecondaryLayout from "../../../Layout/Secondary/Main";
 import ArrowIcon from "../Step2/Images/arrow.png";
 import { useNavigate } from "react-router-dom";
 
@@ -18,7 +18,7 @@ function ProfileTwo(props) {
   }
 
   return (
-    <MainLayout title="NGO Profile">
+    <SecondaryLayout title="NGO Profile">
       <div className={Style.container}>
         <div className={Style.form}>
           <div className={Style.header}>
@@ -46,7 +46,7 @@ function ProfileTwo(props) {
           <button onClick={submitHandler} type="submit">Submit</button>
         </div>
       </div>
-    </MainLayout>
+    </SecondaryLayout>
   );
 }
 

@@ -2,7 +2,7 @@ import React from "react";
 import Style from "./Index.module.css";
 import UploadIcon from "../Step1/Images/upload.png";
 import NextIcon from "../Step1/Images/next.png";
-import MainLayout from "../../../Layout/Layout2/Main";
+import SecondaryLayout from "../../../Layout/Secondary/Main";
 
 function ProfileOne(props) {
   const { setPage } = props;
@@ -12,7 +12,7 @@ function ProfileOne(props) {
   };
 
   return (
-    <MainLayout title="NGO Profile" >
+    <SecondaryLayout title="NGO Profile" >
       <div className={Style.ngoProfileWrapper}>
         <div className={Style.ngoProfileContainer}>
           <div className={Style.header}>
@@ -49,7 +49,7 @@ function ProfileOne(props) {
           </div>
         </div>
       </div>
-    </MainLayout>
+    </SecondaryLayout>
   );
 }
 

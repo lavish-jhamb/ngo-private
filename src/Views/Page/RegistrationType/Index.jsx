@@ -1,6 +1,6 @@
 import React from "react";
 import Style from "./Index.module.css";
-import MainLayout from "../../Layout/Main";
+import PrimaryLayout from "../../Layout/Primary/Main";
 import organisationIcon from "./Images/organisation.png";
 import VolunteerIcon from "./Images/volunteer.png";
 import ShareIcon from "./Images/share.png";
@@ -17,7 +17,7 @@ function RegistrationType() {
   };
 
   return (
-    <MainLayout>
+    <PrimaryLayout>
       <div className={Style.registrationContainer}>
         <div className={Style.registrationWrapper}>
           <h2>Register as</h2>
@@ -43,7 +43,7 @@ function RegistrationType() {
           </button>
         </div>
       </div>
-    </MainLayout>
+    </PrimaryLayout>
   );
 }
 

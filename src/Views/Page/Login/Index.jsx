@@ -1,6 +1,6 @@
 import React from "react";
 import Style from "./Index.module.css";
-import MainLayout from "../../Layout/Main";
+import PrimaryLayout from "../../Layout/Primary/Main";
 import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
@@ -12,7 +12,7 @@ function LoginPage() {
   };
 
   return (
-    <MainLayout header="Login">
+    <PrimaryLayout header="Login">
       <div className={Style.loginWrapper}>
         <main className={Style.loginContainer}>
           <form className={Style.loginForm}>
@@ -24,7 +24,7 @@ function LoginPage() {
           </form>
         </main>
       </div>
-    </MainLayout>
+    </PrimaryLayout>
   );
 }
 

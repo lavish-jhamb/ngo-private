@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Index.css";
 import { useNavigate } from "react-router-dom";
-import HeaderDown from "../../../Components/HeaderDown/Index";
 import Icon from "./icon_feather_eye.png";
+import SecondaryLayout from "../../Layout/Secondary/Main";
 
 function NewVolunteer() {
   let navigate = useNavigate();
@@ -19,9 +19,7 @@ function NewVolunteer() {
   };
 
   return (
-    <div>
-      <HeaderDown heading="New Volunteer" />
-
+    <SecondaryLayout title="New Volunteer">
       <div className="newVolContainer">
         <div className="newVolFormContainer">
           <div>
@@ -51,7 +49,7 @@ function NewVolunteer() {
           </div>
         </div>
       </div>
-    </div>
+    </SecondaryLayout>
   );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../../Layout/Header/Images/icon.png';
+import Icon from '../../Layout/Primary/Images/icon.png';
 import Style from "./Index.module.css";
 import { useNavigate } from "react-router-dom"
 

@@ -3,7 +3,7 @@ import Style from "./Index.module.css";
 import Icon from "./Images/icon.png";
 import Svg from "./Images/Vector.svg";
 
-function Header(props) {
+function PrimaryHeader() {
     return (
       <header className={Style.header}>
         <div className={Style.iconContainer}>
@@ -15,4 +15,4 @@ function Header(props) {
     );
 }
 
-export default Header;
+export default PrimaryHeader;

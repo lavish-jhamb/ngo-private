@@ -1,25 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-// import MainLayout from "../../../Layout/Layout2/Main";
-import HeaderDown from "../../../../Components/HeaderDown/Index";
 import "./Index.css";
+import SecondaryLayout from "../../../Layout/Secondary/Main";
 
 function CreateRecieptFormTwo(props) {
-
   const navigate = useNavigate();
 
   const submitHandler = () => {
-    navigate("/receipt-preview")    
-  }
-
-  // const goBack = () => {
-  //   navigate(-1);
-  // }
+    navigate("/receipt-preview");
+  };
 
   return (
     <>
-      {/* <MainLayout title="Create Reciept" handler={goBack}> */}
-      <HeaderDown heading="Create Receipt"/>
+      <SecondaryLayout title="Create Receipt">
         <div className="createreciept2wrapper">
           <div className="createreciept2container">
             <div className="headercreatere2ciept1">
@@ -29,11 +22,7 @@ function CreateRecieptFormTwo(props) {
             <div className="createreciept2formcontainer">
               <div className="createreciept2container">
                 <input placeholder="Amount (in Rs.)" type="number" />
-                <select
-                  className=""
-                  name="paymentMethod"
-                  required
-                >
+                <select className="" name="paymentMethod" required>
                   <option value="">Select Payment Method</option>
                   <option value="Cash">Cash</option>
                   <option value="Online">Online</option>
@@ -60,7 +49,7 @@ function CreateRecieptFormTwo(props) {
             </div>
           </div>
         </div>
-      {/* </MainLayout> */}
+      </SecondaryLayout>
     </>
   );
 }

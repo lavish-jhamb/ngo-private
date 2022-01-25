@@ -3,7 +3,7 @@ import Style from "./Index.module.css";
 import ArrowIcon from "./Images/arrow.png";
 import Svg from "./Images/Vector.svg";
 
-function LayoutTwo({title,handler}) {
+function SecondaryHeader({title,handler}) {
   return (
     <div className={Style.layoutContainer}>
       <div onClick={handler} className={Style.svgContainer}>
@@ -17,4 +17,4 @@ function LayoutTwo({title,handler}) {
   );
 }
 
-export default LayoutTwo;
+export default SecondaryHeader;

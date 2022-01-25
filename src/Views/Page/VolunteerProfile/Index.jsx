@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Style from "./Index.module.css";
-import MainLayout from "../../Layout/Layout2/Main";
+import SecondaryLayout from "../../Layout/Secondary/Main";
 
 import { useNavigate } from "react-router-dom";
 
@@ -25,7 +25,7 @@ function VolunteerPage() {
   };
 
   return (
-    <MainLayout title="Volunteer Profile">
+    <SecondaryLayout title="Volunteer Profile">
       <div className={Style.VolunteerProfile}>
         <div className={Style.form}>
           <input
@@ -70,7 +70,7 @@ function VolunteerPage() {
           </button>
         </div>
       </div>
-    </MainLayout>
+    </SecondaryLayout>
   );
 }
 

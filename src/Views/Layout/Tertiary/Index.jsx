@@ -1,7 +1,7 @@
 import React from "react";
 import "./Index.css";
 
-function HeaderUp() {
+function TertiaryHeader() {
   return (
     <div className="headUpWrapper">
       <div className="headUpContainer">
@@ -14,4 +14,4 @@ function HeaderUp() {
   );
 }
 
-export default HeaderUp;
+export default TertiaryHeader;

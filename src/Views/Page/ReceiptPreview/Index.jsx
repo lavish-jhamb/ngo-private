@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import MainLayout from "../../Layout/Layout2/Main";
+import SecondaryLayout from "../../Layout/Secondary/Main";
 import "./Index.css";
 
 function ReceiptPreview() {
@@ -11,9 +11,7 @@ function ReceiptPreview() {
   };
 
   return (
-    <div>
-      <MainLayout title="Create Receipt" />
-
+    <SecondaryLayout title="Create Receipt">
       <div className="detailsPreview">
         <div className="createRecDetails">
           <div className="">
@@ -64,7 +62,7 @@ function ReceiptPreview() {
           </div>
         </div>
       </div>
-    </div>
+    </SecondaryLayout>
   );
 }
 

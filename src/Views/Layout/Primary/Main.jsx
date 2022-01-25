@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "../Layout/Header/Index";
+import PrimaryHeader from "./Index";
 
-function MainLayout({ children,header }) {
+function MainLayout({ children }) {
   return (
     <div className="layout">
-      <Header header={header} />
+      <PrimaryHeader />
       {children}
     </div>
   );

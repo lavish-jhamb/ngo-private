@@ -1,6 +1,6 @@
 import React from "react";
 import Style from "./Index.module.css";
-import MainLayout from "../../Layout/Layout2/Main";
+import SecondaryLayout from "../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
 
 function NewDonor() {
@@ -11,7 +11,7 @@ function NewDonor() {
   }
 
   return (
-    <MainLayout title="New Donor" handler={goBack}>
+    <SecondaryLayout title="New Donor" handler={goBack}>
       <div className={Style.container}>
         <div className={Style.form}>
           <div className={Style.addressDetails}>
@@ -30,7 +30,7 @@ function NewDonor() {
           <button type="submit">Add Donor</button>
         </div>
       </div>
-    </MainLayout>
+    </SecondaryLayout>
   );
 }
 
