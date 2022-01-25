@@ -16,7 +16,7 @@ function Card({ donar }) {
       </div>
       <div className={Style.donationDetails}>
         <span>Last donation:</span>
-        <span>{donar.donation}</span>
+        <span>Rs. {donar.donation}</span>
         <span>({donar.date})</span>
       </div>
     </div>

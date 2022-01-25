@@ -66,7 +66,7 @@ function Donars() {
         <div className="search-bar">
           <div className="search">
             <i className="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search by name,phone..." />
+            <input type="text" placeholder="Search by name, phone" />
           </div>
           <i className="fa-solid fa-calendar-days"></i>
         </div>
@@ -74,8 +74,9 @@ function Donars() {
           <Card donar={donar} />
         ))}
         <Link to="/create-donor">
-          <button className="addBtnVol">
-            <i className="bx bx-plus bx-md"></i>
+          {/* css for addbtn : refer css of Manage Reciept  */}
+          <button className="addBtn">
+            <i className="bx bx-plus bx-lg"></i>
           </button>
         </Link>
         <NavBar />

@@ -40,6 +40,8 @@ export const NavBar = () => {
           )}
         </NavLink>
       </nav>
+
+      <div className="NavFooter"></div>
     </>
   );
 };

@@ -1,60 +1,67 @@
-.cardWrapper{
-    border-radius: 10px;
-    background-color: #f3f3f3;
-    overflow: hidden;
-    margin: 15px 0;
-    /* height: 105px; */
+.cardWrapper {
+  border-radius: 10px;
+  background-color: #f3f3f3;
+  overflow: hidden;
+  margin: 15px 0;
+  /* height: 105px; */
 }
 
-.cards > h6{
-    font-size: 1.7rem;
+.cards > h6 {
+  font-size: 1.7rem;
+  font-weight: 600;
 }
 
-.cards{
-    padding:1em;
-    /* padding-top: 0.5em; */
+.cards {
+  padding: 1rem;
 }
 
-.reminderWrapper{
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    margin: 12px 0;
-    margin-bottom:0;
+.reminderWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.2rem 0;
+  margin-bottom: 0;
 }
 
-.reminderWrapper button{
-    border: none;
-    background-color:#59a9a5;
-    color: var(--white);
-    padding: 0.3em 1em;
-    border-radius: 5px;
-    font-size: 1.2rem;
+.reminderWrapper button {
+  border: none;
+  background-color: #59a9a5;
+  color: var(--white);
+  height: 2.4rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.6rem;
+  font-size: 1.1rem;
 }
 
-.reminderWrapper i, .reminderWrapper span {
-    font-size: 1.4rem;
-    margin:0 0.2em;
+.reminderWrapper i,
+.reminderWrapper span {
+  font-size: 1.4rem;
+  margin: 0 0.2em;
 }
 
-.donationDetails{
-    display: flex;
-    align-items: center;
-    background-color: #e6e6e6;
-    height: 33px;
-    padding: 0 1em;
+.donationDetails {
+  display: flex;
+  align-items: center;
+  background-color: #e6e6e6;
+  height: 33px;
+  padding: 0 1em;
 }
 
-.donationDetails span{
-    display:inline-block;
-    font-size: 1.1rem;
+.donationDetails span {
+  display: inline-block;
+  font-size: 1.1rem;
 }
 
-.donationDetails span:nth-child(3){
-    margin-left:4px;
+.donationDetails span:nth-child(1) {
+    color: var(--darkGray);
+  }
+
+.donationDetails span:nth-child(3) {
+  margin-left: 4px;
+  color: var(--darkGray);
 }
 
-.donationDetails span:nth-child(2){
-    font-weight: bold;
-    margin-left: 5px;
+.donationDetails span:nth-child(2) {
+  font-weight: bold;
+  margin-left: 5px;
 }

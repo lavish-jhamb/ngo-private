@@ -1,10 +1,11 @@
 .newVolContainer {
-  height: calc(100vh - 130px);
-  margin-top: 2em;
+  height: calc(100vh - 10.9rem);
+  width: 90vw;
+  margin: 1.5rem auto 0;
 }
 
 .newVolFormContainer {
-  height: calc(100% - 60px);
+  height: calc(100% - 2.4rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -52,13 +53,13 @@
   border: none;
   outline: none;
   width: 90%;
-  height: auto;
+  height: 100%;
 }
 
 .newVolPwd button {
   border: none;
   background-color: var(--white);
-  margin-right: 0.4rem;
+  margin-right: 1rem;
 }
 
 .newVolPwd img {
@@ -66,6 +67,7 @@
   margin: 0.65rem 0;
   color: var(--darkGray);
 }
+
 .newVolPwd i {
   color: var(--darkGray);
   font-size: 2rem;

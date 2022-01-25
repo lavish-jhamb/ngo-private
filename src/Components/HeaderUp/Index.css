@@ -1,27 +1,25 @@
-.head {
+.headUpWrapper {
   background-color: var(--primary);
   border-bottom-right-radius: 2.5rem;
   height: 9.3rem;
 }
 
-.navbar-brand {
-  margin: 1.35rem auto;
+.headUpContainer {
+  width: 90vw;
+  margin: 0 auto;
+  height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 .logo {
   flex: 0;
   color: #fff;
-  margin-left: 1.5rem;
 }
 
-.head .navbar-brand .navHeading {
-  flex: 1;
-  display: inline-flex;
-  color: #fff;
+.headUpContainer .navHeading {
+  color: var(--white);
   font-size: 1.5rem;
-  height: 3.9rem;
-  margin-left: 1rem;
+  font-weight: 600;
+  margin-left: 0.8rem ;
 }

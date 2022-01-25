@@ -1,30 +1,29 @@
-.HdownHead{
+.headDownWrapper {
   height: 10.9rem;
 }
 
-.rpHead {
+.headDownContainer {
   background-color: var(--primary);
-  /* height: ; */
+  height: 9.3rem;
 }
 
-.rpHead .rpNavContent {
+.headDownContent {
+  width: 90vw;
+  margin: 0 auto;
+  height: 100%;
   display: flex;
-  align-content: center;
-  margin: 1.4rem auto;
+  align-items: center;
 }
 
-.rpHeadBtn {
+.headDownContainer button {
   color: #fff;
-  margin-left: 1.5rem;
   background-color: #007c75;
   border: none;
 }
 
-.rpNavHeading {
-  display: inline-flex;
+.headDownContent p {
   font-size: 2.1rem;
   color: #fff;
-  margin-left: 1rem;
 }
 
 .invertedCorner {
