@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
-import WelcomePage from "./Views/Page/Welcome/Index";
-import LoginPage from "./Views/Page/Login/Index";
-import ProfileExit from "./Views/Page/ProfileExit/Index";
-import OtpPage from "./Views/Page/OtpPage/Index";
-import VolunteerProfile from "./Views/Page/VolunteerProfile/Index";
-import RegistrationType from "./Views/Page/RegistrationType/Index";
+import WelcomePage from "./Views/Page/Auth/Welcome/Index";
+import LoginPage from "./Views/Page/Auth/Login/Index";
+import ProfileExit from "./Views/Page/Profile/Created/Index";
+import OtpPage from "./Views/Page/Auth/OtpPage/Index";
+import VolunteerProfile from "./Views/Page/Profile/Volunteer/Index";
+import RegistrationType from "./Views/Page/Auth/RegistrationType/Index";
 import { Routes, Route, Navigate } from "react-router-dom";
-import NgoProfile from "./Views/Page/NGOProfile/Main";
-import { NavBar } from "./Views/Page/Menubar/Index";
-import ReceiptGenerated from "./Views/Page/ReceiptGenerated/Index";
-import ReceiptPreview from "./Views/Page/ReceiptPreview/Index";
-import NewDonor from "./Views/Page/NewDonor/Index";
-import Dashboard from "./Views/Page/Dashboard/Index";
-import ManageVolunteer from "./Views/Page/ManageVolunteer/Index";
-import ManageDonors from "./Views/Page/Donars/Index";
-import NewVolunteer from "./Views/Page/NewVolunteer/Index";
-import ManageReceipt from "./Views/Page/ManageReceipts/Index";
-import CreateRecieptForm from "./Views/Page/CreateReciept/Main";
+import NgoProfile from "./Views/Page/Profile/Ngo/Main";
+import Menubar  from "./Views/Layout/Menubar/Index";
+import ReceiptGenerated from "./Views/Page/Dashboard/Receipts/ReceiptGenerated/Index";
+import ReceiptPreview from "./Views/Page/Dashboard/Receipts/ReceiptPreview/Index";
+import NewDonor from "./Views/Page/Dashboard/Donors/CreateDonor/Index";
+import Dashboard from "./Views/Page/Dashboard/Home/Index";
+import ManageVolunteer from "./Views/Page/Dashboard/Volunteers/Index";
+import ManageDonors from "./Views/Page/Dashboard/Donors/Index";
+import NewVolunteer from "./Views/Page/Dashboard/Volunteers/CreateVolunteer/Index";
+import ManageReceipt from "./Views/Page/Dashboard/Receipts/Index";
+import CreateRecieptForm from "./Views/Page/Dashboard/Receipts/CreateReciept/Main";
 
 
 function App() {
@@ -65,7 +65,7 @@ function App() {
               >
                 Coming soon
               </h1>
-              <NavBar />
+              <Menubar />
             </main>
           }
         />
