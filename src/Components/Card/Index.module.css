@@ -1,12 +1,34 @@
+.MainContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.animatedCard {
+  animation: slide 0.2s 1 ease-in;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.checkbox {
+  display: none;
+  transition: all 1s linear;
+}
+
 .cardWrapper {
   border-radius: 10px;
   background-color: #f3f3f3;
   overflow: hidden;
   margin: 15px 0;
-}
-
-.popupZindex{
-  z-index: -1;
+  flex: 1;
 }
 
 .cards > h6 {
@@ -56,8 +78,8 @@
 }
 
 .donationDetails span:nth-child(1) {
-    color: var(--darkGray);
-  }
+  color: var(--darkGray);
+}
 
 .donationDetails span:nth-child(3) {
   margin-left: 4px;

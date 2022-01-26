@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import WelcomePage from "./Views/Page/Auth/Welcome/Index";
 import router from "./Config/Router/Router";
-import DonorPopup from "./Views/Page/Dashboard/Donors/Popup/Index";
 
 function App() {
   const [flag, setFlag] = useState(false);
@@ -18,7 +17,6 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/donor-popup" element={<DonorPopup />} />
       <Route
         path="/"
         element={!flag ? <WelcomePage /> : <Navigate replace to="/login" />}
