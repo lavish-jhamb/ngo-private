@@ -16,12 +16,15 @@ function App() {
   }, [flag]);
 
   return (
-      <Routes>
-        <Route path="/" element={!flag ? <WelcomePage /> : <Navigate replace to="/login" />} />
-        {router.map((route) => (
-          <Route key={route.id} path={route.path} element={route.element} />
-        ))}
-      </Routes>
+    <Routes>
+      <Route
+        path="/"
+        element={!flag ? <WelcomePage /> : <Navigate replace to="/login" />}
+      />
+      {router.map((route) => (
+        <Route key={route.id} path={route.path} element={route.element} />
+      ))}
+    </Routes>
   );
 }
 

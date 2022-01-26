@@ -7,7 +7,7 @@ import { uris } from "../../../Config/Router/URI";
 function Menubar() {
   return (
     <>
-      <nav className="nav">
+      <nav id="nav" className="nav">
         <NavLink
           to={uris.dashboard}
           className={({ isActive }) => (isActive ? "active" : undefined)}

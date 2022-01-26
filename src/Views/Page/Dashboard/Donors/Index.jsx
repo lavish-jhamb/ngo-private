@@ -76,7 +76,7 @@ function Donars() {
             ))}
           </div>
           <Link to={uris.createDonors}>
-            <button className="addBtn">
+            <button id="addBttn" className="addBtn">
               <i className="bx bx-plus bx-lg"></i>
             </button>
           </Link>

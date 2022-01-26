@@ -1,24 +1,24 @@
-.MainContainer{
+.MainContainer {
   display: flex;
   align-items: center;
   gap: 0.5em;
 }
 
-.animatedCard{
+.animatedCard {
   animation: slide 0.2s 1 ease-in;
 }
 
 @keyframes slide {
-  0%{
+  0% {
     transform: translateX(-5px);
   }
 
-  100%{
+  100% {
     transform: translateX(0px);
   }
 }
 
-.checkbox{
+.checkbox {
   display: none;
   transition: all 1s linear;
 }
@@ -78,8 +78,8 @@
 }
 
 .donationDetails span:nth-child(1) {
-    color: var(--darkGray);
-  }
+  color: var(--darkGray);
+}
 
 .donationDetails span:nth-child(3) {
   margin-left: 4px;
