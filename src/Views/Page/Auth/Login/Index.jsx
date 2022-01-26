@@ -1,20 +1,20 @@
 import React from "react";
 import Style from "./Index.module.css";
 import PrimaryLayout from "../../../Layout/Primary/Main";
-import { useNavigate } from "react-router-dom";
-import { uris } from "../../../../Config/Router/URI";
+// import { useNavigate } from "react-router-dom";
+// import { uris } from "../../../../Config/Router/URI";
 import firebaseApp from "../../../../firebase";
 import { getAuth, RecaptchaVerifier,signInWithPhoneNumber } from "firebase/auth";
 
 
 function LoginPage() {
 
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
-  const loginHandler = (e) => {
-    e.preventDefault();
-    navigate(uris.otp);
-  };
+  // const loginHandler = (e) => {
+  //   e.preventDefault();
+  //   navigate(uris.otp);
+  // };
 
   const configureRecaptcha = () => {
     const auth = getAuth(firebaseApp);
