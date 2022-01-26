@@ -3,6 +3,7 @@ import "./Index.css";
 import Card from "../../../../Components/Card/Index";
 import MenubarLayout from "../../../Layout/Menubar/Main";
 import {Link} from "react-router-dom";
+import { uris } from "../../../../Config/Router/URI";
 
 function Donars() {
     const donarsList = [
@@ -69,11 +70,10 @@ function Donars() {
                         </div>
                         <i className="fa-solid fa-calendar-days"></i>
                     </div>
-                    {donarsList.map((donar) => (
-                        <Card donar={donar}/>
+                    {donarsList.map((donor) => (
+                        <Card key={donor.id} donor={donor}/>
                     ))}
-                    <Link to="/create-donor">
-                        {/* css for addbtn : refer css of Manage Reciept  */}
+                    <Link to={uris.createDonors}>
                         <button className="addBtn">
                             <i className="bx bx-plus bx-lg"></i>
                         </button>

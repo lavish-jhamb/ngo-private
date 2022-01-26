@@ -1,14 +1,15 @@
 import React from 'react';
 import Icon from '../../../Layout/Primary/Images/icon.png';
 import Style from "./Index.module.css";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { uris } from "../../../../Config/Router/URI";
 
 function ProfileExit() {
 
   const navigate = useNavigate();
 
   const exitHandler = () => {
-    navigate("/dashboard");
+    navigate(uris.dashboard);
   }
 
   return (

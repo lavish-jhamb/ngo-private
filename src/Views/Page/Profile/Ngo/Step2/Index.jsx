@@ -3,6 +3,7 @@ import Style from "./Index.module.css";
 import SecondaryLayout from "../../../../Layout/Secondary/Main";
 import ArrowIcon from "./Images/arrow.png";
 import { useNavigate } from "react-router-dom";
+import { uris } from "../../../../../Config/Router/URI";
 
 function ProfileTwo(props) {
   const { setPage } = props;
@@ -14,8 +15,8 @@ function ProfileTwo(props) {
   };
 
   const submitHandler = () => {
-      navigate("/profile-exit")
-  }
+    navigate(uris.profileCreated);
+  };
 
   return (
     <SecondaryLayout title="NGO Profile">
@@ -43,7 +44,9 @@ function ProfileTwo(props) {
           </div>
         </div>
         <div className={Style.submitButton}>
-          <button onClick={submitHandler} type="submit">Submit</button>
+          <button onClick={submitHandler} type="submit">
+            Submit
+          </button>
         </div>
       </div>
     </SecondaryLayout>

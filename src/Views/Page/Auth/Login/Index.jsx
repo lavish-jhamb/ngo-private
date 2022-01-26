@@ -2,13 +2,14 @@ import React from "react";
 import Style from "./Index.module.css";
 import PrimaryLayout from "../../../Layout/Primary/Main";
 import { useNavigate } from "react-router-dom";
+import { uris } from "../../../../Config/Router/URI";
 
 function LoginPage() {
   let navigate = useNavigate();
 
   const loginHandler = (e) => {
     e.preventDefault();
-    navigate("/otp");
+    navigate(uris.otp);
   };
 
   return (

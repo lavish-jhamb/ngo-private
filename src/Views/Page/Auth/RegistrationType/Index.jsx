@@ -5,15 +5,16 @@ import organisationIcon from "./Images/organisation.png";
 import VolunteerIcon from "./Images/volunteer.png";
 import ShareIcon from "./Images/share.png";
 import { useNavigate } from "react-router-dom";
+import { uris } from "../../../../Config/Router/URI";
 
 function RegistrationType() {
   const navigate = useNavigate();
 
   const ngoHandler = () => {
-    navigate("/NGOprofile");
+    navigate(uris.registerNgo);
   };
   const volunteerHandler = () => {
-    navigate("/volunteer-profile");
+    navigate(uris.registerVolunteer);
   };
 
   return (

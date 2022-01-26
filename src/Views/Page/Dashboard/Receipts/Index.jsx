@@ -1,14 +1,15 @@
 import React from "react";
+import "./Index.css";
 import MenubarLayout from "../../../Layout/Menubar/Main";
 import ManageRecData from "./ReceiptCard/ManageRecData";
 import {useNavigate} from "react-router-dom";
-import "./Index.css";
+import { uris } from "../../../../Config/Router/URI";
 
 const ManageReceipt = () => {
     const navigate = useNavigate();
 
     const createReceipt = () => {
-        navigate("/create-receipt");
+        navigate(uris.createReceipt);
     };
 
     return (

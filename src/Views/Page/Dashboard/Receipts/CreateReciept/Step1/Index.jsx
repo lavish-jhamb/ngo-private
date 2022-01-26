@@ -1,16 +1,23 @@
 import React from "react";
 import "./Index.css";
 import SecondaryLayout from "../../../../../Layout/Secondary/Main";
+import { useNavigate } from "react-router-dom";
 
 function CreateRecieptForm(props) {
   const { setPage } = props;
+
+  const navigate = useNavigate();
 
   const submitHandler = () => {
     setPage((page) => page + 1);
   };
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <SecondaryLayout title="Create Receipt">
+    <SecondaryLayout title="Create Receipt" handler={goBack}>
       <div className="createrecieptwrapper">
         <div className="createrecieptcontainer">
           <div className="headercreatereciept1">

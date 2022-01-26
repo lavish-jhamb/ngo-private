@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Style from "./Index.module.css";
 import PrimaryLayout from "../../../Layout/Primary/Main";
 import { useNavigate } from "react-router-dom";
+import { uris } from "../../../../Config/Router/URI";
 
 function Otppage() {
   const [otp, setOtp] = useState("");
@@ -28,7 +29,7 @@ function Otppage() {
   };
 
   const otpHandler = () => {
-    navigate("/registrationType");
+    navigate(uris.registration);
   };
 
   return (

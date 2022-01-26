@@ -3,16 +3,23 @@ import Style from "./Index.module.css";
 import UploadIcon from "./Images/upload.png";
 import NextIcon from "./Images/next.png";
 import SecondaryLayout from "../../../../Layout/Secondary/Main";
+import { useNavigate } from "react-router-dom";
 
 function ProfileOne(props) {
   const { setPage } = props;
+
+  const navigate = useNavigate();
 
   const pageHandler = () => {
     setPage((page) => page + 1);
   };
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <SecondaryLayout title="NGO Profile" >
+    <SecondaryLayout title="NGO Profile" handler={goBack}>
       <div className={Style.ngoProfileWrapper}>
         <div className={Style.ngoProfileContainer}>
           <div className={Style.header}>

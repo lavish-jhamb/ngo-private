@@ -1,13 +1,15 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import SecondaryLayout from "../../../../Layout/Secondary/Main";
 import "./Index.css";
+import SecondaryLayout from "../../../../Layout/Secondary/Main";
+import { useNavigate } from "react-router-dom";
+import {uris} from "../../../../../Config/Router/URI";
+
 
 function ReceiptPreview() {
-  const navigate = useNavigate("");
+  const navigate = useNavigate();
 
   const submitHandler = () => {
-    navigate("/receipt-generated");
+    navigate(uris.viewReceipt);
   };
 
   return (

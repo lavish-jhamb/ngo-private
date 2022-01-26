@@ -5,8 +5,8 @@ import "./ManageRecData.css";
 const ManageRecData = (props) => {
   return (
     <div>
-      {receiptUsertData.map((data) => (
-        <div className="cardContent">
+      {receiptUsertData.map((data,idx) => (
+        <div key={idx} className="cardContent">
           <div className="cardHeader">
             <div className="cardTitle">
               <h4>
