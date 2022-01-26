@@ -1,13 +1,14 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import "./Index.css";
 import SecondaryLayout from "../../../../../Layout/Secondary/Main";
+import { useNavigate } from "react-router-dom";
+import {uris} from "../../../../../../Config/Router/URI";
 
 function CreateRecieptFormTwo(props) {
   const navigate = useNavigate();
 
   const submitHandler = () => {
-    navigate("/receipt-preview");
+    navigate(uris.editReceipt);
   };
 
   return (

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Style from "./Index.module.css";
 import SecondaryLayout from "../../../Layout/Secondary/Main";
-
 import { useNavigate } from "react-router-dom";
+import { uris } from "../../../../Config/Router/URI";
 
 function VolunteerPage() {
   const [data, setData] = useState({
@@ -21,11 +21,15 @@ function VolunteerPage() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    navigate("/profile-exit");
+    navigate(uris.profileCreated);
+  };
+
+  const goBack = () => {
+    navigate(-1);
   };
 
   return (
-    <SecondaryLayout title="Volunteer Profile">
+    <SecondaryLayout title="Volunteer Profile" handler={goBack}>
       <div className={Style.VolunteerProfile}>
         <div className={Style.form}>
           <input

@@ -1,13 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import "./Index.css";
+import { NavLink } from "react-router-dom";
+import { uris } from "../../../Config/Router/URI";
+
 
 function Menubar() {
   return (
     <>
       <nav className="nav">
         <NavLink
-          to="/dashboard"
+          to={uris.dashboard}
           className={({ isActive }) => (isActive ? "active" : undefined)}
         >
           {({ isActive }) => (
@@ -15,7 +17,7 @@ function Menubar() {
           )}
         </NavLink>
         <NavLink 
-        to="/donors"
+        to={uris.donors}
         className={({ isActive }) => (isActive ? "active" : undefined)}
         >
           {({ isActive }) => (
@@ -25,14 +27,14 @@ function Menubar() {
           )}
         </NavLink>
         <NavLink 
-        to="/receipts"
+        to={uris.receipts}
         className={({ isActive }) => (isActive ? "active" : undefined)}
         >
           {({ isActive }) => (
             <i className={`fas fa-receipt ${isActive && "active-icon"}`}></i>
           )}
         </NavLink>
-        <NavLink to="/volunteers"
+        <NavLink to={uris.volunteer}
         className={({ isActive }) => (isActive ? "active" : undefined)}
         >
           {({ isActive }) => (
@@ -40,8 +42,7 @@ function Menubar() {
           )}
         </NavLink>
       </nav>
-
-      <div className="NavFooter"></div>
+      <div className="menu-footer"></div>
     </>
   );
 };

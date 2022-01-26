@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./Index.css";
-import { useNavigate } from "react-router-dom";
 import Icon from "./icon_feather_eye.png";
 import SecondaryLayout from "../../../../Layout/Secondary/Main";
+import { useNavigate } from "react-router-dom";
+import { uris } from "../../../../../Config/Router/URI";
 
 function NewVolunteer() {
   let navigate = useNavigate();
@@ -10,7 +11,7 @@ function NewVolunteer() {
 
   const loginHandler = (e) => {
     e.preventDefault();
-    navigate("/volunteers");
+    navigate(uris.volunteer);
   };
 
   const pwdHandler = (e) => {
@@ -18,8 +19,12 @@ function NewVolunteer() {
     setpwdVisibility(!pwdVisibility);
   };
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <SecondaryLayout title="New Volunteer">
+    <SecondaryLayout title="New Volunteer" handler={goBack}>
       <div className="newVolContainer">
         <div className="newVolFormContainer">
           <div>
