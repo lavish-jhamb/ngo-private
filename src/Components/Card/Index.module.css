@@ -4,8 +4,23 @@
   gap: 0.5em;
 }
 
+.animatedCard{
+  animation: slide 0.2s 1 ease-in;
+}
+
+@keyframes slide {
+  0%{
+    transform: translateX(-5px);
+  }
+
+  100%{
+    transform: translateX(0px);
+  }
+}
+
 .checkbox{
   display: none;
+  transition: all 1s linear;
 }
 
 .cardWrapper {

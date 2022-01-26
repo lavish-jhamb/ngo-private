@@ -14,6 +14,7 @@ function Card({ donor }) {
       const nodes = e.target.closest(".card").children;
       Array.from(nodes).forEach((node) => {
         node.children[0].style.display = "block";
+        node.classList.add(Style.animatedCard);
       });
     },
 
@@ -21,6 +22,7 @@ function Card({ donor }) {
       const nodes = e.target.closest(".card").children;
       Array.from(nodes).forEach((node) => {
         node.children[0].style.display = "none";
+        node.classList.remove(Style.animatedCard);
       });
     },
   });
