@@ -1,9 +1,19 @@
+.MainContainer{
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.checkbox{
+  display: none;
+}
+
 .cardWrapper {
   border-radius: 10px;
   background-color: #f3f3f3;
   overflow: hidden;
   margin: 15px 0;
-  /* height: 105px; */
+  flex: 1;
 }
 
 .cards > h6 {
