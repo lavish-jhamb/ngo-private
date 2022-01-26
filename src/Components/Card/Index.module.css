@@ -3,7 +3,10 @@
   background-color: #f3f3f3;
   overflow: hidden;
   margin: 15px 0;
-  /* height: 105px; */
+}
+
+.popupZindex{
+  z-index: -1;
 }
 
 .cards > h6 {

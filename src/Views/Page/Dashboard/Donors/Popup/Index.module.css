@@ -1,0 +1,98 @@
+.reminderWindow {
+  width: 26.3rem;
+  height: 23rem;
+  margin: 0 auto;
+  position: fixed;
+  top: 33%;
+  left: 15%;
+  background-color: var(--white);
+  border-radius: 1.2rem;
+}
+
+.reminderOverlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(60,60,60,0.8);
+}
+
+.reminderWinHeader {
+  background-color: var(--lightGray);
+  display: flex;
+  align-items: center;
+  height: 5.9rem;
+  border-radius: 1.2rem 1.2rem 0 0;
+}
+
+.reminderWinHeader h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 0;
+}
+
+.reminderWinBody {
+  background-color: var(--white);
+  width: 90%;
+  margin: 0 auto;
+}
+
+#timeDuration {
+  width: 23.9rem;
+  height: 3.9rem;
+  border: 2px solid var(--placeholder);
+  border-radius: 1.2rem;
+  margin: 1.2rem 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.2rem;
+}
+
+#timeDuration select {
+  border: none;
+  outline: none;
+  appearance: none;
+  background-color: #ffff;
+  font-size: 1.6rem;
+  width: 100%;
+  height: 100%;
+}
+
+#timeDuration i {
+  color: var(--darkGray);
+  font-size: 1.7rem;
+}
+
+.reminderWinBody p {
+  color: var(--darkGray);
+  font-size: 1.3rem;
+}
+
+.reminderBtnsGroup {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.4rem;
+}
+
+.reminderBtns {
+  border: none;
+  width: 11.3rem;
+  height: 4.2rem !important;
+  border-radius: 1.2rem !important;
+  font-size: 1.6rem !important;
+}
+
+.reminderBtnsGroup button:nth-child(1) {
+  background-color: var(--lightGray);
+  color: var(--primary);
+}
+
+.reminderBtnsGroup button:nth-child(2) {
+  background-color: var(--primary);
+  color: var(--white);
+}

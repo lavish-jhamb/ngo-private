@@ -9,14 +9,14 @@
   font-weight: 600;
 }
 
-.search-bar {
+.searchBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 1.2rem 0;
 }
 
-.search-bar > i {
+.searchBar > i {
   border: solid 2px var(--placeholder);
   width: 39px;
   height: 39px;

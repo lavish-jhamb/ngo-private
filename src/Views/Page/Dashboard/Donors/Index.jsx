@@ -1,5 +1,5 @@
 import React from "react";
-import "./Index.css";
+import Style from "./Index.module.css";
 import Card from "../../../../Components/Card/Index";
 import MenubarLayout from "../../../Layout/Menubar/Main";
 import {Link} from "react-router-dom";
@@ -61,10 +61,10 @@ function Donars() {
     return (
         <>
             <MenubarLayout>
-                <div className="donors">
+                <div className={Style.donors}>
                     <h4>Manage Donors</h4>
-                    <div className="search-bar">
-                        <div className="search">
+                    <div className={Style.searchBar}>
+                        <div className={Style.search}>
                             <i className="fa-solid fa-magnifying-glass"></i>
                             <input type="text" placeholder="Search by name, phone"/>
                         </div>

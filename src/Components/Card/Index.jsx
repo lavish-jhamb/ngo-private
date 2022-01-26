@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import DonorPopup from "../../Views/Page/Dashboard/Donors/Popup/Index";
 import Style from "./Index.module.css";
 
 function Card({ donor }) {
+  const [popup, setPopup] = useState(false);
+
+  const togglePopup = ()=> {
+    setPopup(!popup);
+  }
+
+  if (popup) {
+    document.body.style.overflow='hidden';
+  } 
+  else {
+    document.body.style.overflow='visible';
+  }
+
   return (
     <div className={Style.cardWrapper}>
       <div className={Style.cards}>
@@ -11,7 +25,8 @@ function Card({ donor }) {
             <i className="fa-solid fa-phone"></i>
             <span>{donor.phone}</span>
           </div>
-          <button>Send Reminder</button>
+          <button onClick={togglePopup}>Send Reminder</button>
+          {popup && <DonorPopup togglePopup={togglePopup} />}
         </div>
       </div>
       <div className={Style.donationDetails}>
