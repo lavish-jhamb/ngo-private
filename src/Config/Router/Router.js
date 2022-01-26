@@ -15,7 +15,6 @@ import ReceiptPreview from "../../Views/Page/Dashboard/Receipts/ReceiptPreview/I
 import ReceiptGenerated from "../../Views/Page/Dashboard/Receipts/ReceiptGenerated/Index";
 import CreateVolunteer from "../../Views/Page/Dashboard/Volunteers/CreateVolunteer/Index";
 
-
 const router = [
     {
         id: 1,
