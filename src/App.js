@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import WelcomePage from "./Views/Page/Auth/Welcome/Index";
 import router from "./Config/Router/Router";
+import { ToastContainer} from "react-toastify";
 
 function App() {
   const [flag, setFlag] = useState(false);
@@ -16,6 +17,7 @@ function App() {
   }, [flag]);
 
   return (
+    <>
     <Routes>
       <Route
         path="/"
@@ -25,6 +27,8 @@ function App() {
         <Route key={route.id} path={route.path} element={route.element} />
       ))}
     </Routes>
+    <ToastContainer pauseOnFocusLoss={false} autoClose={3000} limit={3} />
+    </>
   );
 }
 

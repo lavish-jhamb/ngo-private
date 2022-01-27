@@ -8,6 +8,33 @@ html{
   font-size: 62.5%;
 }
 
+.Toastify__toast-container {
+  top: unset!important;
+  bottom: 0;
+}
+
+.Toastify__toast-body {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.Toastify__toast {
+  width: 250px;
+  margin-left: auto;
+  margin-top: 2em;
+  bottom: 20px;
+}
+
+:root{
+
+  --toastify-toast-width: 80px!important;
+  --toastify-toast-background: #fff;
+  --toastify-toast-min-height: 64px;
+  --toastify-toast-max-height: 800px;
+  --toastify-font-family: sans-serif;
+  --toastify-z-index: 9999;
+}
+
 html{
   --primary:#007c75;
   --secondary:#cbe8e7;

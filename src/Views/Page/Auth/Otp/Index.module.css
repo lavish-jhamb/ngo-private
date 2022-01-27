@@ -3,7 +3,7 @@
 }
 
 .otpWrapper{
-    width: 80vw;
+    width: 90vw;
     margin: 0 auto;
     margin-top: 3em;
 }
@@ -18,10 +18,24 @@
     margin-top: 1em;
 }
 
-.resendOtp > a{
+.resendOtp .active{
+    border: none;
+    background: none;
+    text-decoration: underline;
     color: var(--primary);
-    font-size: 1.4rem;
     font-weight: 500;
+}
+
+.resendOtp .disabled{
+    border: none;
+    background: none;
+    text-decoration: underline;
+}
+
+.resendOtp > p{
+    margin-top: 1em;
+    font-size: 1.4rem;
+    color: var(--primary);
 }
 
 .otpField{
@@ -30,13 +44,13 @@
 }
 
 .otpField > input {
-    width: 46px;
-    height:44px;
+    width: 36px;
+    height:36px;
     background-color:var(--white);
     text-align: center;
     font-size: 1.5rem;
     font-weight: 200;
-    margin: 0 7px;
+    margin: 0 5px;
     border-radius:12px;
     border: solid 2px var(--placeholder);
     color: var(--primary);
