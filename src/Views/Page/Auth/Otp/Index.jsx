@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Style from "./Index.module.css";
 import PrimaryLayout from "../../../Layout/Primary/Main";
 import { useNavigate } from "react-router-dom";
 import { uris } from "../../../../Config/Router/URI";
+import { configureRecaptcha , onSignInSubmit } from "../../../../Firebase/auth";
 
 function Otppage() {
   const [otp, setOtp] = useState("");
+  const [count, setCount] = useState(5);
+  const [flag, setFlag] = useState(true);
+
   const navigate = useNavigate();
 
   const otpField = (e) => {
@@ -17,7 +21,7 @@ function Otppage() {
 
     const [fieldName, fieldIndex] = name.split("_");
 
-    if (parseInt(fieldIndex, 10) < 4) {
+    if (parseInt(fieldIndex, 10) < 6) {
       const nextSibling = document.querySelector(
         `input[name=${fieldName}_${parseInt(fieldIndex, 10) + 1}]`
       );
@@ -28,8 +32,38 @@ function Otppage() {
     }
   };
 
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      if (count === 0) {
+        setFlag(false);
+        return;
+      }
+      setCount((count) => count - 1);
+    }, 1000);
+
+    return () => clearInterval(timerId);
+  }, [count]);
+
+  useEffect(() => {
+      configureRecaptcha();
+  },[])
+
+  const resendHandler = () => {
+    const contact = localStorage.getItem("contact");
+    onSignInSubmit(contact);
+  }
+
   const otpHandler = () => {
-    navigate(uris.registration);
+    const values = Object.values(otp).map((val) => val);
+    const userOtp = values.join("");
+    window.confirmationResult
+      .confirm(userOtp)
+      .then(() => {
+        navigate(uris.registration);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -70,12 +104,36 @@ function Otppage() {
               name="digit_4"
               autoComplete="off"
             />
+            <input
+              value={otp.digit_5 || ""}
+              onChange={otpField}
+              maxLength="1"
+              type="text"
+              name="digit_5"
+              autoComplete="off"
+            />
+            <input
+              value={otp.digit_6 || ""}
+              onChange={otpField}
+              maxLength="1"
+              type="text"
+              name="digit_6"
+              autoComplete="off"
+            />
           </div>
           <button onClick={otpHandler} className={Style.otpButton}>
             Continue
           </button>
           <div className={Style.resendOtp}>
-            <a href="!#">Resend OTP</a>
+            <button
+              id="sign-in-button"
+              className={!flag ? Style.active : Style.disabled}
+              onClick={resendHandler}
+              disabled={!flag ? false : true}
+            >
+              Resend OTP
+            </button>
+            {flag && <p>didn't receive otp? wait for {count}s</p>}
           </div>
         </div>
       </div>
