@@ -32,9 +32,9 @@ function LoginPage() {
     if (isValid) {
       onSignInSubmit(contact, navigate, true);
     } else if (errors.emptyPhone) {
-      notify.error(errors.emptyPhone);
+      notify.error(errors.emptyPhone,{toastId:'empty-phone-id'});
     } else {
-      notify.error(errors.invalidNo);
+      notify.error(errors.invalidNo,{toastId:'invalidNo-id'});
     }
   };
 

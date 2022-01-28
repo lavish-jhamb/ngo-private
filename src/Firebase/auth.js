@@ -27,7 +27,7 @@ export const onSignInSubmit = (contact,navigate,isRequired=false) => {
             isRequired && navigate("/login/otp")
         })
         .catch((error) => {
-            notify.error(error.message);
+            notify.error(error.message, { toastId: "firebase-error-id" });
         });
 };
 
