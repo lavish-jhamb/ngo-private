@@ -77,7 +77,7 @@ function Otppage() {
       pending: "Verifying OTP..",
       success: {
         render({data}){
-          notify.success(data?.user?.accessToken && 'OTP verified');
+          return data?.user?.accessToken && 'OTP verified';
         }
       },
     });

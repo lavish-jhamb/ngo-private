@@ -39,7 +39,7 @@ export const onSignInSubmit = (contact, component, navigate) => {
             success: 'OTP has been sent',
             error: {
                 render({ data }) {
-                    notify.error(data.message)
+                    return data.message
                 }
             }
         }
