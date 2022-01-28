@@ -1,9 +1,11 @@
+/* global grecaptcha */
 import React, { useEffect, useState } from "react";
 import Style from "./Index.module.css";
 import PrimaryLayout from "../../../Layout/Primary/Main";
 import { useNavigate } from "react-router-dom";
 import { uris } from "../../../../Config/Router/URI";
 import { configureRecaptcha , onSignInSubmit } from "../../../../Firebase/auth";
+import notify from "../../../../Utils/notify";
 
 function Otppage() {
   const [otp, setOtp] = useState("");
@@ -45,8 +47,14 @@ function Otppage() {
   }, [count]);
 
   useEffect(() => {
-      configureRecaptcha();
-  },[])
+    configureRecaptcha();
+
+    return () => {
+      window.recaptchaVerifier.render().then(function (widgetId) {
+        grecaptcha.reset(widgetId);
+      });
+    };
+  }, []);
 
   const resendHandler = () => {
     const contact = localStorage.getItem("contact");
@@ -58,11 +66,14 @@ function Otppage() {
     const userOtp = values.join("");
     window.confirmationResult
       .confirm(userOtp)
-      .then(() => {
+      .then((result) => {
+        const token = result?.user?.accessToken;
+        document.cookie = `accessToken=${token};domain=localhost`;
+        document.cookie = `accessToken=${token};domain=ngo-donation-management.netlify.app`;
         navigate(uris.registration);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        notify.error("OTP didn't match")
       });
   };
 

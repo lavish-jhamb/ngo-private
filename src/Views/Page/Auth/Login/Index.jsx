@@ -1,3 +1,4 @@
+/* global grecaptcha */
 import React, { useEffect, useState } from "react";
 import Style from "./Index.module.css";
 import PrimaryLayout from "../../../Layout/Primary/Main";
@@ -16,7 +17,13 @@ function LoginPage() {
 
   useEffect(() => {
     configureRecaptcha();
-  },[])
+
+    return () => {
+      window.recaptchaVerifier.render().then(function (widgetId) {
+        grecaptcha.reset(widgetId);
+      });
+    };
+  }, []);
 
   const loginHandler = (e) => {
     e.preventDefault();
