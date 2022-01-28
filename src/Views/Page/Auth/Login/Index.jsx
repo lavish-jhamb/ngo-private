@@ -1,4 +1,3 @@
-/* global grecaptcha */
 import React, { useEffect, useState } from "react";
 import Style from "./Index.module.css";
 import PrimaryLayout from "../../../Layout/Primary/Main";
@@ -20,9 +19,7 @@ function LoginPage() {
     configureRecaptcha();
 
     return () => {
-      window.recaptchaVerifier.render().then(function (widgetId) {
-        grecaptcha.reset(widgetId);
-      });
+      window.recaptchaVerifier.clear();
     };
   }, []);
 
@@ -30,7 +27,7 @@ function LoginPage() {
     e.preventDefault();
     const { isValid, errors } = validate(contact);
     if (isValid) {
-      onSignInSubmit(contact, navigate, true);
+      onSignInSubmit(contact,'login',navigate);
     } else if (errors.emptyPhone) {
       notify.error(errors.emptyPhone,{toastId:'empty-phone-id'});
     } else {

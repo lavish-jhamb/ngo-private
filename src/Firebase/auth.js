@@ -13,21 +13,35 @@ export const configureRecaptcha = () => {
     );
 };
 
-export const onSignInSubmit = (contact,navigate,isRequired=false) => {
+export const onSignInSubmit = (contact, component, navigate) => {
     localStorage.setItem("contact", contact);
     const phoneNumber = "+91" + contact;
     const appVerifier = window.recaptchaVerifier;
     const auth = getAuth(firebaseApp);
-    signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+    const authentication = signInWithPhoneNumber(auth, phoneNumber, appVerifier)
         .then((confirmationResult) => {
             window.confirmationResult = confirmationResult;
-            notify.success("OTP has been sent", { toastId: "login-id" });
         })
         .then(() => {
-            isRequired && navigate("/login/otp")
+            component === 'login' && navigate('/login/otp');
+        })
+        .then(() => {
+            component === 'otp' && window.location.reload();
         })
         .catch((error) => {
-            notify.error(error.message, { toastId: "firebase-error-id" });
+            return error;
         });
-};
 
+    notify.promise(
+        authentication,
+        {
+            pending: 'Verifying phone NO..',
+            success: 'OTP has been sent',
+            error: {
+                render({ data }) {
+                    notify.error(data.message)
+                }
+            }
+        }
+    )
+};

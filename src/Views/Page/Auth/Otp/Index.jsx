@@ -1,4 +1,3 @@
-/* global grecaptcha */
 import React, { useEffect, useState } from "react";
 import Style from "./Index.module.css";
 import PrimaryLayout from "../../../Layout/Primary/Main";
@@ -9,7 +8,7 @@ import notify from "../../../../Utils/notify";
 
 function Otppage() {
   const [otp, setOtp] = useState("");
-  const [count, setCount] = useState(5);
+  const [count, setCount] = useState(10);
   const [flag, setFlag] = useState(true);
 
   const navigate = useNavigate();
@@ -50,31 +49,34 @@ function Otppage() {
     configureRecaptcha();
 
     return () => {
-      window.recaptchaVerifier.render().then(function (widgetId) {
-        grecaptcha.reset(widgetId);
-      });
+      window.recaptchaVerifier.clear();
     };
   }, []);
 
   const resendHandler = () => {
     const contact = localStorage.getItem("contact");
-    onSignInSubmit(contact);
+    onSignInSubmit(contact,'otp');
   }
 
   const otpHandler = () => {
     const values = Object.values(otp).map((val) => val);
     const userOtp = values.join("");
-    window.confirmationResult
+    const verifyingOtp = window.confirmationResult
       .confirm(userOtp)
-      .then((result) => {
-        const token = result?.user?.accessToken;
-        document.cookie = `accessToken=${token};domain=localhost`;
-        document.cookie = `accessToken=${token};domain=ngo-donation-management.netlify.app`;
+      ?.then((result) => {
+        const firebaseToken = result?.user?.accessToken;
+        document.cookie = `firebaseToken=${firebaseToken};domain=localhost;secure`;
+        document.cookie = `firebaseToken=${firebaseToken};domain=ngo-donation-management.netlify.app;secure`;
         navigate(uris.registration);
       })
       .catch(() => {
-        notify.error("OTP didn't match")
+        notify.error("OTP didn't match", { toastId: "otp-id" });
       });
+
+    notify.promise(verifyingOtp, {
+      pending: "Verifying OTP..",
+      success: "OTP verified",
+    });
   };
 
   return (
