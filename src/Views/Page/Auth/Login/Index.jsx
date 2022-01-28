@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import Style from "./Index.module.css";
 import PrimaryLayout from "../../../Layout/Primary/Main";
 import { useNavigate } from "react-router-dom";
-// import { uris } from "../../../../Config/Router/URI";
-import { configureRecaptcha , onSignInSubmit } from "../../../../Firebase/auth";
+import { configureRecaptcha, onSignInSubmit } from "../../../../Firebase/auth";
+import { validate } from "../../../../Utils/validate";
+import notify from "../../../../Utils/notify";
 
 function LoginPage() {
   let navigate = useNavigate();
@@ -27,8 +28,15 @@ function LoginPage() {
 
   const loginHandler = (e) => {
     e.preventDefault();
-    onSignInSubmit(contact,navigate,true);
-  }
+    const { isValid, errors } = validate(contact);
+    if (isValid) {
+      onSignInSubmit(contact, navigate, true);
+    } else if (errors.emptyPhone) {
+      notify.error(errors.emptyPhone);
+    } else {
+      notify.error(errors.invalidNo);
+    }
+  };
 
   return (
     <PrimaryLayout header="Login">
