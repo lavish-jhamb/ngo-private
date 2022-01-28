@@ -24,22 +24,17 @@ export const onSignInSubmit = (contact, component, navigate) => {
         })
         .then(() => {
             component === 'login' && navigate('/login/otp');
-        })
-        .then(() => {
             component === 'otp' && window.location.reload();
         })
-        .catch((error) => {
-            return error;
-        });
 
     notify.promise(
         authentication,
         {
             pending: 'Verifying phone NO..',
             success: 'OTP has been sent',
-            error: {
-                render({ data }) {
-                    return data.message
+            error:{
+                render({data}){
+                    return `${data.message}`
                 }
             }
         }

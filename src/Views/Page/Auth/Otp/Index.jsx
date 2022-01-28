@@ -69,18 +69,17 @@ function Otppage() {
         document.cookie = `firebaseToken=${firebaseToken};domain=ngo-donation-management.netlify.app;secure`;
         navigate(uris.registration);
       })
-      .catch(() => {
-        notify.error("OTP didn't match", { toastId: "otp-id" });
-      });
 
     notify.promise(verifyingOtp, {
       pending: "Verifying OTP..",
-      success: {
-        render({data}){
-          return data?.user?.accessToken && 'OTP verified';
+      success: "OTP verified",
+      error:{
+        render(){
+          return `OTP didn't match`
         }
-      },
+      }
     });
+    
   };
 
   return (
