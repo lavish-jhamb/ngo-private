@@ -75,7 +75,11 @@ function Otppage() {
 
     notify.promise(verifyingOtp, {
       pending: "Verifying OTP..",
-      success: "OTP verified",
+      success: {
+        render({data}){
+          notify.success(data?.user?.accessToken && 'OTP verified');
+        }
+      },
     });
   };
 
