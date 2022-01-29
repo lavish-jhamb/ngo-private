@@ -2,6 +2,7 @@ import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth
 import firebaseApp from "./firebase";
 import notify from "../Utils/notify";
 import { uris } from "../Config/Router/URI";
+import { exchangeTokenController } from "../Api/Auth/exchangeToken";
 
 export const configureRecaptcha = () => {
     const auth = getAuth(firebaseApp);
@@ -14,7 +15,7 @@ export const configureRecaptcha = () => {
     );
 };
 
-export const onSignInSubmit = (contact, component, navigate) => {
+export const onSignInSubmit = (contact, navigate, isRequired = false) => {
     localStorage.setItem("contact", contact);
     const phoneNumber = "+91" + contact;
     const appVerifier = window.recaptchaVerifier;
@@ -24,8 +25,7 @@ export const onSignInSubmit = (contact, component, navigate) => {
             window.confirmationResult = confirmationResult;
         })
         .then(() => {
-            component === 'login' && navigate(uris.otp);
-            // component === 'otp' && window.location.reload();
+            isRequired && navigate(uris.otp);
         })
 
     notify.promise(
@@ -49,6 +49,9 @@ export const otpVerification = (userOtp, navigate) => {
             const firebaseToken = result?.user?.accessToken;
             document.cookie = `firebaseToken=${firebaseToken};domain=localhost;secure`;
             document.cookie = `firebaseToken=${firebaseToken};domain=ngo-donation-management.netlify.app;secure`;
+        }).then(() => {
+            exchangeTokenController();
+        }).then(() => {
             navigate(uris.registration);
         })
 

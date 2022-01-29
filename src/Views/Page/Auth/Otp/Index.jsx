@@ -57,7 +57,7 @@ function Otppage() {
 
   const resendHandler = () => {
     const contact = localStorage.getItem("contact");
-    onSignInSubmit(contact, "otp");
+    onSignInSubmit(contact);
   };
 
   const otpHandler = () => {

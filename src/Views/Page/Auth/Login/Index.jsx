@@ -27,7 +27,7 @@ function LoginPage() {
     e.preventDefault();
     const { isValid, errors } = validate(contact);
     if (isValid) {
-      onSignInSubmit(contact,'login',navigate);
+      onSignInSubmit(contact,navigate,true);
     } else if (errors.emptyPhone) {
       notify.error(errors.emptyPhone,{toastId:'empty-phone-id'});
     } else {
