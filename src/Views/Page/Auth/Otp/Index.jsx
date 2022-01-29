@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import Style from "./Index.module.css";
 import PrimaryLayout from "../../../Layout/Primary/Main";
 import { useNavigate } from "react-router-dom";
-import { uris } from "../../../../Config/Router/URI";
-import { configureRecaptcha , onSignInSubmit } from "../../../../Firebase/auth";
-import notify from "../../../../Utils/notify";
+import {
+  configureRecaptcha,
+  onSignInSubmit,
+  otpVerification,
+} from "../../../../Firebase/auth";
 
 function Otppage() {
   const [otp, setOtp] = useState("");
@@ -55,31 +57,13 @@ function Otppage() {
 
   const resendHandler = () => {
     const contact = localStorage.getItem("contact");
-    onSignInSubmit(contact,'otp');
-  }
+    onSignInSubmit(contact, "otp");
+  };
 
   const otpHandler = () => {
     const values = Object.values(otp).map((val) => val);
     const userOtp = values.join("");
-    const verifyingOtp = window.confirmationResult
-      .confirm(userOtp)
-      ?.then((result) => {
-        const firebaseToken = result?.user?.accessToken;
-        document.cookie = `firebaseToken=${firebaseToken};domain=localhost;secure`;
-        document.cookie = `firebaseToken=${firebaseToken};domain=ngo-donation-management.netlify.app;secure`;
-        navigate(uris.registration);
-      })
-
-    notify.promise(verifyingOtp, {
-      pending: "Verifying OTP..",
-      success: "OTP verified",
-      error:{
-        render(){
-          return `OTP didn't match`
-        }
-      }
-    });
-    
+    otpVerification(userOtp, navigate);
   };
 
   return (
