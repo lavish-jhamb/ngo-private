@@ -15,11 +15,8 @@ export const ngoController = {
                 const id = response?.data?.ngoExternalId;
                 document.cookie = `ngoExternalId=${id};domain=localhost;secure`
                 document.cookie = `ngoExternalId=${id};domain=ngo-donation-management.netlify.app;secure`
-                fileUploadController(fileName, fileType, ownerFileCategory, id).then((status) => {
-                    if (status === 200) {
-                        navigate(uris.profileCreated);
-                    }
-                })
+                fileUploadController(fileName, fileType, ownerFileCategory, id);
+                navigate(uris.profileCreated);
             })
 
         notify.promise(result, {

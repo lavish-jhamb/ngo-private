@@ -1,14 +1,21 @@
 import React from "react";
 import "./Index.css";
 import SecondaryLayout from "../../../../../Layout/Secondary/Main";
-import { useNavigate } from "react-router-dom";
-import {uris} from "../../../../../../Config/Router/URI";
+import ArrowIcon from "../Step2/Images/arrow.png";
+// import { useNavigate } from "react-router-dom";
+// import { uris } from "../../../../../../Config/Router/URI";
 
 function CreateRecieptFormTwo(props) {
-  const navigate = useNavigate();
+  const { prevStep, nextStep, handleChange, values } = props;
+
+  // const navigate = useNavigate();
 
   const submitHandler = () => {
-    navigate(uris.editReceipt);
+    nextStep();
+  };
+
+  const prevHandler = () => {
+    prevStep();
   };
 
   return (
@@ -17,13 +24,27 @@ function CreateRecieptFormTwo(props) {
         <div className="createreciept2wrapper">
           <div className="createreciept2container">
             <div className="headercreatere2ciept1">
-              <h2>Donation Details</h2>
+              <h2>
+                <img onClick={prevHandler} src={ArrowIcon} alt="arrow" />
+                Donation Details
+              </h2>
               <p>Step 2 of 2</p>
             </div>
             <div className="createreciept2formcontainer">
               <div className="createreciept2container">
-                <input placeholder="Amount (in Rs.)" type="number" />
-                <select className="" name="paymentMethod" required>
+                <input
+                  onChange={handleChange("amount")}
+                  value={values.amount}
+                  placeholder="Amount (in Rs.)"
+                  type="number"
+                />
+                <select
+                  onChange={handleChange("paymentMethod")}
+                  value={values.paymentMethod}
+                  className=""
+                  name="paymentMethod"
+                  required
+                >
                   <option value="">Select Payment Method</option>
                   <option value="Cash">Cash</option>
                   <option value="Online">Online</option>
@@ -34,6 +55,8 @@ function CreateRecieptFormTwo(props) {
                   <option value="">Select Category</option>
                 </select>
                 <input
+                  onChange={handleChange("description")}
+                  value={values.description}
                   placeholder="Additional Note (Optional)"
                   type="text"
                   autoComplete="off"

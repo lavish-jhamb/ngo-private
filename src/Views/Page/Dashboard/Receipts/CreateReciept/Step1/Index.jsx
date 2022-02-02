@@ -4,12 +4,12 @@ import SecondaryLayout from "../../../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
 
 function CreateRecieptForm(props) {
-  const { setPage } = props;
+  const { nextStep, handleChange, values } = props;
 
   const navigate = useNavigate();
 
   const submitHandler = () => {
-    setPage((page) => page + 1);
+    nextStep();
   };
 
   const goBack = () => {
@@ -26,11 +26,36 @@ function CreateRecieptForm(props) {
           </div>
           <div className="createrecieptformcontainer">
             <div className="createrecieptcontainer">
-              <input placeholder="Phone number" type="number" />
-              <input placeholder="Name" type="text" />
-              <input placeholder="Email" type="text" />
-              <input placeholder="Pan Number" type="text" />
-              <input placeholder="Address" type="text" />
+              <input
+                onChange={handleChange("mobileNumber")}
+                value={values.mobileNumber}
+                placeholder="Phone number"
+                type="number"
+              />
+              <input
+                onChange={handleChange("name")}
+                value={values.name}
+                placeholder="Name"
+                type="text"
+              />
+              <input
+                onChange={handleChange("email")}
+                value={values.email}
+                placeholder="Email"
+                type="text"
+              />
+              <input
+                onChange={handleChange("panNumber")}
+                value={values.panNumber}
+                placeholder="Pan Number"
+                type="text"
+              />
+              <input
+                onChange={handleChange("address")}
+                value={values.address || ""}
+                placeholder="Address"
+                type="text"
+              />
             </div>
             <div className="iconcreatereciept1">
               <button onClick={submitHandler} type="submit">
