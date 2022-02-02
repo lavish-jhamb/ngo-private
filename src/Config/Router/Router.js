@@ -11,7 +11,6 @@ import ReceiptsList from "../../Views/Page/Dashboard/Receipts/Index";
 import VolunteersList from "../../Views/Page/Dashboard/Volunteers/Index";
 import CreateDonor from "../../Views/Page/Dashboard/Donors/CreateDonor/Index";
 import CreateReceipt from "../../Views/Page/Dashboard/Receipts/CreateReciept/Main";
-import ReceiptPreview from "../../Views/Page/Dashboard/Receipts/ReceiptPreview/Index";
 import ReceiptGenerated from "../../Views/Page/Dashboard/Receipts/ReceiptGenerated/Index";
 import CreateVolunteer from "../../Views/Page/Dashboard/Volunteers/CreateVolunteer/Index";
 
@@ -70,11 +69,6 @@ const router = [
         id: 11,
         path: uris.createReceipt,
         element: < CreateReceipt />
-    },
-    {
-        id: 12,
-        path: uris.editReceipt,
-        element: < ReceiptPreview />
     },
     {
         id: 13,
