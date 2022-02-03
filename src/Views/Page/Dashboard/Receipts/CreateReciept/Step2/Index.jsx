@@ -2,13 +2,9 @@ import React from "react";
 import "./Index.css";
 import SecondaryLayout from "../../../../../Layout/Secondary/Main";
 import ArrowIcon from "../Step2/Images/arrow.png";
-// import { useNavigate } from "react-router-dom";
-// import { uris } from "../../../../../../Config/Router/URI";
 
 function CreateRecieptFormTwo(props) {
   const { prevStep, nextStep, handleChange, values } = props;
-
-  // const navigate = useNavigate();
 
   const submitHandler = () => {
     nextStep();

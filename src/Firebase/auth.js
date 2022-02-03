@@ -2,7 +2,7 @@ import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth
 import firebaseApp from "./firebase";
 import notify from "../Utils/notify";
 import { uris } from "../Config/Router/URI";
-import { exchangeTokenController } from "../Api/Auth/exchangeToken";
+import { exchangeTokenController } from "../Api/Exchange/controller";
 
 export const configureRecaptcha = () => {
     const auth = getAuth(firebaseApp);

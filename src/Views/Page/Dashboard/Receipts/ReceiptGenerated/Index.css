@@ -35,6 +35,10 @@
   font-size: 1.6rem;
 }
 
+.btnGrpRow > a{
+  text-decoration: none;
+}
+
 .bttnDone {
   height: 4.2rem;
   width: 100%;

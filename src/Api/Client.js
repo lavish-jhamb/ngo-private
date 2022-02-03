@@ -1,34 +1,34 @@
 import axios from "axios";
-import { getCookie } from "../Utils/cookie";
+import { exchangeTokenController } from "./Exchange/controller";
 const URL = process.env.REACT_APP_API_URL;
 
 const ApiClient = axios.create({
     baseURL: `http://${URL}`,
 })
 
-const refreshToken = async () => {
-    const firebaseToken = getCookie('firebaseToken');
-    if (firebaseToken) {
-        const regenerateToken = await axios.post(`http://${URL}/v1/auth/exchange`, { firebaseToken });
-        const accessToken = regenerateToken?.data?.token;
-        localStorage.setItem('accessToken', accessToken);
+const hasExpired = () => {
+    const auth = JSON.parse(localStorage.getItem('auth'));
+    const expiryTime = auth?.expiryTime;
+    const tokenTimeStamp = new Date(expiryTime);
+    const expiryToken = tokenTimeStamp / 1000;
+    if (expiryToken < (new Date() / 1000)) {
+        return true;
     }
+    return false;
 }
 
 ApiClient.interceptors.request.use(async (config) => {
-    const expiry = localStorage.getItem('expiry');
-    const tokenTimeStamp = new Date(expiry);
-    const expiryToken = tokenTimeStamp / 1000;
-    if (expiryToken < (new Date() / 1000)) {
-        await refreshToken();
+    const expired = hasExpired();
+    if (expired) {
+        await exchangeTokenController();
     }
-    const accessToken = localStorage.getItem('accessToken');
+    const auth = JSON.parse(localStorage.getItem('auth'));
+    const accessToken = auth?.accessToken;
     if (accessToken) {
         config.headers['Authorization'] = `Bearer ${accessToken}`;
     }
     return config;
 }, (error) => {
-    console.log(error);
     return Promise.reject(error);
 })
 

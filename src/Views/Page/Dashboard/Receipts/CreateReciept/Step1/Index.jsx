@@ -1,10 +1,11 @@
 import React from "react";
 import "./Index.css";
+import spinner from "./Images/spinner.gif"
 import SecondaryLayout from "../../../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
 
 function CreateRecieptForm(props) {
-  const { nextStep, handleChange, values } = props;
+  const { nextStep, handleChange, values ,loading} = props;
 
   const navigate = useNavigate();
 
@@ -26,12 +27,15 @@ function CreateRecieptForm(props) {
           </div>
           <div className="createrecieptformcontainer">
             <div className="createrecieptcontainer">
-              <input
-                onChange={handleChange("mobileNumber")}
-                value={values.mobileNumber}
-                placeholder="Phone number"
-                type="number"
-              />
+              <div className="spinner">
+                <input
+                  onChange={handleChange("mobileNumber")}
+                  value={values.mobileNumber || ''}
+                  placeholder="Phone number"
+                  type="number"
+                />
+                {loading && <img width="80" src={spinner} alt="loading" />}
+              </div>
               <input
                 onChange={handleChange("name")}
                 value={values.name}

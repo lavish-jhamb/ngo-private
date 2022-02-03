@@ -37,17 +37,7 @@ function ReceiptGenerated() {
                 width="50%"
                 height="200px"
               >
-                <p>
-                  Missing PDF plugin for this browser.
-                  <a
-                    rel="noreferrer"
-                    target="_blank"
-                    download={true}
-                    href={pdfUrl}
-                  >
-                    Click here to download the PDF file.
-                  </a>
-                </p>
+                <p>Missing PDF plugin for this browser. <br/>you can download it by clicking download button down below</p>
               </object>
             )}
           </div>
@@ -57,7 +47,9 @@ function ReceiptGenerated() {
                 <i className="bx bxs-share-alt"></i> Share
               </button>
               <button className="btnGrpRow">
-                <i className="bx bx-download"></i> Download
+                <a href={pdfUrl} download={true} className="btnGrpRow">
+                  <i className="bx bx-download"></i> Download
+                </a>
               </button>
             </div>
             <div className="">
