@@ -42,20 +42,42 @@
     right: 30px;
 }
 
-.createrecieptcontainer> input{
+.createrecieptcontainer > input{
     display: block;
     width: 100%;
     margin: 1.1em 0;
 }
-.createrecieptcontainer> input[type=text] ,input[type=number]{
+.createrecieptcontainer> input[type=text]{
     height: 39px;
     border: solid 2px var(--placeholder);
     border-radius: 12px;
     padding-left: 1em;
     line-height: 1.5em;
-    color: var(--placeholder);
 }
-.createrecieptcontainer > input[type=text],input[type=number]::placeholder{
+
+.createrecieptcontainer > input[type=text]::placeholder,input[type=number]::placeholder{
     color: var(--placeholder);
     font-size: 1.5rem;
+}
+.createrecieptcontainer> input[type=text]:focus ,input[type=number]:focus{
+    outline: none;
+}
+
+.spinner{
+    border: solid 2px var(--placeholder);
+    border-radius: 12px;
+    height: 39px;
+    margin-top: 1.2em;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.spinner > input[type=number]{
+    height: 100%;
+    width: 80%;
+    padding-left: 1em;
+    outline: none;
+    border: none;
 }

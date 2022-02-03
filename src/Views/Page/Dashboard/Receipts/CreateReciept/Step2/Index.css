@@ -50,16 +50,13 @@
   display: block;
   width: 100%;
   margin: 1.1em 0;
-  color: var(--placeholder);
-}
-.createreciept2container > input {
   height: 39px;
   border: solid 2px var(--placeholder);
   border-radius: 12px;
   padding-left: 1em;
   line-height: 1.5em;
-  color: var(--placeholder);
 }
+
 .createreciept2container > input::placeholder {
   color: var(--placeholder);
   font-size: 1.5rem;
@@ -70,11 +67,14 @@
   border-radius: 12px;
   padding-left: 0.5em;
   line-height: 1.5em;
-  color: var(--placeholder);
   font-size: 1.5rem;
   display: block;
   width: 100%;
   margin: 1.2em 0;
   font-size: 1.6rem;
   background-color: var(--white);
+}
+
+.createreciept2container > select:focus{
+  outline: none;
 }

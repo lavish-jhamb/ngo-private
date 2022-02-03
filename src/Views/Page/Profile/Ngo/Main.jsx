@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProfileOne from "./Step1/Index";
 import ProfileTwo from "./Step2/Index";
-import { ngoController } from "../../../../Api/Ngo/create";
+import { ngoController } from "../../../../Api/Ngo/controller";
 
 function Steps() {
   const [logo, setLogo] = useState();

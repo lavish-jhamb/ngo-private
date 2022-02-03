@@ -3,17 +3,27 @@ import "./Index.css";
 import SecondaryLayout from "../../../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
 import { uris } from "../../../../../../Config/Router/URI";
+import notify from "../../../../../../Utils/notify";
 
 function ReceiptPreview(props) {
   const { createDonation, prevStep, values } = props;
   const navigate = useNavigate();
 
-  const submitHandler = async () => {
-    const statusCode = await createDonation();
-    console.log(statusCode);
-    if (statusCode === 200) {
-      navigate(uris.viewReceipt);
-    }
+  const submitHandler = () => {
+    const response = createDonation().then((result) => {
+      if (result.status === 200) {
+        navigate(uris.viewReceipt);
+      }
+    });
+    notify.promise(response, {
+      pending: "processing",
+      success: "submitted",
+      error: {
+        render({ data }) {
+          return `${data.message}`;
+        },
+      },
+    });
   };
 
   const editHandler = () => {

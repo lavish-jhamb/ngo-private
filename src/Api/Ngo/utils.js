@@ -8,7 +8,7 @@ export const exchangeTokenController = async () => {
         const accessToken = result?.data?.token;
         const expiry = result?.data?.validTill;
         localStorage.setItem('accessToken', accessToken);
-        localStorage.setItem('expiry',expiry);
+        localStorage.setItem('expiry', expiry);
         const exchangeToken = localStorage.getItem('accessToken');
         return exchangeToken;
     } catch (error) {
