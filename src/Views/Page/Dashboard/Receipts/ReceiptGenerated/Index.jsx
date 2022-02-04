@@ -3,12 +3,11 @@ import "./Index.css";
 import { useNavigate } from "react-router-dom";
 import SecondaryLayout from "../../../../Layout/Secondary/Main";
 import { uris } from "../../../../../Config/Router/URI";
-import notify from "../../../../../Utils/notify";
 import { receiptController } from "../../../../../Api/Receipt/controller";
 
 function ReceiptGenerated() {
   const [pdfUrl, setPdfUrl] = useState("");
-  const [file, setFile] = useState();
+  const [pdfFile, setPdfFile] = useState();
 
   const navigate = useNavigate();
 
@@ -19,7 +18,7 @@ function ReceiptGenerated() {
   useEffect(() => {
     const generatePdf = async () => {
       const response = await receiptController.donationReceipt();
-      setFile(response.data);
+      setPdfFile(response.data);
       const file = new Blob([response?.data], { type: "application/pdf" });
       const fileURL = URL.createObjectURL(file);
       setPdfUrl(fileURL);
@@ -29,19 +28,15 @@ function ReceiptGenerated() {
   }, []);
 
   const shareHandler = () => {
-    const pdf = new File([file], "reciept.pdf", { type: "application/pdf" });
+    const pdf = new File([pdfFile], "receipt.pdf", { type: "application/pdf" });
     const files = [pdf];
     if (navigator.share) {
       navigator
         .share({
           files: files,
         })
-        .then(() => {
-          notify.success("Sharing successful", { toastId: "share-success" });
-        })
-        .catch((err) => {
-          console.log(err);
-          notify.error("Sharing failed", { toastId: "share-err" });
+        .catch((error) => {
+          return error;
         });
     }
   };

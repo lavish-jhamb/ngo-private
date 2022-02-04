@@ -37,7 +37,6 @@ function CreateRecieptFormTwo(props) {
                 <select
                   onChange={handleChange("paymentMethod")}
                   value={values.paymentMethod}
-                  className=""
                   name="paymentMethod"
                   required
                 >
@@ -47,7 +46,10 @@ function CreateRecieptFormTwo(props) {
                   <option value="Credit/Debit Card">Credit/Debit Card</option>
                   <option value="Cheque">Cheque</option>
                 </select>
-                <select>
+                <select
+                className="category"
+                required
+                >
                   <option value="">Select Category</option>
                 </select>
                 <input

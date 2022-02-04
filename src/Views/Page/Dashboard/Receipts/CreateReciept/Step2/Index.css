@@ -78,3 +78,11 @@
 .createreciept2container > select:focus{
   outline: none;
 }
+
+.createreciept2container > select:invalid{
+  color: var(--placeholder);
+}
+
+.category:invalid{
+  color:var(--placeholder);
+}
