@@ -2,7 +2,6 @@ import React from "react";
 import Style from "./Index.module.css";
 import { useNavigate } from "react-router-dom";
 import SecondaryLayout from "../../../../Layout/Secondary/Main";
-import ArrowIcon from "./Images/arrow.png";
 
 function ProfileTwo(props) {
   const { prevStep, handleChange, values, ngoFormHandler } = props;
@@ -23,7 +22,7 @@ function ProfileTwo(props) {
         <div className={Style.form}>
           <div className={Style.header}>
             <h2>
-              <img onClick={prevPageHandler} src={ArrowIcon} alt="icon" />
+              <img onClick={prevPageHandler} src="/resources/images/backArrow.png" alt="icon" />
               Contact Details
             </h2>
             <p>Step 2 of 2</p>

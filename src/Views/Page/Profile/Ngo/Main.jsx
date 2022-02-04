@@ -92,7 +92,6 @@ function Steps() {
 
   const handlePdf = () => (e) => {
     const file = e.target.files[0];
-    console.log(file);
     setPdfIcon(true);
     setPdfName(file.name);
     setData((prevData) => {

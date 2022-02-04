@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Index.css";
-import Icon from "./icon_feather_eye.png";
 import SecondaryLayout from "../../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
 import { uris } from "../../../../../Config/Router/URI";
@@ -39,7 +38,7 @@ function NewVolunteer() {
                 />
                 <button onClick={pwdHandler}>
                   {pwdVisibility ? (
-                    <img src={Icon} alt="logo" />
+                    <img src="/resources/images/eye.png" alt="logo" />
                   ) : (
                     <i className="bx bx-hide"></i>
                   )}
