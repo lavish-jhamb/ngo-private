@@ -1,5 +1,4 @@
 import React from 'react';
-import Icon from '../../../Layout/Primary/Images/icon.png';
 import Style from "./Index.module.css";
 import { useNavigate } from "react-router-dom";
 import { uris } from "../../../../Config/Router/URI";
@@ -16,7 +15,7 @@ function ProfileExit() {
     <div className={Style.exitProfile}>
       <div className={Style.header}>
         <div className={Style.iconContainer}>
-          <img src={Icon} alt="icon" />
+          <img src="/resources/images/whiteIcon.png" alt="icon" />
         </div>
         <h1>AppName</h1>
         <p>An initiative by software Knights</p>
