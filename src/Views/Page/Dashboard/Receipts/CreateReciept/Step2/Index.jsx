@@ -1,7 +1,6 @@
 import React from "react";
 import "./Index.css";
 import SecondaryLayout from "../../../../../Layout/Secondary/Main";
-import ArrowIcon from "../Step2/Images/arrow.png";
 
 function CreateRecieptFormTwo(props) {
   const { prevStep, nextStep, handleChange, values } = props;
@@ -21,7 +20,7 @@ function CreateRecieptFormTwo(props) {
           <div className="createreciept2container">
             <div className="headercreatere2ciept1">
               <h2>
-                <img onClick={prevHandler} src={ArrowIcon} alt="arrow" />
+                <img onClick={prevHandler} src="/resources/images/backArrow.png" alt="arrow" />
                 Donation Details
               </h2>
               <p>Step 2 of 2</p>

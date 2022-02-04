@@ -1,8 +1,5 @@
 import React from "react";
 import Style from "./Index.module.css";
-import UploadIcon from "./Images/upload.png";
-import pdfLogo from "./Images/pdf.png";
-import NextIcon from "./Images/next.png";
 import SecondaryLayout from "../../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
 
@@ -43,14 +40,14 @@ function ProfileOne(props) {
                 <div className={Style.uploadLogo}>
                   <label htmlFor="logo">
                     {logoName ? logoName : "NGO Logo"}{" "}
-                    <img src={logo ? logo : UploadIcon} alt="icon" />
+                    <img src={logo ? logo : "/resources/images/upload.png"} alt="icon" />
                   </label>
                   <input onChange={handleFile()} id="logo" type="file" />
                 </div>
                 <div className={Style.uploadPdf}>
                   <label htmlFor="pdf">
                     {pdfName ? pdfName : "Reg. Certificate PDF"}{" "}
-                    <img src={pdfIcon ? pdfLogo : UploadIcon} alt="icon" />
+                    <img src={pdfIcon ? "/resources/images/pdf.png" : "/resources/images/upload.png"} alt="icon" />
                   </label>
                   <input onChange={handlePdf("")} id="pdf" type="file" />
                 </div>
@@ -85,7 +82,7 @@ function ProfileOne(props) {
                 <button onClick={pageHandler} type="submit">
                   Next
                   <span>
-                    <img src={NextIcon} alt="icon" />
+                    <img src="/resources/images/next.png" alt="icon" />
                   </span>
                 </button>
               </div>

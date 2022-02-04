@@ -1,6 +1,5 @@
 import React from "react";
 import "./Index.css";
-import spinner from "./Images/spinner.gif"
 import SecondaryLayout from "../../../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
 
@@ -34,7 +33,7 @@ function CreateRecieptForm(props) {
                   placeholder="Phone number"
                   type="number"
                 />
-                {loading && <img width="80" src={spinner} alt="loading" />}
+                {loading && <img width="80" src="/resources/images/spinner.gif" alt="loading" />}
               </div>
               <input
                 onChange={handleChange("name")}
