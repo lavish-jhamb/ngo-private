@@ -1,8 +1,8 @@
 import React from "react";
 import receiptUsertData from "./UserDataReceipt.json";
-import "./ManageRecData.css";
+import "./Index.css";
 
-const ManageRecData = (props) => {
+const Receipt = (props) => {
   return (
     <div>
       {receiptUsertData.map((data,idx) => (
@@ -50,4 +50,4 @@ const ManageRecData = (props) => {
   );
 };
 
-export default ManageRecData;
+export default Receipt;
