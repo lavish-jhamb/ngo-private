@@ -3,7 +3,7 @@ import { exchangeTokenController } from "./Exchange/controller";
 const URL = process.env.REACT_APP_API_URL;
 
 const ApiClient = axios.create({
-    baseURL: `http://${URL}`,
+    baseURL: `https://${URL}`,
 })
 
 const hasExpired = () => {
