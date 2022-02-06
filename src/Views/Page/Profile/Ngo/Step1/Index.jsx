@@ -39,7 +39,7 @@ function ProfileOne(props) {
               <div className={Style.ngoForm}>
                 <div className={Style.uploadLogo}>
                   <label htmlFor="logo">
-                    {logoName ? logoName : "NGO Logo"}{" "}
+                    {logoName ? logoName : "NGO Logo"}
                     <img src={logo ? logo : "/resources/images/upload.png"} alt="icon" />
                   </label>
                   <input onChange={handleFile()} id="logo" type="file" />
@@ -57,6 +57,7 @@ function ProfileOne(props) {
                   onChange={handleChange("ngoName")}
                   type="text"
                   placeholder="NGO Name"
+                  autoComplete="off"
                 />
                 <input
                   value={values.ownerName}
@@ -64,18 +65,21 @@ function ProfileOne(props) {
                   onChange={handleChange("ownerName")}
                   type="text"
                   placeholder="Owner Name"
+                  autoComplete="off"
                 />
                 <input
                   value={values.panNo}
                   onChange={handleChange("panNo")}
                   type="text"
                   placeholder="PAN NO."
+                  autoComplete="off"
                 />
                 <input
                   value={values.registrationNo}
                   onChange={handleChange("registrationNo")}
                   type="text"
                   placeholder="Registration NO."
+                  autoComplete="off"
                 />
               </div>
               <div className={Style.nextButton}>

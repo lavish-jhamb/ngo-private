@@ -8,6 +8,7 @@ import { receiptController } from "../../../../../Api/Receipt/controller";
 function ReceiptGenerated() {
   const [pdfUrl, setPdfUrl] = useState("");
   const [pdfFile, setPdfFile] = useState();
+  const [pngUrl, setPngUrl] = useState();
 
   const navigate = useNavigate();
 
@@ -24,7 +25,15 @@ function ReceiptGenerated() {
       setPdfUrl(fileURL);
     };
 
+    const generateImage = async () => {
+      const response = await receiptController.donationReceiptImage();
+      const png = new Blob([response?.data], { type: "image/png" });
+      const pngUrl = URL.createObjectURL(png);
+      setPngUrl(pngUrl);
+    };
+
     generatePdf();
+    generateImage();
   }, []);
 
   const shareHandler = () => {
@@ -46,36 +55,30 @@ function ReceiptGenerated() {
       <div className="receiptGenContainer">
         <div className="receiptGenContent">
           <div className="cardRG">
-            {pdfUrl && (
-              <object
-                data={pdfUrl}
-                type="application/pdf"
-                width="50%"
-                height="200px"
-              >
-                <p>
-                  Missing PDF plugin for this browser. <br />
-                  you can download it by clicking download button down below
-                </p>
-              </object>
-            )}
+            <div className="pngContainer">
+              {pngUrl ? (
+                <img src={pngUrl} alt="pdf" />
+              ) : (
+                <div className="spinner-container">
+                <img className="pdf-spinner" src="/resources/images/spinner.gif" alt="spinner" />
+                </div>
+              )}
+            </div>
+          </div>
+          <div className="receiptGenBtnsGrp">
+            <button onClick={shareHandler} className="btnGrpRow">
+              <i className="bx bxs-share-alt"></i> Share
+            </button>
+            <button className="btnGrpRow">
+              <a href={pdfUrl} download={true} className="btnGrpRow">
+                <i className="bx bx-download"></i> Download
+              </a>
+            </button>
           </div>
           <div className="">
-            <div className="receiptGenBtnsGrp">
-              <button onClick={shareHandler} className="btnGrpRow">
-                <i className="bx bxs-share-alt"></i> Share
-              </button>
-              <button className="btnGrpRow">
-                <a href={pdfUrl} download={true} className="btnGrpRow">
-                  <i className="bx bx-download"></i> Download
-                </a>
-              </button>
-            </div>
-            <div className="">
-              <button onClick={submitHandler} className="bttnDone">
-                Done
-              </button>
-            </div>
+            <button onClick={submitHandler} className="bttnDone">
+              Done
+            </button>
           </div>
         </div>
       </div>

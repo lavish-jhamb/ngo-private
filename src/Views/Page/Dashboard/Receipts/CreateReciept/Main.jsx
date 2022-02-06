@@ -13,12 +13,16 @@ function MainCreateReciept() {
     description: "",
     dateOfBirth: "",
     email: "",
-    gender: "",
+    gender: "Male",
     mobileNumber: "",
     name: "",
     panNumber: "",
     paymentMethod: "",
+    category:"",
     address: "",
+    city:"",
+    pinCode:"",
+    state:""
   });
 
   const nextStep = () => {
@@ -50,14 +54,16 @@ function MainCreateReciept() {
         setData({
           amount: "",
           description: "",
+          address:response?.data?.address,
+          city:response?.data?.city,
           dateOfBirth: response?.data?.dateOfBirth,
           email: response?.data?.email,
           gender: response?.data?.gender,
           mobileNumber: data.mobileNumber,
           name: response?.data?.name,
           panNumber: response?.data?.panNumber,
+          pinCode:response?.data?.pinCode,
           paymentMethod: "",
-          address: "",
         });
       }
       setLoading(false);
@@ -74,12 +80,16 @@ function MainCreateReciept() {
       description: data.description,
       donorInfo: {
         donorId: getDonorId && getDonorId,
-        dateOfBirth: "31-12-2009",
+        address:data.address,
+        city:data.city,
+        dateOfBirth:data.dateOfBirth,
         email: data.email,
-        gender: "Female",
+        gender: data.gender,
         mobileNumber: data.mobileNumber,
         name: data.name,
         panNumber: data.panNumber,
+        pinCode: data.pinCode,
+        state: data.state,
       },
       paymentMethod: data.paymentMethod,
     };

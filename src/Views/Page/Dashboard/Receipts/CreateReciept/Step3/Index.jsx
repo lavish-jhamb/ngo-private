@@ -52,9 +52,6 @@ function ReceiptPreview(props) {
             <p>PAN No.</p>
             <span>{values.panNumber}</span>
             <hr />
-
-            <p>Address</p>
-            <span>{values.address}</span>
           </div>
           <div className="">
             <h3>Donation Details</h3>
@@ -68,11 +65,30 @@ function ReceiptPreview(props) {
             <hr />
 
             <p>Category</p>
-            <span>Category name</span>
+            <span>{values.category}</span>
             <hr />
 
             <p>Additional Note</p>
             <span>{values.description}</span>
+          </div>
+          <div className="">
+            <h3>Address Details</h3>
+
+            <p>Address</p>
+            <span>{values.address}</span>
+            <hr />
+
+            <p>City</p>
+            <span>{values.city}</span>
+            <hr />
+
+            <p>Pincode</p>
+            <span>{values.pinCode}</span>
+            <hr />
+
+            <p>State</p>
+            <span>{values.state}</span>
+            <hr />
           </div>
           <div className="btnsPreview">
             <button onClick={editHandler} className="editBtnPreview">

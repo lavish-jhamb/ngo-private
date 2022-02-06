@@ -59,6 +59,10 @@
     font-size: 1.5rem;
 }
 
+.ngoForm > input[type=text]:focus{
+    outline: none;
+}
+
 .uploadLogo,.uploadPdf{
     background-color: var(--lightGray);
     border: solid 2px var(--placeholder);
