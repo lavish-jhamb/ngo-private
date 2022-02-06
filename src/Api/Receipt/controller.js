@@ -32,6 +32,17 @@ export const receiptController = {
         }
     },
 
+    donationReceiptImage: async () => {
+        try {
+            const ngoExternalId = getCookie('ngoExternalId');
+            const donationExternalId = getCookie('donorExternalId');
+            const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/receipt/${donationExternalId}/image`,{responseType:'arraybuffer'});
+            return response;
+        } catch (error) {
+            return error;
+        }
+    },
+
     searchDonorByMobile: async (ngoExternalId, mobileNumber) => {
         try {
             const response = await ApiClient.get(`v1/ngo/${ngoExternalId}/donor/${mobileNumber}`);

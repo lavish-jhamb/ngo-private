@@ -16,8 +16,12 @@ function ProfileTwo(props) {
     ngoFormHandler(navigate);
   };
 
+  const goBack = () => {
+    navigate(-1);
+  }
+
   return (
-    <SecondaryLayout title="NGO Profile">
+    <SecondaryLayout title="NGO Profile" handler={goBack}>
       <div className={Style.container}>
         <div className={Style.form}>
           <div className={Style.header}>
