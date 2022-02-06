@@ -7,6 +7,11 @@
     margin: 0 auto;
     padding-top:2em;
     height: 100%;
+    overflow: hidden;
+}
+
+.ngoProfileContainer > form{
+    height: 100%;
 }
 
 .header{
@@ -40,13 +45,23 @@
     font-weight: 500;
 }
 
-.ngoForm > input{
+.ngoForm > .inputField > input{
     display: block;
     width: 100%;
+}
+
+.ngoForm > .inputField{
     margin: 1.5em 0;
 }
 
-.ngoForm > input[type=text]{
+.ngoForm > .inputField > p{
+    color: rgb(240, 69, 69);
+    margin-left: 0.5em;
+    margin-top: 0.2em;
+    font-size: 1.1rem;
+}
+
+.ngoForm > .inputField > input[type=text]{
     height: 39px;
     border: solid 2px var(--placeholder);
     border-radius: 12px;
@@ -54,12 +69,12 @@
     line-height: 1.5em;
 }
 
-.ngoForm > input[type=text]::placeholder{
+.ngoForm > .inputField > input[type=text]::placeholder{
     color: var(--placeholder);
     font-size: 1.5rem;
 }
 
-.ngoForm > input[type=text]:focus{
+.ngoForm > .inputField > input[type=text]:focus{
     outline: none;
 }
 

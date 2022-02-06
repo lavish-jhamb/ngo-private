@@ -4,11 +4,10 @@ import { uris } from "../../Config/Router/URI";
 import ApiClient from "../Client";
 
 export const ngoController = {
-    createNgo: (navigate, { ...args }) => {
-        const { ngoLogo } = args;
-        const fileName = ngoLogo.name;
-        const fileType = ngoLogo.type;
-        const ownerFileCategory = ngoLogo.name;
+    createNgo: (navigate, { ...args }, logoData) => {
+        const fileName = logoData.fileName;
+        const fileType = logoData.fileType;
+        const ownerFileCategory = logoData.ownerFileCategory;
 
         const result = ApiClient.post(`/v1/ngo`, { ...args })
             .then((response) => {
