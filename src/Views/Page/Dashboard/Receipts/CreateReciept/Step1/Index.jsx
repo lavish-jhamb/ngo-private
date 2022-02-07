@@ -12,7 +12,6 @@ function CreateRecieptForm(props) {
     handleSubmit,
     onSubmit,
     errors,
-    date
   } = props;
 
   const navigate = useNavigate();
@@ -96,7 +95,6 @@ function CreateRecieptForm(props) {
                       message: "dateOfBirth is required",
                     },
                   })}
-                  ref={date}
                 />
                 {errors.dateOfBirth && <p>{errors.dateOfBirth.message}</p>}
               </div>
