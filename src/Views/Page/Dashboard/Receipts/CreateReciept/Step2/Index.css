@@ -16,16 +16,24 @@
   align-items: center;
 }
 
-.donor-details > input{
-  display: block;
-  width: 100%;
+.donor-details > .inputField, .address-details > .inputField {
   margin: 1.1em 0;
 }
 
-.address-details > input{
+.donor-details > .inputField > p , .address-details > .inputField > p{
+  color: rgb(240, 69, 69);
+  margin-left: 0.5em;
+  font-size: 1.1rem;
+}
+
+.donor-details > .inputField > input{
   display: block;
   width: 100%;
-  margin: 1.1em 0;
+}
+
+.address-details > .inputField  > input{
+  display: block;
+  width: 100%;
 }
 
 .address-details > h2{
@@ -33,29 +41,29 @@
   font-size: 1.7rem
 }
 
-.donor-details > input[type='text'],input[type='number']{
+.donor-details > .inputField > input[type='text'],input[type='number']{
   height: 39px;
   border: solid 2px var(--placeholder);
   border-radius: 12px;
   padding-left: 1em;
 }
 
-.donor-details > input[type='text'],input[type='number']:focus{
+.donor-details > .inputField > input[type='text'],input[type='number']:focus{
   outline: none;
 }
 
-.address-details > input[type='text']{
+.address-details > .inputField > input[type='text']{
   height: 39px;
   border: solid 2px var(--placeholder);
   border-radius: 12px;
   padding-left: 1em;
 }
 
-.address-details > input[type='text']:focus{
+.address-details > .inputField > input[type='text']:focus{
   outline: none;
 }
 
-.donor-details > select{
+.donor-details > .inputField > select{
   height: 39px;
   border: solid 2px var(--placeholder);
   border-radius: 12px;
@@ -66,15 +74,15 @@
   background-color: var(--white);
 }
 
-.donor-details > select:focus{
+.donor-details > .inputField > select:focus{
   outline: none;
 }
 
-.donor-details > select:invalid{
+.donor-details > .inputField > select:invalid{
   color: var(--placeholder);
 }
 
-.address-details > select{
+.address-details > .inputField > select{
   height: 39px;
   border: solid 2px var(--placeholder);
   border-radius: 12px;
@@ -85,7 +93,7 @@
   background-color: var(--white);
 }
 
-.address-details> select:invalid{
+.address-details > .inputField > select:invalid{
   color: var(--placeholder);
 }
 
@@ -102,15 +110,6 @@
   font-weight: 500;
 }
 
-.donor-details > input {
-  display: block;
-  width: 100%;
-  margin: 1.1em 0;
-  height: 39px;
-  border: solid 2px var(--placeholder);
-  border-radius: 12px;
-  padding-left: 1em;
-}
 .reciept-button{
   width: 90%;
   margin: 0 auto;

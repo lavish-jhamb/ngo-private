@@ -4,19 +4,15 @@ import { getCookie } from "../../Utils/cookie"
 export const receiptController = {
 
     donation: async ({ ...args }) => {
-        try {
-            const ngoExternalId = getCookie('ngoExternalId');
-            const response = await ApiClient.post(`/v1/ngo/${ngoExternalId}/donations`, { ...args, });
-            const donorExternalId = response?.data?.externalId;
-            const donorId = response?.data?.donorInfo?.donorId;
-            document.cookie = `donorExternalId=${donorExternalId};domain=localhost;secure`;
-            document.cookie = `donorExternalId=${donorExternalId};domain=ngo-donation-management.netlify.app;secure`;
-            document.cookie = `donorId=${donorId};domain=localhost;secure`;
-            document.cookie = `donorId=${donorId};domain=ngo-donation-management.netlify.app;secure`;
-            return response;
-        } catch (error) {
-            return error;
-        }
+        const ngoExternalId = getCookie('ngoExternalId');
+        const response = await ApiClient.post(`/v1/ngo/${ngoExternalId}/donations`, { ...args, });
+        const donorExternalId = response?.data?.externalId;
+        const donorId = response?.data?.donorInfo?.donorId;
+        document.cookie = `donorExternalId=${donorExternalId};domain=localhost;secure`;
+        document.cookie = `donorExternalId=${donorExternalId};domain=ngo-donation-management.netlify.app;secure`;
+        document.cookie = `donorId=${donorId};domain=localhost;secure`;
+        document.cookie = `donorId=${donorId};domain=ngo-donation-management.netlify.app;secure`;
+        return response;
     },
 
     donationReceipt: async () => {
