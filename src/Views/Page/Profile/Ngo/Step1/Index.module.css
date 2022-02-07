@@ -69,7 +69,7 @@
     line-height: 1.5em;
 }
 
-.ngoForm > .inputField > input[type=text]::placeholder{
+.ngoForm > .inputField > input[type=text]::placeholder,.ngoForm > .inputField > input[type=number]::placeholder{
     color: var(--placeholder);
     font-size: 1.5rem;
 }

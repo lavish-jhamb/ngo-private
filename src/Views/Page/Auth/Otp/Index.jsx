@@ -16,21 +16,25 @@ function Otppage() {
   const navigate = useNavigate();
 
   const otpField = (e) => {
-    const { name, value } = e.target;
-    setOtp((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    const { name, value, maxLength } = e.target;
+    if (e.target.value.length <= maxLength) {
+      setOtp((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
+    }
+  };
 
-    const [fieldName, fieldIndex] = name.split("_");
-
-    if (parseInt(fieldIndex, 10) < 6) {
-      const nextSibling = document.querySelector(
-        `input[name=${fieldName}_${parseInt(fieldIndex, 10) + 1}]`
-      );
-
-      if (nextSibling !== null) {
-        nextSibling.focus();
+  const inputFocus = (e) => {
+    if (e.key === "Delete" || e.key === "Backspace") {
+      const next = e.target.tabIndex - 2;
+      if (next > -1) {
+        e.target.form.elements[next].focus();
+      }
+    } else {
+      const next = e.target.tabIndex;
+      if (next < 6) {
+        e.target.form.elements[next].focus();
       }
     }
   };
@@ -55,12 +59,14 @@ function Otppage() {
     };
   }, []);
 
-  const resendHandler = () => {
+  const resendHandler = (e) => {
+    e.preventDefault();
     const contact = localStorage.getItem("contact");
     onSignInSubmit(contact);
   };
 
-  const otpHandler = () => {
+  const otpHandler = (e) => {
+    e.preventDefault();
     const values = Object.values(otp).map((val) => val);
     const userOtp = values.join("");
     otpVerification(userOtp, navigate);
@@ -70,71 +76,85 @@ function Otppage() {
     <PrimaryLayout>
       <div className={Style.otpContainer}>
         <div className={Style.otpWrapper}>
-          <h2>Enter OTP</h2>
-          <div className={Style.otpField}>
-            <input
-              value={otp.digit_1 || ""}
-              onChange={otpField}
-              maxLength="1"
-              type="text"
-              name="digit_1"
-              autoComplete="off"
-            />
-            <input
-              value={otp.digit_2 || ""}
-              onChange={otpField}
-              maxLength="1"
-              type="text"
-              name="digit_2"
-              autoComplete="off"
-            />
-            <input
-              value={otp.digit_3 || ""}
-              onChange={otpField}
-              maxLength="1"
-              type="text"
-              name="digit_3"
-              autoComplete="off"
-            />
-            <input
-              value={otp.digit_4 || ""}
-              onChange={otpField}
-              maxLength="1"
-              type="text"
-              name="digit_4"
-              autoComplete="off"
-            />
-            <input
-              value={otp.digit_5 || ""}
-              onChange={otpField}
-              maxLength="1"
-              type="text"
-              name="digit_5"
-              autoComplete="off"
-            />
-            <input
-              value={otp.digit_6 || ""}
-              onChange={otpField}
-              maxLength="1"
-              type="text"
-              name="digit_6"
-              autoComplete="off"
-            />
-          </div>
-          <button onClick={otpHandler} className={Style.otpButton}>
-            Continue
-          </button>
-          <div className={Style.resendOtp}>
-            <button
-              id="sign-in-button"
-              className={!flag ? Style.active : Style.disabled}
-              onClick={resendHandler}
-              disabled={!flag ? false : true}
-            >
-              Resend OTP
+          <form>
+            <h2>Enter OTP</h2>
+            <div className={Style.otpField}>
+              <input
+                value={otp.digit_1 || ""}
+                onChange={otpField}
+                onKeyUp={inputFocus}
+                maxLength="1"
+                type="number"
+                name="digit_1"
+                tabIndex="1"
+                autoComplete="off"
+              />
+              <input
+                value={otp.digit_2 || ""}
+                onChange={otpField}
+                onKeyUp={inputFocus}
+                maxLength="1"
+                type="number"
+                name="digit_2"
+                tabIndex="2"
+                autoComplete="off"
+              />
+              <input
+                value={otp.digit_3 || ""}
+                onChange={otpField}
+                onKeyUp={inputFocus}
+                maxLength="1"
+                type="number"
+                name="digit_3"
+                tabIndex="3"
+                autoComplete="off"
+              />
+              <input
+                value={otp.digit_4 || ""}
+                onChange={otpField}
+                onKeyUp={inputFocus}
+                maxLength="1"
+                type="number"
+                name="digit_4"
+                tabIndex="4"
+                autoComplete="off"
+              />
+              <input
+                value={otp.digit_5 || ""}
+                onChange={otpField}
+                onKeyUp={inputFocus}
+                maxLength="1"
+                type="number"
+                name="digit_5"
+                tabIndex="5"
+                autoComplete="off"
+              />
+              <input
+                value={otp.digit_6 || ""}
+                onChange={otpField}
+                onKeyUp={inputFocus}
+                maxLength="1"
+                type="number"
+                name="digit_6"
+                tabIndex="6"
+                autoComplete="off"
+              />
+            </div>
+            <button onClick={otpHandler} className={Style.otpButton}>
+              Continue
             </button>
-            {flag && <p>didn't receive otp? wait for {count}s</p>}
-          </div>
+            <div className={Style.resendOtp}>
+              <button
+                id="sign-in-button"
+                className={!flag ? Style.active : Style.disabled}
+                onClick={resendHandler}
+                disabled={!flag ? false : true}
+              >
+                Resend OTP
+              </button>
+              {flag && <p>didn't receive otp? wait for {count}s</p>}
+            </div>
+          </form>
         </div>
       </div>
     </PrimaryLayout>

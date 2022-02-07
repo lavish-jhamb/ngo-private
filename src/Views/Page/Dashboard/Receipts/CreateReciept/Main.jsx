@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import StepOne from "./Step1/Index";
 import StepTwo from "./Step2/Index";
@@ -25,6 +25,8 @@ function MainCreateReciept() {
     pinCode: "",
     state: "",
   });
+
+  const dateRef = useRef(null);
 
   const {
     register,
@@ -64,6 +66,10 @@ function MainCreateReciept() {
         });
         setValue("address", response?.data?.address, { shouldValidate: true });
         setValue("city", response?.data?.city, { shouldValidate: true });
+        if(dateRef.current){
+          dateRef.current.type = 'date';
+          dateRef.current.value = response?.data?.dateOfBirth.split('-').reverse().join('-');
+        }
         setValue("dateOfBirth", response?.data?.dateOfBirth, {
           shouldValidate: true,
         });
@@ -81,7 +87,7 @@ function MainCreateReciept() {
     if (parseInt(data?.mobileNumber?.length) === 10) {
       fetchDonorInfo();
     }
-  }, [data.mobileNumber, setValue]);
+  }, [data.mobileNumber, setValue,dateRef]);
 
   const onSubmit = (data) => {
     if (
@@ -111,7 +117,7 @@ function MainCreateReciept() {
       gender: data?.gender,
       mobileNumber: data.mobileNumber,
       name: data?.name,
-      panNumber: data?.panNo,
+      panNumber: data?.panNumber,
       pinCode: data?.pinCode,
       paymentMethod: data?.paymentMethod,
     });
@@ -171,6 +177,7 @@ function MainCreateReciept() {
       errors={errors}
       onSubmit={onSubmit}
       onSubmitStepTwo={onSubmitStepTwo}
+      date={dateRef}
     />
   );
 }
