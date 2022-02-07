@@ -1,7 +1,7 @@
 import React from "react";
 import "./Index.css";
 import MenubarLayout from "../../../Layout/Menubar/Main";
-import ManageRecData from "./ReceiptCard/ManageRecData";
+import ReceiptCard from "../../../../Components/ReceiptCard/Index";
 import {useNavigate} from "react-router-dom";
 import { uris } from "../../../../Config/Router/URI";
 
@@ -29,7 +29,7 @@ const ManageReceipt = () => {
                     </div>
 
                     <div className="cardReceipts">
-                        <ManageRecData shareBtn={true} cardFooter={true}/>
+                        <ReceiptCard shareBtn={true} cardFooter={true}/>
                     </div>
 
                     <div>

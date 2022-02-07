@@ -2,8 +2,6 @@ import React from "react";
 import MenuBarLayout from "../../../Layout/Menubar/Main";
 import Style from "./Index.module.css";
 import DashboardCard from "../../../../Components/DashboardCard/Index";
-import rupeeIcon from "./images/rupee.svg";
-import rupeeHandIcon from "./images/rupee_hand.svg";
 
 const Dashboard = () => {
     return (
@@ -26,9 +24,9 @@ const Dashboard = () => {
                         <DashboardCard
                             title="Donations"
                             value="Rs. 75,000"
-                            icon={rupeeIcon}
+                            icon="/resources/images/rupee.svg"
                         />
-                        <DashboardCard title="Donors" value="538" icon={rupeeHandIcon}/>
+                        <DashboardCard title="Donors" value="538" icon="/resources/images/rupee_hand.svg"/>
                     </div>
                 </div>
             </MenuBarLayout>

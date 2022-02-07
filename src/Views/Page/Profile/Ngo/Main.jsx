@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import ProfileOne from "./Step1/Index";
 import ProfileTwo from "./Step2/Index";
-import { ngoController } from "../../../../Api/Ngo/create";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { ngoController } from "../../../../Api/Ngo/controller";
 
 function Steps() {
   const [logo, setLogo] = useState();
@@ -9,50 +11,19 @@ function Steps() {
   const [pdfIcon, setPdfIcon] = useState(false);
   const [pdfName, setPdfName] = useState();
   const [page, setPage] = useState(1);
-  const [data, setData] = useState({
-    ngoLogo: { name: "", type: "" },
-    pdf: "",
-    ngoName: "",
-    ownerName: "",
-    panNo: "",
-    registrationNo: "",
-    phoneNo: "",
-    website: "",
-    address: "",
-    city: "",
-    pinCode: "",
-    state: "",
+  const [logoData, setLogoData] = useState({
+    fileName: "",
+    fileType: "",
+    ownerFileCategory: "",
   });
 
-  const {
-    ngoLogo,
-    pdf,
-    ngoName,
-    ownerName,
-    panNo,
-    registrationNo,
-    phone,
-    website,
-    address,
-    city,
-    pincode,
-    state,
-  } = data;
+  const navigate = useNavigate();
 
-  const values = {
-    ngoLogo,
-    pdf,
-    ngoName,
-    ownerName,
-    panNo,
-    registrationNo,
-    phone,
-    website,
-    address,
-    city,
-    pincode,
-    state,
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const nextStep = () => {
     setPage(page + 1);
@@ -62,55 +33,42 @@ function Steps() {
     setPage(page - 1);
   };
 
-  const handleChange = (input) => (e) => {
-    setData((prevData) => {
-      return {
-        ...prevData,
-        [input]: e.target.value,
-      };
-    });
-  };
-
   const handleFile = () => (e) => {
     const file = e.target.files[0];
+    const fileType = file.type.split("/")[1];
+    const fileName = file.name;
     const reader = new FileReader();
     reader.onload = (e) => {
       setLogo(e.target.result);
     };
     reader.readAsDataURL(file);
-    setLogoName(file.name);
-    setData((prevData) => {
+    setLogoName(fileName);
+    setLogoData((prevData) => {
       return {
         ...prevData,
-        ngoLogo: {
-          name: file.name,
-          type: file.type,
-        },
+        fileName: fileName,
+        fileType: fileType,
+        ownerFileCategory: fileName + "-" + fileType,
       };
     });
   };
 
   const handlePdf = () => (e) => {
     const file = e.target.files[0];
-    console.log(file);
     setPdfIcon(true);
     setPdfName(file.name);
-    setData((prevData) => {
-      return {
-        ...prevData,
-        pdf: file.name,
-      };
-    });
   };
 
-  const ngoFormHandler = (navigate) => {
-    ngoController.createNgo(navigate, data);
+  const onSubmit = (data) => {
+    if (data.ngoName && data.ownerName && data.panNo && data.registrationNo) {
+      if(page < 2){
+        nextStep();
+      }
+    }
   };
 
-  const ngoFileHandler = () => {
-    const fileName = data.ngoLogo.name;
-    const fileType = data.ngoLogo.type.split("/")[1];
-    ngoController.fileUpload(fileName, fileType);
+  const onSubmitStep2 = (data) => {
+    ngoController.createNgo(navigate, data, logoData);
   };
 
   const steps = {
@@ -124,16 +82,17 @@ function Steps() {
     <ProfileComponent
       nextStep={nextStep}
       prevStep={prevStep}
-      handleChange={handleChange}
-      values={values}
       handleFile={handleFile}
       handlePdf={handlePdf}
       logo={logo}
       logoName={logoName}
       pdfIcon={pdfIcon}
       pdfName={pdfName}
-      ngoFormHandler={ngoFormHandler}
-      ngoFileHandler={ngoFileHandler}
+      register={register}
+      handleSubmit={handleSubmit}
+      errors={errors}
+      onSubmit={onSubmit}
+      onSubmitStep2={onSubmitStep2}
     />
   );
 }

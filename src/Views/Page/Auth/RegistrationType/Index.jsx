@@ -1,9 +1,6 @@
 import React from "react";
 import Style from "./Index.module.css";
 import PrimaryLayout from "../../../Layout/Primary/Main";
-import organisationIcon from "./Images/organisation.png";
-import VolunteerIcon from "./Images/volunteer.png";
-import ShareIcon from "./Images/share.png";
 import { useNavigate } from "react-router-dom";
 import { uris } from "../../../../Config/Router/URI";
 
@@ -25,13 +22,13 @@ function RegistrationType() {
           <div className={Style.registrationType}>
             <div onClick={ngoHandler} className={Style.typeOneWrapper}>
               <span className={Style.typeOne}>
-                <img src={organisationIcon} alt="icon" />
+                <img src="/resources/images/organisation.png" alt="icon" />
               </span>
               NGO
             </div>
             <div onClick={volunteerHandler} className={Style.typeTwoWrapper}>
               <span className={Style.typeTwo}>
-                <img src={VolunteerIcon} alt="icon" />
+                <img src="/resources/images/volunteer.png" alt="icon" />
               </span>
               Volunteer
             </div>
@@ -39,7 +36,7 @@ function RegistrationType() {
         </div>
         <div className={Style.shareContainer}>
           <button className={Style.shareButton}>
-            <img src={ShareIcon} alt="icon" />
+            <img src="/resources/images/share.png" alt="icon" />
             Share this app
           </button>
         </div>

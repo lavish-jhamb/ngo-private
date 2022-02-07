@@ -1,6 +1,6 @@
 import React from "react";
 import "./Index.css";
-import Card from "../../../../Components/Card/Index";
+import Card from "../../../../Components/DonorCard/Index";
 import MenubarLayout from "../../../Layout/Menubar/Main";
 import { Link } from "react-router-dom";
 import { uris } from "../../../../Config/Router/URI";

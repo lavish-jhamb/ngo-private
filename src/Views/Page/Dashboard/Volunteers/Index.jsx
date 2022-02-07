@@ -1,6 +1,6 @@
 import React from "react";
 import MenubarLayout from "../../../Layout/Menubar/Main";
-import ManageRecData from "../Receipts/ReceiptCard/ManageRecData";
+import VolunteerCard from "../../../../Components/ReceiptCard/Index";
 import "./Index.css";
 import {Link} from "react-router-dom";
 import { useEffect } from "react";
@@ -29,7 +29,7 @@ const ManageVolunteer = () => {
                         </div>
                     </div>
                     <div className="cardReceipts">
-                        <ManageRecData shareBtn={false} cardFooter={false}/>
+                        <VolunteerCard shareBtn={false} cardFooter={false}/>
                     </div>
                 </div>
 

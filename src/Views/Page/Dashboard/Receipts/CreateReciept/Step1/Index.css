@@ -1,32 +1,83 @@
-.createrecieptwrapper{
-    height:calc(100vh - 109px);
-}
-.createrecieptcontainer{
-    width: 90vw;
-    margin: 0 auto;
-    height: 100%;
-}
-.headercreatereciept1{
-    display:flex;
-    justify-content: space-between;
-    align-items: center; 
-    margin-top: 2em;
-}
-.headercreatereciept1 > h2{
-    font-size: 1.7rem;
-}
-.headercreatereciept1 > p{
-    font-size:1.4rem;
-    color: var(--darkGray);
-    font-weight: 500;
-}
-.createrecieptformcontainer{
-    height: calc(100% - 80px);
+.donor-details-wrapper-1 {
+    height: calc(100vh - 109px);
     display: flex;
     flex-direction: column;
+    justify-content:space-between;
+  }
+  .donor-details-container-1 {
+    width: 90vw;
+    margin: 0 auto;
+  }
+  
+ .donor-header-1 {
+    margin-top: 2em;
+    display: flex;
     justify-content: space-between;
-}
-.iconcreatereciept1>button{
+    align-items: center;
+  }
+  
+  .donor-details-1 > input{
+    display: block;
+    width: 100%;
+    margin: 1.1em 0;
+  }
+  
+  .donor-details-1 > input[type='text'],input[type='number'],input[type='date']{
+    height: 39px;
+    border: solid 2px var(--placeholder);
+    border-radius: 12px;
+    padding-left: 1em;
+    background-color: var(--white);
+  }
+
+  .donor-details-1 > input[type='text'],input[type='number'],input[type='date']:focus{
+    outline: none;
+  }
+  
+  .donor-details-1 > select{
+    height: 39px;
+    border: solid 2px var(--placeholder);
+    border-radius: 12px;
+    padding-left: 0.5em;
+    font-size: 1.5rem;
+    width: 100%;
+    font-size: 1.6rem;
+    background-color: var(--white);
+  }
+  
+  .donor-details-1 > select:invalid{
+    color: var(--placeholder);
+  }
+  
+  .donor-header-1 > h2 > img{
+    width: 8px;
+    margin-right: 0.5em;
+  }
+  .donor-header-1 > h2 {
+    font-size: 1.7rem;
+  }
+  .donor-header-1 > p {
+    font-size: 1.4rem;
+    color: var(--darkGray);
+    font-weight: 500;
+  }
+  
+  .donor-details-1 > input {
+    display: block;
+    width: 100%;
+    margin: 1.1em 0;
+    height: 39px;
+    border: solid 2px var(--placeholder);
+    border-radius: 12px;
+    padding-left: 1em;
+  }
+  .reciept-button-1{
+    width: 90%;
+    margin: 0 auto;
+    flex: 0.3;
+  }
+  
+  .reciept-button-1 > button {
     border: none;
     outline: none;
     border-radius: 12px;
@@ -36,26 +87,61 @@
     color: var(--white);
     font-size: 1.6rem;
     position: relative;
-}
-.iconcreatereciept1>button>span{
+  }
+  .reciept-button-1 > button > span {
     position: absolute;
     right: 30px;
-}
+  }
 
-.createrecieptcontainer> input{
-    display: block;
-    width: 100%;
-    margin: 1.1em 0;
-}
-.createrecieptcontainer> input[type=text] ,input[type=number]{
-    height: 39px;
+.spinner{
     border: solid 2px var(--placeholder);
     border-radius: 12px;
-    padding-left: 1em;
-    line-height: 1.5em;
-    color: var(--placeholder);
+    height: 39px;
+    margin-top: 1.2em;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.createrecieptcontainer > input[type=text],input[type=number]::placeholder{
-    color: var(--placeholder);
-    font-size: 1.5rem;
+
+.spinner > input[type=number]{
+    height: 100%;
+    width: 80%;
+    padding-left: 1em;
+    outline: none;
+    border: none;
+}
+
+.radioButtons{
+    display: flex;
+    margin-top: 1em;
+}
+
+.radioButtons label{
+    margin-left:0.25em;
+    font-weight: 500;
+}
+
+.radioButtons input{
+    width: 15px;
+    height: 15px;
+}
+
+.male{
+    display: flex;
+    align-items: center;
+}
+
+.male > label{
+    font-size: 1.4rem;
+}
+
+.female{
+    display: flex;
+    align-items: center;
+    margin-left: 1em;
+}
+
+.female > label{
+    font-size: 1.4rem;
 }
