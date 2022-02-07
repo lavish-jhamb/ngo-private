@@ -10,7 +10,7 @@ import {
 
 function Otppage() {
   const [otp, setOtp] = useState("");
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(60);
   const [flag, setFlag] = useState(true);
 
   const navigate = useNavigate();

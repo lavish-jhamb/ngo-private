@@ -15,14 +15,24 @@
     justify-content: space-between;
     align-items: center;
   }
-  
-  .donor-details-1 > input{
-    display: block;
-    width: 100%;
+
+  .donor-details-1 > .inputField{
     margin: 1.1em 0;
   }
+
+  .donor-details-1 > p, .donor-details-1 > .inputField > p{
+    color: rgb(240, 69, 69);
+    margin-left: 0.5em;
+    margin-top: 0.2em;
+    font-size: 1.1rem;
+  }
   
-  .donor-details-1 > input[type='text'],input[type='number'],input[type='date']{
+  .donor-details-1 > .inputField > input{
+    display: block;
+    width: 100%;
+  }
+  
+  .donor-details-1 > .inputField > input[type='text'],input[type='number'],input[type='date']{
     height: 39px;
     border: solid 2px var(--placeholder);
     border-radius: 12px;
@@ -30,7 +40,7 @@
     background-color: var(--white);
   }
 
-  .donor-details-1 > input[type='text'],input[type='number'],input[type='date']:focus{
+  .donor-details-1 > .inputField input[type='text'],input[type='number'],input[type='date']:focus{
     outline: none;
   }
   
@@ -61,16 +71,7 @@
     color: var(--darkGray);
     font-weight: 500;
   }
-  
-  .donor-details-1 > input {
-    display: block;
-    width: 100%;
-    margin: 1.1em 0;
-    height: 39px;
-    border: solid 2px var(--placeholder);
-    border-radius: 12px;
-    padding-left: 1em;
-  }
+
   .reciept-button-1{
     width: 90%;
     margin: 0 auto;
