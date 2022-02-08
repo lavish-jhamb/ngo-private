@@ -4,8 +4,18 @@ import SecondaryLayout from "../../../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
 
 function CreateRecieptFormTwo(props) {
-  const {prevStep, handleSubmit, onSubmitStepTwo, register, errors } =
-    props;
+  const {
+    prevStep,
+    handleChange,
+    filteredData,
+    handleSubmit,
+    onSubmitStepTwo,
+    register,
+    errors,
+    values,
+    selectCategory,
+    isVisibleDropdown,
+  } = props;
 
   const navigate = useNavigate();
 
@@ -75,13 +85,29 @@ function CreateRecieptFormTwo(props) {
                     type="text"
                     placeholder="Select category"
                     {...register("category", {
+                      onChange: handleChange("category"),
                       required: {
                         value: true,
                         message: "category is required",
                       },
                     })}
+                    value={values.category}
                   />
                   {errors.category && <p>{errors.category.message}</p>}
+                  <div className={`dropdown ${isVisibleDropdown && "show"}`}>
+                    {filteredData?.map((value, idx) => (
+                      <div key={idx}>
+                        <label htmlFor={`category_${idx}`}>{value.name}</label>
+                        <input
+                          id={`category_${idx}`}
+                          type="radio"
+                          name="category"
+                          onClick={selectCategory}
+                          value={value.name}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 <div className="inputField">
                   <input

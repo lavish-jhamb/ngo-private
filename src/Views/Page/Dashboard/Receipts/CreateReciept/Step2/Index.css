@@ -131,3 +131,34 @@
   position: absolute;
   right: 30px;
 }
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  width: 90%;
+  padding: 10px 16px;
+  border-radius: 10px;
+  overflow: auto;
+  z-index:1;
+}
+
+.dropdown label{
+  border-bottom: solid 1px silver;
+  font-size: 1.5em;
+  color: black;
+  margin: 1em 0px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown input {
+  display: none;
+}
+
+.dropdown label:hover {background-color: #ddd;}
+
+.show{
+  display: block;
+}

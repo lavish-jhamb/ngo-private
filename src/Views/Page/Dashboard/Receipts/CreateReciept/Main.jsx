@@ -5,11 +5,15 @@ import StepTwo from "./Step2/Index";
 import StepThree from "./Step3/Index";
 import { receiptController } from "../../../../../Api/Receipt/controller";
 import { getCookie } from "../../../../../Utils/cookie";
+import { ngoCategoryController } from "../../../../../Api/NgoCategory/controller";
 
 function MainCreateReciept() {
   const [page, setPage] = useState(1);
+  const [isVisibleDropdown, setIsVisibleDropdown] = useState(false);
+  const [categoriesData, setCategoriesData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState("");
   const [data, setData] = useState({
     amount: "",
     description: "",
@@ -42,13 +46,43 @@ function MainCreateReciept() {
     setPage(page - 1);
   };
 
-  const handleChange = (input) => (e) => {
+  const selectCategory = (e) => {
     setData((prevData) => {
       return {
         ...prevData,
-        [input]: e.target.value,
+        category: e.target.value,
       };
     });
+    setIsVisibleDropdown(false);
+  };
+
+  const handleChange = (input) => (e) => {
+    if (input === "category") {
+      setData((prevData) => {
+        return {
+          ...prevData,
+          [input]: e.target.value,
+        };
+      });
+      const searchWord = e.target.value;
+      const newFilter = categoriesData?.filter((value) => {
+        return value.name.toLowerCase().includes(searchWord.toLowerCase());
+      });
+      if (searchWord === "") {
+        setIsVisibleDropdown(false);
+        setFilteredData([]);
+      } else {
+        setFilteredData(newFilter);
+        setIsVisibleDropdown(true);
+      }
+    } else {
+      setData((prevData) => {
+        return {
+          ...prevData,
+          [input]: e.target.value,
+        };
+      });
+    }
   };
 
   useEffect(() => {
@@ -65,7 +99,7 @@ function MainCreateReciept() {
         });
         setValue("address", response?.data?.address, { shouldValidate: true });
         setValue("city", response?.data?.city, { shouldValidate: true });
-        setDate(response?.data?.dateOfBirth.split("-").reverse().join("-"))
+        setDate(response?.data?.dateOfBirth.split("-").reverse().join("-"));
         setValue(
           "dateOfBirth",
           response?.data?.dateOfBirth.split("-").reverse().join("-"),
@@ -88,6 +122,14 @@ function MainCreateReciept() {
       fetchDonorInfo();
     }
   }, [data.mobileNumber, setValue]);
+
+  useEffect(() => {
+    const getCategories = async () => {
+      const response = await ngoCategoryController.getCategories();
+      setCategoriesData(response?.data);
+    };
+    getCategories();
+  }, []);
 
   const onSubmit = (data) => {
     if (
@@ -153,7 +195,7 @@ function MainCreateReciept() {
   };
 
   const createDonation = async () => {
-    return receiptController.donation(formattedData());
+    return receiptController.donation(data.category, formattedData());
   };
 
   const Steps = {
@@ -178,6 +220,10 @@ function MainCreateReciept() {
       onSubmit={onSubmit}
       onSubmitStepTwo={onSubmitStepTwo}
       date={date}
+      categories={categoriesData}
+      filteredData={filteredData}
+      selectCategory={selectCategory}
+      isVisibleDropdown={isVisibleDropdown}
     />
   );
 }
