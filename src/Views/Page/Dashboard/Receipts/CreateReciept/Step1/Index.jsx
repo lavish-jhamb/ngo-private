@@ -12,6 +12,7 @@ function CreateRecieptForm(props) {
     handleSubmit,
     onSubmit,
     errors,
+    date
   } = props;
 
   const navigate = useNavigate();
@@ -83,7 +84,7 @@ function CreateRecieptForm(props) {
               </div>
               <div className="inputField">
                 <input
-                  type="text"
+                  type={date ? 'date' : 'text'}
                   onFocus={(e) => {
                     e.currentTarget.type = "date";
                     e.currentTarget.focus();

@@ -9,6 +9,7 @@ import { getCookie } from "../../../../../Utils/cookie";
 function MainCreateReciept() {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [date, setDate] = useState('');
   const [data, setData] = useState({
     amount: "",
     description: "",
@@ -64,9 +65,10 @@ function MainCreateReciept() {
         });
         setValue("address", response?.data?.address, { shouldValidate: true });
         setValue("city", response?.data?.city, { shouldValidate: true });
+        setDate(response?.data?.dateOfBirth.split("-").reverse().join("-"))
         setValue(
           "dateOfBirth",
-          response?.data?.dateOfBirth.split("-").reverse().join("/"),
+          response?.data?.dateOfBirth.split("-").reverse().join("-"),
           {
             shouldValidate: true,
           }
@@ -175,6 +177,7 @@ function MainCreateReciept() {
       errors={errors}
       onSubmit={onSubmit}
       onSubmitStepTwo={onSubmitStepTwo}
+      date={date}
     />
   );
 }
