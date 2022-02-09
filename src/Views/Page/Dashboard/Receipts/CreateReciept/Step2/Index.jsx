@@ -94,15 +94,15 @@ function CreateRecieptFormTwo(props) {
                     value={values.category}
                   />
                   {errors.category && <p>{errors.category.message}</p>}
-                  <div className={`dropdown ${isVisibleDropdown && "show"}`}>
-                    {filteredData?.map((value, idx) => (
+                  <div className={`dropdown ${(isVisibleDropdown && filteredData.length > 0) && "show"}`}>
+                    {filteredData.length > 0 && filteredData?.map((value, idx) => (
                       <div key={idx}>
                         <label htmlFor={`category_${idx}`}>{value.name}</label>
                         <input
                           id={`category_${idx}`}
                           type="radio"
                           name="category"
-                          onClick={selectCategory}
+                          onClick={selectCategory}  
                           value={value.name}
                         />
                       </div>
@@ -114,12 +114,7 @@ function CreateRecieptFormTwo(props) {
                     autoComplete="off"
                     placeholder="Additional Note (Optional)"
                     type="text"
-                    {...register("description", {
-                      required: {
-                        value: true,
-                        message: "description is required",
-                      },
-                    })}
+                    {...register("description")}
                   />
                   {errors.description && <p>{errors.description.message}</p>}
                 </div>

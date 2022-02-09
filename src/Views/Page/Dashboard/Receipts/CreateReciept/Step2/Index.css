@@ -31,7 +31,7 @@
   width: 100%;
 }
 
-.address-details > .inputField  > input{
+.address-details > .inputField > input{
   display: block;
   width: 100%;
 }
@@ -48,15 +48,23 @@
   padding-left: 1em;
 }
 
+.donor-details > .inputField > input::placeholder{
+  color: var(--placeholder);
+}
+
 .donor-details > .inputField > input[type='text'],input[type='number']:focus{
   outline: none;
 }
 
-.address-details > .inputField > input[type='text']{
+.address-details > .inputField > input[type='text'],input[type='number']{
   height: 39px;
   border: solid 2px var(--placeholder);
   border-radius: 12px;
   padding-left: 1em;
+}
+
+.address-details > .inputField > input::placeholder{
+  color: var(--placeholder);
 }
 
 .address-details > .inputField > input[type='text']:focus{
@@ -68,9 +76,7 @@
   border: solid 2px var(--placeholder);
   border-radius: 12px;
   padding-left: 0.5em;
-  font-size: 1.5rem;
   width: 100%;
-  font-size: 1.6rem;
   background-color: var(--white);
 }
 

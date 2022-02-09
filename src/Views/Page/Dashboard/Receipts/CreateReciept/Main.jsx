@@ -19,7 +19,7 @@ function MainCreateReciept() {
     description: "",
     dateOfBirth: "",
     email: "",
-    gender: "Male",
+    gender: "",
     mobileNumber: "",
     name: "",
     panNumber: "",
@@ -47,6 +47,7 @@ function MainCreateReciept() {
   };
 
   const selectCategory = (e) => {
+    console.log(e.target.value)
     setData((prevData) => {
       return {
         ...prevData,
@@ -147,22 +148,24 @@ function MainCreateReciept() {
   };
 
   const onSubmitStepTwo = (data) => {
-    setData({
-      amount: data.amount,
-      category: data.category,
-      description: data.description,
-      address: data?.address,
-      city: data?.city,
-      state: data?.state,
-      dateOfBirth: data?.dateOfBirth,
-      email: data?.email,
-      gender: data?.gender,
-      mobileNumber: data.mobileNumber,
-      name: data?.name,
-      panNumber: data?.panNumber,
-      pinCode: data?.pinCode,
-      paymentMethod: data?.paymentMethod,
-    });
+    setData((prevData) => {
+      return {
+        ...prevData,
+        amount: data.amount,
+        description: data.description,
+        address: data?.address,
+        city: data?.city,
+        state: data?.state,
+        dateOfBirth: data?.dateOfBirth,
+        email: data?.email,
+        gender: data?.gender,
+        mobileNumber: data.mobileNumber,
+        name: data?.name,
+        panNumber: data?.panNumber,
+        pinCode: data?.pinCode,
+        paymentMethod: data?.paymentMethod,
+      }
+    })
 
     if (page > 1 && page < 3) {
       nextStep();

@@ -13,14 +13,17 @@
   font-size: 1.4rem;
 }
 
-.detailsPreview .createRecDetails span {
+.detailsPreview > .createRecDetails span {
+  border-bottom: solid 1px var(--placeholder);
+  display: block;
+  width: 100%;
   font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  padding-bottom:0.3em;
 }
 
 .detailsPreview .createRecDetails hr {
   margin: 0.6rem auto;
-  border: 1px solid var(--darkGray);
+  border: none;
 }
 
 .btnsPreview {

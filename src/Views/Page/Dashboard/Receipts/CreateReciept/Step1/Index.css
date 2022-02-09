@@ -40,6 +40,10 @@
     background-color: var(--white);
   }
 
+  .donor-details-1 > .inputField > input[type='text']::placeholder{
+    color: var(--placeholder);
+  }
+
   .donor-details-1 > .inputField input[type='text'],input[type='number'],input[type='date']:focus{
     outline: none;
   }
@@ -111,6 +115,10 @@
     padding-left: 1em;
     outline: none;
     border: none;
+}
+
+.spinner > input[type=number]::placeholder{
+  color: var(--placeholder);
 }
 
 .radioButtons{
