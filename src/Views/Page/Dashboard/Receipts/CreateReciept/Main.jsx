@@ -47,13 +47,13 @@ function MainCreateReciept() {
   };
 
   const selectCategory = (e) => {
-    console.log(e.target.value)
     setData((prevData) => {
       return {
         ...prevData,
         category: e.target.value,
       };
     });
+    setValue("category", e.target.value);
     setIsVisibleDropdown(false);
   };
 
@@ -148,24 +148,22 @@ function MainCreateReciept() {
   };
 
   const onSubmitStepTwo = (data) => {
-    setData((prevData) => {
-      return {
-        ...prevData,
-        amount: data.amount,
-        description: data.description,
-        address: data?.address,
-        city: data?.city,
-        state: data?.state,
-        dateOfBirth: data?.dateOfBirth,
-        email: data?.email,
-        gender: data?.gender,
-        mobileNumber: data.mobileNumber,
-        name: data?.name,
-        panNumber: data?.panNumber,
-        pinCode: data?.pinCode,
-        paymentMethod: data?.paymentMethod,
-      }
-    })
+    setData({
+      amount: data.amount,
+      category: data.category,
+      description: data.description,
+      address: data?.address,
+      city: data?.city,
+      state: data?.state,
+      dateOfBirth: data?.dateOfBirth,
+      email: data?.email,
+      gender: data?.gender,
+      mobileNumber: data.mobileNumber,
+      name: data?.name,
+      panNumber: data?.panNumber,
+      pinCode: data?.pinCode,
+      paymentMethod: data?.paymentMethod,
+    });
 
     if (page > 1 && page < 3) {
       nextStep();
