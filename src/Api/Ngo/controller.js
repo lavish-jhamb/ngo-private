@@ -28,4 +28,13 @@ export const ngoController = {
             }
         })
     },
+
+    getNgo:async () => {
+        try{
+            const response = await ApiClient.get(`/v1/ngo`);
+            console.log(response);
+        }catch(error){
+            console.log(error);
+        }
+    }
 }

@@ -54,4 +54,14 @@ export const receiptController = {
             return error;
         }
     },
+
+    getDonations:async () => {
+        try{
+            const ngoExternalId = getCookie('ngoExternalId');
+            const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/donations`);
+            return response;
+        }catch(error){
+            return error;
+        }
+    }
 }
