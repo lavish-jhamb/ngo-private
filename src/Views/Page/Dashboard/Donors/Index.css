@@ -61,7 +61,9 @@
   border: none;
 }
 
-/* .scroll {
-  overflow: scroll;
-  max-height: 100vh;
-} */
+.empty{
+  display:grid;
+  place-items: center;
+  height:50vh;
+  font-size:1.8rem;
+}
