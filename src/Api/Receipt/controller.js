@@ -1,5 +1,5 @@
 import ApiClient from "../Client"
-import { getCookie } from "../../Utils/cookie"
+import { getCookie ,deleteCookie } from "../../Utils/cookie"
 import { ngoCategoryController } from "../NgoCategory/controller";
 
 export const receiptController = {
@@ -51,6 +51,9 @@ export const receiptController = {
             }
             return response;
         } catch (error) {
+            if(error.response.status === 404){
+                deleteCookie('getdonorId');
+            }
             return error;
         }
     },

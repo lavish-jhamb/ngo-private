@@ -172,7 +172,7 @@ function MainCreateReciept() {
 
   const formattedData = () => {
     const getDonorId = getCookie("getdonorId");
-    const categoryId = getCookie("categoryId");
+    const categoryId = getCookie("categoryExternalId");
     const formattedData = {
       amount: data.amount,
       categoryId: categoryId && categoryId,
