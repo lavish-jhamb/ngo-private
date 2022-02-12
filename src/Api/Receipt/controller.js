@@ -4,6 +4,7 @@ import { getCookie } from "../../Utils/cookie"
 export const receiptController = {
 
     donation: async ({ ...args }) => {
+        
         try {
             const ngoExternalId = getCookie('ngoExternalId');
             const response = await ApiClient.post(`/v1/ngo/${ngoExternalId}/donations`, { ...args, });

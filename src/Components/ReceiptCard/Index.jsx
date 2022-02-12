@@ -1,50 +1,54 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import receiptUsertData from "./UserDataReceipt.json";
 import "./Index.css";
-import { getVolunteer } from "../../Api/Manage-volunteer/Create-volunteer";
+import { volunteer } from "../../Api/Volunteer/Volunteer";
 
-const Receipt = (props) => {
+
+
+const Receipt =  (props) => {
+  const [set,setstatus]=useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
+  
+  var result = [];
+  useEffect(()=>{
+    setstatus(volunteer.getVolunteer().then(response=>{console.log("response ",response.data);result=response?.data;return response.data;}));
+    
+  },[]) 
+  
+  console.log(result); 
+  
   return (
     <div>
-      {receiptUsertData.map((data,idx) => (
-        <div key={idx} className="cardContent">
+      {result?.data?.map((dat) => (
+        <div  className="cardContent">
           <div className="cardHeader">
             <div className="cardTitle">
               <h4>
-                <div className="">{data.name}</div>
+                <div className="">{dat.name}</div>
               </h4>
               <div>
-                {props.shareBtn && (
-                    <button className="menuBtn">
-                      <i className="bx bxs-share-alt"></i>
-                    </button>
-                )}
+                
                 <button className="menuBtn">
-                  <i className="bx bx-dots-vertical-rounded"></i>
+                 <ul>
+                    <i className="bx bx-dots-vertical-rounded"></i>
+                  
+            <a className="dropdown-item" href="#" ></a>
+            
+          </ul>
                 </button>
               </div>
             </div>
             <div className="cardData">
               <p>
-                <i className="fas fa-phone-alt cardIcon"></i> {data.phone}
+                <i className="fas fa-phone-alt cardIcon"></i> {dat.phone}
               </p>
               <p>
-                <i className="fas fa-envelope cardIcon"></i> {data.email}
+                <i className="fas fa-envelope cardIcon"></i> {dat.email}
               </p>
             </div>
           </div>
 
-          {props.cardFooter && (
-            <div className="cardFooter">
-              <div>
-                <h5>Rs. {data.price}</h5>
-                <span className="categoryReceipt">For: {data.category}</span>
-              </div>
-              <div>
-                <p>Receipt No. {data.receiptno}</p>
-              </div>
-            </div>
-          )}
+        
         </div>
       ))}
     </div>

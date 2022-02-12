@@ -3,17 +3,9 @@ import MenubarLayout from "../../../Layout/Menubar/Main";
 import VolunteerCard from "../../../../Components/ReceiptCard/Index";
 import "./Index.css";
 import {Link} from "react-router-dom";
-import { getVolunteer } from "../../../../Api/Manage-volunteer/Create-volunteer";
 
 const ManageVolunteer = () => {
-    useEffect(()=>{
-          const getVolunteerData =async()=>{
-          const volunteerdata= await getVolunteer();
-          console.log(volunteerdata);
-        
-          }
-          getVolunteerData();
-            },[])
+    
 
     return (
         <>

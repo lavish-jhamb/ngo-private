@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Index.css";
 import SecondaryLayout from "../../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
 import { uris } from "../../../../../Config/Router/URI";
-import { volunteer } from "../../../../../Api/Manage-volunteer/Create-volunteer";
-
+import { volunteer } from "../../../../../Api/Volunteer/Volunteer";
+import { getCookie } from "../../../../../Utils/cookie";
 function NewVolunteer() {
   const [data,setState] = useState({
     Name: "",
@@ -23,12 +23,25 @@ function NewVolunteer() {
     e.preventDefault();
     console.log(data); 
   }
-  const loginHandler = (e) => {
-    e.preventDefault();
-    console.log(data);
-    volunteer();
-    navigate(uris.volunteer);
-  };
+  
+    const volunteerdata=()=>{
+      const getVolunteerId = getCookie("getvolunteerId");
+      const volunteerdata ={
+        volunteerId:getVolunteerId && getVolunteerId,
+        name:data.Name,
+        email:data.Email,
+        mobileNumber:data.PhoneNumber,
+        password:data.Password
+      };
+      return volunteerdata;
+    };
+    const loginHandler = async() => {
+      
+      console.log(data);
+      return volunteer.createVolunteer(volunteerdata());
+    };
+  
+  
 
   const pwdHandler = (e) => {
     e.preventDefault();
@@ -66,7 +79,7 @@ function NewVolunteer() {
             </form>
           </div>
           <div className="newVolAddBtn">
-          <button  type="submit" onClick={loginHandler}>
+          <button  type="submit" onClick= {loginHandler}>
                   Add Volunteer
                 </button>
           </div>

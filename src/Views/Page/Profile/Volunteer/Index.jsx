@@ -3,6 +3,8 @@ import Style from "./Index.module.css";
 import SecondaryLayout from "../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
 import { uris } from "../../../../Config/Router/URI";
+import { volunteersReg } from "../../../../Api/VolunteerRegis/VolunteerRegis";
+
 
 function VolunteerPage() {
   const [data, setData] = useState({
@@ -10,17 +12,33 @@ function VolunteerPage() {
     email: "",
     birth: "",
     interest: "",
+    gender:""
+    
   });
-  const { name, email, birth, interest } = data;
+  const { name, email, birth, interest,gender } = data;
 
   const navigate = useNavigate();
+  const volunteerReg=()=>{
+    
+    const volunteerdata ={
+      
+      name:data.name,
+      email:data.email,
+      dateOfBirth:data.birth,
+      interest:data.interest,
+      gender:data.gender
+    };
+    return volunteerdata;
+  };
 
   const eventHandler = (name) => (e) => {
     setData({ ...data, [name]: e.target.value });
+    console.log(data);
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async(e) => {
     e.preventDefault();
+    return volunteersReg.VolunteerRegis(volunteerReg());
     navigate(uris.profileCreated);
   };
 
@@ -58,8 +76,8 @@ function VolunteerPage() {
           />
           <h2>Gender (Optional)</h2>
           <div className={Style.radioButtons}>
-            <div className={Style.male}>
-              <input type="radio" defaultChecked name="radio" value="option1" />
+            <div className={Style.male}  onChange={eventHandler("gender")} value={gender}>
+              <input type="radio" defaultChecked name="radio" value="option1" onChange={eventHandler("gender")} value={gender} />
               <label htmlFor="male">Male</label>
             </div>
             <div className={Style.female}>

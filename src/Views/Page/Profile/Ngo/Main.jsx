@@ -88,6 +88,7 @@ function Steps() {
       logoName={logoName}
       pdfIcon={pdfIcon}
       pdfName={pdfName}
+      
       register={register}
       handleSubmit={handleSubmit}
       errors={errors}
