@@ -11,6 +11,8 @@ function MainCreateReciept() {
   const [page, setPage] = useState(1);
   const [isVisibleDropdown, setIsVisibleDropdown] = useState(false);
   const [categoriesData, setCategoriesData] = useState([]);
+  const [categoryId, setCategoryId] = useState("");
+  const [donorId, setDonorId] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [date, setDate] = useState("");
@@ -55,6 +57,8 @@ function MainCreateReciept() {
     });
     setValue("category", e.target.value);
     setIsVisibleDropdown(false);
+    const categoryExternalId = JSON.parse(e.target.dataset.category).externalId;
+    setCategoryId(categoryExternalId);
   };
 
   const handleChange = (input) => (e) => {
@@ -94,6 +98,8 @@ function MainCreateReciept() {
         id,
         data.mobileNumber
       );
+      const donorId = response?.data?.externalId;
+      setDonorId(donorId);
       if (response.status === 200) {
         setValue("description", response?.data?.description, {
           shouldValidate: true,
@@ -170,33 +176,28 @@ function MainCreateReciept() {
     }
   };
 
-  const formattedData = () => {
-    const getDonorId = getCookie("getdonorId");
-    const categoryId = getCookie("categoryExternalId");
-    const formattedData = {
-      amount: data.amount,
-      categoryId: categoryId && categoryId,
-      description: data.description,
-      donorInfo: {
-        donorId: getDonorId && getDonorId,
-        address: data.address,
-        city: data.city,
-        dateOfBirth: data.dateOfBirth,
-        email: data.email,
-        gender: data.gender,
-        mobileNumber: data.mobileNumber,
-        name: data.name,
-        panNumber: data.panNumber,
-        pinCode: data.pinCode,
-        state: data.state,
-      },
-      paymentMethod: data.paymentMethod,
-    };
-    return formattedData;
+  const formattedData = {
+    amount: data.amount,
+    categoryId: categoryId ? categoryId : null,
+    description: data.description,
+    donorInfo: {
+      donorId: donorId ? donorId : null,
+      address: data.address,
+      city: data.city,
+      dateOfBirth: data.dateOfBirth,
+      email: data.email,
+      gender: data.gender,
+      mobileNumber: data.mobileNumber,
+      name: data.name,
+      panNumber: data.panNumber,
+      pinCode: data.pinCode,
+      state: data.state,
+    },
+    paymentMethod: data.paymentMethod,
   };
 
   const createDonation = async () => {
-    return receiptController.donation(data.category, formattedData());
+    return receiptController.donation(data.category, formattedData);
   };
 
   const Steps = {

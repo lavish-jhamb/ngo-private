@@ -10,5 +10,5 @@ export function getCookie(cName) {
 }
 
 export const deleteCookie = function(name) {
-    return document.cookie = name + '=;Path=/dashboard;max-age=0';
+    return document.cookie = name + '=;Path=/;max-age=0';
 };

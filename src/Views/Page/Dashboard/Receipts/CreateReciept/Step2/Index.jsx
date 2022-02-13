@@ -104,6 +104,7 @@ function CreateRecieptFormTwo(props) {
                           name="category"
                           onClick={selectCategory}  
                           value={value.name}
+                          data-category={JSON.stringify(value)}
                         />
                       </div>
                     ))}

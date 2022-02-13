@@ -51,20 +51,20 @@ export const otpVerification = (userOtp, navigate) => {
             document.cookie = `firebaseToken=${firebaseToken};domain=localhost;secure`;
             document.cookie = `firebaseToken=${firebaseToken};domain=ngo-donation-management.netlify.app;secure`;
         }).then(() => {
-            exchangeTokenController()
-        }).then(() => {
-            ngoController.getNgo().then(response => {
-                const data = response?.data[0];
-                let flag = false;
-                if (data?.ngoExternalId) {
-                    flag = true
-                    document.cookie = `ngoExternalId=${data?.ngoExternalId};domain=localhost;secure`;
-                    document.cookie = `ngoExternalId=${data?.ngoExternalId};domain=ngo-donation-management.netlify.app`;
-                    return navigate(uris.dashboard);
-                }
-                if (!flag) {
-                    navigate(uris.registration);
-                }
+            exchangeTokenController().then(() => {
+                ngoController.getNgo().then(response => {
+                    const data = response?.data[0];
+                    let flag = false;
+                    if (data?.ngoExternalId) {
+                        flag = true
+                        document.cookie = `ngoExternalId=${data?.ngoExternalId};domain=localhost;secure`;
+                        document.cookie = `ngoExternalId=${data?.ngoExternalId};domain=ngo-donation-management.netlify.app`;
+                        return navigate(uris.dashboard);
+                    }
+                    if (!flag) {
+                        navigate(uris.registration);
+                    }
+                })
             })
         })
 

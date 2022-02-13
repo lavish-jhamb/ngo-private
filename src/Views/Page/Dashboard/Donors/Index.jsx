@@ -9,7 +9,7 @@ import Spinner from "../../../../Components/Spinner/Index";
 
 function Donars() {
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const getDonors = async () => {
