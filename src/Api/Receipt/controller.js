@@ -62,10 +62,10 @@ export const receiptController = {
         }
     },
 
-    getDonations: async () => {
+    getDonations: async (mobile) => {
         try {
             const ngoExternalId = getCookie('ngoExternalId');
-            const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/donations`);
+            const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/donations${mobile ? `?mobile=${mobile}` : ''}`);
             return response;
         } catch (error) {
             return error;

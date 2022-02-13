@@ -30,8 +30,9 @@ const ManageReceipt = () => {
         return error;
       }
     };
-
     getDonations();
+
+    return () => setLoading(false);
   }, []);
 
   return (
