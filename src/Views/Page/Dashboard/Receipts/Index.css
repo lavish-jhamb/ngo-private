@@ -59,3 +59,40 @@
   align-items: center;
   justify-content: center;
 }
+
+.paginate{
+  margin-top: 3em;
+  text-align: center;
+  /* border: solid 3px red; */
+}
+
+.paginationButtons {
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationButtons a {
+  padding: 7px 8px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #007c75;
+  color: #007c75;
+  cursor: pointer;
+}
+
+.paginationButtons a:hover {
+  color: white;
+  background-color: #007c75;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: #007c75;
+}
+
+.paginationDisabled a {
+  color: grey;
+  border: none;
+}

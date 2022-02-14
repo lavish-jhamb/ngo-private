@@ -1,15 +1,15 @@
 import React from 'react';
 import Style from "./Index.module.css";
-import { useNavigate } from "react-router-dom";
-import { uris } from "../../../../Config/Router/URI";
+import notify from "../../../../Utils/notify";
 
 function ProfileExit() {
 
-  const navigate = useNavigate();
-
   const exitHandler = () => {
-    navigate(uris.dashboard);
-  }
+    notify.warn(
+      "Verification in progress! please wait or exit the application",
+      { toastId: "verification-id" }
+    );
+  };
 
   return (
     <div className={Style.exitProfile}>

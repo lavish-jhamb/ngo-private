@@ -54,15 +54,19 @@ export const otpVerification = (userOtp, navigate) => {
             exchangeTokenController().then(() => {
                 ngoController.getNgo().then(response => {
                     const data = response?.data[0];
+                    const isActive = data?.active;
                     let flag = false;
-                    if (data?.ngoExternalId) {
+                    if (data?.ngoExternalId && isActive) {
                         flag = true
                         document.cookie = `ngoExternalId=${data?.ngoExternalId};domain=localhost;secure`;
                         document.cookie = `ngoExternalId=${data?.ngoExternalId};domain=ngo-donation-management.netlify.app`;
                         return navigate(uris.dashboard);
                     }
+                    if (data?.ngoExternalId && !isActive) {
+                        return navigate(uris.profileCreated)
+                    }
                     if (!flag) {
-                        navigate(uris.registration);
+                        return navigate(uris.registration);
                     }
                 })
             })
