@@ -101,7 +101,7 @@ function ProfileOne(props) {
                 </div>
                 <div className={Style.inputField}>
                   <input
-                    type="text"
+                    type="number"
                     placeholder="Registration NO."
                     autoComplete="off"
                     {...register("registrationNo", {

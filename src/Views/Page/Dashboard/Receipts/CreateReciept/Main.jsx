@@ -1,29 +1,44 @@
 import React, { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import StepOne from "./Step1/Index";
 import StepTwo from "./Step2/Index";
 import StepThree from "./Step3/Index";
 import { receiptController } from "../../../../../Api/Receipt/controller";
 import { getCookie } from "../../../../../Utils/cookie";
+import { ngoCategoryController } from "../../../../../Api/NgoCategory/controller";
 
 function MainCreateReciept() {
   const [page, setPage] = useState(1);
+  const [isVisibleDropdown, setIsVisibleDropdown] = useState(false);
+  const [categoriesData, setCategoriesData] = useState([]);
+  const [categoryId, setCategoryId] = useState("");
+  const [donorId, setDonorId] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [date, setDate] = useState("");
   const [data, setData] = useState({
     amount: "",
     description: "",
     dateOfBirth: "",
     email: "",
-    gender: "Male",
+    gender: "",
     mobileNumber: "",
     name: "",
     panNumber: "",
     paymentMethod: "",
-    category:"",
+    category: "",
     address: "",
-    city:"",
-    pinCode:"",
-    state:""
+    city: "",
+    pinCode: "",
+    state: "",
   });
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm();
 
   const nextStep = () => {
     setPage(page + 1);
@@ -33,13 +48,46 @@ function MainCreateReciept() {
     setPage(page - 1);
   };
 
-  const handleChange = (input) => (e) => {
+  const selectCategory = (e) => {
     setData((prevData) => {
       return {
         ...prevData,
-        [input]: e.target.value,
+        category: e.target.value,
       };
     });
+    setValue("category", e.target.value);
+    setIsVisibleDropdown(false);
+    const categoryExternalId = JSON.parse(e.target.dataset.category).externalId;
+    setCategoryId(categoryExternalId);
+  };
+
+  const handleChange = (input) => (e) => {
+    if (input === "category") {
+      setData((prevData) => {
+        return {
+          ...prevData,
+          [input]: e.target.value,
+        };
+      });
+      const searchWord = e.target.value;
+      const newFilter = categoriesData?.filter((value) => {
+        return value.name.toLowerCase().includes(searchWord.toLowerCase());
+      });
+      if (searchWord === "") {
+        setIsVisibleDropdown(false);
+        setFilteredData([]);
+      } else {
+        setFilteredData(newFilter);
+        setIsVisibleDropdown(true);
+      }
+    } else {
+      setData((prevData) => {
+        return {
+          ...prevData,
+          [input]: e.target.value,
+        };
+      });
+    }
   };
 
   useEffect(() => {
@@ -50,54 +98,106 @@ function MainCreateReciept() {
         id,
         data.mobileNumber
       );
+      const donorId = response?.data?.externalId;
+      setDonorId(donorId);
       if (response.status === 200) {
-        setData({
-          amount: "",
-          description: "",
-          address:response?.data?.address,
-          city:response?.data?.city,
-          dateOfBirth: response?.data?.dateOfBirth,
-          email: response?.data?.email,
-          gender: response?.data?.gender,
-          mobileNumber: data.mobileNumber,
-          name: response?.data?.name,
-          panNumber: response?.data?.panNumber,
-          pinCode:response?.data?.pinCode,
-          paymentMethod: "",
+        setValue("description", response?.data?.description, {
+          shouldValidate: true,
         });
+        setValue("address", response?.data?.address, { shouldValidate: true });
+        setValue("city", response?.data?.city, { shouldValidate: true });
+        setDate(response?.data?.dateOfBirth.split("-").reverse().join("-"));
+        setValue(
+          "dateOfBirth",
+          response?.data?.dateOfBirth.split("-").reverse().join("-"),
+          {
+            shouldValidate: true,
+          }
+        );
+        setValue("gender", response?.data?.gender, { shouldValidate: true });
+        setValue("name", response?.data?.name, { shouldValidate: true });
+        setValue("email", response?.data?.email, { shouldValidate: true });
+        setValue("panNumber", response?.data?.panNumber, {
+          shouldValidate: true,
+        });
+        setValue("pinCode", response?.data?.pinCode, { shouldValidate: true });
+        setValue("state", response?.data?.state, { shouldValidate: true });
       }
       setLoading(false);
     };
     if (parseInt(data?.mobileNumber?.length) === 10) {
       fetchDonorInfo();
     }
-  }, [data.mobileNumber]);
+  }, [data.mobileNumber, setValue]);
 
-  const formattedData = () => {
-    const getDonorId = getCookie("getdonorId");
-    const formattedData = {
-      amount: data.amount,
-      description: data.description,
-      donorInfo: {
-        donorId: getDonorId && getDonorId,
-        address:data.address,
-        city:data.city,
-        dateOfBirth:data.dateOfBirth,
-        email: data.email,
-        gender: data.gender,
-        mobileNumber: data.mobileNumber,
-        name: data.name,
-        panNumber: data.panNumber,
-        pinCode: data.pinCode,
-        state: data.state,
-      },
-      paymentMethod: data.paymentMethod,
+  useEffect(() => {
+    const getCategories = async () => {
+      const response = await ngoCategoryController.getCategories();
+      setCategoriesData(response?.data);
     };
-    return formattedData;
+    getCategories();
+  }, []);
+
+  const onSubmit = (data) => {
+    if (
+      data.mobileNumber &&
+      data.name &&
+      data.email &&
+      data.dateOfBirth &&
+      data.panNumber &&
+      data.gender
+    ) {
+      if (page < 2) {
+        nextStep();
+      }
+    }
+  };
+
+  const onSubmitStepTwo = (data) => {
+    setData({
+      amount: data.amount,
+      category: data.category,
+      description: data.description,
+      address: data?.address,
+      city: data?.city,
+      state: data?.state,
+      dateOfBirth: data?.dateOfBirth,
+      email: data?.email,
+      gender: data?.gender,
+      mobileNumber: data.mobileNumber,
+      name: data?.name,
+      panNumber: data?.panNumber,
+      pinCode: data?.pinCode,
+      paymentMethod: data?.paymentMethod,
+    });
+
+    if (page > 1 && page < 3) {
+      nextStep();
+    }
+  };
+
+  const formattedData = {
+    amount: data.amount,
+    categoryId: categoryId ? categoryId : null,
+    description: data.description,
+    donorInfo: {
+      donorId: donorId ? donorId : null,
+      address: data.address,
+      city: data.city,
+      dateOfBirth: data.dateOfBirth,
+      email: data.email,
+      gender: data.gender,
+      mobileNumber: data.mobileNumber,
+      name: data.name,
+      panNumber: data.panNumber,
+      pinCode: data.pinCode,
+      state: data.state,
+    },
+    paymentMethod: data.paymentMethod,
   };
 
   const createDonation = async () => {
-    return receiptController.donation(formattedData());
+    return receiptController.donation(data.category, formattedData);
   };
 
   const Steps = {
@@ -116,6 +216,16 @@ function MainCreateReciept() {
       handleChange={handleChange}
       createDonation={createDonation}
       loading={loading}
+      register={register}
+      handleSubmit={handleSubmit}
+      errors={errors}
+      onSubmit={onSubmit}
+      onSubmitStepTwo={onSubmitStepTwo}
+      date={date}
+      categories={categoriesData}
+      filteredData={filteredData}
+      selectCategory={selectCategory}
+      isVisibleDropdown={isVisibleDropdown}
     />
   );
 }

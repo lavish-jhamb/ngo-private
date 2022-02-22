@@ -3,6 +3,7 @@ import firebaseApp from "./firebase";
 import notify from "../Utils/notify";
 import { uris } from "../Config/Router/URI";
 import { exchangeTokenController } from "../Api/Exchange/controller";
+import { ngoController } from "../Api/Ngo/controller";
 
 export const configureRecaptcha = () => {
     const auth = getAuth(firebaseApp);
@@ -50,9 +51,25 @@ export const otpVerification = (userOtp, navigate) => {
             document.cookie = `firebaseToken=${firebaseToken};domain=localhost;secure`;
             document.cookie = `firebaseToken=${firebaseToken};domain=ngo-donation-management.netlify.app;secure`;
         }).then(() => {
-            exchangeTokenController();
-        }).then(() => {
-            navigate(uris.registration);
+            exchangeTokenController().then(() => {
+                ngoController.getNgo().then(response => {
+                    const data = response?.data[0];
+                    const isActive = data?.active;
+                    let flag = false;
+                    if (data?.ngoExternalId && isActive) {
+                        flag = true
+                        document.cookie = `ngoExternalId=${data?.ngoExternalId};domain=localhost;secure`;
+                        document.cookie = `ngoExternalId=${data?.ngoExternalId};domain=ngo-donation-management.netlify.app`;
+                        return navigate(uris.dashboard);
+                    }
+                    if (data?.ngoExternalId && !isActive) {
+                        return navigate(uris.profileCreated)
+                    }
+                    if (!flag) {
+                        return navigate(uris.registration);
+                    }
+                })
+            })
         })
 
     notify.promise(verifyingOtp, {

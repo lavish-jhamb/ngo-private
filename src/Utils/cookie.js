@@ -8,3 +8,7 @@ export function getCookie(cName) {
     })
     return res
 }
+
+export const deleteCookie = function(name) {
+    return document.cookie = name + '=;Path=/;max-age=0';
+};

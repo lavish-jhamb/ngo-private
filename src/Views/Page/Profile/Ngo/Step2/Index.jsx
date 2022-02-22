@@ -36,7 +36,7 @@ function ProfileTwo(props) {
               <div className={Style.contactDetails}>
                 <div className={Style.inputField}>
                   <input
-                    type="text"
+                    type="number"
                     placeholder="Phone Number (Official)"
                     autoComplete="off"
                     {...register("phoneNo", {
@@ -97,7 +97,7 @@ function ProfileTwo(props) {
                 </div>
                 <div className={Style.inputField}>
                   <input
-                    type="text"
+                    type="number"
                     placeholder="Pincode"
                     autoComplete="off"
                     {...register("pinCode", {

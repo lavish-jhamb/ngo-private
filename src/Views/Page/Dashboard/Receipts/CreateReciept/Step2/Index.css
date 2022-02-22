@@ -16,16 +16,24 @@
   align-items: center;
 }
 
-.donor-details > input{
-  display: block;
-  width: 100%;
+.donor-details > .inputField, .address-details > .inputField {
   margin: 1.1em 0;
 }
 
-.address-details > input{
+.donor-details > .inputField > p , .address-details > .inputField > p{
+  color: rgb(240, 69, 69);
+  margin-left: 0.5em;
+  font-size: 1.1rem;
+}
+
+.donor-details > .inputField > input{
   display: block;
   width: 100%;
-  margin: 1.1em 0;
+}
+
+.address-details > .inputField > input{
+  display: block;
+  width: 100%;
 }
 
 .address-details > h2{
@@ -33,48 +41,54 @@
   font-size: 1.7rem
 }
 
-.donor-details > input[type='text'],input[type='number']{
+.donor-details > .inputField > input[type='text'],input[type='number']{
   height: 39px;
   border: solid 2px var(--placeholder);
   border-radius: 12px;
   padding-left: 1em;
 }
 
-.donor-details > input[type='text'],input[type='number']:focus{
-  outline: none;
-}
-
-.address-details > input[type='text']{
-  height: 39px;
-  border: solid 2px var(--placeholder);
-  border-radius: 12px;
-  padding-left: 1em;
-}
-
-.address-details > input[type='text']:focus{
-  outline: none;
-}
-
-.donor-details > select{
-  height: 39px;
-  border: solid 2px var(--placeholder);
-  border-radius: 12px;
-  padding-left: 0.5em;
-  font-size: 1.5rem;
-  width: 100%;
-  font-size: 1.6rem;
-  background-color: var(--white);
-}
-
-.donor-details > select:focus{
-  outline: none;
-}
-
-.donor-details > select:invalid{
+.donor-details > .inputField > input::placeholder{
   color: var(--placeholder);
 }
 
-.address-details > select{
+.donor-details > .inputField > input[type='text'],input[type='number']:focus{
+  outline: none;
+}
+
+.address-details > .inputField > input[type='text'],input[type='number']{
+  height: 39px;
+  border: solid 2px var(--placeholder);
+  border-radius: 12px;
+  padding-left: 1em;
+}
+
+.address-details > .inputField > input::placeholder{
+  color: var(--placeholder);
+}
+
+.address-details > .inputField > input[type='text']:focus{
+  outline: none;
+}
+
+.donor-details > .inputField > select{
+  height: 39px;
+  border: solid 2px var(--placeholder);
+  border-radius: 12px;
+  padding-left: 0.5em;
+  width: 100%;
+  background-color: var(--white);
+}
+
+.donor-details > .inputField > select:focus{
+  outline: none;
+}
+
+.donor-details > .inputField > select:invalid{
+  color: var(--placeholder);
+}
+
+.address-details > .inputField > select{
   height: 39px;
   border: solid 2px var(--placeholder);
   border-radius: 12px;
@@ -85,7 +99,7 @@
   background-color: var(--white);
 }
 
-.address-details> select:invalid{
+.address-details > .inputField > select:invalid{
   color: var(--placeholder);
 }
 
@@ -102,15 +116,6 @@
   font-weight: 500;
 }
 
-.donor-details > input {
-  display: block;
-  width: 100%;
-  margin: 1.1em 0;
-  height: 39px;
-  border: solid 2px var(--placeholder);
-  border-radius: 12px;
-  padding-left: 1em;
-}
 .reciept-button{
   width: 90%;
   margin: 0 auto;
@@ -131,4 +136,35 @@
 .reciept-button > button > span {
   position: absolute;
   right: 30px;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  width: 90%;
+  padding: 10px 16px;
+  border-radius: 10px;
+  overflow: auto;
+  z-index:1;
+}
+
+.dropdown label{
+  border-bottom: solid 1px silver;
+  font-size: 1.5em;
+  color: black;
+  margin: 1em 0px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown input {
+  display: none;
+}
+
+.dropdown label:hover {background-color: #ddd;}
+
+.show{
+  display: block;
 }

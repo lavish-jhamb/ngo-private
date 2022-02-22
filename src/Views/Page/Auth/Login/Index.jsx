@@ -43,9 +43,9 @@ function LoginPage() {
             <label>Enter phone number</label>
             <input
               onChange={inputEvent}
-              placeholder="Phone number"
-              type="text"
               value={contact}
+              placeholder="Phone number"
+              type="number"
             />
             <button id="sign-in-button" onClick={loginHandler} type="submit">
               Login

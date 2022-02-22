@@ -1,9 +1,10 @@
 import ApiClient from "../Client"
-import { getCookie } from "../../Utils/cookie"
+import { getCookie, deleteCookie } from "../../Utils/cookie"
+import { ngoCategoryController } from "../NgoCategory/controller";
 
 export const receiptController = {
 
-    donation: async ({ ...args }) => {
+    donation: async (category, { ...args }) => {
         try {
             const ngoExternalId = getCookie('ngoExternalId');
             const response = await ApiClient.post(`/v1/ngo/${ngoExternalId}/donations`, { ...args, });
@@ -13,6 +14,7 @@ export const receiptController = {
             document.cookie = `donorExternalId=${donorExternalId};domain=ngo-donation-management.netlify.app;secure`;
             document.cookie = `donorId=${donorId};domain=localhost;secure`;
             document.cookie = `donorId=${donorId};domain=ngo-donation-management.netlify.app;secure`;
+            await ngoCategoryController.createCategory(category);
             return response;
         } catch (error) {
             return error;
@@ -36,7 +38,7 @@ export const receiptController = {
         try {
             const ngoExternalId = getCookie('ngoExternalId');
             const donationExternalId = getCookie('donorExternalId');
-            const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/receipt/${donationExternalId}/image`,{responseType:'arraybuffer'});
+            const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/receipt/${donationExternalId}/image`, { responseType: 'arraybuffer' });
             return response;
         } catch (error) {
             return error;
@@ -53,7 +55,20 @@ export const receiptController = {
             }
             return response;
         } catch (error) {
+            if (error.response.status === 404) {
+                deleteCookie('getdonorId');
+            }
             return error;
         }
     },
+
+    getDonations: async (mobile) => {
+        try {
+            const ngoExternalId = getCookie('ngoExternalId');
+            const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/donations${mobile ? `?mobile=${mobile}` : ''}`);
+            return response;
+        } catch (error) {
+            return error;
+        }
+    }
 }

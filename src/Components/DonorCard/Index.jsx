@@ -52,11 +52,11 @@ function Card({ donor }) {
       </div>
       <div {...longPressProps} className={Style.cardWrapper}>
         <div className={Style.cards}>
-          <h6>{donor.name}</h6>
+          <h6>{donor?.name}</h6>
           <div className={Style.reminderWrapper}>
             <div className={Style.reminder}>
               <i className="fa-solid fa-phone"></i>
-              <span>{donor.phone}</span>
+              <span>+91 {donor?.mobile}</span>
             </div>
             <button id="btn" onClick={togglePopup}>
               Send Reminder
@@ -66,8 +66,8 @@ function Card({ donor }) {
         </div>
         <div className={Style.donationDetails}>
           <span>Last donation:</span>
-          <span>Rs. {donor.donation}</span>
-          <span>({donor.date})</span>
+          <span>Rs. {donor?.lastDonation?.amount}</span>
+          <span>({donor?.lastDonation?.donationDate})</span>
         </div>
       </div>
     </div>

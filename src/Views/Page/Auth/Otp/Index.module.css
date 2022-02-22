@@ -1,7 +1,3 @@
-.otpContainer{
-    min-height:calc(100vh - 250px);
-}
-
 .otpWrapper{
     width: 90vw;
     margin: 0 auto;
@@ -55,6 +51,7 @@
     border: solid 2px var(--placeholder);
     color: var(--primary);
     font-weight: 500;
+    padding: 0!important;
 }
 
 .otpField > input:focus {
