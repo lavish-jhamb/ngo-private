@@ -20,10 +20,13 @@ function MainCreateReciept() {
     amount: "",
     description: "",
     dateOfBirth: "",
+    dueFromMonth: "",
+    dueFromYear: "",
     email: "",
     gender: "",
     mobileNumber: "",
     name: "",
+    oneTimeDonor: "",
     panNumber: "",
     paymentMethod: "",
     category: "",
@@ -142,10 +145,10 @@ function MainCreateReciept() {
     if (
       data.mobileNumber &&
       data.name &&
-      data.email &&
-      data.dateOfBirth &&
-      data.panNumber &&
-      data.gender
+      data.address &&
+      data.city &&
+      data.pinCode &&
+      data.state
     ) {
       if (page < 2) {
         nextStep();
@@ -162,10 +165,13 @@ function MainCreateReciept() {
       city: data?.city,
       state: data?.state,
       dateOfBirth: data?.dateOfBirth,
+      dueFromMonth: data.dueFromMonth,
+      dueFromYear: data.dueFromYear,
       email: data?.email,
       gender: data?.gender,
       mobileNumber: data.mobileNumber,
       name: data?.name,
+      oneTimeDonor: data.oneTimeDonor,
       panNumber: data?.panNumber,
       pinCode: data?.pinCode,
       paymentMethod: data?.paymentMethod,
@@ -185,10 +191,13 @@ function MainCreateReciept() {
       address: data.address,
       city: data.city,
       dateOfBirth: data.dateOfBirth,
+      dueFromMonth: data.dueFromMonth,
+      dueFromYear: data.dueFromYear,
       email: data.email,
       gender: data.gender,
       mobileNumber: data.mobileNumber,
       name: data.name,
+      oneTimeDonor: data.oneTimeDonor,
       panNumber: data.panNumber,
       pinCode: data.pinCode,
       state: data.state,

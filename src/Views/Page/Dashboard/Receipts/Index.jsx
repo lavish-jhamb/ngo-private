@@ -8,22 +8,11 @@ import { useEffect } from "react";
 import { receiptController } from "../../../../Api/Receipt/controller";
 import { useState } from "react";
 import Spinner from "../../../../Components/Spinner/Index";
-// import ReactPaginate from 'react-paginate';
 
 const ManageReceipt = () => {
-  // const [pageNumber, setPageNumber] = useState(0);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
-
-  // const receiptPerPage = 5;
-  // const pageVisited = pageNumber * receiptPerPage;
-  // const displayReceipts = data?.slice(pageVisited,pageVisited+receiptPerPage);
-  // const pageCount = Math.ceil(data?.length / receiptPerPage);
-
-  // const changePage = ({selected}) => {
-  //   setPageNumber(selected);
-  // }
 
   const createReceipt = () => {
     navigate(uris.createReceipt);
@@ -61,7 +50,7 @@ const ManageReceipt = () => {
       <MenubarLayout>
         <div className="manageRecContainer">
           <div className="receiptSearchBox">
-            <h4 className="">Manage Receipts</h4>
+            <h4 className="">Donation History</h4>
             <div className="searchReceipt">
               <i className="fas fa-search searchIcon"></i>
               <input
@@ -97,18 +86,6 @@ const ManageReceipt = () => {
           </div>
         </div>
         <div className="paginate">
-          {/* <ReactPaginate
-          breakLabel="..."
-          nextLabel="next >"
-          previousLabel="< previous"
-          pageCount={pageCount}
-          onPageChange={changePage}
-          containerClassName={"paginationButtons"}
-          previousLinkClassName={"previousButton"}
-          nextLinkClassName={"nextButton"}
-          disabledClassName={"paginationDisabled"}
-          activeClassName={"paginationActive"}
-        /> */}
         </div>
       </MenubarLayout>
     </>
