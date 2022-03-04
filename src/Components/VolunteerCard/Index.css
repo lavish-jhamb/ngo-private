@@ -1,0 +1,68 @@
+.cardContent {
+    margin-bottom: 1.5rem;
+    background-color: #f5f5f5;
+    border-radius: 1.2rem;
+  }
+  
+  .cardTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  
+  .cardHeader {
+    padding: 1.2rem;
+  }
+  
+  .cardHeader h4 {
+    font-size: 1.7rem;
+    font-weight: 600;
+  }
+  
+  .cardData p {
+    font-size: 1.4rem;
+    margin-top: 0.7rem;
+  }
+  
+  .cardIcon {
+    color: var(--darkGray);
+    font-size: 1.3rem;
+    margin-right: 0.6rem;
+  }
+  
+  .cardFooter {
+    background-color: #e6e6e6;
+    border-radius: 0 0 1.2rem 1.2rem;
+    padding: 0.6rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .cardFooter h5 {
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  
+  .cardFooter p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--darkGray);
+  }
+  
+  .cardFooter span {
+    font-size: 1.1rem;
+  }
+  
+  .cardFooter .categoryReceipt {
+    font-size: 1.1rem;
+  }
+  
+  .menuBtn {
+    font-size: 1.9rem;
+    border: none;
+    color: #707070;
+    background-color: #f5f5f5;
+    margin-left: 1rem;
+  }

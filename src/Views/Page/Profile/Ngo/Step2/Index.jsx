@@ -51,6 +51,20 @@ function ProfileTwo(props) {
                 <div className={Style.inputField}>
                   <input
                     type="text"
+                    placeholder="Email (Official)"
+                    autoComplete="off"
+                    {...register("Email", {
+                      required: {
+                        value: true,
+                        message: "Email is required",
+                      },
+                    })}
+                  />
+                  {errors.Email && <p>{errors.Email.message}</p>}
+                </div>
+                <div className={Style.inputField}>
+                  <input
+                    type="text"
                     placeholder="Website"
                     autoComplete="off"
                     {...register("website", {

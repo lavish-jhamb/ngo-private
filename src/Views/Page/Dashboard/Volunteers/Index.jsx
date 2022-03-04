@@ -1,21 +1,42 @@
-import React from "react";
+import React,{useState}from "react";
 import MenubarLayout from "../../../Layout/Menubar/Main";
-import VolunteerCard from "../../../../Components/ReceiptCard/Index";
+import VolunteerCard from "../../../../Components/VolunteerCard/Index";
 import "./Index.css";
 import {Link} from "react-router-dom";
 import { useEffect } from "react";
 import { volunteer } from "../../../../Api/Volunteer/Volunteer";
+import { useNavigate } from "react-router-dom";
+import { uris } from "../../../../Config/Router/URI";
+import Spinner from "../../../../Components/Spinner/Index";
 
 
 const ManageVolunteer = () => {
-//     useEffect(()=>{
-//   const getVolunteerData =async()=>{
-//   const volunteerdata= await volunteer();
-//   console.log(volunteerdata);
+    const [data, setData] = useState([
+        
+    ]);
+    const [loading, setLoading] = useState(true);
+    
+    const getVolunteer = async () => {
+        try {
+          const response = await volunteer.getVolunteer();
+          
+          const data = response?.data;
+          setData(data);
+          
+          setLoading(false);
+         
+        } catch (error) {
+            setLoading(false);
+          return error;
+        }
+      };
+     
 
-//   }
-//   getVolunteerData();
-//     },[])
+      useEffect(() => {
+        getVolunteer();
+        return () => setLoading(false);
+      }, []);
+
     return (
         <>
             <MenubarLayout>
@@ -29,7 +50,21 @@ const ManageVolunteer = () => {
                         </div>
                     </div>
                     <div className="cardReceipts">
-                        <VolunteerCard shareBtn={false} cardFooter={false}/>
+                    {loading && data?.length === 0 ? (
+            <Spinner />
+          ) : (
+            data?.map((volunteer, idx) => (
+                        <VolunteerCard
+                        key={idx}
+                        loading={loading}
+                        data={volunteer}
+                            
+                            shareBtn={false} cardFooter={false}/>
+                            ))
+                            )}
+                             {data?.length === 0 && !loading && (
+            <p className="empty">Data not available</p>
+          )}
                     </div>
                 </div>
 
@@ -47,3 +82,5 @@ const ManageVolunteer = () => {
 };
 
 export default ManageVolunteer;
+
+

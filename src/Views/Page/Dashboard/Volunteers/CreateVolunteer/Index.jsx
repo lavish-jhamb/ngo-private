@@ -1,106 +1,72 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Index.css";
 import SecondaryLayout from "../../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
 import { uris } from "../../../../../Config/Router/URI";
 import { volunteer } from "../../../../../Api/Volunteer/Volunteer";
-
+import { getCookie } from "../../../../../Utils/cookie";
+import {Link} from "react-router-dom";
 function NewVolunteer() {
-  // const [data,setData]=useState({
-  //   Name:"",
-  //   Email:"",
-  //   Phone:"",
-  //   Password:""
-  // })
-  // const {
-  //   Name,
-  //   Email,
-  //   Phone,
-  //   Password
-  // }=data;
-  // var values = {Name,
-  //   Email,
-  //   Phone,
-  //   Password};
-  // const [Name,setName] = useState("");
-  // const [Email,setEmail] = useState("");
-  // const [PhoneNumber,setPhoneNumber] = useState("");
-  // const [Password,setPassword] = useState("");
-  
-  const [data,setState] = useState({
-    Name: "",
-    Email:"",
+  const [data, setState] = useState({
     PhoneNumber: "",
-    Password:""
   });
-  
   let navigate = useNavigate();
-  const [pwdVisibility, setpwdVisibility] = useState(false);
-  const onchangehandler =({currentTarget: input})=>{
-    data[input.name] = input.value;
-    setState({...data});
-    console.log(data);
-  }
-  const submitHandler =(e)=>{
-    e.preventDefault();
-    console.log(data);
-
-    
-  }
-
-  const loginHandler = (e) => {
-    e.preventDefault();
-    
-    console.log(data);
-    volunteer();
+  const createvolunteers = () => {
     navigate(uris.volunteer);
   };
 
-  const pwdHandler = (e) => {
+  const onchangehandler = ({ currentTarget: input }) => {
+    data[input.name] = input.value;
+    setState({ ...data });
+    
+  };
+  const submitHandler = (e) => {
     e.preventDefault();
-    setpwdVisibility(!pwdVisibility);
+    
+  };
+
+  const volunteerdata = () => {
+    const getVolunteerId = getCookie("getvolunteerId");
+    const volunteerdata = {
+      volunteerId: getVolunteerId && getVolunteerId,
+
+      mobileNumber: data.PhoneNumber,
+    };
+    return volunteerdata;
+  };
+
+  const loginHandler = async () => {
+    
+    return await volunteer.createVolunteer(volunteerdata());
   };
 
   const goBack = () => {
     navigate(-1);
   };
-
   return (
     <SecondaryLayout title="New Volunteer" handler={goBack}>
       <div className="newVolContainer">
         <div className="newVolFormContainer">
           <div>
             <form className="newvolForm" onSubmit={submitHandler}>
-              <input placeholder="Name" type="text"  name="Name" value={data.Name} onChange={onchangehandler}/>
-              <input placeholder="Email" type="email" name="Email"  onChange={onchangehandler}/>
-              <input placeholder="Phone number" type="tel" name="PhoneNumber" onChange={onchangehandler}/>
-              <div className="newVolPwd">
-                <input
-                  placeholder="Password"
-                  type={pwdVisibility ? "text" : "password"}
-                  name="Password" 
-                  onChange={onchangehandler}
-                />
-                <button onClick={pwdHandler}>
-                  {pwdVisibility ? (
-                    <img src="/resources/images/eye.png" alt="logo" />
-                  ) : (
-                    <i className="bx bx-hide"></i>
-                  )}
-                </button>
-              </div>
-              
+              <input
+                placeholder="Phone number"
+                type="tel"
+                name="PhoneNumber"
+                onChange={onchangehandler}
+              />
             </form>
-        </div>
-        <div className="newVolAddBtn">
-                <button  type="submit" onClick={loginHandler}>
-                  Add Volunteer
-                </button>
-              </div>
           </div>
+          <Link to="/dashboard/volunteer">
+          <div className="newVolAddBtn">
+            <button type="submit" onClick={loginHandler}>
+              Add Volunteer
+            </button>
+          </div>
+          </Link>
+        </div>
       </div>
     </SecondaryLayout>
   );
 }
-
 export default NewVolunteer;

@@ -13,7 +13,8 @@ import Spinner from "../../../../Components/Spinner/Index";
 const ManageReceipt = () => {
   // const [pageNumber, setPageNumber] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([
+  ]);
   const navigate = useNavigate();
 
   // const receiptPerPage = 5;
@@ -29,9 +30,9 @@ const ManageReceipt = () => {
     navigate(uris.createReceipt);
   };
 
-  const getDonations = async (mobile) => {
+  const getDonations = async () => {
     try {
-      const response = await receiptController.getDonations(mobile);
+      const response = await receiptController.getDonations();
       const data = response?.data?.data;
       setData(data);
       setLoading(false);
