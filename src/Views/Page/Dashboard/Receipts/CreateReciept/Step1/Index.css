@@ -1,5 +1,5 @@
 .donor-details-wrapper-1 {
-    height: calc(100vh - 109px);
+    height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
     justify-content:space-between;
@@ -79,7 +79,7 @@
   .reciept-button-1{
     width: 90%;
     margin: 0 auto;
-    flex: 0.3;
+    flex: 0.4;
   }
   
   .reciept-button-1 > button {
@@ -153,4 +153,54 @@
 
 .female > label{
     font-size: 1.4rem;
+}
+
+.address-details > .inputField {
+  margin: 1.1em 0;
+}
+
+.address-details > .inputField > p{
+  color: rgb(240, 69, 69);
+  margin-left: 0.5em;
+  font-size: 1.1rem;
+}
+
+.address-details > .inputField > input{
+  display: block;
+  width: 100%;
+}
+
+.address-details > h2{
+  margin-top: 1.4em;
+  font-size: 1.7rem
+}
+
+.address-details > .inputField > input[type='text'],input[type='number']{
+  height: 39px;
+  border: solid 2px var(--placeholder);
+  border-radius: 12px;
+  padding-left: 1em;
+}
+
+.address-details > .inputField > input::placeholder{
+  color: var(--placeholder);
+}
+
+.address-details > .inputField > input[type='text']:focus{
+  outline: none;
+}
+
+.address-details > .inputField > select{
+  height: 39px;
+  border: solid 2px var(--placeholder);
+  border-radius: 12px;
+  padding-left: 0.5em;
+  font-size: 1.5rem;
+  width: 100%;
+  font-size: 1.6rem;
+  background-color: var(--white);
+}
+
+.address-details > .inputField > select:invalid{
+  color: var(--placeholder);
 }

@@ -17,6 +17,22 @@ function CreateRecieptFormTwo(props) {
     isVisibleDropdown,
   } = props;
 
+  const months = [
+    "Jan_1",
+    "Feb_2",
+    "Mar_3",
+    "Apr_4",
+    "May_5",
+    "Jun_6",
+    "Jul_7",
+    "Aug_8",
+    "Sep_9",
+    "Oct_10",
+    "Nov_11",
+    "Dec_12",
+  ];
+  const years = ["2018", "2019", "2020", "2021", "2022", "2023", "2024"];
+
   const navigate = useNavigate();
 
   const prevHandler = () => {
@@ -94,89 +110,91 @@ function CreateRecieptFormTwo(props) {
                     value={values.category}
                   />
                   {errors.category && <p>{errors.category.message}</p>}
-                  <div className={`dropdown ${(isVisibleDropdown && filteredData.length > 0) && "show"}`}>
-                    {filteredData.length > 0 && filteredData?.map((value, idx) => (
-                      <div key={idx}>
-                        <label htmlFor={`category_${idx}`}>{value.name}</label>
-                        <input
-                          id={`category_${idx}`}
-                          type="radio"
-                          name="category"
-                          onClick={selectCategory}  
-                          value={value.name}
-                          data-category={JSON.stringify(value)}
-                        />
-                      </div>
-                    ))}
+                  <div
+                    className={`dropdown ${
+                      isVisibleDropdown && filteredData.length > 0 && "show"
+                    }`}
+                  >
+                    {filteredData.length > 0 &&
+                      filteredData?.map((value, idx) => (
+                        <div key={idx}>
+                          <label htmlFor={`category_${idx}`}>
+                            {value.name}
+                          </label>
+                          <input
+                            id={`category_${idx}`}
+                            type="radio"
+                            name="category"
+                            onClick={selectCategory}
+                            value={value.name}
+                            data-category={JSON.stringify(value)}
+                          />
+                        </div>
+                      ))}
                   </div>
                 </div>
-                <div className="inputField">
-                  <input
-                    autoComplete="off"
-                    placeholder="Additional Note (Optional)"
-                    type="text"
-                    {...register("description")}
-                  />
-                  {errors.description && <p>{errors.description.message}</p>}
+                <div className="radioButtons">
+                  <div className="renewal">
+                    <input
+                      type="radio"
+                      name="renewal"
+                      value={false}
+                      defaultChecked
+                      {...register("oneTimeDonor")}
+                    />
+                    <label htmlFor="renewal">Renewal</label>
+                  </div>
+                  <div className="oneTimeDonor">
+                    <input
+                      type="radio"
+                      name="oneTimeDonor"
+                      value={true}
+                      {...register("oneTimeDonor")}
+                    />
+                    <label htmlFor="oneTimeDonor">One Time Donor</label>
+                  </div>
                 </div>
-              </div>
-              <div className="address-details">
-                <h2>Address Details</h2>
-                <div className="inputField">
-                  <input
-                    autoComplete="off"
-                    placeholder="Address"
-                    type="text"
-                    {...register("address", {
-                      required: {
-                        value: true,
-                        message: "address is required",
-                      },
-                    })}
-                  />
-                  {errors.address && <p>{errors.address.message}</p>}
-                </div>
-                <div className="inputField">
-                  <input
-                    autoComplete="off"
-                    placeholder="City"
-                    type="text"
-                    {...register("city", {
-                      required: {
-                        value: true,
-                        message: "city is required",
-                      },
-                    })}
-                  />
-                  {errors.city && <p>{errors.city.message}</p>}
-                </div>
-                <div className="inputField">
-                  <input
-                    autoComplete="off"
-                    type="number"
-                    placeholder="Pincode"
-                    {...register("pinCode", {
-                      required: {
-                        value: true,
-                        message: "pincode is required",
-                      },
-                    })}
-                  />
-                  {errors.pinCode && <p>{errors.pinCode.message}</p>}
-                </div>
-                <div className="inputField">
-                  <input
-                    autoComplete="off"
-                    placeholder="State"
-                    type="text"
-                    {...register("state", {
-                      required: {
-                        value: true,
-                        message: "state is required",
-                      },
-                    })}
-                  />
-                  {errors.state && <p>{errors.state.message}</p>}
+                <div className="dueFrom">
+                  <h3>Due from :</h3>
+                  <div className="inline-inputs">
+                    <select required {...register("dueFromMonth")}>
+                      <option value="">Month</option>
+                      {months.map((month, idx) => {
+                        const monthNo = month.split("_")[1];
+                        const monthName = month.split("_")[0];
+                        return (
+                          <option key={idx} value={monthNo}>
+                            {monthName}
+                          </option>
+                        );
+                      })}
+                    </select>
+                    <select required {...register("dueFromYear")}>
+                      <option value="">Year</option>
+                      {years.map((year, idx) => (
+                        <option key={idx} value={year}>
+                          {year}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="offlineReceiptNo">
+                    <div className="inputField">
+                      <input
+                        type="text"
+                        placeholder="Offline Receipt No. (Optional)"
+                      />
+                    </div>
+                    <a href="!#">Why Offline receipt no.?</a>
+                  </div>
+                  <div className="inputField">
+                    <input
+                      autoComplete="off"
+                      type="text"
+                      placeholder="Additional Note (Optional)"
+                      {...register("description")}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

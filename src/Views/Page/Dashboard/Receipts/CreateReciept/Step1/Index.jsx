@@ -12,7 +12,7 @@ function CreateRecieptForm(props) {
     handleSubmit,
     onSubmit,
     errors,
-    date
+    date,
   } = props;
 
   const navigate = useNavigate();
@@ -71,67 +71,114 @@ function CreateRecieptForm(props) {
               <div className="inputField">
                 <input
                   autoComplete="off"
-                  placeholder="Email"
+                  placeholder="Email (Optional)"
                   type="text"
-                  {...register("email", {
-                    required: {
-                      value: true,
-                      message: "email is required",
-                    },
-                  })}
+                  {...register("email")}
                 />
                 {errors.email && <p>{errors.email.message}</p>}
               </div>
               <div className="inputField">
                 <input
-                  type={date ? 'date' : 'text'}
+                  autoComplete="off"
+                  placeholder="PAN No. (Optional)"
+                  type="text"
+                  {...register("panNumber")}
+                />
+                {errors.panNumber && <p>{errors.panNumber.message}</p>}
+              </div>
+              <div className="inputField">
+                <input
+                  type={date ? "date" : "text"}
                   onFocus={(e) => {
                     e.currentTarget.type = "date";
                     e.currentTarget.focus();
                   }}
-                  placeholder="Date of Birth"
-                  {...register("dateOfBirth", {
-                    required: {
-                      value: true,
-                      message: "dateOfBirth is required",
-                    },
-                  })}
+                  placeholder="Date of Birth (Optional)"
+                  {...register("dateOfBirth")}
                 />
                 {errors.dateOfBirth && <p>{errors.dateOfBirth.message}</p>}
               </div>
-              <div className="inputField">
-                <input
-                  autoComplete="off"
-                  placeholder="Pan Number"
-                  type="text"
-                  {...register("panNumber", {
-                    required: {
-                      value: true,
-                      message: "Pan Number is required",
-                    },
-                  })}
-                />
-                {errors.panNumber && <p>{errors.panNumber.message}</p>}
-              </div>
-              <div className="radioButtons">
-                <div className="male">
-                  <input
-                    type="radio"
-                    name="radio"
-                    value="Male"
-                    defaultChecked
-                    {...register("gender")}
-                  />
-                  <label htmlFor="male">Male</label>
+              <div className="gender">
+                <h2>Gender (Optional)</h2>
+                <div className="radioButtons">
+                  <div className="male">
+                    <input
+                      type="radio"
+                      name="radio"
+                      value="Male"
+                      defaultChecked
+                      {...register("gender")}
+                    />
+                    <label htmlFor="male">Male</label>
+                  </div>
+                  <div className="female">
+                    <input
+                      type="radio"
+                      name="radio"
+                      value="Female"
+                      {...register("gender")}
+                    />
+                    <label htmlFor="female">Female</label>
+                  </div>
                 </div>
-                <div className="female">
+              </div>
+              <div className="address-details">
+                <h2>Address Details</h2>
+                <div className="inputField">
                   <input
-                    type="radio"
-                    name="radio"
-                    value="Female"
-                    {...register("gender")}
+                    autoComplete="off"
+                    placeholder="Address"
+                    type="text"
+                    {...register("address", {
+                      required: {
+                        value: true,
+                        message: "address is required",
+                      },
+                    })}
                   />
-                  <label htmlFor="female">Female</label>
+                  {errors.address && <p>{errors.address.message}</p>}
+                </div>
+                <div className="inputField">
+                  <input
+                    autoComplete="off"
+                    placeholder="City"
+                    type="text"
+                    {...register("city", {
+                      required: {
+                        value: true,
+                        message: "city is required",
+                      },
+                    })}
+                  />
+                  {errors.city && <p>{errors.city.message}</p>}
+                </div>
+                <div className="inputField">
+                  <input
+                    autoComplete="off"
+                    type="number"
+                    placeholder="Pincode"
+                    {...register("pinCode", {
+                      required: {
+                        value: true,
+                        message: "pincode is required",
+                      },
+                    })}
+                  />
+                  {errors.pinCode && <p>{errors.pinCode.message}</p>}
+                </div>
+                <div className="inputField">
+                  <input
+                    autoComplete="off"
+                    placeholder="State"
+                    type="text"
+                    {...register("state", {
+                      required: {
+                        value: true,
+                        message: "state is required",
+                      },
+                    })}
+                  />
+                  {errors.state && <p>{errors.state.message}</p>}
                 </div>
               </div>
             </div>
