@@ -24,10 +24,12 @@ const Receipt = (props) => {
           </div>
           <div className="cardData">
             <p>
-              <i className="fas fa-phone-alt cardIcon"></i> {data?.donorInfo?.mobileNumber}
+              <i className="fas fa-phone-alt cardIcon"></i>{" "}
+              {data?.donorInfo?.mobileNumber}
             </p>
             <p>
-              <i className="fa-solid fa-location-dot cardIcon"></i> {data?.donorInfo?.address},{data?.donorInfo?.city}
+              <i className="fa-solid fa-location-dot cardIcon"></i>{" "}
+              {data?.donorInfo?.address},{data?.donorInfo?.city}
             </p>
           </div>
         </div>
@@ -35,10 +37,12 @@ const Receipt = (props) => {
           <div className="cardFooter">
             <div>
               <h5>Rs. {data.amount}</h5>
-              <span className="categoryReceipt">For: {data?.donorInfo?.category}</span>
+              <span className="categoryReceipt">
+                For: {data?.donorInfo?.category}
+              </span>
             </div>
             <div>
-              <p>Invoice No. {data?.externalId.split('-')[0]}</p>
+              <p>Receipt No. {data?.externalId.split("-")[0]}</p>
             </div>
           </div>
         )}

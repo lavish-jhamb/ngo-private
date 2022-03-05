@@ -32,20 +32,6 @@ function CreateRecieptForm(props) {
               <p>Step 1 of 2</p>
             </div>
             <div className="donor-details-1">
-              <div className="spinner">
-                <input
-                  autoComplete="off"
-                  placeholder="Phone number"
-                  type="number"
-                  {...register("mobileNumber", {
-                    required: {
-                      value: true,
-                      message: "Phone number is required",
-                    },
-                  })}
-                />
-              </div>
-              {errors.mobileNumber && <p>{errors.mobileNumber.message}</p>}
               <div className="inputField">
                 <input
                   autoComplete="off"
@@ -72,7 +58,7 @@ function CreateRecieptForm(props) {
                           <p>{value.name}</p>
                           <p>
                             <i className="fa-solid fa-location-dot"></i>
-                            {value.address}
+                            {value.address},{value.city},{value.state}
                           </p>
                         </label>
                         <input
@@ -85,6 +71,20 @@ function CreateRecieptForm(props) {
                       </div>
                     ))}
                 </div>
+              </div>
+              <div className="spinner">
+                <input
+                  autoComplete="off"
+                  placeholder="Phone number"
+                  type="number"
+                  {...register("mobileNumber", {
+                    required: {
+                      value: true,
+                      message: "Phone number is required",
+                    },
+                  })}
+                />
+                {errors.mobileNumber && <p>{errors.mobileNumber.message}</p>}
               </div>
               <div className="inputField">
                 <input

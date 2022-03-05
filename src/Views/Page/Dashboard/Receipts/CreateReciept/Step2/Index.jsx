@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Index.css";
 import SecondaryLayout from "../../../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +16,8 @@ function CreateRecieptFormTwo(props) {
     selectCategory,
     isVisibleDropdown,
   } = props;
+
+  const [disable, setDisable] = useState(false);
 
   const months = [
     "Jan_1",
@@ -41,6 +43,10 @@ function CreateRecieptFormTwo(props) {
 
   const goBack = () => {
     navigate(-1);
+  };
+
+  const handleDisable = (e) => {
+    setDisable(e.target.value);
   };
 
   return (
@@ -149,7 +155,9 @@ function CreateRecieptFormTwo(props) {
                       type="radio"
                       name="oneTimeDonor"
                       value={true}
-                      {...register("oneTimeDonor")}
+                      {...register("oneTimeDonor", {
+                        onChange: handleDisable,
+                      })}
                     />
                     <label htmlFor="oneTimeDonor">One Time Donor</label>
                   </div>
@@ -157,7 +165,11 @@ function CreateRecieptFormTwo(props) {
                 <div className="dueFrom">
                   <h3>Due from :</h3>
                   <div className="inline-inputs">
-                    <select required {...register("dueFromMonth")}>
+                    <select
+                      disabled={disable === "true" ? true : false}
+                      required
+                      {...register("dueFromMonth")}
+                    >
                       <option value="">Month</option>
                       {months.map((month, idx) => {
                         const monthNo = month.split("_")[1];
@@ -169,7 +181,11 @@ function CreateRecieptFormTwo(props) {
                         );
                       })}
                     </select>
-                    <select required {...register("dueFromYear")}>
+                    <select
+                      disabled={disable === "true" ? true : false}
+                      required
+                      {...register("dueFromYear")}
+                    >
                       <option value="">Year</option>
                       {years.map((year, idx) => (
                         <option key={idx} value={year}>
