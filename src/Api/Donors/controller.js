@@ -10,5 +10,14 @@ export const donorsController = {
         } catch (error) {
             return error;
         }
+    },
+    searchDonorByName: async (name) => {
+        try {
+            const ngoExternalId = getCookie('ngoExternalId');
+            const respone = await ApiClient.get(`/v1/ngo/${ngoExternalId}/donors?searchText=${name}`);
+            return respone;
+        } catch (error) {
+            return error;
+        }
     }
 }

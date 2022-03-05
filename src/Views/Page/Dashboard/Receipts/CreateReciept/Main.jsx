@@ -4,8 +4,8 @@ import StepOne from "./Step1/Index";
 import StepTwo from "./Step2/Index";
 import StepThree from "./Step3/Index";
 import { receiptController } from "../../../../../Api/Receipt/controller";
-import { getCookie } from "../../../../../Utils/cookie";
 import { ngoCategoryController } from "../../../../../Api/NgoCategory/controller";
+import { donorsController } from "../../../../../Api/Donors/controller";
 
 function MainCreateReciept() {
   const [page, setPage] = useState(1);
@@ -13,6 +13,7 @@ function MainCreateReciept() {
   const [categoriesData, setCategoriesData] = useState([]);
   const [categoryId, setCategoryId] = useState("");
   const [donorId, setDonorId] = useState("");
+  const [donorData, setDonorData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [date, setDate] = useState("");
@@ -64,6 +65,42 @@ function MainCreateReciept() {
     setCategoryId(categoryExternalId);
   };
 
+  const selectDonor = (e) => {
+    const donorData = JSON.parse(e.target.dataset.donor);
+    setDonorId(donorData?.externalId);
+    setValue("description", donorData?.description, {
+      shouldValidate: true,
+    });
+    setValue("address", donorData?.address, { shouldValidate: true });
+    setValue("city", donorData?.city, { shouldValidate: true });
+    setDate(donorData?.dateOfBirth.split("-").reverse().join("-"));
+    setValue(
+      "dateOfBirth",
+      donorData?.dateOfBirth.split("-").reverse().join("-"),
+      {
+        shouldValidate: true,
+      }
+    );
+    setValue("gender", donorData?.gender, { shouldValidate: true });
+    setValue("name", donorData?.name, { shouldValidate: true });
+    setValue("mobileNumber", donorData?.mobile, { shouldValidate: true });
+    setValue("email", donorData?.email, { shouldValidate: true });
+    setValue("panNumber", donorData?.panNumber, {
+      shouldValidate: true,
+    });
+    setValue("pinCode", donorData?.pinCode, { shouldValidate: true });
+    setValue("state", donorData?.state, { shouldValidate: true });
+    setIsVisibleDropdown(false);
+  };
+
+  const getDonorsByName = async (name) => {
+    setLoading(true);
+    const result = await donorsController.searchDonorByName(name);
+    const data = result?.data?.data;
+    setDonorData(data);
+    setLoading(false);
+  };
+
   const handleChange = (input) => (e) => {
     if (input === "category") {
       setData((prevData) => {
@@ -83,6 +120,15 @@ function MainCreateReciept() {
         setFilteredData(newFilter);
         setIsVisibleDropdown(true);
       }
+    } else if (input === "name") {
+      const name = e.target.value;
+      if (name === "") {
+        setIsVisibleDropdown(false);
+      }
+      if (name.length >= 3) {
+        setIsVisibleDropdown(true);
+        getDonorsByName(name);
+      }
     } else {
       setData((prevData) => {
         return {
@@ -92,46 +138,6 @@ function MainCreateReciept() {
       });
     }
   };
-
-  useEffect(() => {
-    const fetchDonorInfo = async () => {
-      setLoading(true);
-      const id = getCookie("ngoExternalId");
-      const response = await receiptController.searchDonorByMobile(
-        id,
-        data.mobileNumber
-      );
-      const donorId = response?.data?.externalId;
-      setDonorId(donorId);
-      if (response.status === 200) {
-        setValue("description", response?.data?.description, {
-          shouldValidate: true,
-        });
-        setValue("address", response?.data?.address, { shouldValidate: true });
-        setValue("city", response?.data?.city, { shouldValidate: true });
-        setDate(response?.data?.dateOfBirth.split("-").reverse().join("-"));
-        setValue(
-          "dateOfBirth",
-          response?.data?.dateOfBirth.split("-").reverse().join("-"),
-          {
-            shouldValidate: true,
-          }
-        );
-        setValue("gender", response?.data?.gender, { shouldValidate: true });
-        setValue("name", response?.data?.name, { shouldValidate: true });
-        setValue("email", response?.data?.email, { shouldValidate: true });
-        setValue("panNumber", response?.data?.panNumber, {
-          shouldValidate: true,
-        });
-        setValue("pinCode", response?.data?.pinCode, { shouldValidate: true });
-        setValue("state", response?.data?.state, { shouldValidate: true });
-      }
-      setLoading(false);
-    };
-    if (parseInt(data?.mobileNumber?.length) === 10) {
-      fetchDonorInfo();
-    }
-  }, [data.mobileNumber, setValue]);
 
   useEffect(() => {
     const getCategories = async () => {
@@ -164,7 +170,7 @@ function MainCreateReciept() {
       address: data?.address,
       city: data?.city,
       state: data?.state,
-      dateOfBirth: data?.dateOfBirth,
+      dateOfBirth: data?.dateOfBirth?.split("-").reverse().join("-"),
       dueFromMonth: data.dueFromMonth,
       dueFromYear: data.dueFromYear,
       email: data?.email,
@@ -235,6 +241,8 @@ function MainCreateReciept() {
       filteredData={filteredData}
       selectCategory={selectCategory}
       isVisibleDropdown={isVisibleDropdown}
+      donorData={donorData}
+      selectDonor={selectDonor}
     />
   );
 }
