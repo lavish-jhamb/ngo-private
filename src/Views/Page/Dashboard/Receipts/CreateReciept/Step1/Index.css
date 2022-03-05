@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content:space-between;
   }
+
   .donor-details-container-1 {
     width: 90vw;
     margin: 0 auto;
@@ -79,7 +80,7 @@
   .reciept-button-1{
     width: 90%;
     margin: 0 auto;
-    flex: 0.4;
+    flex: 0.8;
   }
   
   .reciept-button-1 > button {
