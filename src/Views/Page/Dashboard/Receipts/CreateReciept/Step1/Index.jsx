@@ -5,14 +5,15 @@ import { useNavigate } from "react-router-dom";
 
 function CreateRecieptForm(props) {
   const {
-    values,
     handleChange,
-    loading,
     register,
     handleSubmit,
     onSubmit,
     errors,
     date,
+    donorData,
+    isVisibleDropdown,
+    selectDonor,
   } = props;
 
   const navigate = useNavigate();
@@ -37,21 +38,12 @@ function CreateRecieptForm(props) {
                   placeholder="Phone number"
                   type="number"
                   {...register("mobileNumber", {
-                    onChange: handleChange("mobileNumber"),
                     required: {
                       value: true,
                       message: "Phone number is required",
                     },
                   })}
-                  value={values.mobileNumber}
                 />
-                {loading && (
-                  <img
-                    width="80"
-                    src="/resources/images/spinner.gif"
-                    alt="loading"
-                  />
-                )}
               </div>
               {errors.mobileNumber && <p>{errors.mobileNumber.message}</p>}
               <div className="inputField">
@@ -60,6 +52,7 @@ function CreateRecieptForm(props) {
                   placeholder="Name"
                   type="text"
                   {...register("name", {
+                    onChange: handleChange("name"),
                     required: {
                       value: true,
                       message: "name is required",
@@ -67,6 +60,31 @@ function CreateRecieptForm(props) {
                   })}
                 />
                 {errors.name && <p>{errors.name.message}</p>}
+                <div
+                  className={`donor-dropdown ${
+                    isVisibleDropdown && donorData?.length > 0 && `donor-show`
+                  }`}
+                >
+                  {donorData.length > 0 &&
+                    donorData?.map((value, idx) => (
+                      <div key={idx}>
+                        <label htmlFor={`donor_${idx}`}>
+                          <p>{value.name}</p>
+                          <p>
+                            <i className="fa-solid fa-location-dot"></i>
+                            {value.address}
+                          </p>
+                        </label>
+                        <input
+                          id={`donor_${idx}`}
+                          onClick={selectDonor}
+                          type="radio"
+                          name="donor"
+                          data-donor={JSON.stringify(value)}
+                        />
+                      </div>
+                    ))}
+                </div>
               </div>
               <div className="inputField">
                 <input

@@ -205,3 +205,56 @@
 .address-details > .inputField > select:invalid{
   color: var(--placeholder);
 }
+
+.donorList{
+  border: solid 3px red;
+  list-style-type: none;
+}
+
+.donor-dropdown{
+  max-height: 200px;
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  width: 90%;
+  padding: 4px 16px;
+  border-radius: 10px;
+  overflow: auto;
+  z-index:1;
+}
+
+.donor-dropdown label{
+  border-bottom: solid 1px silver;
+  font-size: 1.5em;
+  color: black;
+  margin: 0.6em 0px;
+  padding-bottom: 1em;
+  text-decoration: none;
+  display: block;
+}
+
+
+.donor-dropdown label p:first-child{
+  font-weight: 500;
+}
+
+.donor-dropdown label p:last-child{
+  font-size: 1.2rem;
+  margin-top: 0.2em;
+}
+
+.donor-dropdown label p i{
+  color: var(--darkGray);
+  margin-right: 5px;
+}
+
+.donor-dropdown input {
+  display: none;
+}
+
+.donor-dropdown label:hover {background-color: #ddd;}
+
+.donor-show{
+  display: block;
+}
