@@ -212,7 +212,12 @@ function MainCreateReciept() {
   };
 
   const createDonation = async () => {
-    return receiptController.donation(data.category, formattedData);
+    let response;
+    if(!categoryId){
+      response = await ngoCategoryController.createCategory(data.category);
+    }
+    const catergoryExternalId = response?.data?.externalId;
+    return receiptController.donation({...formattedData,categoryId:catergoryExternalId ? catergoryExternalId : categoryId});
   };
 
   const Steps = {

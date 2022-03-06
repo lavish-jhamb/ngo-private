@@ -38,7 +38,7 @@ const Receipt = (props) => {
             <div>
               <h5>Rs. {data.amount}</h5>
               <span className="categoryReceipt">
-                For: {data?.donorInfo?.category}
+                For: {data?.category?.name}
               </span>
             </div>
             <div>

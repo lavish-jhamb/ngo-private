@@ -1,10 +1,9 @@
 import ApiClient from "../Client"
 import { getCookie, deleteCookie } from "../../Utils/cookie"
-import { ngoCategoryController } from "../NgoCategory/controller";
 
 export const receiptController = {
 
-    donation: async (category, { ...args }) => {
+    donation: async ({ ...args }) => {
         try {
             const ngoExternalId = getCookie('ngoExternalId');
             const response = await ApiClient.post(`/v1/ngo/${ngoExternalId}/donations`, { ...args, });
@@ -14,7 +13,6 @@ export const receiptController = {
             document.cookie = `donorExternalId=${donorExternalId};domain=ngo-donation-management.netlify.app;secure`;
             document.cookie = `donorId=${donorId};domain=localhost;secure`;
             document.cookie = `donorId=${donorId};domain=ngo-donation-management.netlify.app;secure`;
-            await ngoCategoryController.createCategory(category);
             return response;
         } catch (error) {
             return error;
