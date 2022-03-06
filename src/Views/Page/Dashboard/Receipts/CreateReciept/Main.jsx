@@ -67,6 +67,7 @@ function MainCreateReciept() {
 
   const selectDonor = (e) => {
     const donorData = JSON.parse(e.target.dataset.donor);
+    setIsVisibleDropdown(false);
     setDonorId(donorData?.externalId);
     setValue("description", donorData?.description, {
       shouldValidate: true,
@@ -90,7 +91,6 @@ function MainCreateReciept() {
     });
     setValue("pinCode", donorData?.pinCode, { shouldValidate: true });
     setValue("state", donorData?.state, { shouldValidate: true });
-    setIsVisibleDropdown(false);
   };
 
   const getDonorsByName = async (name) => {
