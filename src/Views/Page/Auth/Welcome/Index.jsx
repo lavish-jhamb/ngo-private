@@ -7,9 +7,9 @@ function WelcomePage() {
       <div className={Style.welcome}>
         <h3>Welcome to</h3>
         <div className={Style.iconContainer}>
-          <img src="/resources/images/icon.png" alt="icon" />
+          <img src="/resources/images/logo.png" alt="icon" />
         </div>
-        <h1>AppName</h1>
+        <h1><span>NGO</span> Buddy</h1>
         <p>An initiative by Software Knights</p>
       </div>
       <div className={Style.vectorWrapper}>
