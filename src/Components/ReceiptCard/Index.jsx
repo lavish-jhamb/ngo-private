@@ -18,17 +18,18 @@ const Receipt = (props) => {
           files: files,
         })
         .catch((error) => {
+          console.log(error)
           return error;
         });
     }
   };
 
-  const handleShare = async (e) => {
+  const handleShare = (e) => {
     const value = JSON.parse(e.currentTarget?.dataset?.value);
     const donationExternalId = value?.externalId;
     document.cookie = `donorExternalId=${donationExternalId};domain=localhost;secure`;
     document.cookie = `donorExternalId=${donationExternalId};domain=ngo-donation-management.netlify.app;secure`;
-    await generatePdfAndShare();
+    generatePdfAndShare();
   }
 
   return (
