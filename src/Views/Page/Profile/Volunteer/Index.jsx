@@ -3,6 +3,9 @@ import Style from "./Index.module.css";
 import SecondaryLayout from "../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
 import { uris } from "../../../../Config/Router/URI";
+import { volunteersReg } from "../../../../Api/VolunteerRegis/VolunteerRegis";
+import { useForm } from "react-hook-form";
+import {Link} from "react-router-dom";
 
 function VolunteerPage() {
   const [data, setData] = useState({
@@ -10,18 +13,39 @@ function VolunteerPage() {
     email: "",
     birth: "",
     interest: "",
+    gender: "",
   });
-  const { name, email, birth, interest } = data;
+  const { name, email, birth, interest, gender } = data;
 
   const navigate = useNavigate();
+  const volunteerReg = () => {
+    const volunteerdata = {
+      name: data.name,
+      email: data.email,
+      dateOfBirth: data.birth,
+      interest: data.interest,
+      gender: data.gender,
+    };
+    return volunteerdata;
+  };
+  const {
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const eventHandler = (name) => (e) => {
     setData({ ...data, [name]: e.target.value });
+    console.log(data);
+  };
+  
+
+  const genderChange = (gender) => (e) => {
+    setData({ [gender]: e.target.value });
+    console.log(data);
   };
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    navigate(uris.profileCreated);
+  const submitHandler = async (e) => {
+    return volunteersReg.VolunteerRegis(volunteerReg());
   };
 
   const goBack = () => {
@@ -34,7 +58,7 @@ function VolunteerPage() {
         <div className={Style.form}>
           <input
             type="text"
-            value={name}
+            value={data.name}
             onChange={eventHandler("name")}
             placeholder="Name"
           />
@@ -52,14 +76,25 @@ function VolunteerPage() {
           />
           <input
             type="text"
-            value={interest}
+            value={data.interest}
             onChange={eventHandler("interest")}
             placeholder="Social Interest(s)"
           />
           <h2>Gender (Optional)</h2>
           <div className={Style.radioButtons}>
-            <div className={Style.male}>
-              <input type="radio" defaultChecked name="radio" value="option1" />
+            <div
+              className={Style.male}
+              onChange={eventHandler("gender")}
+              value={gender}
+            >
+              <input
+                type="radio"
+                defaultChecked
+                name="radio"
+                value="option1"
+                onChange={genderChange("gender")}
+                value={gender}
+              />
               <label htmlFor="male">Male</label>
             </div>
             <div className={Style.female}>
@@ -68,11 +103,19 @@ function VolunteerPage() {
             </div>
           </div>
         </div>
+        <Link to="/">
         <div className={Style.buttonContainer}>
-          <button className="button" type="button" onClick={submitHandler}>
+        
+          <button
+            className="button"
+            type="button"
+            onClick={handleSubmit(submitHandler)}
+          >
             Submit
           </button>
+       
         </div>
+        </Link>
       </div>
     </SecondaryLayout>
   );

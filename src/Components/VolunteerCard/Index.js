@@ -1,16 +1,16 @@
 import React from "react";
 import "./Index.css";
 
-const Receipt = (props) => {
+const VolunteerCard = (props) => {
   const { data } = props;
-  console.log(data);
+  
   return (
     <div>
       <div className="cardContent">
         <div className="cardHeader">
           <div className="cardTitle">
             <h4>
-              <div className="">{data?.donorInfo?.name}</div>
+              <div className="">{data?.name}</div>
             </h4>
             <div>
               {props.shareBtn && (
@@ -25,25 +25,21 @@ const Receipt = (props) => {
           </div>
           <div className="cardData">
             <p>
-              <i className="fas fa-phone-alt cardIcon"></i>{" "}
-              {data?.donorInfo?.mobileNumber}
+              <i className="fas fa-phone-alt cardIcon"></i> {data?.mobile}
             </p>
             <p>
-              <i className="fa-solid fa-location-dot cardIcon"></i>{" "}
-              {data?.donorInfo?.address},{data?.donorInfo?.city}
+              <i className="fas fa-envelope cardIcon"></i> {data?.email}
             </p>
           </div>
         </div>
         {props.cardFooter && (
           <div className="cardFooter">
             <div>
-              <h5>Rs. {data.amount}</h5>
-              <span className="categoryReceipt">
-                For: {data?.category?.name}
-              </span>
+              <h5>Rs. {data.Amount}</h5>
+              <span className="categoryReceipt">For: {data?.donorInfo?.category}</span>
             </div>
             <div>
-              <p>Receipt No. {data?.externalId.split("-")[0]}</p>
+              <p>Receipt No. {data?.externalId.split('-')[0]}</p>
             </div>
           </div>
         )}
@@ -52,4 +48,4 @@ const Receipt = (props) => {
   );
 };
 
-export default Receipt;
+export default VolunteerCard;
