@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import DonorPopup from "../../Views/Page/Dashboard/Donors/Popup/Index";
 import Style from "./Index.module.css";
 import { useLongPress } from "../../Utils/useLongPress";
 
@@ -18,20 +17,6 @@ function Card({ donor }) {
     "Nov",
     "Dec",
   ];
-
-  console.log();
-
-  const [popup, setPopup] = useState(false);
-
-  const togglePopup = () => {
-    setPopup(!popup);
-  };
-
-  if (popup) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "visible";
-  }
 
   const [check, setCheck] = useState(false);
 
