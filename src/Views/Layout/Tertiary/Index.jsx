@@ -7,7 +7,7 @@ function TertiaryHeader() {
       <div className="headUpContainer">
         <div className="logo">Logo</div>
         <p className="navHeading">
-          Together We Will, <br /> Aao Sath Chalen
+          Together We Will, <br /> Aao Saath Chalein
         </p>
       </div>
     </div>

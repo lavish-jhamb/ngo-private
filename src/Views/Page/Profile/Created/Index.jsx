@@ -15,9 +15,9 @@ function ProfileExit() {
     <div className={Style.exitProfile}>
       <div className={Style.header}>
         <div className={Style.iconContainer}>
-          <img src="/resources/images/whiteIcon.png" alt="icon" />
+          <img src="/resources/images/logo.png" alt="icon" />
         </div>
-        <h1>AppName</h1>
+        <h1><span>NGO</span> Buddy</h1>
         <p>An initiative by software Knights</p>
       </div>
       <div className={Style.profileContainer}>
