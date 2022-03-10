@@ -60,10 +60,10 @@ export const receiptController = {
         }
     },
 
-    getDonations: async (mobile) => {
+    getDonations: async (isText,mobile) => {
         try {
             const ngoExternalId = getCookie('ngoExternalId');
-            const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/donations${mobile ? `?mobile=${mobile}` : ''}`);
+            const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/donations${(isText === false && mobile) ? `?mobile=${mobile}` : ''}${(isText === true && mobile) ? `?searchText=${mobile}` : '' }`);
             return response;
         } catch (error) {
             return error;

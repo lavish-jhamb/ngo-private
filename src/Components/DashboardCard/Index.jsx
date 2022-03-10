@@ -12,7 +12,7 @@ function DashboardCard({data}) {
         <div className={Style.dashboardBody}>
           <div className={Style.leftContainer}>
             <span>Total :</span>
-            <span className={Style.blueText}>Rs {data?.totalAmount || '...'}</span>
+            <span className={Style.blueText}>Rs {new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(data?.totalAmount || 0)}</span>
           </div>
           <div className={Style.rightContainer}>
             <button className={Style.detailsButton}>View details</button>
@@ -27,7 +27,7 @@ function DashboardCard({data}) {
         <div className={Style.dashboardBody}>
           <div className={Style.leftContainer}>
             <span>Total :</span>
-            <span className={Style.blueText}>{data?.totalDonors || '...'}</span>
+            <span className={Style.blueText}>{data?.totalDonors || 0}</span>
           </div>
           <div className={Style.rightContainer}>
             <button className={Style.detailsButton}>View details</button>

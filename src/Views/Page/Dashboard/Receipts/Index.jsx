@@ -18,9 +18,9 @@ const ManageReceipt = () => {
     navigate(uris.createReceipt);
   };
 
-  const getDonations = async (mobile) => {
+  const getDonations = async (isText,mobile) => {
     try {
-      const response = await receiptController.getDonations(mobile);
+      const response = await receiptController.getDonations(isText,mobile);
       const data = response?.data?.data;
       setData(data);
       setLoading(false);
@@ -36,12 +36,16 @@ const ManageReceipt = () => {
   }, []);
 
   const handleFilter = (e) => {
-    const mobile = e.target.value;
-    if (mobile.length === 10) {
-      getDonations(mobile);
-    }
-    if (mobile.length === 0) {
-      getDonations();
+    const searchText = e.target.value;
+    if(isNaN(searchText) && searchText.length >= 3){
+      getDonations(true,searchText)
+    }else{
+      if (searchText.length === 10) {
+        getDonations(false,searchText);
+      }
+      if (searchText.length === 0) {
+        getDonations();
+      }
     }
   };
 

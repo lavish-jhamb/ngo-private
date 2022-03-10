@@ -45,12 +45,19 @@ function ReceiptPreview(props) {
             <span>{values.name}</span>
             <hr />
 
-            <p>Email</p>
-            <span>{values.email}</span>
+            {values.email && (
+              <>
+                <p>Email</p>
+                <span>{values.email}</span>
+              </>
+            )}
             <hr />
-
-            <p>PAN No.</p>
-            <span>{values.panNumber}</span>
+            {values.panNumber && (
+              <>
+                <p>PAN No.</p>
+                <span>{values.panNumber}</span>
+              </>
+            )}
             <hr />
           </div>
           <div className="">
