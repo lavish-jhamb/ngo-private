@@ -5,6 +5,7 @@
 }
 
 .headUpContainer {
+  padding-left: 25px;
   width: 90vw;
   margin: 0 auto;
   height: 100%;
@@ -15,11 +16,12 @@
 .logo {
   flex: 0;
   color: #fff;
+  width: 4.8rem;
 }
 
 .headUpContainer .navHeading {
   color: var(--white);
   font-size: 1.5rem;
   font-weight: 600;
-  margin-left: 0.8rem ;
+  margin-left: 1.5rem;
 }

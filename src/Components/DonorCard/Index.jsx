@@ -4,6 +4,23 @@ import Style from "./Index.module.css";
 import { useLongPress } from "../../Utils/useLongPress";
 
 function Card({ donor }) {
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  console.log();
+
   const [popup, setPopup] = useState(false);
 
   const togglePopup = () => {
@@ -52,21 +69,39 @@ function Card({ donor }) {
       </div>
       <div {...longPressProps} className={Style.cardWrapper}>
         <div className={Style.cards}>
-          <h6>{donor?.name}</h6>
+          <div className={Style.cardHeader}>
+            <h6>{donor?.name}</h6>
+            <i className="fas fa-pen"></i>
+          </div>
           <div className={Style.reminderWrapper}>
             <div className={Style.reminder}>
               <i className="fa-solid fa-phone"></i>
               <span>+91 {donor?.mobile}</span>
             </div>
-            <button id="btn" onClick={togglePopup}>
-              Send Reminder
-            </button>
-            {popup && <DonorPopup togglePopup={togglePopup} />}
+          </div>
+
+          <div className={Style.reminderWrapper}>
+            <div className={Style.reminder}>
+              <i className={`${Style.locationIcon} fas fa-map-marker-alt`}></i>{" "}
+              <span className={Style.locationIcon}>
+                {donor?.address + ", " + donor?.city}
+              </span>
+            </div>
+          </div>
+
+          <div className={Style.reminderWrapper}>
+            <div className={Style.reminder}>
+              <i className="fas fa-calendar-alt"></i>{" "}
+              <span>
+                Due from{" "}
+                { (donor?.dueFromMonth && months[donor?.dueFromMonth - 1]) + ", " + donor?.dueFromYear}
+              </span>
+            </div>
           </div>
         </div>
         <div className={Style.donationDetails}>
           <span>Last donation:</span>
-          <span>Rs. {donor?.lastDonation?.amount}</span>
+          <span>₹{donor?.lastDonation?.amount}</span>
           <span>({donor?.lastDonation?.donationDate})</span>
         </div>
       </div>
