@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { receiptController } from "../../Api/Receipt/controller";
 import "./Index.css";
 
