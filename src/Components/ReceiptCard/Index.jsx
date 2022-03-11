@@ -5,14 +5,11 @@ import "./Index.css";
 const Receipt = (props) => {
   const { data } = props;
 
-  const [pdfFile,setPdfFile] = useState('');
-
   const generatePdfAndShare = async (donationExternalId) => {
     const response = await receiptController.donationReceipt(
       donationExternalId
     );
-    setPdfFile(response.data);
-    const pdf = new File([pdfFile], "receipt.pdf", { type: "application/pdf" });
+    const pdf = new File([response?.data], "receipt.pdf", { type: "application/pdf" });
     const files = [pdf];
     if (navigator.canShare && navigator.canShare({ files: files })) {
       navigator
