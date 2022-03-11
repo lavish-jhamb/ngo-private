@@ -13,6 +13,8 @@ import CreateDonor from "../../Views/Page/Dashboard/Donors/CreateDonor/Index";
 import CreateReceipt from "../../Views/Page/Dashboard/Receipts/CreateReciept/Main";
 import ReceiptGenerated from "../../Views/Page/Dashboard/Receipts/ReceiptGenerated/Index";
 import CreateVolunteer from "../../Views/Page/Dashboard/Volunteers/CreateVolunteer/Index";
+import UpdateDonorDetails from "../../Views/Page/Dashboard/Donors/EditDonor/UpdateDonor/Index";
+import DonorDetails from "../../Views/Page/Dashboard/Donors/EditDonor/DonorDetails/Index";
 
 const router = [
     {
@@ -84,6 +86,16 @@ const router = [
         id: 15,
         path: uris.createVolunteer,
         element: < CreateVolunteer />
+    },
+    {
+        id:16,
+        path: uris.updateDonor,
+        element: <UpdateDonorDetails />
+    },
+    {
+        id:17,
+        path: uris.donorDetails,
+        element: <DonorDetails />
     }
 ]
 
