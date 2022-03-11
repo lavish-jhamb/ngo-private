@@ -5,21 +5,17 @@ import "./Index.css";
 const Receipt = (props) => {
   const { data } = props;
 
-  const generatePdfAndShare = async (donationExternalId) => {
-
-  };
-
   const handleShare = async (e) => {
     const value = JSON.parse(e.currentTarget?.dataset?.value);
     const donationExternalId = value?.externalId;
     const response = await receiptController.donationReceipt(donationExternalId);
     const pdf = new File([response?.data], "receipt.pdf", { type: "application/pdf" });
-    const files = [pdf];
-    console.log(files)
-    if (navigator.canShare && navigator.canShare({ files: files })) {
+    const filesArray = [pdf];
+    console.log(filesArray)
+    if (navigator.canShare && navigator.canShare({ files: filesArray })) {
       navigator
         .share({
-          files: files,
+          files: filesArray,
         })
         .then(() => console.log("Share was successful."))
         .catch((error) => console.log("Sharing failed", error));
