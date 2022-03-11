@@ -1,5 +1,6 @@
 import React from "react";
 import { receiptController } from "../../Api/Receipt/controller";
+import { getCookie } from "../../Utils/cookie";
 import "./Index.css";
 
 const Receipt = (props) => {
@@ -8,21 +9,26 @@ const Receipt = (props) => {
   const handleShare = async (e) => {
     const value = JSON.parse(e.currentTarget?.dataset?.value);
     const donationExternalId = value?.externalId;
-    const response = await receiptController.donationReceipt(donationExternalId);
-    const pdf = new File([response?.data], "receipt.pdf", { type: "application/pdf" });
-    const filesArray = [pdf];
-    console.log(filesArray)
-    if (navigator.canShare && navigator.canShare({ files: filesArray })) {
-      navigator
-        .share({
-          files: filesArray,
-        })
-        .then(() => console.log("Share was successful."))
-        .catch((error) => console.log("Sharing failed", error));
-    } else {
-      console.log(`Your system doesn't support sharing files.`);
+    document.cookie = `donorExternalId=${donationExternalId};domain=localhost;secure`;
+    document.cookie = `donorExternalId=${donationExternalId};domain=ngo-donation-management.netlify.app;secure`;
+    const id = getCookie("donorExternalId");
+    if (id) {
+      const response = await receiptController.donationReceipt();
+      const pdf = new File([response?.data], "receipt.pdf", {
+        type: "application/pdf",
+      });
+      const filesArray = [pdf];
+      if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+        navigator
+          .share({
+            files: filesArray,
+          })
+          .catch((error) => {
+            return error;
+          });
+      }
     }
-  }
+  };
 
   return (
     <div>
