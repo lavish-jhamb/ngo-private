@@ -6,11 +6,16 @@ const Receipt = (props) => {
   const { data } = props;
 
   const generatePdfAndShare = async (donationExternalId) => {
-    const response = await receiptController.donationReceipt(
-      donationExternalId
-    );
+
+  };
+
+  const handleShare = async (e) => {
+    const value = JSON.parse(e.currentTarget?.dataset?.value);
+    const donationExternalId = value?.externalId;
+    const response = await receiptController.donationReceipt(donationExternalId);
     const pdf = new File([response?.data], "receipt.pdf", { type: "application/pdf" });
     const files = [pdf];
+    console.log(files)
     if (navigator.canShare && navigator.canShare({ files: files })) {
       navigator
         .share({
@@ -21,12 +26,6 @@ const Receipt = (props) => {
     } else {
       console.log(`Your system doesn't support sharing files.`);
     }
-  };
-
-  const handleShare = (e) => {
-    const value = JSON.parse(e.currentTarget?.dataset?.value);
-    const donationExternalId = value?.externalId;
-    generatePdfAndShare(donationExternalId);
   }
 
   return (
