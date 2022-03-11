@@ -69,11 +69,12 @@ function MainCreateReciept() {
     const donorData = JSON.parse(e.target.dataset.donor);
     setIsVisibleDropdown(false);
     setDonorId(donorData?.externalId);
-    setValue("description", donorData?.description, {
-      shouldValidate: true,
-    });
+    setValue("mobileNumber", donorData?.mobile, { shouldValidate: true });
     setValue("address", donorData?.address, { shouldValidate: true });
     setValue("city", donorData?.city, { shouldValidate: true });
+    setValue("pinCode", donorData?.pinCode, { shouldValidate: true });
+    setValue("state", donorData?.state, { shouldValidate: true });
+    setValue("gender", donorData?.gender, { shouldValidate: true });
     setDate(donorData?.dateOfBirth.split("-").reverse().join("-"));
     setValue(
       "dateOfBirth",
@@ -82,15 +83,14 @@ function MainCreateReciept() {
         shouldValidate: true,
       }
     );
-    setValue("gender", donorData?.gender, { shouldValidate: true });
     setValue("name", donorData?.name, { shouldValidate: true });
-    setValue("mobileNumber", donorData?.mobile, { shouldValidate: true });
     setValue("email", donorData?.email, { shouldValidate: true });
     setValue("panNumber", donorData?.panNumber, {
       shouldValidate: true,
     });
-    setValue("pinCode", donorData?.pinCode, { shouldValidate: true });
-    setValue("state", donorData?.state, { shouldValidate: true });
+    setValue("description", donorData?.description, {
+      shouldValidate: true,
+    });
   };
 
   const getDonorsByName = async (name) => {
@@ -213,11 +213,14 @@ function MainCreateReciept() {
 
   const createDonation = async () => {
     let response;
-    if(!categoryId){
+    if (!categoryId) {
       response = await ngoCategoryController.createCategory(data.category);
     }
     const catergoryExternalId = response?.data?.externalId;
-    return receiptController.donation({...formattedData,categoryId:catergoryExternalId ? catergoryExternalId : categoryId});
+    return receiptController.donation({
+      ...formattedData,
+      categoryId: catergoryExternalId ? catergoryExternalId : categoryId,
+    });
   };
 
   const Steps = {

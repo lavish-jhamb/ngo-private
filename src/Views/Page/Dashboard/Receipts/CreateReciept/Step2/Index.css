@@ -106,6 +106,7 @@
   background-color: #f6f6f6;
   min-width: 230px;
   width: 90%;
+  max-height: 240px;
   padding: 10px 16px;
   border-radius: 10px;
   overflow: auto;
