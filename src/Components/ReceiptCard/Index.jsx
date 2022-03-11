@@ -7,29 +7,29 @@ const Receipt = (props) => {
 
   const [pdfFile,setPdfFile] = useState('');
 
-  const generatePdfAndShare = async () => {
-    const response = await receiptController.donationReceipt();
+  const generatePdfAndShare = async (donationExternalId) => {
+    const response = await receiptController.donationReceipt(
+      donationExternalId
+    );
     setPdfFile(response.data);
     const pdf = new File([pdfFile], "receipt.pdf", { type: "application/pdf" });
     const files = [pdf];
-    if (navigator.share) {
+    if (navigator.canShare && navigator.canShare({ files: files })) {
       navigator
         .share({
           files: files,
         })
-        .catch((error) => {
-          console.log(error)
-          return error;
-        });
+        .then(() => console.log("Share was successful."))
+        .catch((error) => console.log("Sharing failed", error));
+    } else {
+      console.log(`Your system doesn't support sharing files.`);
     }
   };
 
   const handleShare = (e) => {
     const value = JSON.parse(e.currentTarget?.dataset?.value);
     const donationExternalId = value?.externalId;
-    document.cookie = `donorExternalId=${donationExternalId};domain=localhost;secure`;
-    document.cookie = `donorExternalId=${donationExternalId};domain=ngo-donation-management.netlify.app;secure`;
-    generatePdfAndShare();
+    generatePdfAndShare(donationExternalId);
   }
 
   return (

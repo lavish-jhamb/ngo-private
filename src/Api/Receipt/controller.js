@@ -19,11 +19,11 @@ export const receiptController = {
         }
     },
 
-    donationReceipt: async () => {
+    donationReceipt: async (id) => {
         try {
             const ngoExternalId = getCookie('ngoExternalId');
-            const donationExternalId = getCookie('donorExternalId');
-            const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/receipt/${donationExternalId}`, {
+            // const donationExternalId = getCookie('donorExternalId');
+            const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/receipt/${id}`, {
                 responseType: 'arraybuffer'
             });
             return response;
