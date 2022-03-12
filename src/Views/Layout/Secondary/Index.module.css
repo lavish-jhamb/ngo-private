@@ -6,6 +6,18 @@
     position: relative;
 }
 
+.editBtn{
+    margin: 0 5% 0 auto;
+    padding: 8px 10px;
+    border: 1px solid var(--white);
+    border-radius: 2rem;
+    font-size: 1.6rem;
+}
+
+.editBtn i{
+    color: var(--white);
+}
+
 .svgContainer{
     flex: 0.05;
 }

@@ -8,6 +8,11 @@ html{
   font-size: 62.5%;
 }
 
+a{
+  text-decoration: none;
+  color: #000000;
+}
+
 .Toastify__toast-container {
   top: unset!important;
   bottom: 0;

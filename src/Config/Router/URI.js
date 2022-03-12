@@ -15,5 +15,7 @@ export const uris = {
     createReceipt:"/create-receipt",
     editReceipt:"/edit-receipt",
     viewReceipt:"/view-receipt",
-    createVolunteer:"/create-volunteer"
+    createVolunteer:"/create-volunteer",
+    updateDonor:"/update-donor/",
+    donorDetails:"/donor-details/"
 }

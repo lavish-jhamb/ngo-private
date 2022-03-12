@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import Style from "./Index.module.css";
 import { useLongPress } from "../../Utils/useLongPress";
+import { useNavigate } from "react-router-dom";
+import { uris } from "../../Config/Router/URI";
 
 function Card({ donor }) {
+  // console.log(donor);
+
   const months = [
     "Jan",
     "Feb",
@@ -42,8 +46,21 @@ function Card({ donor }) {
     },
   });
 
+  const navigate = useNavigate();
+  const handleUpdateDonor = () => {
+    navigate(uris.updateDonor, {
+      state: donor,
+    });
+  };
+
+  const handleCard = () => {
+    navigate(uris.donorDetails, {
+      state:donor
+    });
+  };
+
   return (
-    <div className={`container ${Style.MainContainer}`}>
+    <div onClick={handleCard} className={`container ${Style.MainContainer}`}>
       <div className={Style.checkbox}>
         <input
           type="checkbox"
@@ -56,7 +73,7 @@ function Card({ donor }) {
         <div className={Style.cards}>
           <div className={Style.cardHeader}>
             <h6>{donor?.name}</h6>
-            <i className="fas fa-pen"></i>
+            <i onClick={handleUpdateDonor} className="fas fa-pen"></i>
           </div>
           <div className={Style.reminderWrapper}>
             <div className={Style.reminder}>
@@ -79,7 +96,9 @@ function Card({ donor }) {
               <i className="fas fa-calendar-alt"></i>{" "}
               <span>
                 Due from{" "}
-                { (donor?.dueFromMonth && months[donor?.dueFromMonth - 1]) + ", " + donor?.dueFromYear}
+                {(donor?.dueFromMonth && months[donor?.dueFromMonth - 1]) +
+                  ", " +
+                  donor?.dueFromYear}
               </span>
             </div>
           </div>

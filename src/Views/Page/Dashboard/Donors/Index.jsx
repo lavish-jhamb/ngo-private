@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Index.css";
 import Card from "../../../../Components/DonorCard/Index";
 import MenubarLayout from "../../../Layout/Menubar/Main";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { uris } from "../../../../Config/Router/URI";
 import { donorsController } from "../../../../Api/Donors/controller";
 import Spinner from "../../../../Components/Spinner/Index";
@@ -39,6 +39,14 @@ function Donars() {
     }
   };
 
+  // const navigate = useNavigate();
+
+  // const handleCard = () => {
+  //   navigate(uris.donorDetails, {
+  //     state: data,
+  //   });
+  // };
+
   return (
     <>
       <MenubarLayout>
@@ -55,6 +63,12 @@ function Donars() {
             </div>
             <i className="fa-solid fa-calendar-days"></i>
           </div>
+
+          <div className="donorSortBtns">
+            <button>One time donor</button>
+            <button>Frequent donor</button>
+          </div>
+
           <div className="card">
             {loading && data?.length === 0 ? (
               <Spinner />
