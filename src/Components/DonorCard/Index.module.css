@@ -17,8 +17,9 @@
   flex: 1;
 }
 
-.cardWrapper > .cards i {
+.cardWrapper i {
   font-size: 1.4rem;
+  padding: 0.2rem;
   color: var(--darkGray);
 }
 
@@ -27,9 +28,12 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.2rem;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 1.2em;
 }
 
-.cards > .cardHeader > h6 {
+.cardWrapper h6 {
   font-size: 1.7rem;
   font-weight: 600;
 }
@@ -37,15 +41,14 @@
 .cards {
   width: 90%;
   margin: 0 auto;
-  padding: 1.2em 0 0.8em 0;
+  padding: 0.6em 0 0.8em 0;
 }
 
 .reminderWrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0.8rem 0;
-  margin-bottom: 0;
+  margin-top: 0.8rem;
 }
 
 .reminderWrapper button {

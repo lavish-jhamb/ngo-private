@@ -1,10 +1,15 @@
-import React from 'react';
-import SecondaryHeader from './Index';
+import React from "react";
+import SecondaryHeader from "./Index";
 
-function MainLayout({ children, title, handler, editBtn,data }) {
+function MainLayout({ children, title, handler, editBtn, data }) {
   return (
     <div className="layout">
-      <SecondaryHeader title={title} handler={handler} editBtn={editBtn} data={data} />
+      <SecondaryHeader
+        title={title}
+        handler={handler}
+        editBtn={editBtn}
+        data={data}
+      />
       {children}
     </div>
   );

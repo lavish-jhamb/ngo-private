@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import "./Index.css";
 import EditDonorCard from "./Card/Index";
+import { useNavigate } from "react-router-dom";
 
 function EditDonorDetails({ updateDonor, isDisabled, data }) {
   const [donor, setDonor] = useState(data);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setDonor({ ...donor, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log(donor);
+
+    navigate("/dashboard/donors");
   };
 
   return (
@@ -28,7 +34,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                 autoComplete="off"
                 placeholder="Name"
                 type="text"
-                value={donor?.name}
+                value={donor.name && donor.name}
                 name="name"
               />
             </div>
@@ -39,7 +45,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                 autoComplete="off"
                 placeholder="Phone number"
                 type="number"
-                value={donor?.mobile}
+                value={donor.mobile && donor.mobile}
                 name="mobile"
               />
             </div>
@@ -50,7 +56,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                 autoComplete="off"
                 placeholder="Email"
                 type="text"
-                value={donor?.email}
+                value={donor.email && donor.email}
                 name="email"
               />
             </div>
@@ -61,7 +67,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                 autoComplete="off"
                 placeholder="PAN No."
                 type="text"
-                value={donor?.panNumber}
+                value={donor.panNumber && donor.panNumber}
                 name="panNumber"
               />
             </div>
@@ -71,7 +77,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                 disabled={isDisabled}
                 placeholder="Date of Birth"
                 type="text"
-                value={donor?.dateOfBirth}
+                value={donor.dateOfBirth && donor.dateOfBirth}
                 name="dob"
               />
             </div>
@@ -85,7 +91,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                     type="radio"
                     name="gender"
                     value="Male"
-                    defaultChecked={donor?.gender === "Male"}
+                    defaultChecked={donor.gender === "Male"}
                   />
                   <label htmlFor="male">Male</label>
                 </div>
@@ -96,7 +102,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                     type="radio"
                     name="gender"
                     value="Female"
-                    defaultChecked={donor?.gender === "Female"}
+                    defaultChecked={donor.gender === "Female"}
                   />
                   <label htmlFor="female">Female</label>
                 </div>
@@ -111,7 +117,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                   autoComplete="off"
                   placeholder="Address"
                   type="text"
-                  value={donor?.address}
+                  value={donor.address && donor.address}
                   name="address"
                 />
               </div>
@@ -122,7 +128,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                   autoComplete="off"
                   placeholder="City"
                   type="text"
-                  value={donor?.city}
+                  value={donor.city && donor.city}
                   name="city"
                 />
               </div>
@@ -133,7 +139,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                   autoComplete="off"
                   type="number"
                   placeholder="Pincode"
-                  value={donor?.pinCode}
+                  value={donor.pinCode && donor.pinCode}
                   name="pinCode"
                 />
               </div>
@@ -144,7 +150,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                   autoComplete="off"
                   placeholder="State"
                   type="text"
-                  value={donor?.state}
+                  value={donor.state && donor.state}
                   name="state"
                 />
               </div>

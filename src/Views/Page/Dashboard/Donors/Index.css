@@ -16,7 +16,7 @@
   margin: 1.2rem 0;
 }
 
-.search-bar>i {
+.search-bar > i {
   border: solid 2px var(--placeholder);
   width: 39px;
   height: 39px;
@@ -38,7 +38,7 @@
   overflow: hidden;
 }
 
-.search>i {
+.search > i {
   color: var(--placeholder);
   font-size: 1.5rem;
   margin: 1rem;
@@ -63,18 +63,7 @@
 
 .donorSortBtns {
   display: flex;
-  margin-bottom: 1.2rem;
-}
-
-.donorSortBtns button:nth-child(1) {
-  border-top-left-radius: 1.2rem;
-  border-bottom-left-radius: 1.2rem;
-  border-right: 1px solid #707070;
-}
-
-.donorSortBtns button:nth-child(2) {
-  border-top-right-radius: 1.2rem;
-  border-bottom-right-radius: 1.2rem;
+  margin-bottom: 2rem;
 }
 
 .donorSortBtns button {
@@ -82,7 +71,13 @@
   height: 4rem;
   font-size: 1.6rem;
   border: none;
-  background-color: #F7F7F7;
+  color: var(--darkGray);
+  background-color: white;
+}
+
+.donorSortBtns .activeDonorBtn{
+  border-bottom: 2px solid var(--primary) !important;
+  color: var(--primary);
 }
 
 .empty {

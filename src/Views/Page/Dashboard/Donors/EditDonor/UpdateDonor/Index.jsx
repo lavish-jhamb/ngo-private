@@ -11,11 +11,10 @@ function UpdateDonor() {
   };
 
   const { state } = useLocation();
-  console.log(state);
 
   return (
     <div>
-      <SecondaryLayout title="Update Donor" handler={goBack} data={state}>
+      <SecondaryLayout title="Update Donor" handler={goBack}>
         <EditDonorDetails data={state} updateDonor={true} />
       </SecondaryLayout>
     </div>

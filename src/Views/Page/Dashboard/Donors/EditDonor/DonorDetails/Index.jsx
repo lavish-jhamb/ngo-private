@@ -11,11 +11,10 @@ function DonorDetails() {
     };
 
     const { state } = useLocation();
-    console.log(state);
 
   return (
     <div>
-      <SecondaryLayout title="Donor" editBtn={true} handler={goBack}>
+      <SecondaryLayout title="Donor" editBtn={true} handler={goBack} data={state}>
         <EditDonorDetails data={state} isDisabled={true} />
       </SecondaryLayout>
     </div>
