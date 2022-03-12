@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Index.css";
 import EditDonorCard from "./Card/Index";
 import { useNavigate } from "react-router-dom";
+import notify from "../../../../../Utils/notify"
+import { donorsController } from "../../../../../Api/Donors/controller";
 
 function EditDonorDetails({ updateDonor, isDisabled, data }) {
   const [donor, setDonor] = useState(data);
@@ -14,9 +16,19 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(donor);
-
-    navigate("/dashboard/donors");
+    const id = donor?.externalId;
+    donorsController
+      .updateDonor(id, donor)
+      .then((response) => {
+        if (response.status === 200) {
+          navigate("/dashboard/donors");
+        } else {
+          notify.error(response?.response?.data?.message);
+        }
+      })
+      .catch((err) => {
+        return err;
+      });
   };
 
   return (
@@ -34,7 +46,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                 autoComplete="off"
                 placeholder="Name"
                 type="text"
-                value={donor.name && donor.name}
+                value={donor.name || ''}
                 name="name"
               />
             </div>
@@ -45,7 +57,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                 autoComplete="off"
                 placeholder="Phone number"
                 type="number"
-                value={donor.mobile && donor.mobile}
+                value={donor.mobile || ''}
                 name="mobile"
               />
             </div>
@@ -56,7 +68,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                 autoComplete="off"
                 placeholder="Email"
                 type="text"
-                value={donor.email && donor.email}
+                value={donor.email || ''}
                 name="email"
               />
             </div>
@@ -67,7 +79,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                 autoComplete="off"
                 placeholder="PAN No."
                 type="text"
-                value={donor.panNumber && donor.panNumber}
+                value={donor.panNumber || ''}
                 name="panNumber"
               />
             </div>
@@ -77,7 +89,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                 disabled={isDisabled}
                 placeholder="Date of Birth"
                 type="text"
-                value={donor.dateOfBirth && donor.dateOfBirth}
+                value={donor.dateOfBirth || ''}
                 name="dob"
               />
             </div>

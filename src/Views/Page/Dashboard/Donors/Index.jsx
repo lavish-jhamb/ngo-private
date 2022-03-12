@@ -32,10 +32,10 @@ function Donars() {
   }, [data]);
 
   const sortDonors = (donorData) => {
-    const oneTime = donorData.filter((d) => d?.oneTimeDonor === true);
+    const oneTime = donorData?.filter((d) => d?.oneTimeDonor === true);
     setOneTimeDonor(oneTime);
 
-    const freq = donorData.filter((d) => d?.oneTimeDonor === false);
+    const freq = donorData?.filter((d) => d?.oneTimeDonor === false);
     setFreqDonor(freq);
   };
 

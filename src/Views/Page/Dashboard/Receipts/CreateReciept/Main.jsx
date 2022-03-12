@@ -75,19 +75,19 @@ function MainCreateReciept() {
     setValue("pinCode", donorData?.pinCode, { shouldValidate: true });
     setValue("state", donorData?.state, { shouldValidate: true });
     setValue("gender", donorData?.gender, { shouldValidate: true });
-    setDate(donorData?.dateOfBirth.split("-").reverse().join("-"));
-    setValue(
-      "dateOfBirth",
-      donorData?.dateOfBirth.split("-").reverse().join("-"),
-      {
-        shouldValidate: true,
-      }
-    );
+    setDate(donorData?.dateOfBirth?.split("-").reverse().join("-"));
     setValue("name", donorData?.name, { shouldValidate: true });
     setValue("email", donorData?.email, { shouldValidate: true });
     setValue("panNumber", donorData?.panNumber, {
       shouldValidate: true,
     });
+    setValue(
+      "dateOfBirth",
+      donorData?.dateOfBirth?.split("-").reverse().join("-"),
+      {
+        shouldValidate: true,
+      }
+    );
     setValue("description", donorData?.description, {
       shouldValidate: true,
     });

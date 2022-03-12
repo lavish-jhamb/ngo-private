@@ -31,7 +31,7 @@ const Receipt = (props) => {
     }
   };
 
-  const handleDelete = (e) => {
+  const handleDelete = () => {
     setOpen(!open);
   }
 
@@ -63,7 +63,7 @@ const Receipt = (props) => {
                   <i className="bx bxs-share-alt"></i>
                 </button>
               )}
-              <button data-donation={JSON.stringify(data?.externalId)} onClick={handleDelete} className="menuBtn">
+              <button onClick={handleDelete} className="menuBtn">
                 <i className="bx bx-dots-vertical-rounded"></i>
               </button>
               <div className="dropdownContainer">

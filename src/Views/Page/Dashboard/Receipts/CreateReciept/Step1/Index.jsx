@@ -84,8 +84,8 @@ function CreateRecieptForm(props) {
                     },
                   })}
                 />
-                {errors.mobileNumber && <p>{errors.mobileNumber.message}</p>}
               </div>
+              {errors.mobileNumber && <p>{errors.mobileNumber.message}</p>}
               <div className="inputField">
                 <input
                   autoComplete="off"
