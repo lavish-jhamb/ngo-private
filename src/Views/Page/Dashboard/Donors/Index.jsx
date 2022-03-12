@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Index.css";
 import Card from "../../../../Components/DonorCard/Index";
 import MenubarLayout from "../../../Layout/Menubar/Main";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { uris } from "../../../../Config/Router/URI";
 import { donorsController } from "../../../../Api/Donors/controller";
 import Spinner from "../../../../Components/Spinner/Index";
@@ -10,6 +10,10 @@ import Spinner from "../../../../Components/Spinner/Index";
 function Donars() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+
+  const [oneTimeDonor, setOneTimeDonor] = useState([]);
+  const [freqDonor, setFreqDonor] = useState([]);
+  const [handleDonor, setHandleDonor] = useState(true);
 
   const getDonors = async (text) => {
     try {
@@ -21,6 +25,18 @@ function Donars() {
       setLoading(false);
       return error;
     }
+  };
+
+  useEffect(() => {
+    sortDonors(data);
+  }, [data]);
+
+  const sortDonors = (donorData) => {
+    const oneTime = donorData.filter((d) => d?.oneTimeDonor === true);
+    setOneTimeDonor(oneTime);
+
+    const freq = donorData.filter((d) => d?.oneTimeDonor === false);
+    setFreqDonor(freq);
   };
 
   useEffect(() => {
@@ -38,14 +54,6 @@ function Donars() {
       getDonors();
     }
   };
-
-  // const navigate = useNavigate();
-
-  // const handleCard = () => {
-  //   navigate(uris.donorDetails, {
-  //     state: data,
-  //   });
-  // };
 
   return (
     <>
@@ -65,15 +73,31 @@ function Donars() {
           </div>
 
           <div className="donorSortBtns">
-            <button>One time donor</button>
-            <button>Frequent donor</button>
+            <button
+              className={handleDonor ? "activeDonorBtn" : ""}
+              onClick={() => setHandleDonor(true)}
+            >
+              One time donor
+            </button>
+            <button
+              className={!handleDonor ? "activeDonorBtn" : ""}
+              onClick={() => setHandleDonor(false)}
+            >
+              Frequent donor
+            </button>
           </div>
 
           <div className="card">
             {loading && data?.length === 0 ? (
               <Spinner />
+            ) : handleDonor ? (
+              oneTimeDonor?.map((donor, idx) => (
+                <Card key={idx} dueDate={false} donor={donor} />
+              ))
             ) : (
-              data?.map((donor, idx) => <Card key={idx} donor={donor} />)
+              freqDonor?.map((donor, idx) => (
+                <Card key={idx} dueDate={true} donor={donor} />
+              ))
             )}
             {data?.length === 0 && !loading && (
               <p className="empty">Data not available</p>

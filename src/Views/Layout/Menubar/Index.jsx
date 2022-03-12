@@ -3,7 +3,6 @@ import "./Index.css";
 import { NavLink } from "react-router-dom";
 import { uris } from "../../../Config/Router/URI";
 
-
 function Menubar() {
   return (
     <>
@@ -16,9 +15,9 @@ function Menubar() {
             <i className={`bx bx-home-alt ${isActive && "active-icon"}`}></i>
           )}
         </NavLink>
-        <NavLink 
-        to={uris.donors}
-        className={({ isActive }) => (isActive ? "active" : undefined)}
+        <NavLink
+          to={uris.donors}
+          className={({ isActive }) => (isActive ? "active" : undefined)}
         >
           {({ isActive }) => (
             <i
@@ -26,16 +25,17 @@ function Menubar() {
             ></i>
           )}
         </NavLink>
-        <NavLink 
-        to={uris.receipts}
-        className={({ isActive }) => (isActive ? "active" : undefined)}
+        <NavLink
+          to={uris.receipts}
+          className={({ isActive }) => (isActive ? "active" : undefined)}
         >
           {({ isActive }) => (
             <i className={`fas fa-receipt ${isActive && "active-icon"}`}></i>
           )}
         </NavLink>
-        <NavLink to={uris.volunteer}
-        className={({ isActive }) => (isActive ? "active" : undefined)}
+        <NavLink
+          to={uris.volunteer}
+          className={({ isActive }) => (isActive ? "active" : undefined)}
         >
           {({ isActive }) => (
             <i className={`fas fa-users ${isActive && "active-icon"}`}></i>
@@ -45,6 +45,6 @@ function Menubar() {
       <div className="menu-footer"></div>
     </>
   );
-};
+}
 
 export default Menubar;
