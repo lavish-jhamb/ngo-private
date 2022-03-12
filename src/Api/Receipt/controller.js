@@ -60,10 +60,20 @@ export const receiptController = {
         }
     },
 
-    getDonations: async (isText,mobile) => {
+    getDonations: async (isText, mobile) => {
         try {
             const ngoExternalId = getCookie('ngoExternalId');
-            const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/donations${(isText === false && mobile) ? `?mobile=${mobile}` : ''}${(isText === true && mobile) ? `?searchText=${mobile}` : '' }`);
+            const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/donations${(isText === false && mobile) ? `?mobile=${mobile}` : ''}${(isText === true && mobile) ? `?searchText=${mobile}` : ''}`);
+            return response;
+        } catch (error) {
+            return error;
+        }
+    },
+
+    deleteDonations: async (donationExternalId) => {
+        try {
+            const ngoExternalId = getCookie('ngoExternalId');
+            const response = await ApiClient.delete(`/v1/ngo/${ngoExternalId}/donations/${donationExternalId}`);
             return response;
         } catch (error) {
             return error;

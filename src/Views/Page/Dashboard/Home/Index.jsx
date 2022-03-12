@@ -9,18 +9,24 @@ import { useState } from "react";
 const Dashboard = () => {
   const [data, setData] = useState();
 
+  const getReport = async (days) => {
+    try {
+      const response = await reportController.getReport(days);
+      const data = response?.data;
+      setData(data);
+    } catch (error) {
+      return error;
+    }
+  };
+
   useEffect(() => {
-    const getReport = async () => {
-      try {
-        const response = await reportController.getReport();
-        const data = response?.data;
-        setData(data);
-      } catch (error) {
-        return error;
-      }
-    };
     getReport();
-  },[]);
+  }, []);
+
+  const handleSummary = (e) => {
+    const days = e.target.value;
+    getReport(days);
+  };
 
   return (
     <>
@@ -30,7 +36,12 @@ const Dashboard = () => {
           <div className={Style.dashboardDaysCounterContainer}>
             <div className={Style.countContainer}>
               <i className={`far fa-clock ${Style.clockIcon}`}></i>
-              <span>Last 7 days</span>
+              <select onChange={handleSummary} className={Style.dropdown}>
+                <option value="">Last 7 days</option>
+                <option value="15">Last 15 days</option>
+                <option value="30">Last 30 days</option>
+                <option value="90">Last 90 days</option>
+              </select>
             </div>
             <div className={Style.controlsContainer}>
               <i className="fa fa-chevron-up"></i>
