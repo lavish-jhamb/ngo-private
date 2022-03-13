@@ -8,8 +8,7 @@ const Receipt = (props) => {
   const [open,setOpen] = useState(false);
 
   const handleShare = async (e) => {
-    const value = JSON.parse(e.currentTarget?.dataset?.value);
-    const donationExternalId = value?.externalId;
+    const donationExternalId = JSON.parse(e.currentTarget?.dataset?.value);
     document.cookie = `donorExternalId=${donationExternalId};domain=localhost;secure`;
     document.cookie = `donorExternalId=${donationExternalId};domain=ngo-donation-management.netlify.app;secure`;
     const id = getCookie("donorExternalId");
@@ -57,6 +56,7 @@ const Receipt = (props) => {
             <div>
               {props.shareBtn && (
                 <button
+                  data-value={JSON.stringify(data?.externalId)}
                   onClick={handleShare}
                   className="menuBtn"
                 >

@@ -8,6 +8,7 @@ import { useState } from "react";
 
 const Dashboard = () => {
   const [data, setData] = useState();
+  const [days, setDays] = useState();
 
   const getReport = async (days) => {
     try {
@@ -25,6 +26,7 @@ const Dashboard = () => {
 
   const handleSummary = (e) => {
     const days = e.target.value;
+    setDays(days);
     getReport(days);
   };
 
@@ -48,7 +50,7 @@ const Dashboard = () => {
               <i className="fa fa-chevron-down"></i>
             </div>
           </div>
-          <p className={Style.lightText}>Showing results for "Last 7 days"</p>
+          <p className={Style.lightText}>Showing results for "Last {days || 7} days"</p>
           <div className={Style.dashboardCardsContainer}>
             <DashboardCard data={data} />
           </div>
