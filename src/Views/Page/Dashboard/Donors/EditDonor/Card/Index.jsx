@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { ngoCategoryController } from "../../../../../../Api/NgoCategory/controller";
 import "./Index.css";
+import notify from "../../../../../../Utils/notify";
 import UpdateCategory from "./UpdateCategoryPopup/Index";
 
 function EditDonorCard({
@@ -8,10 +10,7 @@ function EditDonorCard({
   dueMonth,
   dueYear,
   dueDate,
-  fetchCategoryName,
-  categoryName,
-  setCategoryName,
-  updateCategoryName,
+  updateDonor,
 }) {
   const months = [
     "Jan",
@@ -30,16 +29,42 @@ function EditDonorCard({
 
   const [updateModal, setUpdateModal] = useState(false);
 
+  const [fetchCategoryName, setfetchCategoryName] = useState(category.name);
+
+  const [categoryName, setCategoryName] = useState(category.name);
+
+  const updateCategoryName = async () => {
+    try {
+      const id = category.externalId;
+      ngoCategoryController
+        .updateCategory(id, categoryName)
+        .then((response) => {
+          if (response.status === 200) {
+            setfetchCategoryName(response.data.name);
+            console.log("update category response", response);
+          } else {
+            notify.error(response?.response?.data?.message);
+          }
+        });
+    } catch (error) {
+      return error;
+    }
+  };
+
   return (
     <div className="editCardContainer">
       <div className="editCardHeader">
-        <span>{fetchCategoryName || category.name}</span>
-        <span>
-          <i onClick={() => setUpdateModal(true)} className="fas fa-pen"></i>
+        <div>
+          <span>Category: </span>
+          {fetchCategoryName || category.name}
+        </div>
+        <div>
+          {updateDonor && (
+            <i onClick={() => setUpdateModal(true)} className="fas fa-pen"></i>
+          )}
           {updateModal && (
             <UpdateCategory
               setUpdateModal={setUpdateModal}
-              category={category}
               amount={amount}
               dueMonth={months[dueMonth - 1]}
               dueYear={dueYear}
@@ -49,7 +74,7 @@ function EditDonorCard({
               setCategoryName={setCategoryName}
             />
           )}
-        </span>
+        </div>
       </div>
 
       <div className="editCardFooter">

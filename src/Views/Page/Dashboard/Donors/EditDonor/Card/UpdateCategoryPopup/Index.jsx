@@ -3,7 +3,6 @@ import "./Index.css";
 
 function UpdateCategory({
   setUpdateModal,
-  category,
   amount,
   dueMonth,
   dueYear,

@@ -4,20 +4,11 @@ import EditDonorCard from "./Card/Index";
 import { useNavigate } from "react-router-dom";
 import notify from "../../../../../Utils/notify";
 import { donorsController } from "../../../../../Api/Donors/controller";
-import { ngoCategoryController } from "../../../../../Api/NgoCategory/controller";
 
 function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
   const [donor, setDonor] = useState(data);
 
-  const [fetchCategoryName, setfetchCategoryName] = useState(
-    donor?.lastDonation?.category?.name
-  );
-
-  const [categoryName, setCategoryName] = useState(
-    donor?.lastDonation?.category?.name
-  );
-
-  console.log(donor);
+  // console.log(donor);
 
   const navigate = useNavigate();
 
@@ -44,24 +35,6 @@ function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
       .catch((err) => {
         return err;
       });
-  };
-
-  const updateCategoryName = async () => {
-    try {
-      const id = donor?.lastDonation?.category?.externalId;
-      ngoCategoryController
-        .updateCategory(id, categoryName)
-        .then((response) => {
-          if (response.status === 200) {
-            setfetchCategoryName(response.data.name);
-            console.log("update category response", response);
-          } else {
-            notify.error(response?.response?.data?.message);
-          }
-        });
-    } catch (error) {
-      return error;
-    }
   };
 
   return (
@@ -212,10 +185,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
                 dueMonth={donor?.dueFromMonth}
                 dueYear={donor?.dueFromYear}
                 dueDate={dueDate}
-                fetchCategoryName={fetchCategoryName}
-                categoryName={categoryName}
-                setCategoryName={setCategoryName}
-                updateCategoryName={updateCategoryName}
+                updateDonor={updateDonor}
               />
             </div>
 
