@@ -48,13 +48,13 @@ function Card({ donor, dueDate }) {
   const navigate = useNavigate();
   const handleUpdateDonor = () => {
     navigate(uris.updateDonor, {
-      state: donor,
+      state: {donor,dueDate},
     });
   };
 
   const handleCard = () => {
     navigate(uris.donorDetails, {
-      state: donor,
+      state: {donor,dueDate},
     });
   };
 

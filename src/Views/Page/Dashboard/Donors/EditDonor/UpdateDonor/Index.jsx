@@ -15,7 +15,11 @@ function UpdateDonor() {
   return (
     <div>
       <SecondaryLayout title="Update Donor" handler={goBack}>
-        <EditDonorDetails data={state} updateDonor={true} />
+        <EditDonorDetails
+          data={state.donor}
+          dueDate={state.dueDate}
+          updateDonor={true}
+        />
       </SecondaryLayout>
     </div>
   );

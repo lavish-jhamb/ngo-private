@@ -8,14 +8,24 @@ function DonorDetails() {
 
   const goBack = () => {
     navigate(-1);
-    };
+  };
 
-    const { state } = useLocation();
+  const { state } = useLocation();
 
   return (
     <div>
-      <SecondaryLayout title="Donor" editBtn={true} handler={goBack} data={state}>
-        <EditDonorDetails data={state} isDisabled={true} />
+      <SecondaryLayout
+        title="Donor"
+        editBtn={true}
+        handler={goBack}
+        donor={state.donor}
+        dueDate={state.dueDate}
+      >
+        <EditDonorDetails
+          data={state.donor}
+          dueDate={state.dueDate}
+          isDisabled={true}
+        />
       </SecondaryLayout>
     </div>
   );

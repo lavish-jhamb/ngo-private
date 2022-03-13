@@ -2,11 +2,22 @@ import React, { useState } from "react";
 import "./Index.css";
 import EditDonorCard from "./Card/Index";
 import { useNavigate } from "react-router-dom";
-import notify from "../../../../../Utils/notify"
+import notify from "../../../../../Utils/notify";
 import { donorsController } from "../../../../../Api/Donors/controller";
+import { ngoCategoryController } from "../../../../../Api/NgoCategory/controller";
 
-function EditDonorDetails({ updateDonor, isDisabled, data }) {
+function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
   const [donor, setDonor] = useState(data);
+
+  const [fetchCategoryName, setfetchCategoryName] = useState(
+    donor?.lastDonation?.category?.name
+  );
+
+  const [categoryName, setCategoryName] = useState(
+    donor?.lastDonation?.category?.name
+  );
+
+  console.log(donor);
 
   const navigate = useNavigate();
 
@@ -16,6 +27,10 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    updateDonorInfo();
+  };
+
+  const updateDonorInfo = () => {
     const id = donor?.externalId;
     donorsController
       .updateDonor(id, donor)
@@ -29,6 +44,24 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
       .catch((err) => {
         return err;
       });
+  };
+
+  const updateCategoryName = async () => {
+    try {
+      const id = donor?.lastDonation?.category?.externalId;
+      ngoCategoryController
+        .updateCategory(id, categoryName)
+        .then((response) => {
+          if (response.status === 200) {
+            setfetchCategoryName(response.data.name);
+            console.log("update category response", response);
+          } else {
+            notify.error(response?.response?.data?.message);
+          }
+        });
+    } catch (error) {
+      return error;
+    }
   };
 
   return (
@@ -46,7 +79,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                 autoComplete="off"
                 placeholder="Name"
                 type="text"
-                value={donor.name || ''}
+                value={donor.name || ""}
                 name="name"
               />
             </div>
@@ -57,7 +90,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                 autoComplete="off"
                 placeholder="Phone number"
                 type="number"
-                value={donor.mobile || ''}
+                value={donor.mobile || ""}
                 name="mobile"
               />
             </div>
@@ -68,7 +101,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                 autoComplete="off"
                 placeholder="Email"
                 type="text"
-                value={donor.email || ''}
+                value={donor.email || ""}
                 name="email"
               />
             </div>
@@ -79,7 +112,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                 autoComplete="off"
                 placeholder="PAN No."
                 type="text"
-                value={donor.panNumber || ''}
+                value={donor.panNumber || ""}
                 name="panNumber"
               />
             </div>
@@ -89,7 +122,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                 disabled={isDisabled}
                 placeholder="Date of Birth"
                 type="text"
-                value={donor.dateOfBirth || ''}
+                value={donor.dateOfBirth || ""}
                 name="dob"
               />
             </div>
@@ -167,21 +200,30 @@ function EditDonorDetails({ updateDonor, isDisabled, data }) {
                 />
               </div>
             </div>
-            <div className="program-details">
-              <h2>Program Details</h2>
+          </div>
 
-              <div>
-                <EditDonorCard />
-                <EditDonorCard />
-                <EditDonorCard />
-              </div>
+          <div className="program-details">
+            <h2>Program Details</h2>
 
-              {updateDonor && (
-                <button type="submit" className="updateDonorBtn">
-                  Update Donor
-                </button>
-              )}
+            <div>
+              <EditDonorCard
+                category={donor?.lastDonation?.category}
+                amount={donor?.lastDonation?.amount}
+                dueMonth={donor?.dueFromMonth}
+                dueYear={donor?.dueFromYear}
+                dueDate={dueDate}
+                fetchCategoryName={fetchCategoryName}
+                categoryName={categoryName}
+                setCategoryName={setCategoryName}
+                updateCategoryName={updateCategoryName}
+              />
             </div>
+
+            {updateDonor && (
+              <button type="submit" className="updateDonorBtn">
+                Update Donor
+              </button>
+            )}
           </div>
         </div>
       </div>

@@ -1,23 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Index.css";
+import UpdateCategory from "./UpdateCategoryPopup/Index";
 
-function EditDonorCard() {
+function EditDonorCard({
+  category,
+  amount,
+  dueMonth,
+  dueYear,
+  dueDate,
+  fetchCategoryName,
+  categoryName,
+  setCategoryName,
+  updateCategoryName,
+}) {
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  const [updateModal, setUpdateModal] = useState(false);
+
   return (
     <div className="editCardContainer">
       <div className="editCardHeader">
-        <span>Some program name here</span>
+        <span>{fetchCategoryName || category.name}</span>
         <span>
-          <i className="fas fa-pen"></i>
+          <i onClick={() => setUpdateModal(true)} className="fas fa-pen"></i>
+          {updateModal && (
+            <UpdateCategory
+              setUpdateModal={setUpdateModal}
+              category={category}
+              amount={amount}
+              dueMonth={months[dueMonth - 1]}
+              dueYear={dueYear}
+              dueDate={dueDate}
+              updateCategoryName={updateCategoryName}
+              categoryName={categoryName}
+              setCategoryName={setCategoryName}
+            />
+          )}
         </span>
       </div>
 
       <div className="editCardFooter">
         <div>
-          <span>Amount: </span>Rs.75000
+          <span>Amount: </span>Rs.{amount}
         </div>
-        <div>
-          <span>Due from: </span>Jan, 2022
-        </div>
+        {dueDate && (
+          <div>
+            <span>Due from: </span>
+            {months[dueMonth - 1]}, {dueYear}
+          </div>
+        )}
       </div>
     </div>
   );
