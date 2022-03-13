@@ -1,14 +1,15 @@
 import React from "react";
 import SecondaryHeader from "./Index";
 
-function MainLayout({ children, title, handler, editBtn, data }) {
+function MainLayout({ children, title, handler, editBtn, donor ,dueDate}) {
   return (
     <div className="layout">
       <SecondaryHeader
         title={title}
         handler={handler}
         editBtn={editBtn}
-        data={data}
+        donor={donor}
+        dueDate={dueDate}
       />
       {children}
     </div>

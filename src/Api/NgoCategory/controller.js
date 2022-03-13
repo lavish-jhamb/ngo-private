@@ -12,5 +12,16 @@ export const ngoCategoryController = {
         const ngoExternalId = getCookie('ngoExternalId');
         const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/categories`);
         return response;
+    },
+
+    updateCategory: async (categoryExternalId, name) => {
+        try {
+            const ngoExternalId = getCookie("ngoExternalId");
+
+            const response = await ApiClient.put(`/v1/ngo/${ngoExternalId}/categories/${categoryExternalId}`,{ name });
+            return response;
+        } catch (error) {
+            return error;
+        }
     }
 }

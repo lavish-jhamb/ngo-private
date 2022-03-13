@@ -6,8 +6,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 function UpdateDonor() {
   const navigate = useNavigate();
 
+  const location = useLocation();
+
   const goBack = () => {
-    navigate(-1);
+    if (location.pathname === "/update-donor") {
+      navigate("/dashboard/donors");
+    } else {
+      navigate(-1);
+    }
   };
 
   const { state } = useLocation();
@@ -15,7 +21,11 @@ function UpdateDonor() {
   return (
     <div>
       <SecondaryLayout title="Update Donor" handler={goBack}>
-        <EditDonorDetails data={state} updateDonor={true} />
+        <EditDonorDetails
+          data={state.donor}
+          dueDate={state.dueDate}
+          updateDonor={true}
+        />
       </SecondaryLayout>
     </div>
   );

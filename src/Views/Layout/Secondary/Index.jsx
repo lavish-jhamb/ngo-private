@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { uris } from "../../../Config/Router/URI";
 import Style from "./Index.module.css";
 
-function SecondaryHeader({ title, handler, editBtn, data }) {
+function SecondaryHeader({ title, handler, editBtn, donor, dueDate }) {
   const navigate = useNavigate();
 
   const handleUpdateDonor = () => {
     navigate(uris.updateDonor, {
-      state: data
+      state: { donor, dueDate },
     });
   };
 
