@@ -25,7 +25,17 @@ export const donorsController = {
     updateDonor: async (donorExternalId, { ...args }) => {
         try {
             const ngoExternalId = getCookie('ngoExternalId');
-            const respone = await ApiClient.put(`/v1/ngo/${ngoExternalId}/donors/${donorExternalId}`, { ...args, });
+            const respone = await ApiClient.put(`/v1/ngo/${ngoExternalId}/donors/${donorExternalId}`, { ...args });
+            return respone;
+        } catch (error) {
+            return error;
+        }
+    },
+
+    createDonor: async ({ ...args }) => {
+        try {
+            const ngoExternalId = getCookie('ngoExternalId');
+            const respone = await ApiClient.post(`/v1/ngo/${ngoExternalId}/donors`, { ...args });
             return respone;
         } catch (error) {
             return error;

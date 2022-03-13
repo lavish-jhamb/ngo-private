@@ -1,0 +1,38 @@
+.radioBtnMale{
+    margin-left: 1em;
+}
+
+.donor-address-details > h2 {
+    margin: 0!important;
+}
+
+.inline-input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inline-input  input{
+    width: 95%;
+    height: 39px;
+    border: solid 2px var(--placeholder);
+    border-radius: 12px;
+    padding: 0.2em;
+    text-align: center;
+}
+
+.inline-input input::placeholder{
+    text-align: center;
+}
+
+.inline-input  input:focus {
+    outline: none;
+}
+
+.donor-renewal{
+    margin-left: 0.9em!important;
+}
+
+.donor-oneTimeDonor{
+    margin-left: 0.9em!important;
+}
