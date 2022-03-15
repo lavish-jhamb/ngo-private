@@ -32,10 +32,16 @@
   border-radius: 0 0 1.2rem 1.2rem;
 }
 
-.updateCategoryForm {
+.updateCategoryForm,.updateCategoryText {
   display: flex;
   flex-direction: column;
   padding: 1.6rem 1.2rem 1rem;
+}
+
+.updateCategoryText{
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+  text-align: center;
 }
 
 .updateCategoryForm > input {

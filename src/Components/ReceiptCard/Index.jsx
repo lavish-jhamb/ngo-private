@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { receiptController } from "../../Api/Receipt/controller";
 import { getCookie } from "../../Utils/cookie";
+import PopupModal from "../PopupModal/Index";
 import "./Index.css";
 
 const Receipt = (props) => {
   const { data } = props;
-  const [open,setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [updateModal, setUpdateModal] = useState(false);
+  const [getDeleteId, setGetDeleteId] = useState("");
 
   const handleShare = async (e) => {
     const donationExternalId = JSON.parse(e.currentTarget?.dataset?.value);
@@ -32,18 +35,26 @@ const Receipt = (props) => {
 
   const handleDelete = () => {
     setOpen(!open);
-  }
+  };
 
   const handleOutsideClick = (e) => {
-    if(e.target.contains(e.target) && open){
-      setOpen(false)
+    if (e.target.contains(e.target) && open) {
+      setOpen(false);
     }
-  }
+  };
 
-  const deleteDonation = async (e) => {
-    const id = JSON.parse(e.currentTarget?.dataset?.donation)
-    await receiptController.deleteDonations(id);
-  }
+  const handleDeleteClick = (e) => {
+    setUpdateModal(true);
+    console.log(updateModal);
+    
+    const id = JSON.parse(e.currentTarget?.dataset?.donation);
+    setGetDeleteId(id);
+    console.log(id+" <<>> "+getDeleteId);
+  };
+
+  const deleteDonation = async () => {
+    await receiptController.deleteDonations(getDeleteId);
+  };
 
   return (
     <div>
@@ -67,11 +78,25 @@ const Receipt = (props) => {
                 <i className="bx bx-dots-vertical-rounded"></i>
               </button>
               <div className="dropdownContainer">
-              <div className={`receiptDropdown ${open && 'show'}`}>
-                <ul>
-                  <li data-donation={JSON.stringify(data?.externalId)} onClick={deleteDonation} >Delete</li>
-                </ul>
-              </div>
+                <div className={`receiptDropdown ${open && "show"}`}>
+                  <ul>
+                    <li
+                      data-donation={JSON.stringify(data?.externalId)}
+                      onClick={handleDeleteClick}
+                    >
+                      Delete
+                    </li>
+                  </ul>
+                </div>
+                  {updateModal && (
+                    <PopupModal
+                      popupModalData={{
+                        popup: "receiptDelete",
+                        setUpdateModal,
+                        deleteDonation,
+                      }}
+                    />
+                  )}
               </div>
             </div>
           </div>
