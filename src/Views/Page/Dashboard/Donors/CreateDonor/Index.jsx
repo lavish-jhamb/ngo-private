@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Index.css";
 import SecondaryLayout from "../../../../Layout/Secondary/Main";
+import ProgramForm from "../../../../../Components/ProgramForm/Index";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { donorsController } from "../../../../../Api/Donors/controller";
@@ -14,55 +15,43 @@ function CreateDonor() {
     formState: { errors },
   } = useForm();
 
-  const [disable, setDisable] = useState(false);
-
-  const months = [
-    "Jan_1",
-    "Feb_2",
-    "Mar_3",
-    "Apr_4",
-    "May_5",
-    "Jun_6",
-    "Jul_7",
-    "Aug_8",
-    "Sep_9",
-    "Oct_10",
-    "Nov_11",
-    "Dec_12",
-  ];
-  const years = ["2018", "2019", "2020", "2021", "2022", "2023", "2024"];
-
   const navigate = useNavigate();
 
   const goBack = () => {
     navigate(-1);
   };
 
-  const handleDisable = (e) => {
-    setDisable(e.target.value);
-  };
-
   const onSubmit = (data) => {
-    const createDonor = donorsController.createDonor(data).then((response) => {
-      if (response?.status === 200) {
-        navigate(uris.donors);
-      }
-      else{
-        notify.error(response?.message)
-      }
-      return response
-    }).catch(err => err);
+    const createDonor = donorsController
+      .createDonor(data)
+      .then((response) => {
+        if (response?.status === 200) {
+          navigate(uris.donors);
+        } else {
+          notify.error(response?.message);
+        }
+        return response;
+      })
+      .catch((err) => err);
 
     notify.promise(createDonor, {
       pending: "Validating Data...",
       success: "Donor created",
       error: {
         render({ data }) {
-          return `${data?.message}`
+          return `${data?.message}`;
         },
       },
     });
   };
+
+  const [category,setCategory] = useState([1]);
+
+  const addProgramForm = () => {
+    if(category.length < 3){
+      setCategory((prev) => [...prev,category?.length+1])
+    }
+  }
 
   return (
     <SecondaryLayout title="New Donor" handler={goBack}>
@@ -214,63 +203,10 @@ function CreateDonor() {
                   </div>
                 </div>
               </div>
-              <div className="radioButtons">
-                <h2>Frequency :</h2>
-                <div className="renewal donor-renewal">
-                  <input
-                    type="radio"
-                    name="renewal"
-                    value={false}
-                    defaultChecked
-                    {...register("oneTimeDonor")}
-                  />
-                  <label htmlFor="renewal">Renewal</label>
-                </div>
-                <div className="oneTimeDonor donor-oneTimeDonor">
-                  <input
-                    type="radio"
-                    name="oneTimeDonor"
-                    value={true}
-                    {...register("oneTimeDonor", {
-                      onChange: handleDisable,
-                    })}
-                  />
-                  <label htmlFor="oneTimeDonor">One Time Donor</label>
-                </div>
-              </div>
-              <div className="dueFrom">
-                <h3>Due from :</h3>
-                <div className="inline-inputs">
-                  <select
-                    disabled={disable === "true" ? true : false}
-                    required
-                    {...register("dueFromMonth")}
-                  >
-                    <option value="">Month</option>
-                    {months.map((month, idx) => {
-                      const monthNo = month.split("_")[1];
-                      const monthName = month.split("_")[0];
-                      return (
-                        <option key={idx} value={monthNo}>
-                          {monthName}
-                        </option>
-                      );
-                    })}
-                  </select>
-                  <select
-                    disabled={disable === "true" ? true : false}
-                    required
-                    {...register("dueFromYear")}
-                  >
-                    <option value="">Year</option>
-                    {years.map((year, idx) => (
-                      <option key={idx} value={year}>
-                        {year}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
+              {category?.map((step) => (
+                <ProgramForm key={step} steps={step} register={register} errors={errors} />
+              ))}
+              <button type="button" onClick={addProgramForm} className="programButton">Add Program</button>
             </div>
           </div>
           <div className="reciept-button-1">

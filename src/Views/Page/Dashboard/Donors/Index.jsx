@@ -15,9 +15,9 @@ function Donars() {
   const [freqDonor, setFreqDonor] = useState([]);
   const [handleDonor, setHandleDonor] = useState(true);
 
-  const getDonors = async (text) => {
+  const getDonors = async (isText,searchText) => {
     try {
-      const response = await donorsController.getDonors(text);
+      const response = await donorsController.getDonors(isText,searchText);
       const data = response?.data?.data;
       setData(data);
       setLoading(false);
@@ -45,13 +45,16 @@ function Donars() {
   }, []);
 
   const handleFilter = (e) => {
-    const text = e.target.value;
-    const newFilter = data?.filter((value) => {
-      return value.name.toLowerCase().includes(text.toLowerCase());
-    });
-    setData(newFilter);
-    if (text === "") {
-      getDonors();
+    const searchText = e.target.value;
+    if(isNaN(searchText) && searchText.length >= 3){
+      getDonors(true,searchText)
+    }else{
+      if (searchText.length === 10) {
+        getDonors(false,searchText);
+      }
+      if (searchText.length === 0) {
+        getDonors();
+      }
     }
   };
 

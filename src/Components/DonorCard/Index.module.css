@@ -4,11 +4,6 @@
   gap: 0.5em;
 }
 
-.checkbox {
-  display: none;
-  transition: all 1s linear;
-}
-
 .cardWrapper {
   border-radius: 10px;
   background-color: #f3f3f3;

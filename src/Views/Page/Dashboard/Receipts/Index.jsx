@@ -59,6 +59,7 @@ const ManageReceipt = () => {
               <i className="fas fa-search searchIcon"></i>
               <input
                 onChange={handleFilter}
+                maxLength="10"
                 type="text"
                 placeholder="Search by name, phone"
               />

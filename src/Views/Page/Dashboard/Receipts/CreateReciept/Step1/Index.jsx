@@ -22,6 +22,12 @@ function CreateRecieptForm(props) {
     navigate(-1);
   };
 
+  const maxLengthCheck = (e) => {
+    if (e.target.value.length > e.target.maxLength) {
+      e.target.value = e.target.value.slice(0, e.target.maxLength);
+    }
+  };
+
   return (
     <SecondaryLayout title="Create Receipt" handler={goBack}>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -75,6 +81,8 @@ function CreateRecieptForm(props) {
               <div className="spinner">
                 <input
                   autoComplete="off"
+                  onInput={maxLengthCheck}
+                  maxLength = "10"
                   placeholder="Phone number"
                   type="number"
                   {...register("mobileNumber", {
