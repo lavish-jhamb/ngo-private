@@ -1,14 +1,16 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import MenuBarLayout from "../../../Layout/Menubar/Main";
 import Style from "./Index.module.css";
 import DashboardCard from "../../../../Components/DashboardCard/Index";
 import { reportController } from "../../../../Api/Report/controller";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { uris } from "../../../../Config/Router/URI";
 
 const Dashboard = () => {
   const [data, setData] = useState();
   const [days, setDays] = useState();
+
+  const navigate = useNavigate();
 
   const getReport = async (days) => {
     try {
@@ -29,6 +31,14 @@ const Dashboard = () => {
     setDays(days);
     getReport(days);
   };
+
+  const navigateToDonations = () => {
+    return navigate(uris.receipts)
+  }
+
+  const navigateToDonors = () => {
+    return navigate(uris.donors)
+  }
 
   return (
     <>
@@ -52,7 +62,7 @@ const Dashboard = () => {
           </div>
           <p className={Style.lightText}>Showing results for "Last {days || 7} days"</p>
           <div className={Style.dashboardCardsContainer}>
-            <DashboardCard data={data} />
+            <DashboardCard donationHandler={navigateToDonations} donorHandler={navigateToDonors} data={data} />
           </div>
         </div>
       </MenuBarLayout>
