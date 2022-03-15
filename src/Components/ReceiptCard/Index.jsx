@@ -41,7 +41,7 @@ const Receipt = (props) => {
   }
 
   const deleteDonation = async (e) => {
-    const id = JSON.parse(e.currentTarget?.dataset?.donation)
+    const id = e.currentTarget?.dataset?.donation
     await receiptController.deleteDonations(id);
   }
 
@@ -69,7 +69,7 @@ const Receipt = (props) => {
               <div className="dropdownContainer">
               <div className={`receiptDropdown ${open && 'show'}`}>
                 <ul>
-                  <li data-donation={JSON.stringify(data?.externalId)} onClick={deleteDonation} >Delete</li>
+                  <li data-donation={data?.externalId} onClick={deleteDonation} >Delete</li>
                 </ul>
               </div>
               </div>
