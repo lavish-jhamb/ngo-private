@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { receiptController } from "../../Api/Receipt/controller";
 import { getCookie } from "../../Utils/cookie";
 import PopupModal from "../PopupModal/Index";
@@ -37,28 +37,37 @@ const Receipt = (props) => {
     setOpen(!open);
   };
 
-  const handleOutsideClick = (e) => {
-    if (e.target.contains(e.target) && open) {
-      setOpen(false);
-    }
-  };
-
   const handleDeleteClick = (e) => {
+    setOpen(false);
     setUpdateModal(true);
-    console.log(updateModal);
-    
+
     const id = JSON.parse(e.currentTarget?.dataset?.donation);
     setGetDeleteId(id);
-    console.log(id+" <<>> "+getDeleteId);
   };
 
   const deleteDonation = async () => {
     await receiptController.deleteDonations(getDeleteId);
   };
 
+  let ref = useRef();
+
+  useEffect(() => {
+    let handler = (event) => {
+      if (!ref.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
+
   return (
     <div>
-      <div onClick={handleOutsideClick} className="cardContent">
+      <div className="cardContent">
         <div className="cardHeader">
           <div className="cardTitle">
             <h4>
@@ -81,6 +90,7 @@ const Receipt = (props) => {
                 <div className={`receiptDropdown ${open && "show"}`}>
                   <ul>
                     <li
+                      ref={ref}
                       data-donation={JSON.stringify(data?.externalId)}
                       onClick={handleDeleteClick}
                     >
@@ -88,15 +98,15 @@ const Receipt = (props) => {
                     </li>
                   </ul>
                 </div>
-                  {updateModal && (
-                    <PopupModal
-                      popupModalData={{
-                        popup: "receiptDelete",
-                        setUpdateModal,
-                        deleteDonation,
-                      }}
-                    />
-                  )}
+                {updateModal && (
+                  <PopupModal
+                    popupModalData={{
+                      popup: "receiptDelete",
+                      setUpdateModal,
+                      deleteDonation,
+                    }}
+                  />
+                )}
               </div>
             </div>
           </div>

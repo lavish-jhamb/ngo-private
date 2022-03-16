@@ -2,10 +2,6 @@ import React, { useEffect, useRef } from "react";
 import "./Index.css";
 
 function PopupModal({ popupModalData }) {
-  // popup: "receiptDelete",
-  //                       setUpdateModal,
-  //                       deleteDonation,
-  //                       popup:"donorCategory",
 
   let ref = useRef();
 
