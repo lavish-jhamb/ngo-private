@@ -38,6 +38,7 @@ const Receipt = (props) => {
   };
 
   const handleDeleteClick = (e) => {
+    setOpen(false);
     setUpdateModal(true);
 
     const id = JSON.parse(e.currentTarget?.dataset?.donation);
