@@ -14,9 +14,14 @@
 }
 
 .pngContainer{
+  width:100%;
+  height: 100%;
+}
+
+.pngContainer > img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .spinner-container{
