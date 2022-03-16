@@ -61,6 +61,7 @@ export const receiptController = {
     },
 
     getDonations: async (isText, mobile) => {
+        console.log("api mobile: ",mobile);
         try {
             const ngoExternalId = getCookie('ngoExternalId');
             const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/donations${(isText === false && mobile) ? `?mobile=${mobile}` : ''}${(isText === true && mobile) ? `?searchText=${mobile}` : ''}`);
