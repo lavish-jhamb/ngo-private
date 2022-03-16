@@ -78,8 +78,8 @@
   left:-40%;
   width: 80px;
   z-index: 2;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+  border-radius: 0.75rem;
+  box-shadow: 0 0px 24px 8px rgba(0, 0, 0, 0.14);
 }
 
 ul {
@@ -90,6 +90,8 @@ ul {
 }
 
 li {
+  font-size: 1.3rem;
+  font-weight: 600;
   padding: 8px 12px;
 }
 

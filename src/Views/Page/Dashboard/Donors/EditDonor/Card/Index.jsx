@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ngoCategoryController } from "../../../../../../Api/NgoCategory/controller";
 import "./Index.css";
 import notify from "../../../../../../Utils/notify";
-import UpdateCategory from "./UpdateCategoryPopup/Index";
+import PopupModal from "../../../../../../Components/PopupModal/Index";
 
 function EditDonorCard({
   category,
@@ -63,15 +63,18 @@ function EditDonorCard({
             <i onClick={() => setUpdateModal(true)} className="fas fa-pen"></i>
           )}
           {updateModal && (
-            <UpdateCategory
-              setUpdateModal={setUpdateModal}
-              amount={amount}
-              dueMonth={months[dueMonth - 1]}
-              dueYear={dueYear}
-              dueDate={dueDate}
-              updateCategoryName={updateCategoryName}
-              categoryName={categoryName}
-              setCategoryName={setCategoryName}
+            <PopupModal
+              popupModalData={{
+                popup:"donorCategory",
+                setUpdateModal,
+                amount,
+                dueMonth: months[dueMonth - 1],
+                dueYear,
+                dueDate,
+                updateCategoryName,
+                categoryName,
+                setCategoryName,
+              }}
             />
           )}
         </div>
