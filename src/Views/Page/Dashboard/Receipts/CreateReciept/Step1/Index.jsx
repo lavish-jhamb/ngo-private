@@ -80,6 +80,7 @@ function CreateRecieptForm(props) {
               </div>
               <div className="spinner">
                 <input
+                  disabled
                   autoComplete="off"
                   onInput={maxLengthCheck}
                   maxLength = "10"
