@@ -14,6 +14,7 @@ function CreateRecieptForm(props) {
     donorData,
     isVisibleDropdown,
     selectDonor,
+    isDisable
   } = props;
 
   const navigate = useNavigate();
@@ -80,6 +81,7 @@ function CreateRecieptForm(props) {
               </div>
               <div className="spinner">
                 <input
+                  disabled={isDisable ? true : false}
                   autoComplete="off"
                   onInput={maxLengthCheck}
                   maxLength = "10"

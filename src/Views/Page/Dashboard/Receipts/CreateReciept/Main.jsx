@@ -16,6 +16,7 @@ function MainCreateReciept() {
   const [donorData, setDonorData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isDisable, setIsDisable] = useState(false);
   const [date, setDate] = useState("");
   const [data, setData] = useState({
     amount: "",
@@ -67,6 +68,7 @@ function MainCreateReciept() {
 
   const selectDonor = (e) => {
     const donorData = JSON.parse(e.target.dataset.donor);
+    setIsDisable(true);
     setIsVisibleDropdown(false);
     setDonorId(donorData?.externalId);
     setValue("mobileNumber", donorData?.mobile, { shouldValidate: true });
@@ -251,6 +253,7 @@ function MainCreateReciept() {
       isVisibleDropdown={isVisibleDropdown}
       donorData={donorData}
       selectDonor={selectDonor}
+      isDisable={isDisable}
     />
   );
 }
