@@ -5,7 +5,7 @@
   "short_name": "NGO Buddy",
   "theme_color": "#007c75",
   "background_color": "#2196f3",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/",

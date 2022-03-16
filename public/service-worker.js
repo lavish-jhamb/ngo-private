@@ -1,9 +1,8 @@
 const cache_version = "v2";
 const cacheArray = [
     '/',
-    '/app.js',
-    './public/index.html',
-    './public/manifest.json',
+    '/index.html',
+    '/manifest.json',
 ]
 
 const self = this;
