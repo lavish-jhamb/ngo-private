@@ -1,5 +1,7 @@
 {
   "name": "NGO Buddy",
+  "description": "helps in donation management",
+  "language":"English",
   "short_name": "NGO Buddy",
   "theme_color": "#007c75",
   "background_color": "#2196f3",
@@ -7,22 +9,22 @@
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
-
+  "categories": ["donation", "Ngo","social"],
   "icons": [
     {
       "src": "./resources/icons/maskable_icon.png",
-      "sizes": "192x192",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "./resources/icons/icon-192x192.png",
-      "sizes": "192x192",
+      "src": "./resources/icons/icon-144x144.png",
+      "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "./resources/icons/icon-256x256.png",
-      "sizes": "256x256",
+      "src": "./resources/icons/icon-192x192.png",
+      "sizes": "192x192",
       "type": "image/png"
     },
     {
