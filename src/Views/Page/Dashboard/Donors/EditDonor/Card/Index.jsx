@@ -1,8 +1,5 @@
-import React, { useState } from "react";
-import { ngoCategoryController } from "../../../../../../Api/NgoCategory/controller";
+import React from "react";
 import "./Index.css";
-import notify from "../../../../../../Utils/notify";
-import PopupModal from "../../../../../../Components/PopupModal/Index";
 
 function EditDonorCard({
   category,

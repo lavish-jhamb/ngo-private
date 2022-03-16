@@ -17,7 +17,6 @@ const ManageReceipt = () => {
 
   const { state } = useLocation();
   const [donorName, setDonorName] = useState(state?.donorName);
-  console.log(donorName);
 
   const createReceipt = () => {
     navigate(uris.createReceipt);
@@ -27,7 +26,6 @@ const ManageReceipt = () => {
     try {
       const response = await receiptController.getDonations(isText, mobile);
       const data = response?.data?.data;
-      console.log("data: ", data);
       setData(data);
       setLoading(false);
     } catch (error) {
@@ -37,29 +35,25 @@ const ManageReceipt = () => {
   };
 
   useEffect(() => {
-    getDonations();
-    return () => setLoading(false);
-  }, []);
-
-  useEffect(() => {
     if (donorName) {
       getDonations(true, donorName);
+    } else {
+      getDonations();
+      return () => setLoading(false);
     }
-    // state?.donorName=null;
   }, [donorName]);
 
   const handleFilter = (e) => {
     const searchText = e.target.value;
-    // console.log(searchText);
     if (isNaN(searchText) && searchText.length >= 3) {
       getDonations(true, searchText);
     } else {
       if (searchText.length === 10) {
         getDonations(false, searchText);
       }
-      // if (searchText.length === 0) {
-      //   getDonations();
-      // }
+      if (searchText.length === 0) {
+        getDonations();
+      }
     }
   };
 
@@ -75,9 +69,8 @@ const ManageReceipt = () => {
                 onChange={(e) => {
                   setReceiptInput(e.target.value);
                   setDonorName("");
-                  handleFilter();
+                  handleFilter(e);
                 }}
-                // onChange={handleFilter}
                 type="text"
                 placeholder="Search by name, phone"
                 value={donorName ? receiptInput || donorName : receiptInput}
