@@ -1,273 +1,290 @@
 .donor-details-wrapper-1 {
-    height: calc(100vh - 60px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .donor-details-container-1 {
-    width: 90vw;
-    margin: 0 auto;
+  width: 90vw;
+  margin: 0 auto;
 }
 
 .donor-header-1 {
-    margin-top: 2em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.donor-details-1>.inputField {
-    margin: 1.1em 0;
+.donor-details-1 > .inputField {
+  margin: 1.1em 0;
 }
 
-.donor-details-1>p, .donor-details-1>.inputField>p {
-    color: rgb(240, 69, 69);
-    margin-left: 0.5em;
-    margin-top: 0.2em;
-    font-size: 1.1rem;
+.donor-details-1 > p,
+.donor-details-1 > .inputField > p {
+  color: rgb(240, 69, 69);
+  margin-left: 0.5em;
+  margin-top: 0.2em;
+  font-size: 1.1rem;
 }
 
-.donor-details-1>.inputField>input {
-    display: block;
-    width: 100%;
+.donor-details-1 > .inputField > input {
+  display: block;
+  width: 100%;
 }
 
-.donor-details-1>.inputField>input[type='text'], input[type='number'], input[type='date'] {
-    height: 39px;
-    border: solid 2px var(--placeholder);
-    border-radius: 12px;
-    padding-left: 1em;
-    background-color: var(--white);
+.donor-details-1 > .inputField > input[type="text"],
+input[type="number"],
+input[type="date"] {
+  height: 39px;
+  border: solid 2px var(--placeholder);
+  border-radius: 12px;
+  padding-left: 1em;
+  background-color: var(--white);
 }
 
-.donor-details-1>.inputField>input[type='text']::placeholder {
-    color: var(--placeholder);
+.donor-details-1 > .inputField > input[type="text"]::placeholder {
+  color: var(--placeholder);
 }
 
-.donor-details-1>.inputField input[type='text'], input[type='number'], input[type='date']:focus {
-    outline: none;
+.donor-details-1 > .inputField input[type="text"],
+input[type="number"],
+input[type="date"]:focus {
+  outline: none;
 }
 
-.donor-details-1>select {
-    height: 39px;
-    border: solid 2px var(--placeholder);
-    border-radius: 12px;
-    padding-left: 0.5em;
-    font-size: 1.5rem;
-    width: 100%;
-    font-size: 1.6rem;
-    background-color: var(--white);
+.donor-details-1 > select {
+  height: 39px;
+  border: solid 2px var(--placeholder);
+  border-radius: 12px;
+  padding-left: 0.5em;
+  font-size: 1.5rem;
+  width: 100%;
+  font-size: 1.6rem;
+  background-color: var(--white);
 }
 
-.donor-details-1>select:invalid {
-    color: var(--placeholder);
+.donor-details-1 > select:invalid {
+  color: var(--placeholder);
 }
 
-.donor-header-1>h2>img {
-    width: 8px;
-    margin-right: 0.5em;
+.donor-header-1 > h2 > img {
+  width: 8px;
+  margin-right: 0.5em;
 }
 
-.donor-header-1>h2 {
-    font-size: 1.7rem;
+.donor-header-1 > h2 {
+  font-size: 1.7rem;
 }
 
-.donor-header-1>p {
-    font-size: 1.4rem;
-    color: var(--darkGray);
-    font-weight: 500;
+.donor-header-1 > p {
+  font-size: 1.4rem;
+  color: var(--darkGray);
+  font-weight: 500;
 }
 
 .reciept-button-1 {
-    width: 90%;
-    margin: 0 auto;
-    flex: 0.8;
+  width: 90%;
+  margin: 0 auto;
+  flex: 0.8;
 }
 
-.reciept-button-1>button {
-    border: none;
-    outline: none;
-    border-radius: 12px;
-    background-color: var(--primary);
-    height: 42px;
-    width: 100%;
-    color: var(--white);
-    font-size: 1.6rem;
-    position: relative;
+.reciept-button-1 > button {
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  background-color: var(--primary);
+  height: 42px;
+  width: 100%;
+  color: var(--white);
+  font-size: 1.6rem;
+  position: relative;
 }
 
-.reciept-button-1>button>span {
-    position: absolute;
-    right: 30px;
+.reciept-button-1 > button > span {
+  position: absolute;
+  right: 30px;
 }
 
 .spinner {
-    border: solid 2px var(--placeholder);
-    border-radius: 12px;
-    height: 39px;
-    margin-top: 1.2em;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  border: solid 2px var(--placeholder);
+  border-radius: 12px;
+  height: 39px;
+  margin-top: 1.2em;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.spinner>input[type=number] {
-    height: 100%;
-    width: 80%;
-    padding-left: 1em;
-    outline: none;
-    border: none;
+.spinner > input[type="number"] {
+  height: 100%;
+  width: 80%;
+  padding-left: 1em;
+  outline: none;
+  border: none;
 }
 
-.spinner>input[type=number]::placeholder {
-    color: var(--placeholder);
+.spinner > input[type="number"]::placeholder {
+  color: var(--placeholder);
 }
 
 .radioButtons {
-    display: flex;
-    margin-top: 1em;
+  display: flex;
+  margin-top: 1em;
 }
 
 .radioButtons label {
-    margin-left: 0.25em;
-    font-weight: 500;
+  margin-left: 0.25em;
+  font-weight: 500;
 }
 
 .radioButtons input {
-    width: 15px;
-    height: 15px;
+  width: 15px;
+  height: 15px;
 }
 
 .male {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-.male>label {
-    font-size: 1.4rem;
+.male > label {
+  font-size: 1.4rem;
 }
 
 .female {
-    display: flex;
-    align-items: center;
-    margin-left: 1em;
+  display: flex;
+  align-items: center;
+  margin-left: 1em;
 }
 
-.female>label {
-    font-size: 1.4rem;
+.female > label {
+  font-size: 1.4rem;
 }
 
-.address-details>.inputField {
-    margin: 1.1em 0;
+.address-details > .inputField {
+  margin: 1.1em 0;
 }
 
-.address-details>.inputField>p {
-    color: rgb(240, 69, 69);
-    margin-left: 0.5em;
-    font-size: 1.1rem;
+.address-details > .inputField > p {
+  color: rgb(240, 69, 69);
+  margin-left: 0.5em;
+  font-size: 1.1rem;
 }
 
-.address-details>.inputField>input {
-    display: block;
-    width: 100%;
+.address-details > .inputField > input {
+  display: block;
+  width: 100%;
 }
 
-.address-details>h2 {
-    margin-top: 1.4em;
-    font-size: 1.7rem
+.address-details > h2 {
+  margin-top: 1.4em;
+  font-size: 1.7rem;
 }
 
-.address-details>.inputField>input[type='text'], input[type='number'] {
-    height: 39px;
-    border: solid 2px var(--placeholder);
-    border-radius: 12px;
-    padding-left: 1em;
+.address-details > .inputField > input[type="text"],
+input[type="number"] {
+  height: 39px;
+  border: solid 2px var(--placeholder);
+  border-radius: 12px;
+  padding-left: 1em;
 }
 
-.address-details>.inputField>input::placeholder {
-    color: var(--placeholder);
+.address-details > .inputField > input::placeholder {
+  color: var(--placeholder);
 }
 
-.address-details>.inputField>input[type='text']:focus {
-    outline: none;
+.address-details > .inputField > input[type="text"]:focus {
+  outline: none;
 }
 
-.address-details>.inputField>select {
-    height: 39px;
-    border: solid 2px var(--placeholder);
-    border-radius: 12px;
-    padding-left: 0.5em;
-    font-size: 1.5rem;
-    width: 100%;
-    font-size: 1.6rem;
-    background-color: var(--white);
+.address-details > .inputField > select {
+  height: 39px;
+  border: solid 2px var(--placeholder);
+  border-radius: 12px;
+  padding-left: 0.5em;
+  font-size: 1.5rem;
+  width: 100%;
+  font-size: 1.6rem;
+  background-color: var(--white);
 }
 
-.address-details>.inputField>select:invalid {
-    color: var(--placeholder);
+.address-details > .inputField > select:invalid {
+  color: var(--placeholder);
 }
 
 .donorList {
-    border: solid 3px red;
-    list-style-type: none;
+  border: solid 3px red;
+  list-style-type: none;
 }
 
 .donor-dropdown {
-    max-height: 200px;
-    display: none;
-    position: absolute;
-    background-color: #f6f6f6;
-    min-width: 230px;
-    width: 90%;
-    padding: 4px 16px;
-    border-radius: 10px;
-    overflow: auto;
-    z-index: 1;
+  max-height: 200px;
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  width: 90%;
+  padding: 4px 16px;
+  border-radius: 10px;
+  overflow: auto;
+  z-index: 1;
 }
 
 .donor-dropdown label {
-    border-bottom: solid 1px silver;
-    font-size: 1.5em;
-    color: black;
-    margin: 0.6em 0px;
-    padding-bottom: 1em;
-    text-decoration: none;
-    display: block;
+  border-bottom: solid 1px silver;
+  font-size: 1.5em;
+  color: black;
+  margin: 0.6em 0px;
+  padding-bottom: 1em;
+  text-decoration: none;
+  display: block;
 }
 
-
 .donor-dropdown label p:first-child {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .donor-dropdown label p:last-child {
-    font-size: 1.2rem;
-    margin-top: 0.2em;
+  font-size: 1.2rem;
+  margin-top: 0.2em;
 }
 
 .donor-dropdown label p i {
-    color: var(--darkGray);
-    margin-right: 5px;
+  color: var(--darkGray);
+  margin-right: 5px;
 }
 
 .donor-dropdown input {
-    display: none;
+  display: none;
 }
 
 .donor-dropdown label:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 .donor-show {
-    display: block;
+  display: block;
 }
 
-.program-details{
-    margin: 2.5rem 0;
+.donorLastDonation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem 0;
 }
 
-.program-details h2{
-    margin-bottom: 1.2rem;
+.donorLastDonation button {
+  font-size: 1.3rem;
+  border: none;
+  background-color: var(--primary);
+  border-radius: 0.8rem;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+.program-details {
+  margin-bottom: 2.5rem;
 }

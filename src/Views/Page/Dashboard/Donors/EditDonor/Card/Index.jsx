@@ -27,38 +27,39 @@ function EditDonorCard({
     "Dec",
   ];
 
-  const [updateModal, setUpdateModal] = useState(false);
+  // const [updateModal, setUpdateModal] = useState(false);
 
-  const [fetchCategoryName, setfetchCategoryName] = useState(category.name);
+  // const [fetchCategoryName, setfetchCategoryName] = useState(category.name);
 
-  const [categoryName, setCategoryName] = useState(category.name);
+  // const [categoryName, setCategoryName] = useState(category.name);
 
-  const updateCategoryName = async () => {
-    try {
-      const id = category.externalId;
-      ngoCategoryController
-        .updateCategory(id, categoryName)
-        .then((response) => {
-          if (response.status === 200) {
-            setfetchCategoryName(response.data.name);
-            console.log("update category response", response);
-          } else {
-            notify.error(response?.response?.data?.message);
-          }
-        });
-    } catch (error) {
-      return error;
-    }
-  };
+  // const updateCategoryName = async () => {
+  //   try {
+  //     const id = category.externalId;
+  //     ngoCategoryController
+  //       .updateCategory(id, categoryName)
+  //       .then((response) => {
+  //         if (response.status === 200) {
+  //           setfetchCategoryName(response.data.name);
+  //           console.log("update category response", response);
+  //         } else {
+  //           notify.error(response?.response?.data?.message);
+  //         }
+  //       });
+  //   } catch (error) {
+  //     return error;
+  //   }
+  // };
 
   return (
     <div className="editCardContainer">
       <div className="editCardHeader">
         <div>
           <span>Category: </span>
-          {fetchCategoryName || category.name}
+          {/* {fetchCategoryName || category.name} */}
+          {category.name}
         </div>
-        <div>
+        {/* <div>
           {updateDonor && (
             <i onClick={() => setUpdateModal(true)} className="fas fa-pen"></i>
           )}
@@ -77,7 +78,7 @@ function EditDonorCard({
               }}
             />
           )}
-        </div>
+        </div> */}
       </div>
 
       <div className="editCardFooter">

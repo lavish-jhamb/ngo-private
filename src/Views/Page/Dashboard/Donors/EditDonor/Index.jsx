@@ -4,6 +4,7 @@ import EditDonorCard from "./Card/Index";
 import { useNavigate } from "react-router-dom";
 import notify from "../../../../../Utils/notify";
 import { donorsController } from "../../../../../Api/Donors/controller";
+import { uris } from "../../../../../Config/Router/URI";
 
 function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
   const [donor, setDonor] = useState(data);
@@ -20,6 +21,18 @@ function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
     e.preventDefault();
     updateDonorInfo();
   };
+
+  const handleMoreDonations = () => {
+    navigate(uris.receipts, {
+      state: { donorName: donor?.name },
+    });
+  };
+
+  // const handleCard = () => {
+  //   navigate(uris.donorDetails, {
+  //     state: { donor, dueDate },
+  //   });
+  // };
 
   const updateDonorInfo = () => {
     const id = donor?.externalId;
@@ -175,9 +188,12 @@ function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
             </div>
           </div>
 
-          <div className="program-details">
-            <h2>Program Details</h2>
+          <div className="donorLastDonation">
+            <h2>Last Donations</h2>
+            <button type="button" onClick={handleMoreDonations}>Show more donations</button>
+          </div>
 
+          <div className="program-details">
             <div>
               <EditDonorCard
                 category={donor?.lastDonation?.category}

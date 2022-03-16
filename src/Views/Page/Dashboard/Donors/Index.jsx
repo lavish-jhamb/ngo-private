@@ -106,11 +106,12 @@ function Donars() {
               <p className="empty">Data not available</p>
             )}
           </div>
-          <Link to={uris.createDonors}>
+
+          {/* <Link to={uris.createDonors}>
             <button id="addBttn" className="addBtn">
               <i className="bx bx-plus bx-lg"></i>
             </button>
-          </Link>
+          </Link> */}
         </div>
       </MenubarLayout>
     </>

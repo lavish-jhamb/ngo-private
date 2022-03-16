@@ -2,7 +2,7 @@ import React from "react";
 import "./Index.css";
 import MenubarLayout from "../../../Layout/Menubar/Main";
 import ReceiptCard from "../../../../Components/ReceiptCard/Index";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { uris } from "../../../../Config/Router/URI";
 import { useEffect } from "react";
 import { receiptController } from "../../../../Api/Receipt/controller";
@@ -12,16 +12,22 @@ import Spinner from "../../../../Components/Spinner/Index";
 const ManageReceipt = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [receiptInput, setReceiptInput] = useState("");
   const navigate = useNavigate();
+
+  const { state } = useLocation();
+  const [donorName, setDonorName] = useState(state?.donorName);
+  console.log(donorName);
 
   const createReceipt = () => {
     navigate(uris.createReceipt);
   };
 
-  const getDonations = async (isText,mobile) => {
+  const getDonations = async (isText, mobile) => {
     try {
-      const response = await receiptController.getDonations(isText,mobile);
+      const response = await receiptController.getDonations(isText, mobile);
       const data = response?.data?.data;
+      console.log("data: ", data);
       setData(data);
       setLoading(false);
     } catch (error) {
@@ -35,17 +41,25 @@ const ManageReceipt = () => {
     return () => setLoading(false);
   }, []);
 
+  useEffect(() => {
+    if (donorName) {
+      getDonations(true, donorName);
+    }
+    // state?.donorName=null;
+  }, [donorName]);
+
   const handleFilter = (e) => {
     const searchText = e.target.value;
-    if(isNaN(searchText) && searchText.length >= 3){
-      getDonations(true,searchText)
-    }else{
+    // console.log(searchText);
+    if (isNaN(searchText) && searchText.length >= 3) {
+      getDonations(true, searchText);
+    } else {
       if (searchText.length === 10) {
-        getDonations(false,searchText);
+        getDonations(false, searchText);
       }
-      if (searchText.length === 0) {
-        getDonations();
-      }
+      // if (searchText.length === 0) {
+      //   getDonations();
+      // }
     }
   };
 
@@ -58,10 +72,15 @@ const ManageReceipt = () => {
             <div className="searchReceipt">
               <i className="fas fa-search searchIcon"></i>
               <input
-                onChange={handleFilter}
-                maxLength="10"
+                onChange={(e) => {
+                  setReceiptInput(e.target.value);
+                  setDonorName("");
+                  handleFilter();
+                }}
+                // onChange={handleFilter}
                 type="text"
                 placeholder="Search by name, phone"
+                value={donorName ? receiptInput || donorName : receiptInput}
               />
               <button className="filterIcon" id="button-addon2" type="button">
                 <i className="bx bx-filter-alt bx-md"></i>
@@ -90,8 +109,7 @@ const ManageReceipt = () => {
             </button>
           </div>
         </div>
-        <div className="paginate">
-        </div>
+        <div className="paginate"></div>
       </MenubarLayout>
     </>
   );
