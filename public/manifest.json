@@ -12,8 +12,8 @@
   "categories": ["donation", "Ngo","social"],
   "icons": [
     {
-      "src": "./resources/icons/maskable_icon.png",
-      "sizes": "384x384",
+      "src": "./resources/icons/maskable_icon_x96.png",
+      "sizes": "96x96",
       "type": "image/png",
       "purpose": "any maskable"
     },
