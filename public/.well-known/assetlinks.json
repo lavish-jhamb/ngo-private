@@ -1,0 +1,6 @@
+[{
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target" : { "namespace": "android_app", "package_name": "app.netlify.ngo_donation_management.twa",
+                     "sha256_cert_fingerprints": ["AD:5E:3E:CD:52:2C:17:8F:43:C4:C7:4D:85:87:AA:AF:05:F6:35:5F:5A:FF:21:3C:2D:D9:51:01:B3:7D:7C:82"] }
+      }
+]
