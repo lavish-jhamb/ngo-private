@@ -1,17 +1,16 @@
-const cache_version = "v2";
-const cacheArray = [
-    '/',
-    '/index.html',
-    '/manifest.json',
+const CACHE_NAME = "version-1";
+const urlsToCache = [
+    'index.html',
+    'offline.html', 
 ]
 
 const self = this;
 
 self.addEventListener('install',(evt)=>{
     evt.waitUntil(
-        caches.open(cache_version)
+        caches.open(CACHE_NAME)
         .then((cache)=>{
-            cache.addAll(cacheArray)
+            cache.addAll(urlsToCache)
         })
         .catch((err)=>{
             console.log("Error caching",err)
@@ -25,7 +24,7 @@ self.addEventListener('activate',(evt)=>{
     evt.waitUntil(
         caches.keys().then((keys)=>{
             return Promise.all(keys.filter((key)=>{
-                return key !== cache_version
+                return key !== CACHE_NAME
             }).map((key)=>{
                 return caches.delete(key)
             }))
@@ -37,10 +36,10 @@ self.addEventListener('fetch',(evt)=>{
     evt.respondWith(
         caches.match(evt.request)
         .then((cacheResponse)=>{
-            return cacheResponse || fetch(evt.request)
+            return cacheResponse || fetch(evt.request).catch(() => caches.match('offline.html'))
         })
         .catch(async ()=>{
-            const cache = await caches.open(cache_version);
+            const cache = await caches.open(CACHE_NAME);
           return await cache.match('/fallback.html');
         })
     )

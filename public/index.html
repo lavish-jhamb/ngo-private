@@ -3,11 +3,11 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <link rel="icon" href="./resources/favicon/favicon.ico" />
+  <link rel="manifest" href="./manifest.json" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
+  <meta name="description" content="NGO Buddy" />
   <meta content='yes' name='apple-mobile-web-app-capable' />
   <meta content='yes' name='mobile-web-app-capable' />
   <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
@@ -23,7 +23,7 @@
 
   <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
 
-  <title>React App</title>
+  <title>NGO Buddy</title>
 </head>
 
 <body>
@@ -34,7 +34,7 @@
     let promise = navigator.serviceWorker.register('/service-worker.js')
     
     promise.then((evt)=>{
-        console.log("Service worker registered",evt)
+        console.log("Service worker registered",evt.scope)
     })
     .catch((err)=>{
         console.log(err)
