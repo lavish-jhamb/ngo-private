@@ -52,13 +52,13 @@ function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="donor-details-wrapper-1">
-        <div className="donor-details-container-1">
-          <div className="donor-header-1">
+      <div className="edit-donor-details-wrapper-1">
+        <div className="edit-donor-details-container-1">
+          <div className="edit-donor-header-1">
             <h2>Donor Details</h2>
           </div>
-          <div className="donor-details-1">
-            <div className="inputField">
+          <div className="edit-donor-details-1">
+            <div className="edit-inputField">
               <input
                 onChange={handleChange}
                 disabled={isDisabled}
@@ -69,7 +69,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
                 name="name"
               />
             </div>
-            <div className="spinner">
+            <div className="edit-spinner">
               <input
                 onChange={handleChange}
                 disabled={isDisabled}
@@ -80,7 +80,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
                 name="mobile"
               />
             </div>
-            <div className="inputField">
+            <div className="edit-inputField">
               <input
                 onChange={handleChange}
                 disabled={isDisabled}
@@ -91,7 +91,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
                 name="email"
               />
             </div>
-            <div className="inputField">
+            <div className="edit-inputField">
               <input
                 onChange={handleChange}
                 disabled={isDisabled}
@@ -102,7 +102,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
                 name="panNumber"
               />
             </div>
-            <div className="inputField">
+            <div className="edit-inputField">
               <input
                 onChange={handleChange}
                 disabled={isDisabled}
@@ -114,8 +114,8 @@ function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
             </div>
             <div className="gender">
               <h2>Gender</h2>
-              <div className="radioButtons">
-                <div className="male">
+              <div className="edit-radioButtons">
+                <div className="edit-male">
                   <input
                     onChange={handleChange}
                     disabled={isDisabled}
@@ -126,7 +126,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
                   />
                   <label htmlFor="male">Male</label>
                 </div>
-                <div className="female">
+                <div className="edit-female">
                   <input
                     onChange={handleChange}
                     disabled={isDisabled}
@@ -139,9 +139,9 @@ function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
                 </div>
               </div>
             </div>
-            <div className="address-details">
+            <div className="edit-address-details">
               <h2>Address Details</h2>
-              <div className="inputField">
+              <div className="edit-inputField">
                 <input
                   onChange={handleChange}
                   disabled={isDisabled}
@@ -152,7 +152,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
                   name="address"
                 />
               </div>
-              <div className="inputField">
+              <div className="edit-inputField">
                 <input
                   onChange={handleChange}
                   disabled={isDisabled}
@@ -163,7 +163,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
                   name="city"
                 />
               </div>
-              <div className="inputField">
+              <div className="edit-inputField">
                 <input
                   onChange={handleChange}
                   disabled={isDisabled}
@@ -174,7 +174,7 @@ function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
                   name="pinCode"
                 />
               </div>
-              <div className="inputField">
+              <div className="edit-inputField">
                 <input
                   onChange={handleChange}
                   disabled={isDisabled}
@@ -188,12 +188,14 @@ function EditDonorDetails({ updateDonor, isDisabled, data, dueDate }) {
             </div>
           </div>
 
-          <div className="donorLastDonation">
+          <div className="edit-donorLastDonation">
             <h2>Last Donations</h2>
-            <button type="button" onClick={handleMoreDonations}>Show more donations</button>
+            {!updateDonor && <button type="button" onClick={handleMoreDonations}>
+              Show more donations
+            </button>}
           </div>
 
-          <div className="program-details">
+          <div className="edit-program-details">
             <div>
               <EditDonorCard
                 category={donor?.lastDonation?.category}
