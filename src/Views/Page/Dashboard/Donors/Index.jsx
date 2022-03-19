@@ -70,7 +70,6 @@ function Donars() {
                 placeholder="Search by name, phone"
               />
             </div>
-            <i className="fa-solid fa-calendar-days"></i>
           </div>
 
           <div className="donorSortBtns">

@@ -10,21 +10,7 @@
 }
 
 .search-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin: 1.2rem 0;
-}
-
-.search-bar > i {
-  border: solid 2px var(--placeholder);
-  width: 39px;
-  height: 39px;
-  border-radius: 50%;
-  color: var(--darkGray);
-  display: grid;
-  place-items: center;
-  font-size: 1.5rem;
 }
 
 .search {
@@ -47,7 +33,7 @@
 .search input {
   border: none;
   outline: none;
-  width: 100%;
+  width: 86%;
   height: 100%;
   font-size: 1.5rem;
 }

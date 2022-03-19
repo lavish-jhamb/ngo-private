@@ -251,6 +251,7 @@ function MainCreateReciept() {
       filteredData={filteredData}
       selectCategory={selectCategory}
       isVisibleDropdown={isVisibleDropdown}
+      setIsVisibleDropdown={setIsVisibleDropdown}
       donorData={donorData}
       selectDonor={selectDonor}
       isDisable={isDisable}

@@ -13,8 +13,9 @@ function CreateRecieptForm(props) {
     date,
     donorData,
     isVisibleDropdown,
+    setIsVisibleDropdown,
     selectDonor,
-    isDisable
+    isDisable,
   } = props;
 
   const navigate = useNavigate();
@@ -53,6 +54,7 @@ function CreateRecieptForm(props) {
                   })}
                 />
                 {errors.name && <p>{errors.name.message}</p>}
+                {/* ------------------------------------------ */}
                 <div
                   className={`donor-dropdown ${
                     isVisibleDropdown && donorData?.length > 0 && `donor-show`
@@ -60,31 +62,37 @@ function CreateRecieptForm(props) {
                 >
                   {donorData.length > 0 &&
                     donorData?.map((value, idx) => (
-                      <div key={idx}>
-                        <label htmlFor={`donor_${idx}`}>
-                          <p>{value.name}</p>
-                          <p>
-                            <i className="fa-solid fa-location-dot"></i>
-                            {value.address},{value.city},{value.state}
-                          </p>
-                        </label>
-                        <input
-                          id={`donor_${idx}`}
-                          onClick={selectDonor}
-                          type="radio"
-                          name="donor"
-                          data-donor={JSON.stringify(value)}
-                        />
+                      <div key={idx} className="dropdownContainer">
+                        <div>
+                          <label htmlFor={`donor_${idx}`}>
+                            <p>{value.name}</p>
+                            <p>
+                              <i className="fa-solid fa-location-dot"></i>
+                              {value.address},{value.city},{value.state}
+                            </p>
+                          </label>
+                          <input
+                            id={`donor_${idx}`}
+                            onClick={selectDonor}
+                            type="radio"
+                            name="donor"
+                            data-donor={JSON.stringify(value)}
+                          />
+                        </div>
+                        <div onClick={() => setIsVisibleDropdown(false)}>
+                          <i className="fas fa-times"></i>
+                        </div>
                       </div>
                     ))}
                 </div>
+                {/* ---------------------------- */}
               </div>
               <div className="spinner">
                 <input
                   disabled={isDisable ? true : false}
                   autoComplete="off"
                   onInput={maxLengthCheck}
-                  maxLength = "10"
+                  maxLength="10"
                   placeholder="Phone number"
                   type="number"
                   {...register("mobileNumber", {
