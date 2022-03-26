@@ -4,9 +4,9 @@ import SecondaryLayout from "../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
 import { uris } from "../../../../Config/Router/URI";
 import { useForm } from "react-hook-form";
+import { volunteerController } from "../../../../Api/Volunteer/controller";
 
 function VolunteerPage() {
-
   const navigate = useNavigate();
   const {
     register,
@@ -17,8 +17,18 @@ function VolunteerPage() {
   const onSubmit = (data) => {
     const dateOfBirth = data.dateOfBirth;
     data.dateOfBirth = dateOfBirth.split("-").reverse().join("-");
-    console.log(data);
-    navigate(uris.profileCreated);
+
+    volunteerController
+      .createUserProfileVolunteer(data)
+      .then((response) => {
+        console.log("response", response);
+        if (response.status === 200) {
+          navigate(uris.profileCreated);
+        }
+      })
+      .catch((error) => {
+        return error;
+      });
   };
 
   const goBack = () => {
