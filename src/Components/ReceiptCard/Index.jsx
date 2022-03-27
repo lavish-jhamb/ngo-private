@@ -71,7 +71,10 @@ const Receipt = (props) => {
         <div className="cardHeader">
           <div className="cardTitle">
             <h4>
-              <div className="">{data?.donorInfo?.name}</div>
+              <div className="">
+                {props.receipts && data?.donorInfo?.name}
+                {props.volunteer && data?.name}
+              </div>
             </h4>
             <div>
               {props.shareBtn && (
@@ -113,11 +116,19 @@ const Receipt = (props) => {
           <div className="cardData">
             <p>
               <i className="fas fa-phone-alt cardIcon"></i>{" "}
-              {data?.donorInfo?.mobileNumber}
+              {props.receipts && data?.donorInfo?.mobileNumber}
+              {props.volunteer && data?.phone}
             </p>
             <p>
-              <i className="fa-solid fa-location-dot cardIcon"></i>{" "}
-              {data?.donorInfo?.address},{data?.donorInfo?.city}
+              {props.receipts && (
+                <i className="fa-solid fa-location-dot cardIcon"></i>
+              )}{" "}
+              {props.receipts && data?.donorInfo?.address + ", "}
+              {props.receipts && data?.donorInfo?.city}
+              {props.volunteer && (
+                <i className="fas fa-envelope cardIcon"></i>
+              )}{" "}
+              {props.volunteer && data?.email}
             </p>
           </div>
         </div>
@@ -128,14 +139,16 @@ const Receipt = (props) => {
                 Rs.{" "}
                 {new Intl.NumberFormat("en-IN", {
                   maximumSignificantDigits: 3,
-                }).format(data?.amount || 0)}
+                }).format((props.receipts && data?.amount) || 0)}
               </h5>
               <span className="categoryReceipt">
-                For: {data?.category?.name}
+                For: {props.receipts && data?.category?.name}
               </span>
             </div>
             <div>
-              <p>Receipt No. {data?.externalId.split("-")[0]}</p>
+              <p>
+                Receipt No. {props.receipts && data?.externalId.split("-")[0]}
+              </p>
             </div>
           </div>
         )}

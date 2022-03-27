@@ -83,13 +83,14 @@ const ManageReceipt = () => {
           {loading && data?.length === 0 ? (
             <Spinner />
           ) : (
-            data?.map((reciept, idx) => (
+            data?.map((receipt, idx) => (
               <ReceiptCard
                 key={idx}
                 loading={loading}
-                data={reciept}
+                data={receipt}
                 shareBtn={true}
                 cardFooter={true}
+                receipts={true}
               />
             ))
           )}
