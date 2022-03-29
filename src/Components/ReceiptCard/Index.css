@@ -67,15 +67,15 @@
   margin-left: 1rem;
 }
 
-.dropdownContainer{
+.receiptCardDropdownContainer {
   position: relative;
 }
 
 .receiptDropdown {
   display: none;
   position: absolute;
-  top: 0%;
-  left:-20%;
+  top: 32%;
+  right: 5%;
   width: 80px;
   z-index: 2;
   border-radius: 0.75rem;
@@ -100,6 +100,6 @@ li:hover {
   cursor: pointer;
 }
 
-.show{
+.receiptCardShow {
   display: block;
 }

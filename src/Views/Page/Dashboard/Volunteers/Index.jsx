@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MenubarLayout from "../../../Layout/Menubar/Main";
 import VolunteerCard from "../../../../Components/ReceiptCard/Index";
 import "./Index.css";
 import { Link } from "react-router-dom";
-import data from "./data.json";
+import { volunteerController } from "../../../../Api/Volunteer/controller";
+import Spinner from "../../../../Components/Spinner/Index";
+// import data from "./data.json";
 
 const ManageVolunteer = () => {
+  const [volunteers, setVolunteers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const getNgoVolunteers = () => {
+    setLoading(true);
+    volunteerController
+      .getNgoVolunteers()
+      .then((response) => {
+        setVolunteers(response.data);
+      })
+      .catch((error) => {
+        setLoading(false);
+        return error;
+      });
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getNgoVolunteers();
+  }, []);
+
   return (
     <>
       <MenubarLayout>
@@ -18,17 +41,21 @@ const ManageVolunteer = () => {
               <input type="text" placeholder="Search by name, phone" />
             </div>
           </div>
-          <div className="cardReceipts">
-            {data?.map((volunteer) => (
-              <VolunteerCard
-                key={volunteer.id}
-                data={volunteer}
-                volunteer={true}
-                shareBtn={false}
-                cardFooter={false}
-              />
-            ))}
-          </div>
+          {loading ? (
+            <Spinner />
+          ) : (
+            <div className="cardReceipts">
+              {volunteers?.map((volunteer, index) => (
+                <VolunteerCard
+                  key={index}
+                  data={volunteer}
+                  volunteer={true}
+                  shareBtn={false}
+                  cardFooter={false}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         <div>

@@ -1,3 +1,4 @@
+import { getCookie } from "../../Utils/cookie";
 import ApiClient from "../Client";
 
 export const volunteerController = {
@@ -9,4 +10,23 @@ export const volunteerController = {
       return error;
     }
   },
+  getNgoVolunteers: async () => {
+    try {
+      const ngoExternalId = getCookie("ngoExternalId");
+      const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/volunteers`);
+      return response;
+    } catch (error) {
+      return error;
+    }
+  },
+
+  addNgoVolunteer: async (mobileNumber) => {
+    try {
+      const ngoExternalId = getCookie("ngoExternalId");
+      const response = await ApiClient.put(`/v1/ngo/${ngoExternalId}/volunteers`, { mobileNumber });
+      return response;
+    } catch (error) {
+      return error;
+    }
+  }
 };

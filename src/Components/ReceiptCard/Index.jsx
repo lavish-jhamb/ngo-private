@@ -89,8 +89,8 @@ const Receipt = (props) => {
               <button onClick={handleDelete} className="menuBtn">
                 <i className="bx bx-dots-vertical-rounded"></i>
               </button>
-              <div className="dropdownContainer">
-                <div className={`receiptDropdown ${open && "show"}`}>
+              <div className="receiptCardDropdownContainer">
+                <div className={`receiptDropdown ${open && "receiptCardShow"}`}>
                   <ul>
                     <li
                       ref={ref}
@@ -117,7 +117,7 @@ const Receipt = (props) => {
             <p>
               <i className="fas fa-phone-alt cardIcon"></i>{" "}
               {props.receipts && data?.donorInfo?.mobileNumber}
-              {props.volunteer && data?.phone}
+              {props.volunteer && data?.mobile}
             </p>
             <p>
               {props.receipts && (

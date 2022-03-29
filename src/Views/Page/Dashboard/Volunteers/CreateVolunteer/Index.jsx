@@ -3,6 +3,7 @@ import "./Index.css";
 import SecondaryLayout from "../../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
 import { uris } from "../../../../../Config/Router/URI";
+import { volunteerController } from "../../../../../Api/Volunteer/controller";
 
 function NewVolunteer() {
   let navigate = useNavigate();
@@ -10,13 +11,28 @@ function NewVolunteer() {
   const [phoneNo, setPhoneNo] = useState("");
   const [error, setError] = useState("");
 
+  const addNgoVolunteer = (phoneNo) => {
+    const mobile = "+91" + phoneNo;
+
+    volunteerController
+      .addNgoVolunteer(mobile)
+      .then((response) => {
+        navigate(uris.volunteer);
+      })
+      .catch((error) => {
+        return error;
+      });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (phoneNo.length <= 9) {
       return setError("Phone Number must be 10 digits long");
     }
+
+    addNgoVolunteer(phoneNo);
+
     console.log("phone: ", phoneNo);
-    navigate(uris.volunteer);
   };
 
   const goBack = () => {
