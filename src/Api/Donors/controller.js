@@ -2,10 +2,11 @@ import { getCookie } from "../../Utils/cookie";
 import ApiClient from "../Client";
 
 export const donorsController = {
-    getDonors: async (isText, searchText) => {
+    getDonors: async (searchText) => {
         try {
+            console.log("searchText", searchText);
             const ngoExternalId = getCookie('ngoExternalId');
-            const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/donors${(isText === false && searchText) ? `?mobile=${searchText}` : ''}${(isText === true && searchText) ? `?searchText=${searchText}` : ''}`);
+            const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/donors${searchText ? `?searchText=${searchText}` : ''}`);
             return response;
         } catch (error) {
             return error;

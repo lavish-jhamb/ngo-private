@@ -51,8 +51,10 @@ const Dashboard = () => {
               <select onChange={handleSummary} className={Style.dropdown}>
                 <option value="">Last 7 days</option>
                 <option value="15">Last 15 days</option>
-                <option value="30">Last 30 days</option>
-                <option value="90">Last 90 days</option>
+                <option value="30">Last 1 Month</option>
+                <option value="90">Last 3 Months</option>
+                <option value="180">Last 6 Months</option>
+                <option value="365">Last 1 Year</option>
               </select>
             </div>
             <div className={Style.controlsContainer}>

@@ -3,19 +3,36 @@ import "./Index.css";
 import SecondaryLayout from "../../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
 import { uris } from "../../../../../Config/Router/URI";
+import { volunteerController } from "../../../../../Api/Volunteer/controller";
 
 function NewVolunteer() {
   let navigate = useNavigate();
-  const [pwdVisibility, setpwdVisibility] = useState(false);
 
-  const loginHandler = (e) => {
-    e.preventDefault();
-    navigate(uris.volunteer);
+  const [phoneNo, setPhoneNo] = useState("");
+  const [error, setError] = useState("");
+
+  const addNgoVolunteer = (phoneNo) => {
+    const mobile = "+91" + phoneNo;
+
+    volunteerController
+      .addNgoVolunteer(mobile)
+      .then((response) => {
+        navigate(uris.volunteer);
+      })
+      .catch((error) => {
+        return error;
+      });
   };
 
-  const pwdHandler = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setpwdVisibility(!pwdVisibility);
+    if (phoneNo.length <= 9) {
+      return setError("Phone Number must be 10 digits long");
+    }
+
+    addNgoVolunteer(phoneNo);
+
+    console.log("phone: ", phoneNo);
   };
 
   const goBack = () => {
@@ -24,35 +41,28 @@ function NewVolunteer() {
 
   return (
     <SecondaryLayout title="New Volunteer" handler={goBack}>
-      <div className="newVolContainer">
-        <div className="newVolFormContainer">
-          <div>
-            <form className="newvolForm">
-              <input placeholder="Name" type="text" />
-              <input placeholder="Email" type="email" />
-              <input placeholder="Phone number" type="tel" />
-              <div className="newVolPwd">
-                <input
-                  placeholder="Password"
-                  type={pwdVisibility ? "text" : "password"}
-                />
-                <button onClick={pwdHandler}>
-                  {pwdVisibility ? (
-                    <img src="/resources/images/eye.png" alt="logo" />
-                  ) : (
-                    <i className="bx bx-hide"></i>
-                  )}
-                </button>
-              </div>
-            </form>
+      <form onSubmit={handleSubmit}>
+        <div className="newVolunteerContainer">
+          <div className="newVolunteerInput">
+            <input
+              type="number"
+              placeholder="Phone Number"
+              value={phoneNo}
+              onChange={(e) => {
+                e.target.value.length === 11
+                  ? setPhoneNo(e.target.value.slice(0, 10))
+                  : setPhoneNo(e.target.value);
+
+                setError("");
+              }}
+            />
+            {error && <p>{error}</p>}
           </div>
-          <div className="newVolAddBtn">
-            <button onClick={loginHandler} type="submit">
-              Add Volunteer
-            </button>
+          <div className="newVolunteerBtn">
+            <button type="submit">Add Volunteer</button>
           </div>
         </div>
-      </div>
+      </form>
     </SecondaryLayout>
   );
 }

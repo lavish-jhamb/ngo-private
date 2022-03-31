@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { uris } from "../../Config/Router/URI";
 
 function Card({ donor, dueDate }) {
-
   const months = [
     "Jan",
     "Feb",
@@ -21,16 +20,16 @@ function Card({ donor, dueDate }) {
   ];
 
   const navigate = useNavigate();
-  
+
   const handleUpdateDonor = () => {
     navigate(uris.updateDonor, {
-      state: {donor,dueDate},
+      state: { donor, dueDate },
     });
   };
 
   const handleCard = () => {
     navigate(uris.donorDetails, {
-      state: {donor,dueDate},
+      state: { donor, dueDate },
     });
   };
 
@@ -47,7 +46,7 @@ function Card({ donor, dueDate }) {
             <div className={Style.reminderWrapper}>
               <div className={Style.reminder}>
                 <i className="fa-solid fa-phone"></i>
-                <span>+91 {donor?.mobile}</span>
+                <span>+91{donor?.mobile}</span>
               </div>
             </div>
 
@@ -80,9 +79,9 @@ function Card({ donor, dueDate }) {
             <span>Last donation:</span>
             <span>
               ₹{" "}
-              {new Intl.NumberFormat("en-IN", {
-                maximumSignificantDigits: 3,
-              }).format(donor?.lastDonation?.amount || 0)}
+              {new Intl.NumberFormat("en-IN").format(
+                donor?.lastDonation?.amount || 0
+              )}
             </span>
             <span>({donor?.lastDonation?.donationDate})</span>
           </div>

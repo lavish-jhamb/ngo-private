@@ -77,7 +77,7 @@ function PopupModal({ popupModalData }) {
             {popupModalData.popup === "receiptDelete" && (
               <button
                 onClick={() => {
-                  popupModalData.deleteDonation();
+                  popupModalData.deleteData();
                   popupModalData.setUpdateModal(false);
                 }}
               >

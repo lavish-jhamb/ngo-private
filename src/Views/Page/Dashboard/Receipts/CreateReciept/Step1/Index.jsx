@@ -54,7 +54,6 @@ function CreateRecieptForm(props) {
                   })}
                 />
                 {errors.name && <p>{errors.name.message}</p>}
-                {/* ------------------------------------------ */}
                 <div
                   className={`donor-dropdown ${
                     isVisibleDropdown && donorData?.length > 0 && `donor-show`
@@ -85,7 +84,6 @@ function CreateRecieptForm(props) {
                       </div>
                     ))}
                 </div>
-                {/* ---------------------------- */}
               </div>
               <div className="spinner">
                 <input
