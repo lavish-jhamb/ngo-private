@@ -45,8 +45,15 @@ const Receipt = (props) => {
     setGetDeleteId(id);
   };
 
-  const deleteDonation = async () => {
-    await receiptController.deleteDonations(getDeleteId);
+  const deleteData = async () => {
+    if (props.receipts) {
+      // await receiptController.deleteDonations(getDeleteId);
+      props.deleteDonations(getDeleteId);
+    }
+
+    if (props.volunteer) {
+      props.deleteNGOVolunteer(getDeleteId);
+    }
   };
 
   let ref = useRef();
@@ -106,7 +113,7 @@ const Receipt = (props) => {
                     popupModalData={{
                       popup: "receiptDelete",
                       setUpdateModal,
-                      deleteDonation,
+                      deleteData,
                     }}
                   />
                 )}
@@ -116,7 +123,7 @@ const Receipt = (props) => {
           <div className="cardData">
             <p>
               <i className="fas fa-phone-alt cardIcon"></i>{" "}
-              {props.receipts && data?.donorInfo?.mobileNumber}
+              {props.receipts && "+91" + data?.donorInfo?.mobileNumber}
               {props.volunteer && data?.mobile}
             </p>
             <p>
@@ -136,10 +143,10 @@ const Receipt = (props) => {
           <div className="cardFooter">
             <div>
               <h5>
-                Rs.{" "}
-                {new Intl.NumberFormat("en-IN", {
-                  maximumSignificantDigits: 3,
-                }).format((props.receipts && data?.amount) || 0)}
+                ₹{" "}
+                {new Intl.NumberFormat("en-IN").format(
+                  (props.receipts && data?.amount) || 0
+                )}
               </h5>
               <span className="categoryReceipt">
                 For: {props.receipts && data?.category?.name}

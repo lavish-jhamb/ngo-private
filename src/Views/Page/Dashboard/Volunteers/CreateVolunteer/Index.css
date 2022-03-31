@@ -19,7 +19,6 @@
   outline: none;
   padding: 1.2rem;
   font-size: 1.6rem;
-  color: var(--placeholder);
 }
 
 .newVolunteerInput > input::placeholder {

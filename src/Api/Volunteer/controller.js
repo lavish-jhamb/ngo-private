@@ -28,5 +28,15 @@ export const volunteerController = {
     } catch (error) {
       return error;
     }
+  },
+
+  deleteNGOVolunteer: async (userExternalId) => {
+    try {
+      const ngoExternalId = getCookie("ngoExternalId");
+      const response = await ApiClient.delete(`/v1/ngo/${ngoExternalId}/volunteers`, { data: { userExternalId } });
+      return response;
+    } catch (error) {
+      return error;
+    }
   }
 };

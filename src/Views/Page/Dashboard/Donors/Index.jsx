@@ -4,6 +4,7 @@ import Card from "../../../../Components/DonorCard/Index";
 import MenubarLayout from "../../../Layout/Menubar/Main";
 import { donorsController } from "../../../../Api/Donors/controller";
 import Spinner from "../../../../Components/Spinner/Index";
+import { dismissKeyboard } from "../../../../Utils/dismissKeyboard";
 
 function Donars() {
   const [loading, setLoading] = useState(true);
@@ -13,9 +14,9 @@ function Donars() {
   const [freqDonor, setFreqDonor] = useState([]);
   const [handleDonor, setHandleDonor] = useState(true);
 
-  const getDonors = async (isText,searchText) => {
+  const getDonors = async (searchText) => {
     try {
-      const response = await donorsController.getDonors(isText,searchText);
+      const response = await donorsController.getDonors(searchText);
       const data = response?.data?.data;
       setData(data);
       setLoading(false);
@@ -44,11 +45,11 @@ function Donars() {
 
   const handleFilter = (e) => {
     const searchText = e.target.value;
-    if(isNaN(searchText) && searchText.length >= 3){
-      getDonors(true,searchText)
-    }else{
+    if (isNaN(searchText) && searchText.length >= 3) {
+      getDonors(searchText);
+    } else {
       if (searchText.length === 10) {
-        getDonors(false,searchText);
+        getDonors(searchText);
       }
       if (searchText.length === 0) {
         getDonors();
@@ -66,6 +67,7 @@ function Donars() {
               <i className="fa-solid fa-magnifying-glass"></i>
               <input
                 onChange={handleFilter}
+                onKeyUp={dismissKeyboard}
                 type="text"
                 placeholder="Search by name, phone"
               />

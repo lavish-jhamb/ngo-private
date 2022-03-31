@@ -5,24 +5,32 @@ import "./Index.css";
 import { Link } from "react-router-dom";
 import { volunteerController } from "../../../../Api/Volunteer/controller";
 import Spinner from "../../../../Components/Spinner/Index";
-// import data from "./data.json";
+import { dismissKeyboard } from "../../../../Utils/dismissKeyboard";
 
 const ManageVolunteer = () => {
   const [volunteers, setVolunteers] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const getNgoVolunteers = () => {
-    setLoading(true);
+    // setLoading(true);
     volunteerController
       .getNgoVolunteers()
       .then((response) => {
         setVolunteers(response.data);
+        setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
         return error;
       });
-    setLoading(false);
+  };
+
+  const deleteNGOVolunteer = async (id) => {
+    const response = await volunteerController.deleteNGOVolunteer(id);
+    console.log(response);
+    getNgoVolunteers();
+
+    console.log("volunteers: ", volunteers);
   };
 
   useEffect(() => {
@@ -38,23 +46,29 @@ const ManageVolunteer = () => {
 
             <div className="searchReceiptVol">
               <i className="fas fa-search searchIconVol"></i>
-              <input type="text" placeholder="Search by name, phone" />
+              <input
+                type="text"
+                onKeyUp={dismissKeyboard}
+                placeholder="Search by name, phone"
+              />
             </div>
           </div>
           {loading ? (
             <Spinner />
           ) : (
-            <div className="cardReceipts">
-              {volunteers?.map((volunteer, index) => (
-                <VolunteerCard
-                  key={index}
-                  data={volunteer}
-                  volunteer={true}
-                  shareBtn={false}
-                  cardFooter={false}
-                />
-              ))}
-            </div>
+            volunteers?.map((volunteer, index) => (
+              <VolunteerCard
+                key={index}
+                data={volunteer}
+                deleteNGOVolunteer={deleteNGOVolunteer}
+                volunteer={true}
+                shareBtn={false}
+                cardFooter={false}
+              />
+            ))
+          )}
+          {volunteers?.length === 0 && !loading && (
+            <p className="empty">Data not available</p>
           )}
         </div>
 

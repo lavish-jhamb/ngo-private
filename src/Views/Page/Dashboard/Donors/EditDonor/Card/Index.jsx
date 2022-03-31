@@ -80,7 +80,10 @@ function EditDonorCard({
 
       <div className="editCardFooter">
         <div>
-          <span>Amount: </span>Rs.{amount}
+          <span>Amount: </span>₹{" "}
+          {new Intl.NumberFormat("en-IN").format(
+            amount || 0
+          )}
         </div>
         {dueDate && (
           <div>

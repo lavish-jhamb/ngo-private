@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { receiptController } from "../../../../Api/Receipt/controller";
 import { useState } from "react";
 import Spinner from "../../../../Components/Spinner/Index";
+import { dismissKeyboard } from "../../../../Utils/dismissKeyboard";
 
 const ManageReceipt = () => {
   const [loading, setLoading] = useState(true);
@@ -26,12 +27,18 @@ const ManageReceipt = () => {
     try {
       const response = await receiptController.getDonations(isText, mobile);
       const data = response?.data?.data;
-      setData(data);
+      setData(data.reverse());
       setLoading(false);
     } catch (error) {
       setLoading(false);
       return error;
     }
+  };
+
+  const deleteDonations = async (id) => {
+    const response = await receiptController.deleteDonations(id);
+    console.log(response);
+    getDonations();
   };
 
   useEffect(() => {
@@ -71,6 +78,7 @@ const ManageReceipt = () => {
                   setDonorName("");
                   handleFilter(e);
                 }}
+                onKeyUp={dismissKeyboard}
                 type="text"
                 placeholder="Search by name, phone"
                 value={donorName ? receiptInput || donorName : receiptInput}
@@ -88,6 +96,7 @@ const ManageReceipt = () => {
                 key={idx}
                 loading={loading}
                 data={receipt}
+                deleteDonations={deleteDonations}
                 shareBtn={true}
                 cardFooter={true}
                 receipts={true}
