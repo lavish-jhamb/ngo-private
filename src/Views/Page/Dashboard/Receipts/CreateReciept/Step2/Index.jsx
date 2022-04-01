@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Index.css";
 import SecondaryLayout from "../../../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
+import PopupModal from "../../../../../../Components/PopupModal/Index";
 
 function CreateRecieptFormTwo(props) {
   const {
@@ -36,6 +37,7 @@ function CreateRecieptFormTwo(props) {
   const years = ["2018", "2019", "2020", "2021", "2022", "2023", "2024"];
 
   const navigate = useNavigate();
+  const [updateModal, setUpdateModal] = useState(false);
 
   const prevHandler = () => {
     prevStep();
@@ -201,7 +203,21 @@ function CreateRecieptFormTwo(props) {
                         placeholder="Offline Receipt No. (Optional)"
                       />
                     </div>
-                    <a href="!#">Why Offline receipt no.?</a>
+                    <p
+                      onClick={() => {
+                        setUpdateModal(true);
+                      }}
+                    >
+                      Why Offline receipt no.?
+                    </p>
+                    {updateModal && (
+                      <PopupModal
+                        popupModalData={{
+                          popup: "offlineReceiptInfo",
+                          setUpdateModal,
+                        }}
+                      />
+                    )}
                   </div>
                   <div className="inputField">
                     <input

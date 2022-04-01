@@ -4,9 +4,18 @@ import ApiClient from "../Client";
 export const donorsController = {
     getDonors: async (searchText) => {
         try {
-            console.log("searchText", searchText);
             const ngoExternalId = getCookie('ngoExternalId');
             const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/donors${searchText ? `?searchText=${searchText}` : ''}`);
+            return response;
+        } catch (error) {
+            return error;
+        }
+    },
+
+    getDonorsLastDonationDetails: async (mobileNumber) => {
+        try {
+            const ngoExternalId = getCookie("ngoExternalId");
+            const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/donor/${mobileNumber}`);
             return response;
         } catch (error) {
             return error;

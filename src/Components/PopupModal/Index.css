@@ -32,13 +32,14 @@
   border-radius: 0 0 1.2rem 1.2rem;
 }
 
-.updateCategoryForm,.updateCategoryText {
+.updateCategoryForm,
+.updateCategoryText {
   display: flex;
   flex-direction: column;
   padding: 1.6rem 1.2rem 1rem;
 }
 
-.updateCategoryText{
+.updateCategoryText {
   font-size: 1.6rem;
   margin-bottom: 0.6rem;
   text-align: center;
@@ -62,10 +63,16 @@
 
 .updateCategoryBtns > button {
   height: 3.8rem;
-  width: 11rem;
+  width: 100%;
+  margin: 0 1rem;
   border: none;
   border-radius: 1.2rem;
   font-size: 1.5rem;
+}
+
+.updateCategoryBtns .single-button {
+  color: var(--white) !important;
+  background-color: var(--primary);
 }
 
 .updateCategoryBtns :nth-child(1) {

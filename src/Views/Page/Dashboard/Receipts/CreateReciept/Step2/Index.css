@@ -2,7 +2,7 @@
   height: calc(100vh - 109px);
   display: flex;
   flex-direction: column;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 .donor-details-container {
   width: 90vw;
@@ -17,7 +17,7 @@
   align-items: center;
 }
 
-.donor-details > .inputField > input{
+.donor-details > .inputField > input {
   display: block;
   width: 100%;
 }
@@ -29,26 +29,28 @@
   font-size: 1.1rem;
 }
 
-.donor-details > .inputField{
+.donor-details > .inputField {
   margin: 1.1em 0;
 }
 
-.donor-details > .inputField > input[type='text'],input[type='number']{
+.donor-details > .inputField > input[type="text"],
+input[type="number"] {
   height: 39px;
   border: solid 2px var(--placeholder);
   border-radius: 12px;
   padding-left: 1em;
 }
 
-.donor-details > .inputField > input::placeholder{
+.donor-details > .inputField > input::placeholder {
   color: var(--placeholder);
 }
 
-.donor-details > .inputField > input[type='text'],input[type='number']:focus{
+.donor-details > .inputField > input[type="text"],
+input[type="number"]:focus {
   outline: none;
 }
 
-.donor-details > .inputField > select{
+.donor-details > .inputField > select {
   height: 39px;
   border: solid 2px var(--placeholder);
   border-radius: 12px;
@@ -57,15 +59,15 @@
   background-color: var(--white);
 }
 
-.donor-details > .inputField > select:focus{
+.donor-details > .inputField > select:focus {
   outline: none;
 }
 
-.donor-details > .inputField > select:invalid{
+.donor-details > .inputField > select:invalid {
   color: var(--placeholder);
 }
 
-.donor-header > h2 > img{
+.donor-header > h2 > img {
   width: 8px;
   margin-right: 0.5em;
 }
@@ -78,10 +80,10 @@
   font-weight: 500;
 }
 
-.reciept-button{
+.reciept-button {
   width: 90%;
   margin: 0 auto;
-  flex:0.4;
+  flex: 0.4;
 }
 
 .reciept-button > button {
@@ -93,11 +95,11 @@
   width: 100%;
   color: var(--white);
   font-size: 1.6rem;
-  position: relative;
+  padding-left: 1.8rem;
 }
 .reciept-button > button > span {
-  position: absolute;
-  right: 30px;
+  float: right;
+  margin-right: 1.6rem;
 }
 
 .dropdown {
@@ -110,10 +112,10 @@
   padding: 10px 16px;
   border-radius: 10px;
   overflow: auto;
-  z-index:1;
+  z-index: 1;
 }
 
-.dropdown label{
+.dropdown label {
   border-bottom: solid 1px silver;
   font-size: 1.5em;
   color: black;
@@ -126,61 +128,63 @@
   display: none;
 }
 
-.dropdown label:hover {background-color: #ddd;}
+.dropdown label:hover {
+  background-color: #ddd;
+}
 
-.show{
+.show {
   display: block;
 }
 
-.radioButtons{
+.radioButtons {
   display: flex;
   margin-top: 1em;
   margin-bottom: 1.2em;
 }
 
-.radioButtons label{
-  margin-left:0.25em;
+.radioButtons label {
+  margin-left: 0.25em;
   font-weight: 500;
 }
 
-.radioButtons input{
+.radioButtons input {
   width: 15px;
   height: 15px;
 }
 
-.renewal{
+.renewal {
   display: flex;
   align-items: center;
 }
 
-.renewal > label{
+.renewal > label {
   font-size: 1.4rem;
 }
 
-.oneTimeDonor{
+.oneTimeDonor {
   display: flex;
   align-items: center;
   margin-left: 4em;
 }
 
-.oneTimeDonor > label{
+.oneTimeDonor > label {
   font-size: 1.4rem;
 }
 
-.inline-inputs{
+.inline-inputs {
   display: flex;
   justify-content: space-between;
 }
 
-.inline-inputs > select:first-child{
+.inline-inputs > select:first-child {
   width: 48%;
 }
 
-.inline-inputs > select:nth-child(2){
+.inline-inputs > select:nth-child(2) {
   width: 48%;
 }
 
-.inline-inputs > select{
+.inline-inputs > select {
   height: 39px;
   border: solid 2px var(--placeholder);
   border-radius: 10px;
@@ -188,11 +192,11 @@
   background-color: var(--white);
 }
 
-.inline-inputs > select:focus{
+.inline-inputs > select:focus {
   outline: none;
 }
 
-.inline-inputs > select:invalid{
+.inline-inputs > select:invalid {
   color: var(--placeholder);
 }
 
@@ -200,43 +204,45 @@
   font-size: 1.3rem;
 }
 
-.dueFrom > .inline-inputs{
+.dueFrom > .inline-inputs {
   margin-top: 1em;
 }
 
-.dueFrom > .inputField{
+.dueFrom > .inputField {
   margin: 1.1em 0;
 }
 
-.dueFrom .inputField > input{
+.dueFrom .inputField > input {
   width: 100%;
 }
 
-.dueFrom .inputField > input[type='text'],input[type='number']{
+.dueFrom .inputField > input[type="text"],
+input[type="number"] {
   height: 39px;
   border: solid 2px var(--placeholder);
   border-radius: 12px;
   padding-left: 1em;
 }
 
-.dueFrom .inputField > input::placeholder{
+.dueFrom .inputField > input::placeholder {
   color: var(--placeholder);
 }
 
-.dueFrom .inputField > input[type='text'],input[type='number']:focus{
+.dueFrom .inputField > input[type="text"],
+input[type="number"]:focus {
   outline: none;
 }
 
-.offlineReceiptNo{
+.offlineReceiptNo {
   text-align: right;
 }
 
-.offlineReceiptNo > .inputField{
+.offlineReceiptNo > .inputField {
   margin-top: 1.1em;
   margin-bottom: 0.8em;
 }
 
-.offlineReceiptNo > a {
+.offlineReceiptNo > p {
   color: var(--primary);
   text-decoration: none;
   font-weight: bold;

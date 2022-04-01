@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Index.css";
 import SecondaryLayout from "../../../../../Layout/Secondary/Main";
 import { useNavigate } from "react-router-dom";
+import { donorsController } from "../../../../../../Api/Donors/controller";
 
 function CreateRecieptForm(props) {
   const {
@@ -17,8 +18,10 @@ function CreateRecieptForm(props) {
     selectDonor,
     isDisable,
   } = props;
-
   const navigate = useNavigate();
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [donorError, setDonorError] = useState("");
+  const [lastDonorName, setLastDonorName] = useState("");
 
   const goBack = () => {
     navigate(-1);
@@ -27,6 +30,46 @@ function CreateRecieptForm(props) {
   const maxLengthCheck = (e) => {
     if (e.target.value.length > e.target.maxLength) {
       e.target.value = e.target.value.slice(0, e.target.maxLength);
+    }
+  };
+
+  const getDonorsLastDonationDetails = async (phoneNo) => {
+    const response = await donorsController.getDonorsLastDonationDetails(
+      phoneNo
+    );
+    return response;
+  };
+
+  const handleExistsCheck = async () => {
+    const donorName = document.getElementsByTagName("input")[0].value;
+
+    if (mobileNumber) {
+      const response = await getDonorsLastDonationDetails(mobileNumber);
+      setLastDonorName(response?.data?.name);
+    }
+
+    if (lastDonorName === donorName) {
+      setDonorError("");
+    }
+    if (mobileNumber && donorName !== lastDonorName) {
+      setDonorError("Donor already exists with this mobile number");
+    }
+  };
+
+  const handleMobileChange = async (e) => {
+    setMobileNumber(e.target.value);
+    const mobile = e.target.value;
+
+    if (mobile.length === 10) {
+      const response = await getDonorsLastDonationDetails(mobile);
+      setLastDonorName(response?.data?.name);
+      const donorName = document.getElementsByTagName("input")[0].value;
+
+      if (donorName !== lastDonorName) {
+        setDonorError("Donor already exists with this mobile number");
+      }
+    } else {
+      setDonorError("");
     }
   };
 
@@ -44,9 +87,11 @@ function CreateRecieptForm(props) {
                 <input
                   autoComplete="off"
                   placeholder="Name"
+                  onChange={handleExistsCheck}
                   type="text"
                   {...register("name", {
                     onChange: handleChange("name"),
+                    onBlur: handleExistsCheck,
                     required: {
                       value: true,
                       message: "name is required",
@@ -65,6 +110,10 @@ function CreateRecieptForm(props) {
                         <div>
                           <label htmlFor={`donor_${idx}`}>
                             <p>{value.name}</p>
+                            <p>
+                              <i className="fas fa-phone-alt cardIcon"></i>
+                              {value.mobile}
+                            </p>
                             <p>
                               <i className="fa-solid fa-location-dot"></i>
                               {value.address},{value.city},{value.state}
@@ -91,9 +140,11 @@ function CreateRecieptForm(props) {
                   autoComplete="off"
                   onInput={maxLengthCheck}
                   maxLength="10"
+                  // value={mobileNumber}
                   placeholder="Phone number"
                   type="number"
                   {...register("mobileNumber", {
+                    onChange: handleMobileChange,
                     required: {
                       value: true,
                       message: "Phone number is required",
@@ -101,6 +152,7 @@ function CreateRecieptForm(props) {
                   })}
                 />
               </div>
+              {donorError && <p>{donorError}</p>}
               {errors.mobileNumber && <p>{errors.mobileNumber.message}</p>}
               <div className="inputField">
                 <input
