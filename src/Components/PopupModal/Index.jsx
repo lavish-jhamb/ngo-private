@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import "./Index.css";
 
 function PopupModal({ popupModalData }) {
-
   let ref = useRef();
 
   useEffect(() => {
@@ -32,6 +31,7 @@ function PopupModal({ popupModalData }) {
         <div className="updateCategoryHeader">
           {popupModalData.popup === "donorCategory" && "Update Category"}
           {popupModalData.popup === "receiptDelete" && "Delete"}
+          {popupModalData.popup === "offlineReceiptInfo" && "Message"}
         </div>
 
         <div className="updateCategoryBottom">
@@ -66,11 +66,24 @@ function PopupModal({ popupModalData }) {
               Are you sure you want to delete?
             </div>
           )}
+          {popupModalData.popup === "offlineReceiptInfo" && (
+            <div className="updateCategoryText">
+              If you want an online receipt to keep in sync with your offline
+              receipt.
+            </div>
+          )}
 
           <div className="updateCategoryBtns">
-            <button onClick={() => popupModalData.setUpdateModal(false)}>
-              Cancel
-            </button>
+            {popupModalData.popup === "offlineReceiptInfo" ? (
+              <button
+                onClick={() => popupModalData.setUpdateModal(false)}
+                className="single-button"
+              >
+                OK
+              </button>
+            ) : (
+              <button>Cancel</button>
+            )}
             {popupModalData.popup === "donorCategory" && (
               <button onClick={handleUpdateSubmit}>Update</button>
             )}
