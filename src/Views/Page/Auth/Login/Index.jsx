@@ -12,7 +12,11 @@ function LoginPage() {
   const [contact, setContact] = useState("");
 
   const inputEvent = (e) => {
-    setContact(e.target.value);
+    if (e.target.value.length === 11) {
+      setContact(e.target.value.slice(0, 10));
+    } else {
+      setContact(e.target.value);
+    }
   };
 
   useEffect(() => {
@@ -27,11 +31,11 @@ function LoginPage() {
     e.preventDefault();
     const { isValid, errors } = validate(contact);
     if (isValid) {
-      onSignInSubmit(contact,navigate,true);
+      onSignInSubmit(contact, navigate, true);
     } else if (errors.emptyPhone) {
-      notify.error(errors.emptyPhone,{toastId:'empty-phone-id'});
+      notify.error(errors.emptyPhone, { toastId: "empty-phone-id" });
     } else {
-      notify.error(errors.invalidNo,{toastId:'invalidNo-id'});
+      notify.error(errors.invalidNo, { toastId: "invalidNo-id" });
     }
   };
 

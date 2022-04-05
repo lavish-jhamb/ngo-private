@@ -6,7 +6,7 @@ function PopupModal({ popupModalData }) {
 
   useEffect(() => {
     let handler = (event) => {
-      if (!ref.current.contains(event.target)) {
+      if (!ref?.current?.contains(event?.target)) {
         popupModalData.setUpdateModal(false);
       }
     };
@@ -82,7 +82,9 @@ function PopupModal({ popupModalData }) {
                 OK
               </button>
             ) : (
-              <button>Cancel</button>
+              <button onClick={() => popupModalData.setUpdateModal(false)}>
+                Cancel
+              </button>
             )}
             {popupModalData.popup === "donorCategory" && (
               <button onClick={handleUpdateSubmit}>Update</button>
