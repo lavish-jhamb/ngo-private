@@ -21,7 +21,6 @@ function CreateRecieptForm(props) {
   const navigate = useNavigate();
   const [mobileNumber, setMobileNumber] = useState("");
   const [donorError, setDonorError] = useState("");
-  const [lastDonorName, setLastDonorName] = useState("");
 
   const goBack = () => {
     navigate(-1);
@@ -42,10 +41,11 @@ function CreateRecieptForm(props) {
 
   const handleExistsCheck = async () => {
     const donorName = document.getElementsByTagName("input")[0].value;
+    let lastDonorName = "";
 
     if (mobileNumber) {
       const response = await getDonorsLastDonationDetails(mobileNumber);
-      setLastDonorName(response?.data?.name);
+      lastDonorName = response?.data?.name;
     }
 
     if (lastDonorName === donorName) {
@@ -62,10 +62,10 @@ function CreateRecieptForm(props) {
 
     if (mobile.length === 10) {
       const response = await getDonorsLastDonationDetails(mobile);
-      setLastDonorName(response?.data?.name);
+      const lastDonorName = response?.data?.name;
       const donorName = document.getElementsByTagName("input")[0].value;
 
-      if (donorName !== lastDonorName) {
+      if (lastDonorName && donorName !== lastDonorName) {
         setDonorError("Donor already exists with this mobile number");
       }
     } else {
@@ -270,7 +270,7 @@ function CreateRecieptForm(props) {
             </div>
           </div>
           <div className="reciept-button-1">
-            <button type="submit">
+            <button disabled={donorError} type="submit">
               Next
               <span>
                 <i className="fas fa-chevron-right"></i>
