@@ -12,7 +12,6 @@ const ManageVolunteer = () => {
   const [loading, setLoading] = useState(true);
 
   const getNgoVolunteers = () => {
-    // setLoading(true);
     volunteerController
       .getNgoVolunteers()
       .then((response) => {
