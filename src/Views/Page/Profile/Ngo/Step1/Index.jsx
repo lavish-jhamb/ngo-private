@@ -15,7 +15,6 @@ function ProfileOne(props) {
     handleSubmit,
     errors,
     onSubmit,
-    uploadFile
   } = props;
 
   const navigate = useNavigate();
@@ -44,7 +43,6 @@ function ProfileOne(props) {
                     />
                   </label>
                   <input onChange={handleFile()} id="logo" type="file" />
-                  <button onClick={uploadFile}>upload</button>
                 </div>
                 <div className={Style.uploadPdf}>
                   <label htmlFor="pdf">
