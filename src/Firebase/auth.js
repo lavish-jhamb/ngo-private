@@ -50,6 +50,7 @@ export const otpVerification = (userOtp, navigate) => {
             const firebaseToken = result?.user?.accessToken;
             document.cookie = `firebaseToken=${firebaseToken};domain=localhost;secure`;
             document.cookie = `firebaseToken=${firebaseToken};domain=ngo-donation-management.netlify.app;secure`;
+            document.cookie = `firebaseToken=${firebaseToken};domain=ui.ngobuddy.com;secure`;
         }).then(() => {
             exchangeTokenController().then(() => {
                 ngoController.getNgo().then(response => {
@@ -60,6 +61,7 @@ export const otpVerification = (userOtp, navigate) => {
                         flag = true
                         document.cookie = `ngoExternalId=${data?.ngoExternalId};domain=localhost;secure`;
                         document.cookie = `ngoExternalId=${data?.ngoExternalId};domain=ngo-donation-management.netlify.app`;
+                        document.cookie = `ngoExternalId=${data?.ngoExternalId};domain=ui.ngobuddy.com`;
                         return navigate(uris.dashboard);
                     }
                     if (data?.ngoExternalId && !isActive) {

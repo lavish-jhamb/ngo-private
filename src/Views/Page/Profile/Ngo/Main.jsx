@@ -4,8 +4,11 @@ import ProfileTwo from "./Step2/Index";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ngoController } from "../../../../Api/Ngo/controller";
+import { fileUploadController } from "../../../../Api/Ngo/utils";
+
 
 function Steps() {
+  const [file, setFile] = useState();
   const [logo, setLogo] = useState();
   const [logoName, setLogoName] = useState();
   const [pdfIcon, setPdfIcon] = useState(false);
@@ -35,6 +38,7 @@ function Steps() {
 
   const handleFile = () => (e) => {
     const file = e.target.files[0];
+    setFile(file)
     const fileType = file.type.split("/")[1];
     const fileName = file.name;
     const reader = new FileReader();
@@ -48,7 +52,7 @@ function Steps() {
         ...prevData,
         fileName: fileName,
         fileType: fileType,
-        ownerFileCategory: fileName + "-" + fileType,
+        ownerFileCategory: 'Icon',
       };
     });
   };
@@ -78,6 +82,10 @@ function Steps() {
 
   const ProfileComponent = steps[page];
 
+  const uploadFile = () => {
+    fileUploadController('myIcon.jpg','jpg','Icon','df4c7ef8-5709-488d-8466-a502451a6e58',file)
+  }
+console.log(file)
   return (
     <ProfileComponent
       nextStep={nextStep}
@@ -93,6 +101,7 @@ function Steps() {
       errors={errors}
       onSubmit={onSubmit}
       onSubmitStep2={onSubmitStep2}
+      uploadFile={uploadFile}
     />
   );
 }

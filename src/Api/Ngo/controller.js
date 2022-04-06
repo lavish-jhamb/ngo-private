@@ -14,6 +14,7 @@ export const ngoController = {
                 const id = response?.data?.ngoExternalId;
                 document.cookie = `ngoExternalId=${id};domain=localhost;secure`
                 document.cookie = `ngoExternalId=${id};domain=ngo-donation-management.netlify.app;secure`
+                document.cookie = `ngoExternalId=${id};domain=ui.ngobuddy.com;secure`
                 fileUploadController(fileName, fileType, ownerFileCategory, id);
                 navigate(uris.profileCreated);
             })
