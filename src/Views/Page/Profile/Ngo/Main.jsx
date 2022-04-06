@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { ngoController } from "../../../../Api/Ngo/controller";
 
 function Steps() {
-  const [file, setFile] = useState();
   const [logo, setLogo] = useState();
   const [logoName, setLogoName] = useState();
   const [pdfIcon, setPdfIcon] = useState(false);
@@ -36,7 +35,6 @@ function Steps() {
 
   const handleFile = () => (e) => {
     const file = e.target.files[0];
-    setFile(file)
     const fileType = file.type.split("/")[1];
     const fileName = file.name;
     const reader = new FileReader();
