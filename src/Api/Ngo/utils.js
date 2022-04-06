@@ -1,7 +1,9 @@
+import { getCookie } from "../../Utils/cookie";
 import ApiClient from "../Client";
 import { exchangeTokenController } from "../Exchange/controller";
 
-export const fileUploadController = async (fileName, fileType, ownerFileCategory, ngoExternalId, stream) => {
+export const fileUploadController = async (fileName, fileType, ownerFileCategory, stream) => {
+    const ngoExternalId = getCookie('ngoExternalId');
     try {
         await exchangeTokenController();
         const auth = JSON.parse(localStorage.getItem('auth'));

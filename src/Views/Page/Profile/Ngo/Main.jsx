@@ -36,9 +36,9 @@ function Steps() {
 
   const handleFile = () => (e) => {
     const file = e.target.files[0];
-    fileUploadController('icon','jpg','Icon','df4c7ef8-5709-488d-8466-a502451a6e58',file);
     const fileType = file.type.split("/")[1];
     const fileName = file.name;
+    fileUploadController(fileName,fileType,'Icon',file);
     const reader = new FileReader();
     reader.onload = (e) => {
       setLogo(e.target.result);
