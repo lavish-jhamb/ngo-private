@@ -56,6 +56,8 @@ export const otpVerification = (userOtp, navigate) => {
                 ngoController.getNgo().then(response => {
                     const data = response?.data[0];
                     const isActive = data?.active;
+                    const logo = data?.logo;
+                    localStorage.setItem('logo',logo);
                     let flag = false;
                     if (data?.ngoExternalId && isActive) {
                         flag = true

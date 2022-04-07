@@ -1,9 +1,7 @@
-import { getCookie } from "../../Utils/cookie";
 import ApiClient from "../Client";
 import { exchangeTokenController } from "../Exchange/controller";
 
-export const fileUploadController = async (fileName, fileType, ownerFileCategory, stream) => {
-    const ngoExternalId = getCookie('ngoExternalId');
+export const fileUploadController = async (fileName, fileType, ownerFileCategory, ngoExternalId, imageObject) => {
     try {
         await exchangeTokenController();
         const auth = JSON.parse(localStorage.getItem('auth'));
@@ -20,10 +18,11 @@ export const fileUploadController = async (fileName, fileType, ownerFileCategory
         });
         const logoUrl = url?.data?.uploadUrl;
 
-        const formData = new FormData();
-        formData.append('image', stream, stream.name)
-        ApiClient.put(logoUrl, formData, { headers: { 'Content-Type': 'multipart/form-data' } }).then(res => console.log(res)).catch(err => console.log(err));
-        localStorage.setItem('url', logoUrl);
+        fetch(logoUrl, {
+            method: 'PUT',
+            body: imageObject
+        }).then(res => console.log(res));
+
         return url?.status;
     } catch (error) {
         return error;

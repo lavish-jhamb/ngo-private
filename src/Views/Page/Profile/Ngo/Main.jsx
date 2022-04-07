@@ -4,7 +4,6 @@ import ProfileTwo from "./Step2/Index";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ngoController } from "../../../../Api/Ngo/controller";
-import { fileUploadController } from "../../../../Api/Ngo/utils";
 
 function Steps() {
   const [logo, setLogo] = useState();
@@ -16,6 +15,7 @@ function Steps() {
     fileName: "",
     fileType: "",
     ownerFileCategory: "",
+    imageObject:""
   });
 
   const navigate = useNavigate();
@@ -38,7 +38,6 @@ function Steps() {
     const file = e.target.files[0];
     const fileType = file.type.split("/")[1];
     const fileName = file.name;
-    fileUploadController(fileName,fileType,'Icon',file);
     const reader = new FileReader();
     reader.onload = (e) => {
       setLogo(e.target.result);
@@ -50,7 +49,8 @@ function Steps() {
         ...prevData,
         fileName: fileName,
         fileType: fileType,
-        ownerFileCategory: 'Icon',
+        ownerFileCategory: 'ICON',
+        imageObject:file
       };
     });
   };

@@ -42,7 +42,18 @@ function ProfileOne(props) {
                       alt="icon"
                     />
                   </label>
-                  <input onChange={handleFile()} id="logo" type="file" />
+                  <input
+                    onChange={handleFile()}
+                    id="logo"
+                    type="file"
+                    {...register("ngoLogo", {
+                      required: {
+                        value: true,
+                        message: "Ngo logo is required",
+                      },
+                    })}
+                  />
+                  {errors.ngoLogo && <p>{errors.ngoLogo.message}</p>}
                 </div>
                 <div className={Style.uploadPdf}>
                   <label htmlFor="pdf">

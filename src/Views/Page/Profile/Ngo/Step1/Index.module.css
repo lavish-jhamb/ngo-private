@@ -54,10 +54,9 @@
     margin: 1.5em 0;
 }
 
-.ngoForm > .inputField > p{
+.ngoForm > .inputField,.uploadLogo > p{
     color: rgb(240, 69, 69);
     margin-left: 0.5em;
-    margin-top: 0.2em;
     font-size: 1.1rem;
 }
 
