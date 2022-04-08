@@ -53,7 +53,7 @@ function ProfileTwo(props) {
                     type="text"
                     placeholder="Email (Official)"
                     autoComplete="off"
-                    {...register("Email", {
+                    {...register("email", {
                       required: {
                         value: true,
                         message: "Email is required",

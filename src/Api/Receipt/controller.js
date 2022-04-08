@@ -50,6 +50,7 @@ export const receiptController = {
             if (donorId) {
                 document.cookie = `getdonorId=${donorId};domain=localhost;secure`;
                 document.cookie = `getdonorId=${donorId};domain=ngo-donation-management.netlify.app`;
+                document.cookie = `getdonorId=${donorId};domain=ui.ngobuddy.com`;
             }
             return response;
         } catch (error) {

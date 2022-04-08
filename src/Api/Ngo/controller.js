@@ -8,13 +8,15 @@ export const ngoController = {
         const fileName = logoData.fileName;
         const fileType = logoData.fileType;
         const ownerFileCategory = logoData.ownerFileCategory;
+        const imageObject = logoData.imageObject;
 
         const result = ApiClient.post(`/v1/ngo`, { ...args })
             .then((response) => {
                 const id = response?.data?.ngoExternalId;
                 document.cookie = `ngoExternalId=${id};domain=localhost;secure`
                 document.cookie = `ngoExternalId=${id};domain=ngo-donation-management.netlify.app;secure`
-                fileUploadController(fileName, fileType, ownerFileCategory, id);
+                document.cookie = `ngoExternalId=${id};domain=ui.ngobuddy.com;secure`
+                fileUploadController(fileName, fileType, ownerFileCategory,id,imageObject);
                 navigate(uris.profileCreated);
             })
 

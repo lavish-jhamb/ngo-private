@@ -15,6 +15,7 @@ function Steps() {
     fileName: "",
     fileType: "",
     ownerFileCategory: "",
+    imageObject:""
   });
 
   const navigate = useNavigate();
@@ -48,7 +49,8 @@ function Steps() {
         ...prevData,
         fileName: fileName,
         fileType: fileType,
-        ownerFileCategory: fileName + "-" + fileType,
+        ownerFileCategory: 'ICON',
+        imageObject:file
       };
     });
   };

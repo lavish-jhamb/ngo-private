@@ -3,6 +3,7 @@ import Style from "./Index.module.css";
 import PrimaryLayout from "../../../Layout/Primary/Main";
 import { useNavigate } from "react-router-dom";
 import { uris } from "../../../../Config/Router/URI";
+import { volunteerController } from "../../../../Api/Volunteer/controller";
 
 function RegistrationType() {
   const navigate = useNavigate();
@@ -10,8 +11,15 @@ function RegistrationType() {
   const ngoHandler = () => {
     navigate(uris.registerNgo);
   };
-  const volunteerHandler = () => {
-    navigate(uris.registerVolunteer);
+
+  const volunteerHandler = async () => {
+    const volunteer = await volunteerController.getUserProfileVolunteer();
+
+    if (volunteer?.data?.email) {
+      navigate(uris.profileCreated);
+    } else {
+      navigate(uris.registerVolunteer);
+    }
   };
 
   return (

@@ -5,7 +5,6 @@
 }
 
 .headUpContainer {
-  padding-left: 25px;
   width: 90vw;
   margin: 0 auto;
   height: 100%;
@@ -14,9 +13,17 @@
 }
 
 .logo {
-  flex: 0;
   color: #fff;
-  width: 4.8rem;
+  width: 60px;
+  height: 60px;
+  border-radius:50%;
+  overflow: hidden;
+}
+
+.logo > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .headUpContainer .navHeading {
