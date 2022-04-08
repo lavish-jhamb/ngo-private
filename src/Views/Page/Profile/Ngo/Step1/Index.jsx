@@ -43,10 +43,10 @@ function ProfileOne(props) {
                     />
                   </label>
                   <input
+                    onChange={handleFile()}
                     id="logo"
                     type="file"
                     {...register("ngoLogo", {
-                      onChange: handleFile(),
                       required: {
                         value: true,
                         message: "Ngo logo is required",
