@@ -10,10 +10,22 @@ export const volunteerController = {
       return error;
     }
   },
+
+  getUserProfileVolunteer: async () => {
+    try {
+      const response = await ApiClient.get("/v1/profile");
+      return response;
+    } catch (error) {
+      return error;
+    }
+  },
+
   getNgoVolunteers: async () => {
     try {
       const ngoExternalId = getCookie("ngoExternalId");
-      const response = await ApiClient.get(`/v1/ngo/${ngoExternalId}/volunteers`);
+      const response = await ApiClient.get(
+        `/v1/ngo/${ngoExternalId}/volunteers`
+      );
       return response;
     } catch (error) {
       return error;
@@ -23,7 +35,10 @@ export const volunteerController = {
   addNgoVolunteer: async (mobileNumber) => {
     try {
       const ngoExternalId = getCookie("ngoExternalId");
-      const response = await ApiClient.put(`/v1/ngo/${ngoExternalId}/volunteers`, { mobileNumber });
+      const response = await ApiClient.put(
+        `/v1/ngo/${ngoExternalId}/volunteers`,
+        { mobileNumber }
+      );
       return response;
     } catch (error) {
       return error;
@@ -33,10 +48,13 @@ export const volunteerController = {
   deleteNGOVolunteer: async (userExternalId) => {
     try {
       const ngoExternalId = getCookie("ngoExternalId");
-      const response = await ApiClient.delete(`/v1/ngo/${ngoExternalId}/volunteers`, { data: { userExternalId } });
+      const response = await ApiClient.delete(
+        `/v1/ngo/${ngoExternalId}/volunteers`,
+        { data: { userExternalId } }
+      );
       return response;
     } catch (error) {
       return error;
     }
-  }
+  },
 };
