@@ -122,7 +122,7 @@ const Receipt = (props) => {
           </div>
           <div className="cardData">
             <p>
-              <i className="fas fa-phone-alt cardIcon"></i>{" "}
+              <i className="fa-solid fa-phone cardIcon"></i>
               {props.receipts && "+91" + data?.donorInfo?.mobileNumber}
               {props.volunteer && data?.mobile}
             </p>
