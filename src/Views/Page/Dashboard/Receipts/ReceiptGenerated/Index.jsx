@@ -38,8 +38,10 @@ function ReceiptGenerated() {
 
   const shareHandler = () => {
     const pdf = new File([pdfFile], "receipt.pdf", { type: "application/pdf" });
-    const files = [pdf];
-    if (navigator.share) {
+    let files = [];
+    files.push(pdf);
+
+    if (navigator.canShare && navigator.canShare({ files: files })) {
       navigator
         .share({
           files: files,
